@@ -21,6 +21,8 @@ Na system składają się następujące byty:
 - Sprzęt do ćwiczeń
 - Produkty ze sklepiku
 - Plany treningowe
+- Rodzaj karnetu
+- Karta wstępu
 
 ### 3. Nakreślenie użytkowników systemu
 
@@ -41,3 +43,28 @@ Pracownik ma możliwość wydawania oraz wprowadzania zmian w karnetach klientó
 
 ###### 3.4 Menedżer
 Menedżer może zarządząć pracownikami, salami (xd), a takżę wykorzystywać system w taki sposób jak inni pracownicy (np. zarządzać karnetami użytkowników).
+
+### 4. Opis funkcjonalności systemu
+
+###### Funkcjonalności:
+1. Wykupienie karnetu
+2. Zarządzanie karnetem
+3. Organizacja zajęć przez trenera
+4. Zapis klienta na zajęcia
+5. Kasowanie kart
+6. Rezerwacja sali na zajęcia
+7. Konserwacja sali
+
+###### 4.1. Wykupienie karnetu
+Użytkownik musi zwrócić się do pracownika o założenie karnetu. Wówczas należy podać dane personalne, sposób płatności, a także wybrać rodzaj karnetu. Po wprowadzeniu i zweryfikowaniu danych do systemu tworzona jest karta uprawniająca do wejścia na obiekt siłowni.
+
+###### 4.2. Zarządzanie karnetem
+Użytkownik zwraca się do pracownika, który edytuje dane przypisane do karnetu. Klient musi określić, które dane chce zmienić, a pracownik musi zweryfikować, czy zmiana ta jest możliwa. (anulowanie??)
+
+### 5. Opis założeń niefunkcjonalnych systemu
+
+szybki
+fajny
+ładny
+w reactcie (koniecznie)
+widełki pracy 28-29zl/h
