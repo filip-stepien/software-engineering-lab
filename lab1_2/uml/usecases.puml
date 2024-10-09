@@ -1,0 +1,68 @@
+
+@startuml
+
+skin rose
+
+actor Client as client
+actor Manager as manager
+actor Coach as coach
+actor Worker as worker
+
+
+'client
+usecase "Buy Subscription" as buySubscription
+usecase "Cancel Subscription" as cancelSubscription
+usecase "Change Subscription Personal Data" as changePersonalData
+usecase "Signup for training session" as signupTraining
+usecase "Contact a coach" as contactCoach
+
+client --> buySubscription
+client --> cancelSubscription
+client --> changePersonalData
+client --> signupTraining
+
+signupTraining -.> contactCoach  : <<extends>>
+
+'coach
+
+usecase "Set Up Training Session" as setUpSession
+usecase "Cancel Training Session" as cancelSession
+usecase "Contact Clients" as contactClients
+
+coach --> setUpSession
+coach --> cancelSession
+setUpSession -.> contactClients : <<extends>>
+cancelSession -.> contactClients : <<extends>>
+
+'worker
+usecase "Authorize Subscription Purchase for Client" as authorizePurchase
+usecase "Cancel Subscription for Client" as cancelClientSubscription
+usecase "Change Client Personal Data Assigned to the Subscription" as changeClientData
+usecase "Verify Clients' Subscriptions" as verifySubscriptions
+usecase "Access Clients' Subscriptions Database" as accessDatabase
+
+worker --> authorizePurchase
+worker --> cancelClientSubscription
+worker --> changeClientData
+worker --> verifySubscriptions
+
+authorizePurchase -.> accessDatabase : <<includes>>
+cancelClientSubscription -.> accessDatabase : <<includes>>
+changeClientData -.> accessDatabase : <<includes>>
+verifySubscriptions -.> accessDatabase : <<includes>>
+
+
+'manager
+manager -.> worker : <<extends>>
+
+usecase "Manage Workers" as manageWorkers
+usecase "Manage Gyms" as manageGyms
+
+manager --> manageWorkers
+manager --> manageGyms
+
+
+
+@enduml
+
+
