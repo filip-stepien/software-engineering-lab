@@ -11,18 +11,28 @@ actor Worker as worker
 
 
 'client
-usecase "Buy Subscription" as buySubscription
-usecase "Cancel Subscription" as cancelSubscription
-usecase "Change Subscription Personal Data" as changePersonalData
+usecase "Buy Membership" as buyMembership
+usecase "Cancel Membership" as cancelMembership
+usecase "Change Membership Personal Data" as changePersonalData
 usecase "Signup for training session" as signupTraining
 usecase "Contact a coach" as contactCoach
+usecase "Extend Membership" as ExtendSubcription
+usecase "Manage Membership" as manageMembership
+usecase "Browse Training Sessions" as BrowseTrainingSessions 
 
-client --> buySubscription
-client --> cancelSubscription
+buyMembership -.>  manageMembership : <<includes>>
+cancelMembership-.> manageMembership : <<includes>>
+changePersonalData -.> manageMembership : <<includes>>
+ExtendSubcription -.>  manageMembership  : <<includes>>
+
+client --> BrowseTrainingSessions
+client --> buyMembership
+client --> cancelMembership
 client --> changePersonalData
-client --> signupTraining
+client --> ExtendSubcription
 
 signupTraining -.> contactCoach  : <<extends>>
+BrowseTrainingSessions -.> signupTraining : <<extends>>
 
 'coach
 
@@ -46,31 +56,47 @@ cancelSession -.> contactClients : <<extends>>
 cancelSession -.> SwitchGym : <<extends>>
 
 'worker
-usecase "Authorize Subscription Purchase for Client" as authorizePurchase
-usecase "Cancel Subscription for Client" as cancelClientSubscription
-usecase "Change Client Personal Data Assigned to the Subscription" as changeClientData
-usecase "Verify Clients' Subscriptions" as verifySubscriptions
-usecase "Access Clients' Subscriptions Database" as accessDatabase
+usecase "Access Clients' Memberships" as accessMembershipList
+usecase "Authorize Membership Purchase for Client" as authorizePurchase
+usecase "Cancel Membership for Client" as cancelClientMembership
+usecase "Change Client Personal Data Assigned to the Membership" as changeClientData
+usecase "Verify Clients' Memberships" as verifyMemberships
+usecase "Maintain Gym" as maintainGym
+usecase "Notify Clients about Memberships Expirations" as notifyClientsMebershipExpiration
+usecase "Generate Clients' Actvity Raport" as generateClientActivityRaport  
 
-worker --> authorizePurchase
-worker --> cancelClientSubscription
-worker --> changeClientData
-worker --> verifySubscriptions
+worker --> maintainGym
+worker --> authorizePurchase 
+worker --> cancelClientMembership 
+worker --> changeClientData 
+worker --> verifyMemberships 
+worker --> notifyClientsMebershipExpiration
+worker --> generateClientActivityRaport
 
-authorizePurchase -.> accessDatabase : <<includes>>
-cancelClientSubscription -.> accessDatabase : <<includes>>
-changeClientData -.> accessDatabase : <<includes>>
-verifySubscriptions -.> accessDatabase : <<includes>>
+generateClientActivityRaport -.> accessMembershipList : <<extends>>
+notifyClientsMebershipExpiration -.> accessMembershipList : <<extends>>
+authorizePurchase -.> accessMembershipList : <<includes>>
+cancelClientMembership -.> accessMembershipList : <<includes>>
+changeClientData -.> accessMembershipList : <<includes>>
+verifyMemberships -.> accessMembershipList : <<includes>>
 
 
 'manager
-manager -.> worker : <<extends>>
+manager --|> worker 
 
 usecase "Manage Workers" as manageWorkers
 usecase "Manage Gyms" as manageGyms
+usecase "Monitor Mebership Details" as monitorMembershipDetails
+usecase "Analyze Gyms Usage" as analyzeGymsUsage
+usecase "Update Infomation About Gym's Avaiblity" as updateGymAvabilityInformation
+
 
 manager --> manageWorkers
 manager --> manageGyms
+manager --> analyzeGymsUsage
+manager --> monitorMembershipDetails
+manager --> updateGymAvabilityInformation
+
 
 
 
