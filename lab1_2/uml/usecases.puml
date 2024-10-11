@@ -1,6 +1,7 @@
 
-@startuml
+@startuml diagram
 
+left to right direction
 skin rose
 
 actor Client as client
@@ -28,11 +29,21 @@ signupTraining -.> contactCoach  : <<extends>>
 usecase "Set Up Training Session" as setUpSession
 usecase "Cancel Training Session" as cancelSession
 usecase "Contact Clients" as contactClients
+usecase "Book Gym" as BookGym
+usecase "Switch Gym for Training Session" as SwitchGym
+usecase "Access List of Trainees" as AccessTrainessList
+usecase "Check Trainee Progress" as CheckTrainneProgress
 
 coach --> setUpSession
 coach --> cancelSession
+coach --> BookGym
+coach --> SwitchGym
+coach --> AccessTrainessList
+CheckTrainneProgress  -.> AccessTrainessList : <<extends>>
+
 setUpSession -.> contactClients : <<extends>>
 cancelSession -.> contactClients : <<extends>>
+cancelSession -.> SwitchGym : <<extends>>
 
 'worker
 usecase "Authorize Subscription Purchase for Client" as authorizePurchase
