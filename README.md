@@ -14,18 +14,9 @@ System zarządzania siłownią ma na celu efektywne zarządzanie członkostwem, 
 
 Na system składają się następujące byty:
 
--   **Karnet wstępu** - dokument uprawniający klienta do wejścia na siłownię. Karnet określa okno czasowe w którym uprawnienie jest ważne, dane personalne właściciela, dane płatności, a także dane kontaktowe. Jest również wykorzystywany do identyfikacji dni i czasu w którym użytkownik był obecny na obiekcie siłowni. Karnet można wykupić, anulować, przepisać do innego klienta, a także zmienić figurujące na nim dane.
--   **Sala treningowa** - pomieszczenie na którym odbywają się treningi. Wykorzystywana jest przy realizacji zajęć sportowych. Sala ma swój unikatowy numer, wyposażenie i maksymalną liczbę osób, która jednocześnie moze się znajdować w pomieszczeniu. Sala może być zarezerwowana na rzecz ćwiczeń, a także wyłączona z użytku z uwagi na prace porządkowe.
--   **Zajęcia** - stanowią zarezerwowane okno czasowe, w którym odbywają się ćwiczenia grupowe. Zajęcia opisywane są poprzez godziny oraz datę, kiedy treningi są realizowane, salę w której się odbywają, trenerów którzy je prowadzą, a także klientów, którzy w nich uczestniczą. Zajęcia mogą być organizowane w określonym czasie, anulowane bądź przełożone na inny dzień.
-
--   ...
-
-###### Pomysły
-
--   Sprzęt do ćwiczeń
--   Produkty ze sklepiku
--   Plany treningowe
--   Rodzaj karnetu
+-   **Karnet wstępu** - dokument uprawniający klienta do wejścia na siłownię. Karnet określa okno czasowe w którym uprawnienie jest ważne, dane personalne właściciela, dane płatności, a także dane kontaktowe. Jest również wykorzystywany do identyfikacji dni i czasu w którym użytkownik był obecny na obiekcie siłowni.
+-   **Sala treningowa** - pomieszczenie na którym odbywają się treningi. Wykorzystywana jest przy realizacji zajęć sportowych. Sala ma swój unikatowy numer, wyposażenie i maksymalną liczbę osób, która jednocześnie moze się znajdować w pomieszczeniu.
+-   **Zajęcia** - stanowią zarezerwowane okno czasowe, w którym odbywają się ćwiczenia grupowe. Zajęcia opisywane są poprzez godziny oraz datę, kiedy treningi są realizowane, salę w której się odbywają, trenerów którzy je prowadzą, a także klientów, którzy w nich uczestniczą.
 
 ### 3. Nakreślenie użytkowników systemu
 
@@ -46,7 +37,7 @@ Trener może rezerwować salę treningowe, zarządzać zajęciami i kontaktować
 
 ###### 3.3 Pracownik
 
-Pracownik ma możliwość wydawania oraz wprowadzania zmian w karnetach klientów. Weryfikuje, czy użytkownik wszedł na obiekt siłowni skanując swój karnet.
+Pracownik ma możliwość wydawania oraz wprowadzania zmian w karnetach klientów.
 
 ###### 3.4 Menedżer
 
@@ -101,6 +92,15 @@ Menedżer ustala w systemie, które sale są w użytku i mogą być rezerwowane 
 
 System jest wieloplatformowy: wszyscy użytkownicy mają dostęp do systemu poprzez stronę internetową, a klienci oraz trenerzy mogą prowadzić interakcję z systemem poprzez aplikację mobilną. Ponatdo podlega łatwej skalowalności i jest odporny na znaczne obciążenie zasobów, będąc przygotowanym na obsługę dużej ilości użytkowników. Autoryzacja odbywa się z pomocą bezpiecznych metod uwierzytelniania, a także weryfikacji dwuetapowej dla pracowników i menedżerów. Interfejs jest intuicyjny i responsywny, nawigacja jest zoptymalizowana pod kątem dostępności dla każdego użytkownika.
 
+## Słownik
+- Karnet wstępu - identyfikator klienta w systemie, autoryzujący do wejścia na siłownie. Karnet można wykupić, anulować, przepisać do innego klienta, a także zmienić figurujące na nim dane.
+- Sala treningowa - obiekt, na którym odbywają się treningi. Sala może być zarezerwowana na rzecz ćwiczeń, a także wyłączona z użytku z uwagi na prace porządkowe.
+- Zajęcia - przedział czasu, kiedy na sali odbywa się trening. Zajęcia mogą być organizowane w określonym czasie, anulowane bądź przełożone na inny dzień.
+- Klient - podstawowy użytkownik systemu. Klient może wykupić i zarządzać karnetem, zapisywać na zajęcia, a także kontaktować z trenerem.
+- Trener - osoba odpowiedzialna za organizację zajęć treningowych i konsultację z klientami.
+- Pracownik - użytkownik systemu autoryzujący operacje związane z zarządzaniem karnetami klienów.
+- Menedżer - osoba zarządzająca pracownikami, karnetami oraz salami w systemie.
+
 ## User Stories
 
 Jako klient siłowni:
@@ -111,6 +111,7 @@ Jako klient siłowni:
 4. Chcę przedłużyć karnet w taki sposób, aby móc dalej ćwiczyć.
 5. Chcę zarządzać karnetem w taki sposób, aby móc go anulować/przedłużyć.
 6. Chcę zmienić swoje dane na karnecie w taki sposób, aby były aktualne (np. dane kontaktowe, płatności).
+7. Chcę przeglądać dostępne zajęcia w taki sposób, aby móc znaleźć te, które mnie interesują.
 
 Jako trener:
 
@@ -119,6 +120,8 @@ Jako trener:
 3. Chcę odwołać zajęcia w taki sposób, aby klienci nie musieli przychodzić.
 4. Chcę zarządzać salami w taki sposób, aby móc zmienić salę, w której będą zajęcia.
 5. Chcę komunikować się z klientami w taki sposób, aby informować ich o zmianach w zajęciach (np. odwołanie, zmiana sali).
+6. Chcę przeglądać listę klientów zapisanych na moje zajęcia, aby wiedzieć, kto będzie uczestniczył w treningu.
+7. Chcę mieć możliwość oceniania postępów klientów, aby dostosować program zajęć do ich potrzeb.
 
 Jako pracownik:
 
@@ -126,6 +129,9 @@ Jako pracownik:
 2. Chcę anulować karnet w taki sposób, aby zakończyć dostęp klienta do siłowni.
 3. Chcę zmieniać dane karnetu w taki sposób, aby klient mógł zarządzać swoimi danymi personalnymi.
 4. Chcę weryfikować wejście klienta w taki sposób, aby sprawdzić, czy ma ważny karnet.
+5. Chcę generować raporty dotyczące aktywności klientów, aby monitorować ich zaangażowanie.
+6. Chcę informować klientów o kończących się karnetach, aby zachęcać ich do przedłużenia.
+7. Chcę konserwować sale treningowe, w taki sposób, aby były przygotowane do zajęć.
 
 Jako menedżer:
 
@@ -134,3 +140,5 @@ Jako menedżer:
 3. Chcę zarządzać pracownikami w taki sposób, aby móc delegować zadania (np. konserwację, anulowanie karnetów).
 4. Chcę analizować obłożenie sal w taki sposób, aby zoptymalizować organizację zajęć.
 5. Chcę monitorować sprzedaż karnetów w taki sposób, aby sprawdzać poziom przychodów siłowni.
+6. Chcę aktualizować informacje o dostępności sal, aby klienci i trenerzy mogli trenować.
+7. Chcę tworzyć raporty o popularności zajęć, aby lepiej planować grafik pracowników.
