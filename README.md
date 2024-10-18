@@ -150,7 +150,7 @@ Jako menedżer:
 
 ## Lab 2: Scenariusze przypadków użycia
 
-##### Wykupienie karnetu
+#### Wykupienie karnetu
 - **Warunki początkowe**: 
     `brak`
 - **Warunki końcowe**: 
@@ -158,7 +158,7 @@ Jako menedżer:
 - **Aktorzy**:
     - Klient
     - Pracownik
- - **Przepływ zdarzeń**:
+- **Przepływ zdarzeń**:
     1. Klient zwraca się do pracownika o utworzenie karnetu
     2. Pracownik wybiera opcję `Nowy karnet`
     3. System wyświetla formularz do utworzenia karnetu.
@@ -168,11 +168,11 @@ Jako menedżer:
     7. System tworzy nowy karnet
     8. System pobiera opłatę
     9. System wyświetla potwierdzenie
- - **Alternatywny przepływ zdarzeń**:
+- **Alternatywny przepływ zdarzeń**:
     5. Błędny format danych. POWRÓT DO 3
     6. Metoda płatnicza jest niedostępna. POWRÓT DO 3
 
-##### Rezygnacja z karnetu
+#### Rezygnacja z karnetu
 - **Warunki początkowe**: 
     - Musi istnieć karnet identyfikujący klienta
 - **Warunki końcowe**: 
@@ -180,7 +180,7 @@ Jako menedżer:
 - **Aktorzy**:
     - Klient
     - Pracownik
- - **Przepływ zdarzeń**:
+- **Przepływ zdarzeń**:
     1. Klient zwraca się do pracownika o rezygnację z karnetu
     2. Pracownik wybiera opcję `Wyświetl karnety`
     3. System wyświetla listę karnetów
@@ -191,5 +191,5 @@ Jako menedżer:
     8. System wyświetla okno z potwierdzeniem
     9. Pracownik potwierdza usunięcie karnetu.
     10. System generuje potwierdzenie operacji.
- - **Alternatywny przepływ zdarzeń**:
+- **Alternatywny przepływ zdarzeń**:
     5. Klient nie został znaleziony. POWRÓT DO 3
