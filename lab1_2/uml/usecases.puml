@@ -17,22 +17,19 @@ usecase "Change Membership Personal Data" as changePersonalData
 usecase "Signup for training session" as signupTraining
 usecase "Contact a coach" as contactCoach
 usecase "Extend Membership" as ExtendSubcription
-usecase "Manage Membership" as manageMembership
 usecase "Browse Training Sessions" as BrowseTrainingSessions 
-
-buyMembership -.>  manageMembership : <<includes>>
-cancelMembership-.> manageMembership : <<includes>>
-changePersonalData -.> manageMembership : <<includes>>
-ExtendSubcription -.>  manageMembership  : <<includes>>
+usecase "client login" as ClientLogin 
 
 client --> BrowseTrainingSessions
 client --> buyMembership
 client --> cancelMembership
 client --> changePersonalData
 client --> ExtendSubcription
+client --> ClientLogin
 
-signupTraining -.> contactCoach  : <<extends>>
-BrowseTrainingSessions -.> signupTraining : <<extends>>
+client -->  signupTraining
+client --> contactCoach
+signupTraining -.> BrowseTrainingSessions : <<include>>
 
 'coach
 
@@ -49,11 +46,10 @@ coach --> cancelSession
 coach --> BookGym
 coach --> SwitchGym
 coach --> AccessTrainessList
-CheckTrainneProgress  -.> AccessTrainessList : <<extends>>
+coach --> contactClients
+CheckTrainneProgress -.> AccessTrainessList : <<extends>>
 
-setUpSession -.> contactClients : <<extends>>
-cancelSession -.> contactClients : <<extends>>
-cancelSession -.> SwitchGym : <<extends>>
+SwitchGym -.> cancelSession : <<extends>>
 
 'worker
 usecase "Access Clients' Memberships" as accessMembershipList
@@ -73,8 +69,8 @@ worker --> verifyMemberships
 worker --> notifyClientsMebershipExpiration
 worker --> generateClientActivityRaport
 
-generateClientActivityRaport -.> accessMembershipList : <<extends>>
-notifyClientsMebershipExpiration -.> accessMembershipList : <<extends>>
+generateClientActivityRaport -.> accessMembershipList : <<includes>>
+notifyClientsMebershipExpiration -.> accessMembershipList : <<includes>>
 authorizePurchase -.> accessMembershipList : <<includes>>
 cancelClientMembership -.> accessMembershipList : <<includes>>
 changeClientData -.> accessMembershipList : <<includes>>
@@ -84,21 +80,33 @@ verifyMemberships -.> accessMembershipList : <<includes>>
 'manager
 manager --|> worker 
 
-usecase "Manage Workers" as manageWorkers
+usecase "Add worker" as addWorker
+usecase "Delete worker" as deleteWorker
+usecase "Update worker" as updateWorker
+
+usecase "Add gym" as addGym
+usecase "Close gym" as closeGym
+usecase "Update gym data" as updateGymData
+
 usecase "Manage Gyms" as manageGyms
+
 usecase "Monitor Mebership Details" as monitorMembershipDetails
 usecase "Analyze Gyms Usage" as analyzeGymsUsage
 usecase "Update Infomation About Gym's Avaiblity" as updateGymAvabilityInformation
 
 
-manager --> manageWorkers
+manager --> addGym
+manager --> closeGym
+manager --> updateGymData
+
+manager --> addWorker
+manager --> deleteWorker
+manager --> updateWorker
+
 manager --> manageGyms
 manager --> analyzeGymsUsage
 manager --> monitorMembershipDetails
 manager --> updateGymAvabilityInformation
-
-
-
 
 @enduml
 
