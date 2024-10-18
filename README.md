@@ -4,7 +4,7 @@
 
 Temat projektu to system do obsługi siłowni.
 
-## Opis systemu
+## Lab 1: Opis systemu
 
 ### 1. Podstawowe informacje o systemie
 
@@ -147,3 +147,49 @@ Jako menedżer:
 7. Chcę tworzyć raporty o popularności zajęć, aby lepiej planować grafik pracowników.
 8. Chcę dodawać sale do systemu w taki sposób, aby klienci mogli korzystać z nowych sal.
 9. Chcę zamkyać sale w taki sposób, aby nie można było w nich odbywać zajęć.
+
+## Lab 2: Scenariusze przypadków użycia
+
+##### Wykupienie karnetu
+- **Warunki początkowe**: 
+    `brak`
+- **Warunki końcowe**: 
+    - Utworzenie karnetu identyfikującego użytkownika
+- **Aktorzy**:
+    - Klient
+    - Pracownik
+ - **Przepływ zdarzeń**:
+    1. Klient zwraca się do pracownika o utworzenie karnetu
+    2. Pracownik wybiera opcję `Nowy karnet`
+    3. System wyświetla formularz do utworzenia karnetu.
+    4. Pracownik wprowadza dane personalne, płatnicze i kontaktowe klienta do formularza
+    5. System sprawdza czy wprowadzone dane mają prawidłowy format
+    6. System sprawdza czy metoda płatncza jest dostępna
+    7. System tworzy nowy karnet
+    8. System pobiera opłatę
+    9. System wyświetla potwierdzenie
+ - **Alternatywny przepływ zdarzeń**:
+    5. Błędny format danych. POWRÓT DO 3
+    6. Metoda płatnicza jest niedostępna. POWRÓT DO 3
+
+##### Rezygnacja z karnetu
+- **Warunki początkowe**: 
+    - Musi istnieć karnet identyfikujący klienta
+- **Warunki końcowe**: 
+    - Karnet identyfikujący klienta usunięty z systemu
+- **Aktorzy**:
+    - Klient
+    - Pracownik
+ - **Przepływ zdarzeń**:
+    1. Klient zwraca się do pracownika o rezygnację z karnetu
+    2. Pracownik wybiera opcję `Wyświetl karnety`
+    3. System wyświetla listę karnetów
+    4. Pracownik wpisuje dane klienta do wyszukiwarki
+    5. System wyświetla opcję pasujące do wyszukiwania
+    6. Pracownik wybiera karnet z listy wynikowej
+    7. Pracownik wybiera opcję `Usuń karnet`
+    8. System wyświetla okno z potwierdzeniem
+    9. Pracownik potwierdza usunięcie karnetu.
+    10. System generuje potwierdzenie operacji.
+ - **Alternatywny przepływ zdarzeń**:
+    5. Klient nie został znaleziony. POWRÓT DO 3
