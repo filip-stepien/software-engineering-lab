@@ -86,18 +86,16 @@ usecase "Update worker" as updateWorker
 
 usecase "Add gym" as addGym
 usecase "Close gym" as closeGym
-usecase "Update gym data" as updateGymData
+usecase "Update Infomation About Gym's Avaiblity" as updateGymAvabilityInformation
 
 usecase "Manage Gyms" as manageGyms
 
 usecase "Monitor Mebership Details" as monitorMembershipDetails
 usecase "Analyze Gyms Usage" as analyzeGymsUsage
-usecase "Update Infomation About Gym's Avaiblity" as updateGymAvabilityInformation
 
 
 manager --> addGym
 manager --> closeGym
-manager --> updateGymData
 
 manager --> addWorker
 manager --> deleteWorker
