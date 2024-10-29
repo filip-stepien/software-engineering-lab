@@ -14,9 +14,9 @@ System zarządzania siłownią ma na celu efektywne zarządzanie członkostwem, 
 
 Na system składają się następujące byty:
 
-- **Karnet wstępu** - dokument uprawniający klienta do wejścia na siłownię. Karnet określa okno czasowe w którym uprawnienie jest ważne, dane personalne właściciela, dane płatności, a także dane kontaktowe. Jest również wykorzystywany do identyfikacji dni i czasu w którym użytkownik był obecny na obiekcie siłowni.
-- **Sala treningowa** - pomieszczenie na którym odbywają się treningi. Wykorzystywana jest przy realizacji zajęć sportowych. Sala ma swój unikatowy numer, wyposażenie i maksymalną liczbę osób, która jednocześnie moze się znajdować w pomieszczeniu.
-- **Zajęcia** - stanowią zarezerwowane okno czasowe, w którym odbywają się ćwiczenia grupowe. Zajęcia opisywane są poprzez godziny oraz datę, kiedy treningi są realizowane, salę w której się odbywają, trenerów którzy je prowadzą, a także klientów, którzy w nich uczestniczą.
+-   **Karnet wstępu** - dokument uprawniający klienta do wejścia na siłownię. Karnet określa okno czasowe w którym uprawnienie jest ważne, dane personalne właściciela, dane płatności, a także dane kontaktowe. Jest również wykorzystywany do identyfikacji dni i czasu w którym użytkownik był obecny na obiekcie siłowni.
+-   **Sala treningowa** - pomieszczenie na którym odbywają się treningi. Wykorzystywana jest przy realizacji zajęć sportowych. Sala ma swój unikatowy numer, wyposażenie i maksymalną liczbę osób, która jednocześnie moze się znajdować w pomieszczeniu.
+-   **Zajęcia** - stanowią zarezerwowane okno czasowe, w którym odbywają się ćwiczenia grupowe. Zajęcia opisywane są poprzez godziny oraz datę, kiedy treningi są realizowane, salę w której się odbywają, trenerów którzy je prowadzą, a także klientów, którzy w nich uczestniczą.
 
 ### 3. Nakreślenie użytkowników systemu
 
@@ -94,13 +94,13 @@ System jest wieloplatformowy: wszyscy użytkownicy mają dostęp do systemu popr
 
 ## Słownik
 
-- Karnet wstępu - identyfikator klienta w systemie, autoryzujący do wejścia na siłownie. Karnet można wykupić, anulować, przepisać do innego klienta, a także zmienić figurujące na nim dane.
-- Sala treningowa - obiekt, na którym odbywają się treningi. Sala może być zarezerwowana na rzecz ćwiczeń, a także wyłączona z użytku z uwagi na prace porządkowe.
-- Zajęcia - przedział czasu, kiedy na sali odbywa się trening. Zajęcia mogą być organizowane w określonym czasie, anulowane bądź przełożone na inny dzień.
-- Klient - podstawowy użytkownik systemu. Klient może wykupić i zarządzać karnetem, zapisywać na zajęcia, a także kontaktować z trenerem.
-- Trener - osoba odpowiedzialna za organizację zajęć treningowych i konsultację z klientami.
-- Pracownik - użytkownik systemu autoryzujący operacje związane z zarządzaniem karnetami klienów.
-- Menedżer - osoba zarządzająca pracownikami, karnetami oraz salami w systemie.
+-   Karnet wstępu - identyfikator klienta w systemie, autoryzujący do wejścia na siłownie. Karnet można wykupić, anulować, przepisać do innego klienta, a także zmienić figurujące na nim dane.
+-   Sala treningowa - obiekt, na którym odbywają się treningi. Sala może być zarezerwowana na rzecz ćwiczeń, a także wyłączona z użytku z uwagi na prace porządkowe.
+-   Zajęcia - przedział czasu, kiedy na sali odbywa się trening. Zajęcia mogą być organizowane w określonym czasie, anulowane bądź przełożone na inny dzień.
+-   Klient - podstawowy użytkownik systemu. Klient może wykupić i zarządzać karnetem, zapisywać na zajęcia, a także kontaktować z trenerem.
+-   Trener - osoba odpowiedzialna za organizację zajęć treningowych i konsultację z klientami.
+-   Pracownik - użytkownik systemu autoryzujący operacje związane z zarządzaniem karnetami klienów.
+-   Menedżer - osoba zarządzająca pracownikami, karnetami oraz salami w systemie.
 
 ## User Stories
 
@@ -151,36 +151,40 @@ Jako menedżer:
 ## Lab 2: Scenariusze przypadków użycia
 
 #### Wykupienie karnetu
-- **Warunki początkowe**: 
+
+-   **Warunki początkowe**:
     `brak`
-- **Warunki końcowe**: 
-    - Utworzenie karnetu identyfikującego użytkownika
-- **Aktorzy**:
-    - Klient
-    - Pracownik
-- **Przepływ zdarzeń**:
+-   **Warunki końcowe**:
+    -   Utworzenie karnetu identyfikującego użytkownika
+-   **Aktorzy**:
+    -   Klient
+    -   Pracownik
+-   **Przepływ zdarzeń**:
     1. Klient zwraca się do pracownika o utworzenie karnetu
     2. Pracownik wybiera opcję `Nowy karnet`
     3. System wyświetla formularz do utworzenia karnetu.
     4. Pracownik wprowadza dane personalne, płatnicze i kontaktowe klienta do formularza
-    5. System sprawdza czy wprowadzone dane mają prawidłowy format
-    6. System sprawdza czy metoda płatncza jest dostępna
-    7. System tworzy nowy karnet
-    8. System pobiera opłatę
-    9. System wyświetla potwierdzenie
-- **Alternatywny przepływ zdarzeń**:
-    5. Błędny format danych. POWRÓT DO 3
-    6. Metoda płatnicza jest niedostępna. POWRÓT DO 3
+    5. Pracownik wybiera opcję `Zapisz`
+    6. System sprawdza czy wprowadzone dane mają prawidłowy format
+    7. System sprawdza czy metoda płatncza jest dostępna
+    8. System tworzy nowy karnet
+    9. System pobiera opłatę
+    10. System wyświetla potwierdzenie
+-   **Alternatywny przepływ zdarzeń**:
+
+    6. Błędny format danych. POWRÓT DO 3
+    7. Metoda płatnicza jest niedostępna. POWRÓT DO 3
 
 #### Rezygnacja z karnetu
-- **Warunki początkowe**: 
-    - Musi istnieć karnet identyfikujący klienta
-- **Warunki końcowe**: 
-    - Karnet identyfikujący klienta usunięty z systemu
-- **Aktorzy**:
-    - Klient
-    - Pracownik
-- **Przepływ zdarzeń**:
+
+-   **Warunki początkowe**:
+    -   Musi istnieć karnet identyfikujący klienta
+-   **Warunki końcowe**:
+    -   Karnet identyfikujący klienta usunięty z systemu
+-   **Aktorzy**:
+    -   Klient
+    -   Pracownik
+-   **Przepływ zdarzeń**:
     1. Klient zwraca się do pracownika o rezygnację z karnetu
     2. Pracownik wybiera opcję `Wyświetl karnety`
     3. System wyświetla listę karnetów
@@ -190,6 +194,91 @@ Jako menedżer:
     7. Pracownik wybiera opcję `Usuń karnet`
     8. System wyświetla okno z potwierdzeniem
     9. Pracownik potwierdza usunięcie karnetu.
-    10. System generuje potwierdzenie operacji.
-- **Alternatywny przepływ zdarzeń**:
+    10. Sysyem usuwa karnet
+    11. System generuje potwierdzenie operacji.
+-   **Alternatywny przepływ zdarzeń**:
+
     5. Klient nie został znaleziony. POWRÓT DO 3
+
+#### Przedłużenie karnetu
+
+-   **Warunki początkowe**:
+    -   Musi istnieć karnet identyfikujący klienta
+-   **Warunki końcowe**:
+    -   Przedłużona data karnetu
+-   **Aktorzy**: `brak`
+    1. System sprawdza datę ważności karnetów użytkowników
+    2. System odnajduje nie ważny karnet
+    3. System sprawdza czy metoda płatnicza do odnowienia karnetu jest dostępna
+    4. System odnawia karnet
+    5. System pobiera opłatę
+-   **Alternatywny przepływ zdarzeń**:
+    3. Metoda płatnicza niedostępna. POWRÓT DO 1
+
+#### Zmiana danych na karnecie
+
+-   **Warunki początkowe**:
+    -   Musi istnieć karnet identyfikujący klienta
+-   **Warunki końcowe**:
+    -   Zmodyfikowane dane na karnecie użytkownika
+-   **Aktorzy**:
+    -   Klient
+    -   Pracownik
+-   **Przepływ zdarzeń**:
+    1. Klient zwraca się do pracownika o modfyikację danych na karnecie
+    2. Pracownik wybiera opcję `Wyświetl karnety`
+    3. System wyświetla listę karnetów
+    4. Pracownik wpisuje dane klienta do wyszukiwarki
+    5. System wyświetla opcję pasujące do wyszukiwania
+    6. Pracownik wybiera karnet z listy wynikowej
+    7. System wyświetla formularz z danymi
+    8. Pracownik edytuje dane w formularzu
+    9. Pracownik wybiera opcję `Zapisz`
+    10. System sprawdza czy wprowadzone dane mają prawidłowy format
+    11. System modyfikuje dane karnetu
+    12. System generuje potwierdzenie operacji.
+-   **Alternatywny przepływ zdarzeń**:
+
+    5. Klient nie został znaleziony. POWRÓT DO 3
+    6. Nieprawidłowy format danych. POWRÓT DO 7
+
+#### Logowanie do systemu
+
+-   **Warunki początkowe**:
+    -   Użytkownik musi istnieć w systemie
+-   **Warunki końcowe**:
+    -   Utworzona sesja użytkownika
+-   **Aktorzy**:
+    -   `???`
+-   **Przepływ zdarzeń**:
+    1. Użytkownik przechodzi do ekranu logowania
+    2. System wyświetla formularz logowania
+    3. Użytkownik wpisuje dane logowania
+    4. Użytkownik wybiera opcję `Zaloguj`
+    5. System sprawdza czy użytkownik istnieje
+    6. System tworzy sesję użytkownika
+    7. System wyświetla ekran startowy
+-   **Alternatywny przepływ zdarzeń**:
+
+    5. Użytkownik nie został znaleziony. POWRÓT DO 2
+
+#### Zapis klienta na zajęcia
+
+-   **Warunki początkowe**:
+    -   Klient zalogowany w systemie
+-   **Warunki końcowe**:
+    -   Klient przypisany do zajęć
+-   **Aktorzy**:
+    -   Klient
+-   **Przepływ zdarzeń**:
+    1. Klient wybiera ekran z zajęciami
+    2. System wyświetla kalendarz z zaplanowanymi zajęciami
+    3. Klient wybiera interesujące go zajęcia
+    4. System wyświetla szczegóły wybranych zajęć
+    5. Klient wybiera opcję `Zapisz się`
+    6. System sprawdza dostępność miejsc na zajęciach
+    7. System zapisuje klienta na zajęcia
+    8. System wyświetla potwierdzenie
+-   **Alternatywny przepływ zdarzeń**:
+
+    6. Nie ma dostępnych miejsc. POWRÓT DO 2
