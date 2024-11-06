@@ -767,5 +767,59 @@ export const scenarios: Array<Usecase> = [
             subject: 'System do obsługi siłowni',
         },
         language: 'Polish',
+        usecase: 'Konserwacja sali przez pracownika',
+        preconditions: [
+            'Pracownik jest zalogowany w systemie',
+            'Jest zaplanowana konserwacja sali',
+        ],
+        postconditions: [
+            'Sala została poddana konserwacji',
+            'Pracownik otrzymał potwierdzenie wykonania konserwacji',
+        ],
+        actors: ['pracownik'],
+        mainFlow: [
+            {
+                num: 1,
+                text: 'Pracownik loguje się do systemu',
+            },
+            {
+                num: 2,
+                text: 'Pracownik przechodzi do sekcji Kalendarz konserwacji',
+            },
+            {
+                num: 3,
+                text: 'System wyświetla kalendarz z zaplanowanymi konserwacjami sal',
+            },
+            {
+                num: 4,
+                text: 'Pracownik wybiera salę, która wymaga konserwacji',
+            },
+            {
+                num: 5,
+                text: 'System wyświetla szczegóły zaplanowanej konserwacji, w tym termin i zakres prac',
+            },
+            {
+                num: 6,
+                text: "Pracownik rozpoczyna konserwację sali, wybierając opcję 'Rozpocznij konserwację'",
+            },
+            {
+                num: 7,
+                text: "Po zakończeniu prac, pracownik wybiera opcję 'Zakończ konserwację'",
+            },
+            {
+                num: 8,
+                text: 'System wyświetla potwierdzenie zakończenia konserwacji dla pracownika',
+            },
+        ],
+        alternateFlow: [
+            {
+                num: 4,
+                text: 'Jeśli termin konserwacji minął lub nie ma zaplanowanej konserwacji dla wybranej sali, POWRÓT DO 2',
+            },
+            {
+                num: 7,
+                text: 'Jeśli konserwacja nie została zakończona pomyślnie, POWRÓT DO 6, aby kontynuować prace',
+            },
+        ],
     },
 ];
