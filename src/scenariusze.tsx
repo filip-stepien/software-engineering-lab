@@ -3,6 +3,7 @@ import { Usecase } from './usecase.tsx';
 const scenarios: Array<Usecase> = [
     {
         name: 'Nauka tabliczki mnożenia',
+        language: 'Polish',
         actors: ['pracownik', 'klient'],
         usecase: 'Janas',
         preconditions: ['60lvl w życie', 'dr inż'],
