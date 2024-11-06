@@ -4,6 +4,7 @@ export interface Author {
     name: string;
     surname: string;
     group: string;
+    subject: string;
 }
 
 export interface FlowItem {

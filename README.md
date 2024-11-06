@@ -212,8 +212,7 @@ Jako menedżer:
     3. System sprawdza czy metoda płatnicza do odnowienia karnetu jest dostępna
     4. System odnawia karnet
     5. System pobiera opłatę
--   **Alternatywny przepływ zdarzeń**:
-    3. Metoda płatnicza niedostępna. POWRÓT DO 1
+-   **Alternatywny przepływ zdarzeń**: 3. Metoda płatnicza niedostępna. POWRÓT DO 1
 
 #### Zmiana danych na karnecie
 
@@ -249,7 +248,7 @@ Jako menedżer:
 -   **Warunki końcowe**:
     -   Utworzona sesja użytkownika
 -   **Aktorzy**:
-    -   `???`
+    -   Klient
 -   **Przepływ zdarzeń**:
     1. Użytkownik przechodzi do ekranu logowania
     2. System wyświetla formularz logowania
@@ -282,3 +281,55 @@ Jako menedżer:
 -   **Alternatywny przepływ zdarzeń**:
 
     6. Nie ma dostępnych miejsc. POWRÓT DO 2
+
+#### Kontakt klienta z trenrem
+
+-   **Warunki początkowe**:
+    -   Klient zalogowany w systemie
+    -   Trener zalogowany w systemie
+-   **Warunki końcowe**:
+    -   Wiadomość klienta dociera do trenera, a trener ma możliwość odpowiedźieć
+-   **Aktorzy**:
+    -   Klient
+    -   Trener
+-   **Przepływ zdarzeń**:
+    1. Klient przechodzi do sekcji Kontakt z trenerem w systemie.
+    2. System wyświetla listę dostępnych trenerów.
+    3. Klient wybiera trenera z listy.
+    4. System wyświetla opcję wysłania wiadomości.
+    5. Klient wybiera opcję Wiadomość i wpisuje treść wiadomości do trenera.
+    6. Klient wybiera opcję Wyślij.
+    7. System sprawdza poprawność wprowadzonej treści wiadomości.
+    8. System dostarcza wiadomość do trenera i generuje powiadomienie.
+    9. System wyświetla potwierdzenie wysłania wiadomości dla klienta.
+-   **Alternatywny przepływ zdarzeń**:
+
+    7. Wiadomość jest pusta lub zawiera niedozwolone treści. POWRÓT DO 5.
+
+# TRENER
+
+#### Organizacja zajęć przez trenera
+
+-   **Warunki początkowe**:
+    -   Trener zalogowany w systemie
+    -   Dostępna jest sala do zarezerwowania w systemie
+-   **Warunki końcowe**:
+    -   Nowe zajęcia zostają dodane do kalendarza i są dostępne dla klientów do zapisania
+-   **Aktorzy**:
+    -   Trener
+-   **Przepływ zdarzeń**:
+    1. Trener przechodzi do sekcji Organizacja zajęć w systemie.
+    2. System wyświetla opcję Dodaj nowe zajęcia.
+    3. Trener wybiera opcję Dodaj nowe zajęcia.
+    4. System wyświetla formularz, w którym trener może wprowadzić szczegóły zajęć
+    5. Trener wybiera opcję Rezerwacja sali i sprawdza dostępność sal.
+    6. System wyświetla listę dostępnych sal i ich szczegóły.
+    7. Trener wybiera salę i potwierdza rezerwację.
+    8. Trener zatwierdza formularz zajęć, wybierając opcję Zapisz.
+    9. System sprawdza poprawność danych w formularzu oraz dostępność sali w wybranym terminie.
+    10. System dodaje nowe zajęcia do kalendarza i udostępnia je klientom do zapisania.
+    11. System generuje potwierdzenie utworzenia zajęć dla trenera.
+-   **Alternatywny przepływ zdarzeń**:
+
+    9. Wybrany termin zajęć jest zajęty lub sala jest niedostępna. POWRÓT DO 5, aby wybrać inną salę lub termin.
+    10. Formularz zawiera błędy (np. niekompletne informacje). POWRÓT DO 4, aby uzupełnić brakujące dane.
