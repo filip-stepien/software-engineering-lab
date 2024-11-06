@@ -78,3 +78,918 @@
             </tbody>
         </table>
     
+
+        <table border="1">
+            <tbody>
+                <tr>
+                    <th>Author name:</th>
+                    <td style="width: 15cm;">Filip</td>
+                </tr>
+                <tr>
+                    <th>Author surname:</th>
+                    <td style="width: 15cm;">Stępień</td>
+                </tr>
+                <tr>
+                    <th>Author group:</th>
+                    <td style="width: 15cm;">3ID11B</td>
+                </tr>
+                <tr>
+                    <th>Subject:</th>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
+                </tr>
+                <tr>
+                    <th>Use Case:</th>
+                    <td style="width: 15cm;">Rezygnacja z karnetu</td>
+                </tr>
+                <tr>
+                    <th>Language:</th>
+                    <td style="width: 15cm;">Polish</td>
+                </tr>
+                <tr>
+                    <th>Preconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Musi istnieć karnet identyfikujący klienta</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Postconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Karnet identyfikujący klienta usunięty z systemu</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Actors:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>klient</li><li>pracownik</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Main flow:</th>
+                    <td style="width: 15cm;">
+                        <ol>
+                            <li>Klient zwraca się do pracownika o rezygnację z karnetu</li><li>Pracownik wybiera opcję `Wyświetl karnety`</li><li>System wyświetla listę karnetów</li><li>Pracownik wpisuje dane klienta do wyszukiwarki</li><li>System wyświetla opcję pasujące do wyszukiwania</li><li>Pracownik wybiera karnet z listy wynikowej</li><li>Pracownik wybiera opcję `Usuń karnet`</li><li>System wyświetla okno z potwierdzeniem</li><li>Pracownik potwierdza usunięcie karnetu.</li><li>System usuwa karnet</li><li>System generuje potwierdzenie operacji.</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Alternate flow:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            
+                                <li>
+                                    <span class="number">5</span>
+                                    <span class="condition">Klient nie został znaleziony. POWRÓT DO 3</span>
+                                </li>
+                            
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+        <table border="1">
+            <tbody>
+                <tr>
+                    <th>Author name:</th>
+                    <td style="width: 15cm;">Filip</td>
+                </tr>
+                <tr>
+                    <th>Author surname:</th>
+                    <td style="width: 15cm;">Stępień</td>
+                </tr>
+                <tr>
+                    <th>Author group:</th>
+                    <td style="width: 15cm;">3ID11B</td>
+                </tr>
+                <tr>
+                    <th>Subject:</th>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
+                </tr>
+                <tr>
+                    <th>Use Case:</th>
+                    <td style="width: 15cm;">Przedłużenie karnetu</td>
+                </tr>
+                <tr>
+                    <th>Language:</th>
+                    <td style="width: 15cm;">Polish</td>
+                </tr>
+                <tr>
+                    <th>Preconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Klient musi być zalogowany w systemie</li><li>Musi istnieć karnet identyfikujący klienta</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Postconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Przedłużona data karnetu</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Actors:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>brak</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Main flow:</th>
+                    <td style="width: 15cm;">
+                        <ol>
+                            <li>System sprawdza datę ważności karnetów użytkowników</li><li>System odnajduje nieważny karnet</li><li>System sprawdza czy metoda płatnicza do odnowienia karnetu jest dostępna</li><li>System odnawia karnet</li><li>System pobiera opłatę</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Alternate flow:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            
+                                <li>
+                                    <span class="number">3</span>
+                                    <span class="condition">Metoda płatnicza niedostępna. POWRÓT DO 1</span>
+                                </li>
+                            
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+        <table border="1">
+            <tbody>
+                <tr>
+                    <th>Author name:</th>
+                    <td style="width: 15cm;">Filip</td>
+                </tr>
+                <tr>
+                    <th>Author surname:</th>
+                    <td style="width: 15cm;">Stępień</td>
+                </tr>
+                <tr>
+                    <th>Author group:</th>
+                    <td style="width: 15cm;">3ID11B</td>
+                </tr>
+                <tr>
+                    <th>Subject:</th>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
+                </tr>
+                <tr>
+                    <th>Use Case:</th>
+                    <td style="width: 15cm;">Zmiana danych na karnecie</td>
+                </tr>
+                <tr>
+                    <th>Language:</th>
+                    <td style="width: 15cm;">Polish</td>
+                </tr>
+                <tr>
+                    <th>Preconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Klient musi być zalogowany w systemie</li><li>Musi istnieć karnet identyfikujący klienta</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Postconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Zmodyfikowane dane na karnecie użytkownika</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Actors:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>klient</li><li>pracownik</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Main flow:</th>
+                    <td style="width: 15cm;">
+                        <ol>
+                            <li>Klient zwraca się do pracownika o modyfikację danych na karnecie</li><li>Pracownik wybiera opcję `Wyświetl karnety`</li><li>System wyświetla listę karnetów</li><li>Pracownik wpisuje dane klienta do wyszukiwarki</li><li>System wyświetla opcję pasujące do wyszukiwania</li><li>Pracownik wybiera karnet z listy wynikowej</li><li>System wyświetla formularz z danymi</li><li>Pracownik edytuje dane w formularzu</li><li>Pracownik wybiera opcję `Zapisz`</li><li>System sprawdza czy wprowadzone dane mają prawidłowy format</li><li>System modyfikuje dane karnetu</li><li>System generuje potwierdzenie operacji.</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Alternate flow:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            
+                                <li>
+                                    <span class="number">5</span>
+                                    <span class="condition">Klient nie został znaleziony. POWRÓT DO 3</span>
+                                </li>
+                            
+                                <li>
+                                    <span class="number">10</span>
+                                    <span class="condition">Nieprawidłowy format danych. POWRÓT DO 7</span>
+                                </li>
+                            
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+        <table border="1">
+            <tbody>
+                <tr>
+                    <th>Author name:</th>
+                    <td style="width: 15cm;">Filip</td>
+                </tr>
+                <tr>
+                    <th>Author surname:</th>
+                    <td style="width: 15cm;">Stępień</td>
+                </tr>
+                <tr>
+                    <th>Author group:</th>
+                    <td style="width: 15cm;">3ID11B</td>
+                </tr>
+                <tr>
+                    <th>Subject:</th>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
+                </tr>
+                <tr>
+                    <th>Use Case:</th>
+                    <td style="width: 15cm;">Logowanie do systemu</td>
+                </tr>
+                <tr>
+                    <th>Language:</th>
+                    <td style="width: 15cm;">Polish</td>
+                </tr>
+                <tr>
+                    <th>Preconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Użytkownik musi istnieć w systemie</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Postconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Utworzona sesja użytkownika</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Actors:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>klient</li><li>pracownik</li><li>trener</li><li>kierownik</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Main flow:</th>
+                    <td style="width: 15cm;">
+                        <ol>
+                            <li>Użytkownik przechodzi do ekranu logowania</li><li>System wyświetla formularz logowania</li><li>Użytkownik wpisuje dane logowania</li><li>Użytkownik wybiera opcję `Zaloguj`</li><li>System sprawdza czy użytkownik istnieje</li><li>System tworzy sesję użytkownika</li><li>System wyświetla ekran startowy</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Alternate flow:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            
+                                <li>
+                                    <span class="number">5</span>
+                                    <span class="condition">Użytkownik nie został znaleziony. POWRÓT DO 2</span>
+                                </li>
+                            
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+        <table border="1">
+            <tbody>
+                <tr>
+                    <th>Author name:</th>
+                    <td style="width: 15cm;">Filip</td>
+                </tr>
+                <tr>
+                    <th>Author surname:</th>
+                    <td style="width: 15cm;">Stępień</td>
+                </tr>
+                <tr>
+                    <th>Author group:</th>
+                    <td style="width: 15cm;">3ID11B</td>
+                </tr>
+                <tr>
+                    <th>Subject:</th>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
+                </tr>
+                <tr>
+                    <th>Use Case:</th>
+                    <td style="width: 15cm;">Zapis klienta na zajęcia</td>
+                </tr>
+                <tr>
+                    <th>Language:</th>
+                    <td style="width: 15cm;">Polish</td>
+                </tr>
+                <tr>
+                    <th>Preconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Klient zalogowany w systemie</li><li>W systemie istnieją zaplanowane zajęcia</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Postconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Klient przypisany do zajęć</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Actors:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>klient</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Main flow:</th>
+                    <td style="width: 15cm;">
+                        <ol>
+                            <li>Klient wybiera ekran z zajęciami</li><li>System wyświetla kalendarz z zaplanowanymi zajęciami</li><li>Klient wybiera interesujące go zajęcia</li><li>System wyświetla szczegóły wybranych zajęć</li><li>Klient wybiera opcję `Zapisz się`</li><li>System sprawdza dostępność miejsc na zajęciach</li><li>System zapisuje klienta na zajęcia</li><li>System wyświetla potwierdzenie</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Alternate flow:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            
+                                <li>
+                                    <span class="number">6</span>
+                                    <span class="condition">Nie ma dostępnych miejsc. POWRÓT DO 2</span>
+                                </li>
+                            
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+        <table border="1">
+            <tbody>
+                <tr>
+                    <th>Author name:</th>
+                    <td style="width: 15cm;">Damian</td>
+                </tr>
+                <tr>
+                    <th>Author surname:</th>
+                    <td style="width: 15cm;">Karwat</td>
+                </tr>
+                <tr>
+                    <th>Author group:</th>
+                    <td style="width: 15cm;">3ID11B</td>
+                </tr>
+                <tr>
+                    <th>Subject:</th>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
+                </tr>
+                <tr>
+                    <th>Use Case:</th>
+                    <td style="width: 15cm;">Kontakt klienta z trenerem</td>
+                </tr>
+                <tr>
+                    <th>Language:</th>
+                    <td style="width: 15cm;">Polish</td>
+                </tr>
+                <tr>
+                    <th>Preconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Klient zalogowany w systemie</li><li>Trener zalogowany w systemie</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Postconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Wiadomość klienta dociera do trenera, a trener ma możliwość odpowiedzieć</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Actors:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>klient</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Main flow:</th>
+                    <td style="width: 15cm;">
+                        <ol>
+                            <li>Klient przechodzi do sekcji Kontakt z trenerem w systemie</li><li>System wyświetla listę dostępnych trenerów</li><li>Klient wybiera trenera z listy</li><li>System wyświetla opcję wysłania wiadomości</li><li>Klient wybiera opcję Wiadomość i wpisuje treść wiadomości do trenera</li><li>Klient wybiera opcję Wyślij</li><li>System sprawdza poprawność wprowadzonej treści wiadomości</li><li>System dostarcza wiadomość do trenera i generuje powiadomienie</li><li>System wyświetla potwierdzenie wysłania wiadomości dla klienta</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Alternate flow:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            
+                                <li>
+                                    <span class="number">7</span>
+                                    <span class="condition">Wiadomość jest pusta lub zawiera niedozwolone treści. POWRÓT DO 5</span>
+                                </li>
+                            
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+        <table border="1">
+            <tbody>
+                <tr>
+                    <th>Author name:</th>
+                    <td style="width: 15cm;">Damian</td>
+                </tr>
+                <tr>
+                    <th>Author surname:</th>
+                    <td style="width: 15cm;">Karwat</td>
+                </tr>
+                <tr>
+                    <th>Author group:</th>
+                    <td style="width: 15cm;">3ID11B</td>
+                </tr>
+                <tr>
+                    <th>Subject:</th>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
+                </tr>
+                <tr>
+                    <th>Use Case:</th>
+                    <td style="width: 15cm;">Organizacja zajęć przez trenera</td>
+                </tr>
+                <tr>
+                    <th>Language:</th>
+                    <td style="width: 15cm;">Polish</td>
+                </tr>
+                <tr>
+                    <th>Preconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Trener zalogowany w systemie</li><li>Dostępna jest sala do zarezerwowania w systemie</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Postconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Nowe zajęcia zostają dodane do kalendarza i są dostępne dla klientów do zapisania</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Actors:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>trener</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Main flow:</th>
+                    <td style="width: 15cm;">
+                        <ol>
+                            <li>Trener przechodzi do sekcji Organizacja zajęć w systemie</li><li>System wyświetla opcję Dodaj nowe zajęcia</li><li>Trener wybiera opcję Dodaj nowe zajęcia</li><li>System wyświetla formularz, w którym trener może wprowadzić szczegóły zajęć</li><li>Trener wybiera opcję Rezerwacja sali i sprawdza dostępność sal</li><li>System wyświetla listę dostępnych sal i ich szczegóły</li><li>Trener wybiera salę i potwierdza rezerwację</li><li>Trener zatwierdza formularz zajęć, wybierając opcję Zapisz</li><li>System sprawdza poprawność danych w formularzu oraz dostępność sali w wybranym terminie</li><li>System dodaje nowe zajęcia do kalendarza i udostępnia je klientom do zapisania</li><li>System generuje potwierdzenie utworzenia zajęć dla trenera</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Alternate flow:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            
+                                <li>
+                                    <span class="number">9</span>
+                                    <span class="condition">Wybrany termin zajęć jest zajęty lub sala jest niedostępna. POWRÓT DO 5, aby wybrać inną salę lub termin</span>
+                                </li>
+                            
+                                <li>
+                                    <span class="number">9</span>
+                                    <span class="condition">Formularz zawiera błędy (np. niekompletne informacje). POWRÓT DO 4, aby uzupełnić brakujące dane</span>
+                                </li>
+                            
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+        <table border="1">
+            <tbody>
+                <tr>
+                    <th>Author name:</th>
+                    <td style="width: 15cm;">Damian</td>
+                </tr>
+                <tr>
+                    <th>Author surname:</th>
+                    <td style="width: 15cm;">Karwat</td>
+                </tr>
+                <tr>
+                    <th>Author group:</th>
+                    <td style="width: 15cm;">3ID11B</td>
+                </tr>
+                <tr>
+                    <th>Subject:</th>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
+                </tr>
+                <tr>
+                    <th>Use Case:</th>
+                    <td style="width: 15cm;">Odwołanie zajęć przez trenera</td>
+                </tr>
+                <tr>
+                    <th>Language:</th>
+                    <td style="width: 15cm;">Polish</td>
+                </tr>
+                <tr>
+                    <th>Preconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Trener jest zalogowany w systemie</li><li>W systemie istnieją zaplanowane zajęcia, które trener chce odwołać</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Postconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Zajęcia zostają usunięte z kalendarza, a zapisani klienci otrzymują powiadomienie o odwołaniu</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Actors:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>trener</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Main flow:</th>
+                    <td style="width: 15cm;">
+                        <ol>
+                            <li>Trener przechodzi do sekcji Organizacja zajęć w systemie</li><li>System wyświetla kalendarz zajęć trenera</li><li>Trener wybiera zajęcia, które chce odwołać, z listy lub kalendarza</li><li>Trener wybiera opcję Odwołaj zajęcia</li><li>System wyświetla okno potwierdzenia</li><li>Trener potwierdza odwołanie</li><li>System usuwa zajęcia z kalendarza</li><li>System wysyła powiadomienie dla klientów zapisanych na zajęcia o ich odwołaniu</li><li>System wyświetla potwierdzenie operacji dla trenera</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Alternate flow:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            
+                                <li>
+                                    <span class="number">6</span>
+                                    <span class="condition">Trener anuluje odwołanie, wybierając Nie. POWRÓT DO 2, bez zmian w kalendarzu zajęć</span>
+                                </li>
+                            
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+        <table border="1">
+            <tbody>
+                <tr>
+                    <th>Author name:</th>
+                    <td style="width: 15cm;">Damian</td>
+                </tr>
+                <tr>
+                    <th>Author surname:</th>
+                    <td style="width: 15cm;">Karwat</td>
+                </tr>
+                <tr>
+                    <th>Author group:</th>
+                    <td style="width: 15cm;">3ID11B</td>
+                </tr>
+                <tr>
+                    <th>Subject:</th>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
+                </tr>
+                <tr>
+                    <th>Use Case:</th>
+                    <td style="width: 15cm;">Zmiana sali na której odbędą się zaplanowane zajęcia przez trenera</td>
+                </tr>
+                <tr>
+                    <th>Language:</th>
+                    <td style="width: 15cm;">Polish</td>
+                </tr>
+                <tr>
+                    <th>Preconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Trener jest zalogowany w systemie</li><li>W systemie istnieją zaplanowane zajęcia, dla których trener chce zmienić salę</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Postconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Sala na której odbędą się zajęcia zostaje zmieniona, a zapisani klienci otrzymują powiadomienie o zmianie</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Actors:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>trener</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Main flow:</th>
+                    <td style="width: 15cm;">
+                        <ol>
+                            <li>Trener przechodzi do sekcji Organizacja zajęć w systemie</li><li>System wyświetla kalendarz zajęć trenera</li><li>Trener wybiera zajęcia, dla których chce zmienić salę, z listy lub kalendarza</li><li>Trener wybiera opcję Zmiana sali i sprawdza dostępność sal</li><li>System wyświetla listę dostępnych sal i ich szczegóły</li><li>Trener wybiera salę i potwierdza zmianę</li><li>System wysyła powiadomienie dla klientów zapisanych na zajęcia o zmianie sali</li><li>System wyświetla potwierdzenie operacji dla trenera</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Alternate flow:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            
+                                <li>
+                                    <span class="number">6</span>
+                                    <span class="condition">Wybrana sala jest niedostępna. POWRÓT DO 5, aby wybrać inną salę</span>
+                                </li>
+                            
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+        <table border="1">
+            <tbody>
+                <tr>
+                    <th>Author name:</th>
+                    <td style="width: 15cm;">Damian</td>
+                </tr>
+                <tr>
+                    <th>Author surname:</th>
+                    <td style="width: 15cm;">Karwat</td>
+                </tr>
+                <tr>
+                    <th>Author group:</th>
+                    <td style="width: 15cm;">3ID11B</td>
+                </tr>
+                <tr>
+                    <th>Subject:</th>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
+                </tr>
+                <tr>
+                    <th>Use Case:</th>
+                    <td style="width: 15cm;">Kontakt Trenera z Klientem</td>
+                </tr>
+                <tr>
+                    <th>Language:</th>
+                    <td style="width: 15cm;">Polish</td>
+                </tr>
+                <tr>
+                    <th>Preconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Trener jest zalogowany w systemie</li><li>Klient jest zalogowany w systemie</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Postconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Wiadomość trenera dociera do klienta, a klient ma możliwość odpowiedzieć</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Actors:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>trener</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Main flow:</th>
+                    <td style="width: 15cm;">
+                        <ol>
+                            <li>Trener przechodzi do sekcji Organizacja zajęć w systemie</li><li>System wyświetla kalendarz zajęć trenera</li><li>Trener wybiera zajęcia z listy zajęć</li><li>System wyświetla szczegóły zajęć</li><li>Trener wchodzi na listę zapisanych uczestników zajęć</li><li>Trener wybiera jednego z zapisanych klientów</li><li>System wyświetla opcję napisania wiadomości do klienta</li><li>Trener wpisuje treść wiadomości</li><li>Trener wybiera opcję Wyślij</li><li>System wysyła wiadomość do klienta</li><li>System wyświetla potwierdzenie wysłania wiadomości</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Alternate flow:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            
+                                <li>
+                                    <span class="number">5</span>
+                                    <span class="condition">Brak zapisanych klientów na zajęciach. POWRÓT DO 2</span>
+                                </li>
+                            
+                                <li>
+                                    <span class="number">8</span>
+                                    <span class="condition">Wiadomość jest pusta lub zawiera niedozwolone treści. POWRÓT DO 7, aby poprawić treść wiadomości</span>
+                                </li>
+                            
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+        <table border="1">
+            <tbody>
+                <tr>
+                    <th>Author name:</th>
+                    <td style="width: 15cm;">Damian</td>
+                </tr>
+                <tr>
+                    <th>Author surname:</th>
+                    <td style="width: 15cm;">Karwat</td>
+                </tr>
+                <tr>
+                    <th>Author group:</th>
+                    <td style="width: 15cm;">3ID11B</td>
+                </tr>
+                <tr>
+                    <th>Subject:</th>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
+                </tr>
+                <tr>
+                    <th>Use Case:</th>
+                    <td style="width: 15cm;">Analiza postępów Klienta przez Trenera</td>
+                </tr>
+                <tr>
+                    <th>Language:</th>
+                    <td style="width: 15cm;">Polish</td>
+                </tr>
+                <tr>
+                    <th>Preconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Trener jest zalogowany w systemie</li><li>Klient jest zalogowany w systemie</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Postconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Trener ma dostęp do szczegółowych statystyk postępów klienta</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Actors:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>trener</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Main flow:</th>
+                    <td style="width: 15cm;">
+                        <ol>
+                            <li>Trener przechodzi do sekcji Organizacja zajęć w systemie</li><li>System wyświetla kalendarz zajęć trenera</li><li>Trener wybiera zajęcia z listy zajęć</li><li>System wyświetla szczegóły zajęć</li><li>Trener wchodzi na listę zapisanych uczestników zajęć</li><li>Trener wybiera jednego z zapisanych klientów</li><li>System wyświetla profil klienta</li><li>Trener przegląda statystyki postępów klienta, takie jak wyniki, frekwencja, osiągnięcia</li><li>System wyświetla szczegółowe statystyki postępów klienta</li><li>Trener ma możliwość analizy postępów klienta i dostosowania planu treningowego</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Alternate flow:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            
+                                <li>
+                                    <span class="number">5</span>
+                                    <span class="condition">Brak zapisanych klientów na zajęciach. POWRÓT DO 2</span>
+                                </li>
+                            
+                                <li>
+                                    <span class="number">8</span>
+                                    <span class="condition">Klient nie ma dostępnych danych w systemie. POWRÓT DO 7, aby wybrać innego klienta</span>
+                                </li>
+                            
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+        <table border="1">
+            <tbody>
+                <tr>
+                    <th>Author name:</th>
+                    <td style="width: 15cm;">Rafał</td>
+                </tr>
+                <tr>
+                    <th>Author surname:</th>
+                    <td style="width: 15cm;">Grot</td>
+                </tr>
+                <tr>
+                    <th>Author group:</th>
+                    <td style="width: 15cm;">3ID11B</td>
+                </tr>
+                <tr>
+                    <th>Subject:</th>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
+                </tr>
+                <tr>
+                    <th>Use Case:</th>
+                    <td style="width: 15cm;">undefined</td>
+                </tr>
+                <tr>
+                    <th>Language:</th>
+                    <td style="width: 15cm;">Polish</td>
+                </tr>
+                <tr>
+                    <th>Preconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Postconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Actors:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Main flow:</th>
+                    <td style="width: 15cm;">
+                        <ol>
+                            
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Alternate flow:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    

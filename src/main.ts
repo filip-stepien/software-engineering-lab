@@ -19,11 +19,24 @@ function generateTable(usecase: Usecase) {
 
     // Helper function to generate a list of items in <ul> format
     function generateList(items: Array<string>) {
+        // ignore empty
+        if (items === undefined) {
+            console.warn(
+                'Trying to generate from udefined' + JSON.stringify(usecase)
+            );
+            return '';
+        }
         return items.map((item) => `<li>${item}</li>`).join('');
     }
 
     // Helper function to generate an ordered list for the main flow
     function generateOrderedList(items: Array<FlowItem>) {
+        if (items === undefined) {
+            console.warn(
+                'Trying to generate from udefined' + JSON.stringify(usecase)
+            );
+            return '';
+        }
         return items.map((item) => `<li>${item.text}</li>`).join('');
     }
 
@@ -118,5 +131,7 @@ for (const e of scenarios) {
     result += generateTable(e) + '\n';
 }
 
-fs.mkdirSync('out');
+if (!fs.existsSync('out')) {
+    fs.mkdirSync('out');
+}
 fs.writeFileSync('out/tabelki.html', result);
