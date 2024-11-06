@@ -333,3 +333,169 @@ Jako menedżer:
 
     9. Wybrany termin zajęć jest zajęty lub sala jest niedostępna. POWRÓT DO 5, aby wybrać inną salę lub termin.
     10. Formularz zawiera błędy (np. niekompletne informacje). POWRÓT DO 4, aby uzupełnić brakujące dane.
+
+#### Rejestracja pracownika
+
+-   **Warunki początkowe**:
+    -   Pracownik zarejestrowany w systemie
+-   **Warunki końcowe**:
+    -   Dodanie pracownika do systemu
+-   **Aktorzy**:
+    -   Menedżer
+-   **Przepływ zdarzeń**:
+    1. Menedżer wybiera opcję `Dodaj pracownika`
+    2. System wyświetla formularz do rejestracji pracownika.
+    3. Menedżer wprowadza dane pracownika
+    4. Menedżer wybiera opcję `Dodaj`
+    5. System sprawdza czy wprowadzone dane mają prawidłowy format
+    6. System dodaje pracownika do systemu
+    7. System wyświetla potwierdzenie
+-   **Alternatywny przepływ zdarzeń**:
+
+    2. Błędny format danych. POWRÓT DO 3
+
+#### Edytowanie danych pracownika
+
+-   **Warunki początkowe**:
+    -   Pracownik musi być zarejestrowany w systemie
+-   **Warunki końcowe**:
+    -   Zmodyfikowane dane pracownika w systemie
+-   **Aktorzy**:
+    -   Menedżer
+    -   Pracownik
+-   **Przepływ zdarzeń**:
+    1. Pracownik zwraca się do menedżera o modfyikację danych na karnecie
+    2. Menedżer wybiera opcję `Wyświetl pracowników`
+    3. System wyświetla listę pracowników
+    4. Menedżer wpisuje dane pracownika do wyszukiwarki
+    5. System wyświetla opcję pasujące do wyszukiwania
+    6. Menedżer wybiera konto pracownika
+    7. System wyświetla formularz z danymi
+    8. Menedżer edytuje dane w formularzu
+    9. Menedżer wybiera opcję `Zapisz`
+    10. System sprawdza czy wprowadzone dane mają prawidłowy format
+    11. System modyfikuje dane pracownika
+    12. System generuje potwierdzenie operacji.
+-   **Alternatywny przepływ zdarzeń**:
+
+    5. Pracownik nie został znaleziony. POWRÓT DO 3
+    6. Nieprawidłowy format danych. POWRÓT DO 7
+
+#### Usunięcie pracownika z systemu
+
+-   **Warunki początkowe**:
+    -   Pracownik musi być zarejestrowany w systemie
+-   **Warunki końcowe**:
+    -   Konto pracownika usunięte z systemu
+-   **Aktorzy**:
+    -   Menedżer
+-   **Przepływ zdarzeń**:
+    1. Menedżer wybiera opcję `Wyświetl pracowników`
+    2. System wyświetla listę pracowników
+    3. Menedżer wpisuje dane pracownika do wyszukiwarki
+    4. System wyświetla opcję pasujące do wyszukiwania
+    5. Menedżer wybiera konto pracownika
+    6. System wyświetla formularz z danymi
+    7. Menedżer wybiera opcję `Usuń pracownika`
+    8. System wyświetla okno potwierdzenia
+    9. Menedżer zatwierdza opcję
+    10. System usuwa konto pracownika
+    11. System generuje potwierdzenie operacji.
+-   **Alternatywny przepływ zdarzeń**:
+
+    4. Klient nie został znaleziony. POWRÓT DO 2
+
+#### Zamknięcie sali
+
+-   **Warunki początkowe**:
+    -   Sala musi istnieć w systemie
+-   **Warunki końcowe**:
+    -   Status sali ustawiony na "zamknięta"
+-   **Aktorzy**:
+    -   Menedżer
+-   **Przepływ zdarzeń**:
+    1. Menedżer wybiera opcję `Wyświetl sale treningowe`
+    2. System wyświetla listę z salami
+    3. Menedżer wpisuje numer sali do wyszukiwarki
+    4. System wyświetla opcję pasujące do wyszukiwania
+    5. Menedżer wybiera salę
+    6. System wyświetla informację o sali
+    7. Menedżer wybiera opcję `Zamknij salę`
+    8. System wyświetla okno potwierdzenia
+    9. Menedżer zatwierdza opcję
+    10. System zmienia status sali
+    11. System generuje potwierdzenie operacji.
+-   **Alternatywny przepływ zdarzeń**:
+
+    4. Sala nie został znaleziona. POWRÓT DO 2
+    5. Sala ma już status "zamknięta". POWRÓT DO 6
+
+#### Otwarcie sali
+
+-   **Warunki początkowe**:
+    -   Sala musi istnieć w systemie
+-   **Warunki końcowe**:
+    -   Status sali ustawiony na "otwarta"
+-   **Aktorzy**:
+    -   Menedżer
+-   **Przepływ zdarzeń**:
+    1. Menedżer wybiera opcję `Wyświetl sale treningowe`
+    2. System wyświetla listę z salami
+    3. Menedżer wpisuje numer sali do wyszukiwarki
+    4. System wyświetla opcję pasujące do wyszukiwania
+    5. Menedżer wybiera salę
+    6. System wyświetla informację o sali
+    7. Menedżer wybiera opcję `Otwórz salę`
+    8. System wyświetla okno potwierdzenia
+    9. Menedżer zatwierdza opcję
+    10. System zmienia status sali
+    11. System generuje potwierdzenie operacji.
+-   **Alternatywny przepływ zdarzeń**:
+
+    4. Sala nie został znaleziona. POWRÓT DO 2
+    5. Sala nie ma statusu "zamknięta". POWRÓT DO 6
+
+#### Tworzenie raportu sprzedażowego
+
+-   **Warunki początkowe**:
+    -   `brak`
+-   **Warunki końcowe**:
+    -   Utworzenie pliku z raportem sprzedaży karnetów
+-   **Aktorzy**:
+    -   Menedżer
+-   **Przepływ zdarzeń**:
+    1. Menedżer wybiera opcję `Wyświetl karnety`
+    2. System wyświetla listę karnetów
+    3. Menedżer wybiera opcję `Generuj raport sprzedaży`
+    4. System wyświetla formularz z opcjami raportu
+    5. Menedżer wybiera zakres dat sprzedaży karnetów
+    6. Menedżer wybiera docelowy format pliku
+    7. Menedżer wybiera opcję `Generuj`
+    8. System tworzy plik z raportem do pobrania.
+    9. System generuje potwierdzenie operacji.
+-   **Alternatywny przepływ zdarzeń**:
+
+    5. Data początkowa następuje po dacie końcowej. POWRÓT DO 4
+
+#### Tworzenie raportu o przeprowadzonych zajęciach
+
+-   **Warunki początkowe**:
+    -   `brak`
+-   **Warunki końcowe**:
+    -   Utworzenie pliku z raportem o przeprowadzonych zajęciach treningowych
+-   **Aktorzy**:
+    -   Menedżer
+-   **Przepływ zdarzeń**:
+    1. Menedżer wybiera opcję `Wyświetl zajęcia`
+    2. System wyświetla listę zajęć treningowych
+    3. Menedżer wybiera opcję `Generuj raport`
+    4. System wyświetla formularz z opcjami raportu
+    5. Menedżer wybiera zakres dat przeprowadzonych zajęć
+    6. Menedżer typ raportu `Podsumowanie`
+    7. Menedżer wybiera docelowy format pliku
+    8. Menedżer wybiera opcję `Generuj`
+    9. System tworzy plik z raportem do pobrania.
+    10. System generuje potwierdzenie operacji.
+-   **Alternatywny przepływ zdarzeń**:
+
+    5. Data początkowa następuje po dacie końcowej. POWRÓT DO 4
