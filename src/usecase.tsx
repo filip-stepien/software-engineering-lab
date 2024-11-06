@@ -13,6 +13,7 @@ interface FlowItem {
 
 export interface Usecase {
     name: string;
+    language: 'Polish' | 'English';
     preconditions: Array<string>;
     postconditions: Array<string>;
     actors: Array<Actor>;
