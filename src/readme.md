@@ -4,7 +4,7 @@
 
 Dane dodać do [scanariusze.ts](./scenariusze.ts)
 
-## Genracja tabelek HTML
+## Generacja tabelek HTML
 
 ```
 npm i
