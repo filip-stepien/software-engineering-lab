@@ -1,4 +1,4 @@
-import { Usecase } from './usecase.tsx';
+import { Usecase } from './usecase.js';
 
 export const scenarios: Array<Usecase> = [
     {

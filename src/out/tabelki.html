@@ -1,0 +1,80 @@
+
+        <table border="1">
+            <tbody>
+                <tr>
+                    <th>Author name:</th>
+                    <td style="width: 15cm;">Filip</td>
+                </tr>
+                <tr>
+                    <th>Author surname:</th>
+                    <td style="width: 15cm;">Stępień</td>
+                </tr>
+                <tr>
+                    <th>Author group:</th>
+                    <td style="width: 15cm;">3ID11B</td>
+                </tr>
+                <tr>
+                    <th>Subject:</th>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
+                </tr>
+                <tr>
+                    <th>Use Case:</th>
+                    <td style="width: 15cm;">Wykupienie karnetu</td>
+                </tr>
+                <tr>
+                    <th>Language:</th>
+                    <td style="width: 15cm;">Polish</td>
+                </tr>
+                <tr>
+                    <th>Preconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>brak</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Postconditions:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>Utworzenie karnetu identyfikującego użytkownika</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Actors:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            <li>klient</li><li>pracownik</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Main flow:</th>
+                    <td style="width: 15cm;">
+                        <ol>
+                            <li>Klient zwraca się do pracownika o utworzenie karnetu</li><li>Pracownik wybiera opcję `Nowy karnet`</li><li>System wyświetla formularz do utworzenia karnetu</li><li>Pracownik wprowadza dane personalne, płatnicze i kontaktowe klienta do formularza</li><li>Pracownik wybiera opcję `Zapisz`</li><li>System sprawdza czy wprowadzone dane mają prawidłowy format</li><li>System sprawdza czy metoda płatncza jest dostępna</li><li>System tworzy nowy karnet</li><li>System pobiera opłatę</li><li>System wyświetla potwierdzenie</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Alternate flow:</th>
+                    <td style="width: 15cm;">
+                        <ul>
+                            
+                                <li>
+                                    <span class="number">6</span>
+                                    <span class="condition">Błędny format danych. POWRÓT DO 3</span>
+                                </li>
+                            
+                                <li>
+                                    <span class="number">7</span>
+                                    <span class="condition">Metoda płatnicza jest niedostępna. POWRÓT DO 3</span>
+                                </li>
+                            
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    

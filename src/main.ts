@@ -1,7 +1,6 @@
-// Function to generate the HTML table for a single usecase
-
-import { scenarios } from './scenariusze.tsx';
-import { Usecase, FlowItem } from './usecase';
+import fs from 'fs';
+import { scenarios } from './scenariusze';
+import { Usecase, FlowItem } from './usecase.js';
 
 function generateTable(usecase: Usecase) {
     // Destructure the scenario object for easy access to properties
@@ -19,12 +18,12 @@ function generateTable(usecase: Usecase) {
     const subject = 'System zarządzania siłownią';
 
     // Helper function to generate a list of items in <ul> format
-    function generateList(items) {
+    function generateList(items: Array<string>) {
         return items.map((item) => `<li>${item}</li>`).join('');
     }
 
     // Helper function to generate an ordered list for the main flow
-    function generateOrderedList(items) {
+    function generateOrderedList(items: Array<FlowItem>) {
         return items.map((item) => `<li>${item.text}</li>`).join('');
     }
 
@@ -92,16 +91,20 @@ function generateTable(usecase: Usecase) {
                     <th>Alternate flow:</th>
                     <td style="width: 15cm;">
                         <ul>
-                            ${alternateFlow
-                                .map(
-                                    (flow) => `
+                            ${
+                                alternateFlow
+                                    ? alternateFlow
+                                          .map(
+                                              (flow) => `
                                 <li>
                                     <span class="number">${flow.num}</span>
                                     <span class="condition">${flow.text}</span>
                                 </li>
                             `
-                                )
-                                .join('')}
+                                          )
+                                          .join('')
+                                    : ''
+                            }
                         </ul>
                     </td>
                 </tr>
@@ -110,4 +113,10 @@ function generateTable(usecase: Usecase) {
     `;
 }
 
-console.log(generateTable(scenarios[0]));
+let result: string = '';
+for (const e of scenarios) {
+    result += generateTable(e) + '\n';
+}
+
+fs.mkdirSync('out');
+fs.writeFileSync('out/tabelki.html', result);
