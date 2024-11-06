@@ -1,18 +1,17 @@
 type Actor = 'pracownik' | 'kierownik' | 'klient' | 'trener';
 
-interface Author {
+export interface Author {
     name: string;
     surname: string;
     group: string;
 }
 
-interface FlowItem {
+export interface FlowItem {
     num: number;
     text: string;
 }
 
 export interface Usecase {
-    name: string;
     language: 'Polish' | 'English';
     preconditions: Array<string>;
     postconditions: Array<string>;

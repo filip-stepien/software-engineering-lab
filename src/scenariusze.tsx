@@ -1,8 +1,7 @@
 import { Usecase } from './usecase.tsx';
 
-const scenarios: Array<Usecase> = [
+export const scenarios: Array<Usecase> = [
     {
-        name: 'Nauka tabliczki mnożenia',
         language: 'Polish',
         actors: ['pracownik', 'klient'],
         usecase: 'Janas',
@@ -24,5 +23,10 @@ const scenarios: Array<Usecase> = [
                 text: '1 Miej kalkulator GOTO EXIT',
             },
         ],
+        author: {
+            name: 'Kułak',
+            surname: 'Sigma',
+            group: 'Gigachad'
+        }
     },
 ];
