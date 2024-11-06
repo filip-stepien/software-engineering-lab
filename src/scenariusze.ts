@@ -353,6 +353,449 @@ export const scenarios: Array<Usecase> = [
             }
         ]
     },
+    {
+        author: {
+            name: 'Filip',
+            surname: 'Stępień',
+            group: '3ID11B',
+            subject: 'System do obsługi siłowni'
+        },
+        language: 'Polish',
+        usecase: 'Rejestracja pracownika',
+        preconditions: ['Pracownik nie jest jeszcze zarejestrowany w systemie'],
+        postconditions: ['Dodanie pracownika do systemu'],
+        actors: ['kierownik'],
+        mainFlow: [
+            {
+                num: 1,
+                text: 'Menedżer wybiera opcję `Dodaj pracownika`'
+            },
+            {
+                num: 2,
+                text: 'System wyświetla formularz do rejestracji pracownika'
+            },
+            {
+                num: 3,
+                text: 'Menedżer wprowadza dane pracownika'
+            },
+            {
+                num: 4,
+                text: 'Menedżer wybiera opcję `Dodaj`'
+            },
+            {
+                num: 5,
+                text: 'System sprawdza, czy wprowadzone dane mają prawidłowy format'
+            },
+            {
+                num: 6,
+                text: 'System dodaje pracownika do systemu'
+            },
+            {
+                num: 7,
+                text: 'System wyświetla potwierdzenie'
+            }
+        ],
+        alternateFlow: [
+            {
+                num: 5,
+                text: 'Błędny format danych. POWRÓT DO 3'
+            }
+        ]
+    },
+    {
+        author: {
+            name: 'Filip',
+            surname: 'Stępień',
+            group: '3ID11B',
+            subject: 'System do obsługi siłowni'
+        },
+        language: 'Polish',
+        usecase: 'Edytowanie danych pracownika',
+        preconditions: ['Pracownik musi być zarejestrowany w systemie'],
+        postconditions: ['Zmodyfikowane dane pracownika w systemie'],
+        actors: ['kierownik', 'pracownik'],
+        mainFlow: [
+            {
+                num: 1,
+                text: 'Pracownik zwraca się do menedżera o modyfikację danych na karnecie'
+            },
+            {
+                num: 2,
+                text: 'Menedżer wybiera opcję `Wyświetl pracowników`'
+            },
+            {
+                num: 3,
+                text: 'System wyświetla listę pracowników'
+            },
+            {
+                num: 4,
+                text: 'Menedżer wpisuje dane pracownika do wyszukiwarki'
+            },
+            {
+                num: 5,
+                text: 'System wyświetla opcje pasujące do wyszukiwania'
+            },
+            {
+                num: 6,
+                text: 'Menedżer wybiera konto pracownika'
+            },
+            {
+                num: 7,
+                text: 'System wyświetla formularz z danymi'
+            },
+            {
+                num: 8,
+                text: 'Menedżer edytuje dane w formularzu'
+            },
+            {
+                num: 9,
+                text: 'Menedżer wybiera opcję `Zapisz`'
+            },
+            {
+                num: 10,
+                text: 'System sprawdza, czy wprowadzone dane mają prawidłowy format'
+            },
+            {
+                num: 11,
+                text: 'System modyfikuje dane pracownika'
+            },
+            {
+                num: 12,
+                text: 'System generuje potwierdzenie operacji'
+            }
+        ],
+        alternateFlow: [
+            {
+                num: 5,
+                text: 'Pracownik nie został znaleziony. POWRÓT DO 3'
+            },
+            {
+                num: 10,
+                text: 'Nieprawidłowy format danych. POWRÓT DO 7'
+            }
+        ]
+    },
+    {
+        author: {
+            name: 'Filip',
+            surname: 'Stępień',
+            group: '3ID11B',
+            subject: 'System do obsługi siłowni'
+        },
+        language: 'Polish',
+        usecase: 'Usunięcie pracownika z systemu',
+        preconditions: ['Pracownik musi być zarejestrowany w systemie'],
+        postconditions: ['Konto pracownika usunięte z systemu'],
+        actors: ['kierownik'],
+        mainFlow: [
+            {
+                num: 1,
+                text: 'Menedżer wybiera opcję `Wyświetl pracowników`'
+            },
+            {
+                num: 2,
+                text: 'System wyświetla listę pracowników'
+            },
+            {
+                num: 3,
+                text: 'Menedżer wpisuje dane pracownika do wyszukiwarki'
+            },
+            {
+                num: 4,
+                text: 'System wyświetla opcje pasujące do wyszukiwania'
+            },
+            {
+                num: 5,
+                text: 'Menedżer wybiera konto pracownika'
+            },
+            {
+                num: 6,
+                text: 'System wyświetla formularz z danymi'
+            },
+            {
+                num: 7,
+                text: 'Menedżer wybiera opcję `Usuń pracownika`'
+            },
+            {
+                num: 8,
+                text: 'System wyświetla okno potwierdzenia'
+            },
+            {
+                num: 9,
+                text: 'Menedżer zatwierdza opcję'
+            },
+            {
+                num: 10,
+                text: 'System usuwa konto pracownika'
+            },
+            {
+                num: 11,
+                text: 'System generuje potwierdzenie operacji'
+            }
+        ],
+        alternateFlow: [
+            {
+                num: 4,
+                text: 'Pracownik nie został znaleziony. POWRÓT DO 2'
+            }
+        ]
+    },
+    {
+        author: {
+            name: 'Filip',
+            surname: 'Stępień',
+            group: '3ID11B',
+            subject: 'System do obsługi siłowni'
+        },
+        language: 'Polish',
+        usecase: 'Zamknięcie sali',
+        preconditions: ['Sala musi istnieć w systemie'],
+        postconditions: ["Status sali ustawiony na 'zamknięta'"],
+        actors: ['kierownik'],
+        mainFlow: [
+            {
+                num: 1,
+                text: 'Menedżer wybiera opcję `Wyświetl sale treningowe`'
+            },
+            {
+                num: 2,
+                text: 'System wyświetla listę z salami'
+            },
+            {
+                num: 3,
+                text: 'Menedżer wpisuje numer sali do wyszukiwarki'
+            },
+            {
+                num: 4,
+                text: 'System wyświetla opcje pasujące do wyszukiwania'
+            },
+            {
+                num: 5,
+                text: 'Menedżer wybiera salę'
+            },
+            {
+                num: 6,
+                text: 'System wyświetla informację o sali'
+            },
+            {
+                num: 7,
+                text: 'Menedżer wybiera opcję `Zamknij salę`'
+            },
+            {
+                num: 8,
+                text: 'System wyświetla okno potwierdzenia'
+            },
+            {
+                num: 9,
+                text: 'Menedżer zatwierdza opcję'
+            },
+            {
+                num: 10,
+                text: 'System zmienia status sali'
+            },
+            {
+                num: 11,
+                text: 'System generuje potwierdzenie operacji'
+            }
+        ],
+        alternateFlow: [
+            {
+                num: 4,
+                text: 'Sala nie została znaleziona. POWRÓT DO 2'
+            },
+            {
+                num: 5,
+                text: "Sala ma już status 'zamknięta'. POWRÓT DO 6"
+            }
+        ]
+    },
+    {
+        author: {
+            name: 'Filip',
+            surname: 'Stępień',
+            group: '3ID11B',
+            subject: 'System do obsługi siłowni'
+        },
+        language: 'Polish',
+        usecase: 'Otwarcie sali',
+        preconditions: ['Sala musi istnieć w systemie'],
+        postconditions: ["Status sali ustawiony na 'otwarta'"],
+        actors: ['kierownik'],
+        mainFlow: [
+            {
+                num: 1,
+                text: 'Menedżer wybiera opcję `Wyświetl sale treningowe`'
+            },
+            {
+                num: 2,
+                text: 'System wyświetla listę z salami'
+            },
+            {
+                num: 3,
+                text: 'Menedżer wpisuje numer sali do wyszukiwarki'
+            },
+            {
+                num: 4,
+                text: 'System wyświetla opcje pasujące do wyszukiwania'
+            },
+            {
+                num: 5,
+                text: 'Menedżer wybiera salę'
+            },
+            {
+                num: 6,
+                text: 'System wyświetla informację o sali'
+            },
+            {
+                num: 7,
+                text: 'Menedżer wybiera opcję `Otwórz salę`'
+            },
+            {
+                num: 8,
+                text: 'System wyświetla okno potwierdzenia'
+            },
+            {
+                num: 9,
+                text: 'Menedżer zatwierdza opcję'
+            },
+            {
+                num: 10,
+                text: 'System zmienia status sali'
+            },
+            {
+                num: 11,
+                text: 'System generuje potwierdzenie operacji'
+            }
+        ],
+        alternateFlow: [
+            {
+                num: 4,
+                text: 'Sala nie została znaleziona. POWRÓT DO 2'
+            },
+            {
+                num: 5,
+                text: "Sala nie ma statusu 'zamknięta'. POWRÓT DO 6"
+            }
+        ]
+    },
+    {
+        author: {
+            name: 'Filip',
+            surname: 'Stępień',
+            group: '3ID11B',
+            subject: 'System do obsługi siłowni'
+        },
+        language: 'Polish',
+        usecase: 'Tworzenie raportu o przeprowadzonych zajęciach',
+        preconditions: ['brak'],
+        postconditions: ['Utworzenie pliku z raportem o przeprowadzonych zajęciach treningowych'],
+        actors: ['kierownik'],
+        mainFlow: [
+            {
+                num: 1,
+                text: 'Menedżer wybiera opcję `Wyświetl zajęcia`'
+            },
+            {
+                num: 2,
+                text: 'System wyświetla listę zajęć treningowych'
+            },
+            {
+                num: 3,
+                text: 'Menedżer wybiera opcję `Generuj raport`'
+            },
+            {
+                num: 4,
+                text: 'System wyświetla formularz z opcjami raportu'
+            },
+            {
+                num: 5,
+                text: 'Menedżer wybiera zakres dat przeprowadzonych zajęć'
+            },
+            {
+                num: 6,
+                text: 'Menedżer wybiera typ raportu `Podsumowanie`'
+            },
+            {
+                num: 7,
+                text: 'Menedżer wybiera docelowy format pliku'
+            },
+            {
+                num: 8,
+                text: 'Menedżer wybiera opcję `Generuj`'
+            },
+            {
+                num: 9,
+                text: 'System tworzy plik z raportem do pobrania'
+            },
+            {
+                num: 10,
+                text: 'System generuje potwierdzenie operacji'
+            }
+        ],
+        alternateFlow: [
+            {
+                num: 5,
+                text: 'Data początkowa następuje po dacie końcowej. POWRÓT DO 4'
+            }
+        ]
+    },
+    {
+        author: {
+            name: 'Filip',
+            surname: 'Stępień',
+            group: '3ID11B',
+            subject: 'System do obsługi siłowni'
+        },
+        language: 'Polish',
+        usecase: 'Tworzenie raportu sprzedażowego',
+        preconditions: ['brak'],
+        postconditions: ['Utworzenie pliku z raportem sprzedaży karnetów'],
+        actors: ['kierownik'],
+        mainFlow: [
+            {
+                num: 1,
+                text: 'Menedżer wybiera opcję `Wyświetl karnety`'
+            },
+            {
+                num: 2,
+                text: 'System wyświetla listę karnetów'
+            },
+            {
+                num: 3,
+                text: 'Menedżer wybiera opcję `Generuj raport sprzedaży`'
+            },
+            {
+                num: 4,
+                text: 'System wyświetla formularz z opcjami raportu'
+            },
+            {
+                num: 5,
+                text: 'Menedżer wybiera zakres dat sprzedaży karnetów'
+            },
+            {
+                num: 6,
+                text: 'Menedżer wybiera docelowy format pliku'
+            },
+            {
+                num: 7,
+                text: 'Menedżer wybiera opcję `Generuj`'
+            },
+            {
+                num: 8,
+                text: 'System tworzy plik z raportem do pobrania'
+            },
+            {
+                num: 9,
+                text: 'System generuje potwierdzenie operacji'
+            }
+        ],
+        alternateFlow: [
+            {
+                num: 5,
+                text: 'Data początkowa następuje po dacie końcowej. POWRÓT DO 4'
+            }
+        ]
+    },
     //Dotychczas autor filip, zmiana na damian
     {
         author: {
