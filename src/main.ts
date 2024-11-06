@@ -128,7 +128,7 @@ function generateTable(usecase: Usecase) {
 
 let result: string = '';
 for (const e of scenarios) {
-    result += generateTable(e) + '\n';
+    result += generateTable(e) + '\n<br>';
 }
 
 if (!fs.existsSync('out')) {
