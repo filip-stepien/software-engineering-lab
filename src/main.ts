@@ -1,6 +1,8 @@
 import fs from 'fs';
-import { scenarios } from './scenariusze';
+import scenariosEN from './scenarios';
+import scenariosPL from './scenariusze';
 import { Usecase, FlowItem } from './usecase.js';
+
 
 function generateTable(usecase: Usecase) {
     // Destructure the scenario object for easy access to properties
@@ -125,13 +127,16 @@ function generateTable(usecase: Usecase) {
         </table>
     `;
 }
-
-let result: string = '';
-for (const e of scenarios) {
-    result += generateTable(e) + '\n<br>';
+const process = (data: Array<Usecase>,name:string) => {
+    let result: string = '';
+    for (const e of data) {
+        result += generateTable(e) + '\n<br>';
+    }
+    
+    if (!fs.existsSync('out')) {
+        fs.mkdirSync('out');
+    }
+    fs.writeFileSync(`out/${name}tabelki.html`, result);
 }
-
-if (!fs.existsSync('out')) {
-    fs.mkdirSync('out');
-}
-fs.writeFileSync('out/tabelki.html', result);
+process(scenariosEN, "en")
+process(scenariosPL, "pl")

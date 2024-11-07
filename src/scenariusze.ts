@@ -1,6 +1,6 @@
 import { Usecase } from './usecase.js';
 
-export const scenarios: Array<Usecase> = [
+const scenarios: Array<Usecase> = [
     {
         author: {
             name: 'Filip',
@@ -1267,3 +1267,5 @@ export const scenarios: Array<Usecase> = [
         ],
     },
 ];
+
+export default scenarios;
