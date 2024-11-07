@@ -1,4 +1,4 @@
-type Actor = 'pracownik' | 'kierownik' | 'klient' | 'trener' | 'brak';
+type Actor = 'pracownik' | 'kierownik' | 'klient' | 'trener' | 'brak'| 'client'| 'employee'|'trainer' |'manager'|'none';
 
 export interface Author {
     name: string;
