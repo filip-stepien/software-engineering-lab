@@ -602,7 +602,7 @@ export const scenarios: Array<Usecase> = [
             },
             {
                 num: 7,
-                text: 'Jeśli konserwacja nie została zakończona pomyślnie, POWRÓT DO 6, aby kontynuować prace',
+                text: 'Jeśli konserwacja nie została zakończona pomyślnie, POWRÓT DO 6',
             },
         ],
     },
@@ -993,11 +993,11 @@ export const scenarios: Array<Usecase> = [
         alternateFlow: [
             {
                 num: 9,
-                text: 'Wybrany termin zajęć jest zajęty lub sala jest niedostępna. POWRÓT DO 5, aby wybrać inną salę lub termin',
+                text: 'Wybrany termin zajęć jest zajęty lub sala jest niedostępna. POWRÓT DO 5',
             },
             {
                 num: 9,
-                text: 'Formularz zawiera błędy (np. niekompletne informacje). POWRÓT DO 4, aby uzupełnić brakujące dane',
+                text: 'Formularz zawiera błędy (np. niekompletne informacje). POWRÓT DO 4',
             },
         ],
     },
@@ -1059,7 +1059,7 @@ export const scenarios: Array<Usecase> = [
         alternateFlow: [
             {
                 num: 6,
-                text: 'Trener anuluje odwołanie, wybierając Nie. POWRÓT DO 2, bez zmian w kalendarzu zajęć',
+                text: 'Trener anuluje odwołanie, wybierając Nie. POWRÓT DO 2',
             },
         ],
     },
@@ -1118,7 +1118,7 @@ export const scenarios: Array<Usecase> = [
         alternateFlow: [
             {
                 num: 6,
-                text: 'Wybrana sala jest niedostępna. POWRÓT DO 5, aby wybrać inną salę',
+                text: 'Wybrana sala jest niedostępna. POWRÓT DO 5',
             },
         ],
     },
@@ -1192,7 +1192,7 @@ export const scenarios: Array<Usecase> = [
             },
             {
                 num: 8,
-                text: 'Wiadomość jest pusta lub zawiera niedozwolone treści. POWRÓT DO 7, aby poprawić treść wiadomości',
+                text: 'Wiadomość jest pusta lub zawiera niedozwolone treści. POWRÓT DO 7',
             },
         ],
     },
@@ -1262,7 +1262,7 @@ export const scenarios: Array<Usecase> = [
             },
             {
                 num: 8,
-                text: 'Klient nie ma dostępnych danych w systemie. POWRÓT DO 7, aby wybrać innego klienta',
+                text: 'Klient nie ma dostępnych danych w systemie. POWRÓT DO 7',
             },
         ],
     },
