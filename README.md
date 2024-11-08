@@ -1,5 +1,15 @@
 # Inżyniera oprogramowania
 
+## Poprawki
+
+### Filip
+1. logowanie, login/hasło
+2. dostęp do systemu
+3. powrót
+4. klient musi istnieć w systemie, informacja zwrotna
+5. -||- 
+6. Nieudane logowanie komunikat, liczba prób
+
 ## Temat
 
 Temat projektu to system do obsługi siłowni.
