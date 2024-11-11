@@ -1,0 +1,36 @@
+@startuml
+|s| System
+|t| Trener
+
+start
+floating note left: Trener zalogowany w systemie
+:przejście do sekcji Organizacja zajęć w systemie;
+|s|
+:Wyświetlenie opcji Dodaj nowe zajęcia;
+|t|
+:Wybór opcji Dodaj nowe zajęcia;
+repeat
+    |s|
+    :Wyświetlenie formularza, do podania szczegółów;
+    |t|
+    :Wybranie opcji Rezerwacja Sali;
+    repeat
+        repeat
+            |s|
+            :Wyświetlenie dostępnych sal;
+            |t|
+            :Wybór sali;
+        repeat while (Potwierdzenie wyboru?) is (nie) not (tak)
+        :Wybranie opcji zapisz formularz;
+        |s|
+        :Sprawdzenie poprawności danych;
+    repeat while (Wolny termin i dostępna sala?) is (nie) not (tak)
+repeat while (Formularz nie zawiera błędów?) is (nie) not (tak)
+:Dodanie nowych zajęć do kalendarza i udostępnienie klientom;
+:Generacja potwierdzenia utworzenia zajęć;
+
+stop
+floating note left: Zajęcia dodane do kalendarza i są dostępne dla klientów
+
+
+@enduml

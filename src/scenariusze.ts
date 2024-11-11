@@ -926,7 +926,6 @@ const scenarios: Array<Usecase> = [
             },
         ],
     },
-    //Dotychczas autor filip, zmiana na damian
     {
         author: {
             name: 'Damian',
@@ -1120,6 +1119,10 @@ const scenarios: Array<Usecase> = [
                 num: 6,
                 text: 'Wybrana sala jest niedostępna. POWRÓT DO 5',
             },
+            {
+                num: 6,
+                text: 'Trener nie potwierdza zmiany. POWRÓT DO 5',
+            },
         ],
     },
     {
@@ -1133,7 +1136,7 @@ const scenarios: Array<Usecase> = [
         usecase: 'Kontakt Trenera z Klientem',
         preconditions: [
             'Trener jest zalogowany w systemie',
-            'Klient jest zalogowany w systemie',
+            'Klient istnieje w systemie',
         ],
         postconditions: [
             'Wiadomość trenera dociera do klienta, a klient ma możliwość odpowiedzieć',
@@ -1207,7 +1210,7 @@ const scenarios: Array<Usecase> = [
         usecase: 'Analiza postępów Klienta przez Trenera',
         preconditions: [
             'Trener jest zalogowany w systemie',
-            'Klient jest zalogowany w systemie',
+            'Klient istnieje w systemie',
         ],
         postconditions: [
             'Trener ma dostęp do szczegółowych statystyk postępów klienta',
