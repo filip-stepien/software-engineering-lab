@@ -1,6 +1,5 @@
 @startuml
 
-title Kontakt Trenera z Klientem : Damian Karwat
 |s| System
 |t| Trener
 start

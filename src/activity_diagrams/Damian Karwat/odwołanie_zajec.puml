@@ -1,6 +1,5 @@
 @startuml
 
-title Odwołanie zajęć przez trenera : Damian Karwat
 |s| System
 |t| Trener
 start

@@ -1,6 +1,5 @@
 @startuml
 
-title Analiza postępów Klienta przez Trenera : Damian Karwat
 |s| System
 |t| Trener
 start

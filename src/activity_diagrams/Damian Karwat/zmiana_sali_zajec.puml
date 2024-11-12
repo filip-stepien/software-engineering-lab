@@ -1,6 +1,5 @@
 @startuml
 
-title Zmiana sali dla zaplanowanych zajęć przez trenera : Damian Karwat
 |s| System
 |t| Trener
 start

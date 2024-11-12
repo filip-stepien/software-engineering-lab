@@ -1,6 +1,5 @@
 @startuml
 
-title Organizacja zajęć przez trenera : Damian Karwat
 |s| System
 |t| Trener
 start
