@@ -1198,7 +1198,7 @@ const scenarios: Array<Usecase> = [
                 text: 'Brak zapisanych klientów na zajęciach. POWRÓT DO 2',
             },
             {
-                num: 8,
+                num: 9,
                 text: 'Wiadomość jest pusta lub zawiera niedozwolone treści. POWRÓT DO 7',
             },
         ],

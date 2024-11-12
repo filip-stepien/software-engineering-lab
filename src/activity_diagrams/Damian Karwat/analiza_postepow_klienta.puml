@@ -1,27 +1,32 @@
 @startuml
 
-title Odwołanie zajęć przez trenera : Damian Karwat
+title Analiza postępów Klienta przez Trenera : Damian Karwat
 |s| System
 |t| Trener
 start
 floating note left: Trener zalogowany w systemie
-floating note left: W systemie istnieją zaplanowane zajęcia
+floating note left: W systemie istnieje Klient
 :przejście do sekcji Organizacja zajęć w systemie;
-repeat
-    |s|
-    :Wyświetlenie kalendarza zajęć;
-    |t|
-    :Wybór zajęć do odwołania;
-    :Wybranie opcji odwołaj zajęcia;
-    |s|
-    :Wyświetlenie okna potwierdzenia;
-    |t|
-repeat while (Potwierdzenie wyboru?) is (nie) not (tak)
 |s|
-:Usunięcie zajęć z kalendarza;
-:Wysłanie powiadomienia o odwołaniu zajęć do klientów;
-:Wygenerowanie potwierdzenia odwołania zajęć;
+:Wyświetlenie kalendarza zajęć;
+|t|
+:Wybór zajęć;
+repeat:
+    :Wybranie opcji lista zapisanych Klientów;
+    |s|
+repeat while (Czy na liście istnieje chociaż jeden Klient?) is (nie) not (tak)
+:Wyświetlenie listy zapisanych Klientów;
+|t|
+:Wybranie jednego z Klientów;
+repeat
+|s|
+:Wyświetlenie profilu Klienta;
+|t|
+:Wybór opcji statystyki Klienta;
+|s|
+repeat while (Dane na temat postępów Klienta znajdują się w systemie?) is (nie) not (tak)
+:Wyświetlenie danych i statystyk Klienta;
 stop
-floating note left: Zajęcia usunięte z kalendarza, powiadomienie wysłane do klientów
+floating note left: Uzyskany dostęp do szczegółowych statystyk postępów klienta
 
 @enduml

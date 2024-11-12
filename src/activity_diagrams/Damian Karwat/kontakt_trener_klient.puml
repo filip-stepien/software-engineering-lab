@@ -1,27 +1,37 @@
 @startuml
 
-title Odwołanie zajęć przez trenera : Damian Karwat
+title Kontakt Trenera z Klientem : Damian Karwat
 |s| System
 |t| Trener
 start
 floating note left: Trener zalogowany w systemie
-floating note left: W systemie istnieją zaplanowane zajęcia
+floating note left: W systemie istnieje Klient
 :przejście do sekcji Organizacja zajęć w systemie;
-repeat
-    |s|
-    :Wyświetlenie kalendarza zajęć;
-    |t|
-    :Wybór zajęć do odwołania;
-    :Wybranie opcji odwołaj zajęcia;
-    |s|
-    :Wyświetlenie okna potwierdzenia;
-    |t|
-repeat while (Potwierdzenie wyboru?) is (nie) not (tak)
 |s|
-:Usunięcie zajęć z kalendarza;
-:Wysłanie powiadomienia o odwołaniu zajęć do klientów;
-:Wygenerowanie potwierdzenia odwołania zajęć;
+:Wyświetlenie kalendarza zajęć;
+|t|
+:Wybór zajęć;
+repeat:
+    :Wybranie opcji lista zapisanych Klientów;
+    |s|
+repeat while (Czy na liście istnieje chociaż jeden Klient?) is (nie) not (tak)
+:Wyświetlenie listy zapisanych Klientów;
+|t|
+:Wybranie jednego z Klientów;
+|s|
+:Wyświetlenie profilu Klienta;
+|t|
+:Wybór opcji napisania wiadomości do Klienta;
+repeat
+    :Wpisanie treści wiadomości;
+    :Wybór przycisku Wyślij;
+    |s|
+backward: Informacja zwrotna do trenera;
+repeat while (Wiadomość pusta lub zawiera niedozwolone treści?) is (tak) not (nie)
+|s|
+:Wysłanie wiadomości do klienta;
+:Wygenerowanie potwierdzenia wysłania wiadomości;
 stop
-floating note left: Zajęcia usunięte z kalendarza, powiadomienie wysłane do klientów
+floating note left: Wiadomość od Trenera dociera do Klienta, który ma możliwość na nią odpowiedzieć
 
 @enduml
