@@ -365,7 +365,10 @@ const scenarios: Array<Usecase> = [
         },
         language: 'Polish',
         usecase: 'Rejestracja pracownika',
-        preconditions: ['Pracownik nie jest jeszcze zarejestrowany w systemie'],
+        preconditions: [
+            'Pracownik nie jest jeszcze zarejestrowany w systemie',
+            'Kierownik jest zalogownay',
+        ],
         postconditions: ['Dodanie pracownika do systemu'],
         actors: ['kierownik'],
         mainFlow: [
@@ -395,7 +398,7 @@ const scenarios: Array<Usecase> = [
             },
             {
                 num: 7,
-                text: 'System wyświetla potwierdzenie',
+                text: 'System wyświetla potwierdzenie oraz dane logowania dla pracownika',
             },
         ],
         alternateFlow: [
@@ -414,13 +417,16 @@ const scenarios: Array<Usecase> = [
         },
         language: 'Polish',
         usecase: 'Edytowanie danych pracownika',
-        preconditions: ['Pracownik musi być zarejestrowany w systemie'],
+        preconditions: [
+            'Pracownik musi być zarejestrowany w systemie',
+            'Kierownik jest zalogowoany',
+        ],
         postconditions: ['Zmodyfikowane dane pracownika w systemie'],
         actors: ['kierownik', 'pracownik'],
         mainFlow: [
             {
                 num: 1,
-                text: 'Pracownik zwraca się do menedżera o modyfikację danych na karnecie',
+                text: 'Pracownik zwraca się do menedżera o modyfikację danych',
             },
             {
                 num: 2,
@@ -487,7 +493,7 @@ const scenarios: Array<Usecase> = [
         },
         language: 'Polish',
         usecase: 'Usunięcie pracownika z systemu',
-        preconditions: ['Pracownik musi być zarejestrowany w systemie'],
+        preconditions: ['Pracownik musi być zarejestrowany w systemie', 'Menadżer musi być zalogowany'],
         postconditions: ['Konto pracownika usunięte z systemu'],
         actors: ['kierownik'],
         mainFlow: [
@@ -541,6 +547,10 @@ const scenarios: Array<Usecase> = [
                 num: 4,
                 text: 'Pracownik nie został znaleziony. POWRÓT DO 2',
             },
+            {
+                num: 9,
+                text: 'Menadżer nie zatwierda END FLOW',
+            },
         ],
     },
     {
@@ -564,45 +574,37 @@ const scenarios: Array<Usecase> = [
         mainFlow: [
             {
                 num: 1,
-                text: 'Pracownik loguje się do systemu',
-            },
-            {
-                num: 2,
                 text: 'Pracownik przechodzi do sekcji Kalendarz konserwacji',
             },
             {
-                num: 3,
+                num: 2,
                 text: 'System wyświetla kalendarz z zaplanowanymi konserwacjami sal',
             },
             {
-                num: 4,
+                num: 3,
                 text: 'Pracownik wybiera salę, która wymaga konserwacji',
             },
             {
-                num: 5,
+                num: 4,
                 text: 'System wyświetla szczegóły zaplanowanej konserwacji, w tym termin i zakres prac',
             },
             {
-                num: 6,
+                num: 5,
                 text: "Pracownik rozpoczyna konserwację sali, wybierając opcję 'Rozpocznij konserwację'",
             },
             {
-                num: 7,
+                num: 6,
                 text: "Po zakończeniu prac, pracownik wybiera opcję 'Zakończ konserwację'",
             },
             {
-                num: 8,
+                num: 7,
                 text: 'System wyświetla potwierdzenie zakończenia konserwacji dla pracownika',
             },
         ],
         alternateFlow: [
             {
-                num: 4,
-                text: 'Jeśli termin konserwacji minął lub nie ma zaplanowanej konserwacji dla wybranej sali, POWRÓT DO 2',
-            },
-            {
-                num: 7,
-                text: 'Jeśli konserwacja nie została zakończona pomyślnie, POWRÓT DO 6',
+                num: 3,
+                text: 'Jeśli termin konserwacji minął lub nie ma zaplanowanej konserwacji dla wybranej sali, END FLOW',
             },
         ],
     },
