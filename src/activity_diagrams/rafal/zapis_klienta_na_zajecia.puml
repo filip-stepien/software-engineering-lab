@@ -1,0 +1,19 @@
+@startuml
+|s| system
+|k| klient
+start
+floating note left: Klient zalogowany w systemie
+floating note left: W systemie istnieją zaplanowane zajęcia
+:Wybór ekranu z zajęciami;
+|s|
+:Wyświetl kalendarz z zaploanowanymi zajęciami;
+|k|
+repeat 
+:Wybór zajęć;
+:Wybierz opcję zapisz się;
+|s|
+repeat while (Czy są wolne miejsca?) is (nie) not (tak)
+:Zapisz klienta na zajęcia;
+:wyświetl potwierdzenie zapisu na zajęcia;
+floating note left: Kleint przypisany do zajęć
+@enduml
