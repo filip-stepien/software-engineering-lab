@@ -716,7 +716,10 @@ const scenarios: Array<Usecase> = [
             },
         ],
         alternateFlow: [
-            { num: 6, text: 'The selected room is unavailable. RETURN TO 5' },
+            {
+                num: 6,
+                text: 'No available rooms for chosen day and time. RETUTN TO 2',
+            },
             { num: 6, text: "Trainer doesn't confirm the change. RETURN TO 5" },
         ],
     },

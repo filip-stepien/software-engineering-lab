@@ -1,0 +1,33 @@
+@startuml
+
+title Zmiana sali dla zaplanowanych zajęć przez trenera : Damian Karwat
+|s| System
+|t| Trener
+start
+floating note left: Trener zalogowany w systemie
+floating note left: W systemie istnieją zaplanowane zajęcia
+:przejście do sekcji Organizacja zajęć w systemie;
+repeat
+    repeat
+        |s|
+        :Wyświetlenie kalendarza zajęć;
+        |t|
+        :Wybór zajęć do zmiany sali;
+        :Wybranie opcji zmiana sali;
+        |s|
+    repeat while (Istnieją dostępne sale w tym terminie?) is (nie) not (tak)
+    :Wyświetlenie listy dostępnych sal;
+    |t|
+    :Wybranie dostępnej sali;
+    |s|
+    :Wyświetlenie okna potwierdzenia;
+    |t|
+repeat while (Potwierdzenie wyboru?) is (nie) not (tak)
+|s|
+:Zmiana sali dla zaplanowanch zajęć;
+:Wysłanie powiadomienia o zmianie do klientów;
+:Wygenerowanie potwierdzenia zmiany;
+stop
+floating note left: Sala na zajęcia zmieniona, powiadomienie wysłane do klientów
+
+@enduml

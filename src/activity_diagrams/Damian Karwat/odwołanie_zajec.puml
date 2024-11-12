@@ -1,0 +1,27 @@
+@startuml
+
+title Odwołanie zajęć przez trenera : Damian Karwat
+|s| System
+|t| Trener
+start
+floating note left: Trener zalogowany w systemie
+floating note left: W systemie istnieją zaplanowane zajęcia
+:przejście do sekcji Organizacja zajęć w systemie;
+repeat
+    |s|
+    :Wyświetlenie kalendarza zajęć;
+    |t|
+    :Wybór zajęć do odwołania;
+    :Wybranie opcji odwołaj zajęcia;
+    |s|
+    :Wyświetlenie okna potwierdzenia;
+    |t|
+repeat while (Potwierdzenie wyboru?) is (nie) not (tak)
+|s|
+:Usunięcie zajęć z kalendarza;
+:Wysłanie powiadomienia o odwołaniu zajęć do klientów;
+:Wygenerowanie potwierdzenia odwołania zajęć;
+stop
+floating note left: Zajęcia usunięte z kalendarza, powiadomienie wysłane do klientów
+
+@enduml

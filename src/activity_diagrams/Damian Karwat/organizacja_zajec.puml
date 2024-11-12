@@ -1,9 +1,11 @@
 @startuml
+
+title Organizacja zajęć przez trenera : Damian Karwat
 |s| System
 |t| Trener
-
 start
 floating note left: Trener zalogowany w systemie
+floating note left: Dostępna jest sala do zarezerwowania
 :przejście do sekcji Organizacja zajęć w systemie;
 |s|
 :Wyświetlenie opcji Dodaj nowe zajęcia;
@@ -13,6 +15,7 @@ repeat
     |s|
     :Wyświetlenie formularza, do podania szczegółów;
     |t|
+    :Wpisanie szczegółów;
     :Wybranie opcji Rezerwacja Sali;
     repeat
         repeat
@@ -27,10 +30,8 @@ repeat
     repeat while (Wolny termin i dostępna sala?) is (nie) not (tak)
 repeat while (Formularz nie zawiera błędów?) is (nie) not (tak)
 :Dodanie nowych zajęć do kalendarza i udostępnienie klientom;
-:Generacja potwierdzenia utworzenia zajęć;
-
+:Wygenerowanie potwierdzenia utworzenia zajęć;
 stop
 floating note left: Zajęcia dodane do kalendarza i są dostępne dla klientów
-
 
 @enduml

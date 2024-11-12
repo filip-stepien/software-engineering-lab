@@ -991,6 +991,10 @@ const scenarios: Array<Usecase> = [
         ],
         alternateFlow: [
             {
+                num: 7,
+                text: 'Trener nie potwierdza rezerwacji sali. POWRÓT DO 6',
+            },
+            {
                 num: 9,
                 text: 'Wybrany termin zajęć jest zajęty lub sala jest niedostępna. POWRÓT DO 5',
             },
@@ -1116,8 +1120,8 @@ const scenarios: Array<Usecase> = [
         ],
         alternateFlow: [
             {
-                num: 6,
-                text: 'Wybrana sala jest niedostępna. POWRÓT DO 5',
+                num: 5,
+                text: 'Brak dostępnych sal w tym terminie. POWRÓT DO 2',
             },
             {
                 num: 6,
