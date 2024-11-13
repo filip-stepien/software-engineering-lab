@@ -1,0 +1,34 @@
+@startuml "usunięcie pracownika z systemu"
+title "usunięcie pracownika z systemu"
+|s| system
+|k| kireownik
+start
+|k|
+floating note left: kierownik musi być zarejetrowany
+floating note left: pracownik musi istnieć w syastemie zarejetrowany
+:wybierz opcję wyświelt pracowników;
+|s|
+:wyświetl listę pracowników;
+repeat
+|k|
+:wyszukaj pracownka;
+|s|
+:wyświetl opcje pasujące do wyszukiwania;
+repeat while (znaleziono pracownika) is (nie) not (tak)
+|k|
+:wybierz konto pracownika;
+|s|
+:wyświetl dane pracownika;
+|k|
+:wybierz opcję usuń pracownika;
+|s|
+:wyświetl okno potwierdzenia;
+|k|
+if (zatwierdź opcję) then (tak)
+|s|
+:usuń konto pracownika;
+:wyświetl powierdzenie opracji;
+else (nie)
+endif
+stop
+@enduml

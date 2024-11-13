@@ -1,0 +1,31 @@
+@startuml "Edytowanie danych pracownika"
+title "Edytowanie danych pracownika"
+|p| pracownik
+|k| kierownik
+|s| system
+|p|
+start
+floating note left: Pracowik jest zarejestrowany w systemie
+floating note left: Kierownik jest zalogowany
+:żądanie zmiany danych;
+|k|
+:wybór opcji wyświetl pracowników;
+|s|
+repeat
+:wyświetl listę pracowników;
+|k|
+:wyszukaj pracownika;
+|s|
+:wyśwtiel opcje pasujące do wyszukiwania;
+repeat while (pracownik został znaleźiony) is (nie) not (tak)
+|k|
+:wybierz pracownika;
+repeat
+:edytuj dane;
+:wybierz opcję zapisz;
+|s|
+repeat while (czy dane mają poprawny format) is (nie) not (tak);
+:modyfikuj dane pracownika;
+:wyświetl potwierdzenie operacji;
+floating note left: Zmodyfikowane dane pracownika w systemie
+stop

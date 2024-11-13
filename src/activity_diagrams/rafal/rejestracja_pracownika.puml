@@ -1,0 +1,18 @@
+@startuml
+title "rejestraca pracownika"
+|s| system
+|k| kierownik
+start
+|k|
+floating note left: Pracowik nie jest jeszcze zarejestrowany w systemie
+floating note left: Kierownik jest zalogowany
+:wybór opcji dodaj pracownika;
+repeat
+:Wprowadź dane pracownika;
+:Wyóbr opcji dodaj;
+|s|
+repeat while (Czy danych jest prawidłowy?) is (nie) not (tak)
+:dodaj pracownika;
+:wyświetl potwierdzenie oraz dane logowania dla pracownika;
+stop
+@enduml

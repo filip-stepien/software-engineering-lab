@@ -1,4 +1,5 @@
 @startuml
+title "Zapis klienta na zajęcia"
 |s| system
 |k| klient
 start
@@ -16,4 +17,5 @@ repeat while (Czy są wolne miejsca?) is (nie) not (tak)
 :Zapisz klienta na zajęcia;
 :wyświetl potwierdzenie zapisu na zajęcia;
 floating note left: Kleint przypisany do zajęć
+stop
 @enduml
