@@ -641,7 +641,10 @@ const scenarios: Array<Usecase> = [
         },
         language: 'Polish',
         usecase: 'Zamknięcie sali',
-        preconditions: ['Sala musi istnieć w systemie'],
+        preconditions: [
+            'Sala musi istnieć w systemie',
+            'Menedzer musi być zalogowany w systemie'
+        ],
         postconditions: ["Status sali ustawiony na 'zamknięta'"],
         actors: ['kierownik'],
         mainFlow: [
@@ -697,8 +700,13 @@ const scenarios: Array<Usecase> = [
             },
             {
                 num: 5,
-                text: "Sala ma już status 'zamknięta'. POWRÓT DO 6"
+                text: "Opcja nie została zatwierdzona END FLOW"
+            },
+            {
+                num: 6,
+                text: "Sala ma już status 'zamknięta' END FLOW"
             }
+            
         ]
     },
     {
@@ -710,7 +718,10 @@ const scenarios: Array<Usecase> = [
         },
         language: 'Polish',
         usecase: 'Otwarcie sali',
-        preconditions: ['Sala musi istnieć w systemie'],
+        preconditions: [
+            'Sala musi istnieć w systemie',
+            'Menedzer musi być zalogowany do systemu'
+        ],
         postconditions: ["Status sali ustawiony na 'otwarta'"],
         actors: ['kierownik'],
         mainFlow: [
@@ -779,7 +790,7 @@ const scenarios: Array<Usecase> = [
         },
         language: 'Polish',
         usecase: 'Tworzenie raportu o przeprowadzonych zajęciach',
-        preconditions: ['brak'],
+        preconditions: ['Pracownik musi być zalogowany do systemu'],
         postconditions: ['Utworzenie pliku z raportem o przeprowadzonych zajęciach treningowych'],
         actors: ['kierownik'],
         mainFlow: [
@@ -840,7 +851,7 @@ const scenarios: Array<Usecase> = [
         },
         language: 'Polish',
         usecase: 'Tworzenie raportu sprzedażowego',
-        preconditions: ['brak'],
+        preconditions: ['Pracownik musi być zalogowany do systemu'],
         postconditions: ['Utworzenie pliku z raportem sprzedaży karnetów'],
         actors: ['kierownik'],
         mainFlow: [
