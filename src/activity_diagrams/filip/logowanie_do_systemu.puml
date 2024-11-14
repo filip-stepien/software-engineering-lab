@@ -1,0 +1,30 @@
+@startuml "Logowanie do systemu"
+title "Logowanie do systemu"
+
+|u| użytkownik
+|s| system
+
+|u|
+start
+floating note left: Użytkownik musi istnieć w systemie
+:Przejście do ekranu logowania;
+
+|s|
+repeat
+backward: Wyświetlenie komunikatu o błędzie;
+:Wyświetlenie formularza logowania;
+
+|u|
+:Wpisanie danych logowania;
+:Wybór opcji "Zaloguj";
+
+|s|
+:Sprawdzenie czy istnieje użytkownik z podanym hasłem;
+repeat while (Użytkownik istnieje?) is (nie) not (tak)
+:Utworzenie sesji użytkownika;
+:Wyświetlenie ekranu startowego;
+
+stop
+floating note left: Utworzona sesja użytkownika
+
+@enduml
