@@ -1,5 +1,5 @@
 @startuml
-
+title "Konserwacja sali"
 |s|system
 |p|pracownik
 floating note left
