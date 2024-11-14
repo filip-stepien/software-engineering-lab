@@ -1,0 +1,31 @@
+@startuml
+
+|s|system
+|p|pracownik
+floating note left
+    - Pracownik jest zalogowany w systemie
+    - Jest zaplanowana konserwacja sali
+end note
+start
+:Przejdź do sekcji kalendarz konserwacji;
+|s|
+:wyświetl kalendarz z zaplanowanymi konsweracjami;
+|p|
+:wybierz salę;
+|s|
+if ("czy wybra sala wymaga konseracji") then (tak)
+:wyświetl szczegóły zaplanowanej konserwacji;
+|p|
+:wybierz opcję rozpocznij konswewację;
+:Po zakończeniu prac wybierz opcję zakończ konserwację;
+floating note left: pracownik może dodać notatkę\n co do zrealizowanych czynności;
+|s|
+:wyświetl potwierdzenie zakończenia;
+endif
+
+floating note left
+    Sala została poddana konserwacji
+    Pracownik otrzymał potwierdzenie wykonania konserwacji
+end note
+
+@enduml

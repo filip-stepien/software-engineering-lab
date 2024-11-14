@@ -29,3 +29,4 @@ repeat while (czy dane mają poprawny format) is (nie) not (tak);
 :wyświetl potwierdzenie operacji;
 floating note left: Zmodyfikowane dane pracownika w systemie
 stop
+@enduml
