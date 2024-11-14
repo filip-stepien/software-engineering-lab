@@ -19,7 +19,7 @@ backward: Wyświetlenie komunikatu o błędzie;
 :Wybór opcji "Zaloguj";
 
 |s|
-:Sprawdzenie czy istnieje użytkownik z podanym hasłem;
+:Sprawdzenie czy istnieje użytkownik z podanym loginem i hasłem;
 repeat while (Użytkownik istnieje?) is (nie) not (tak)
 :Utworzenie sesji użytkownika;
 :Wyświetlenie ekranu startowego;

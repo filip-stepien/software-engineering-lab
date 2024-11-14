@@ -13,10 +13,9 @@ floating note left: Pracownik musi być zalogowany w systemie
 |p|
 :Wybór opcji "Nowy karnet";
 
-repeat
-repeat
-
 |s|
+repeat
+repeat
 :Wyświetlenie formularza;
 
 |p|
@@ -40,5 +39,4 @@ repeat while (Metoda płatnicza dostępna?) is (nie) not (tak)
 
 stop
 floating note left: Utworzenie karnetu identyfikującego użytkownika
-
 @enduml
