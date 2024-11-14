@@ -10,7 +10,7 @@ floating note left: W systemie istnieje Klient
 :Wyświetlenie kalendarza zajęć;
 |t|
 :Wybór zajęć;
-repeat:
+repeat
 :Wybranie opcji lista zapisanych Klientów;
 |s|
 repeat while (Czy na liście istnieje chociaż jeden Klient?) is (nie) not (tak)
