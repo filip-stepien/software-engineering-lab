@@ -496,44 +496,43 @@
     </article>
 
     <article id="use-case-scenarios-polish">
-        <h4>Scenariusze przypadków użycia</h4>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Filip</td>
+                    <td style="width: 15cm;">Filip</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Stępień</td>
+                    <td style="width: 15cm;">Stępień</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">System zarządzania siłownią</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Wykupienie karnetu</td>
+                    <td style="width: 15cm;">Wykupienie karnetu</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">Polish</td>
+                    <td style="width: 15cm;">Polish</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>brak</li>
+                            <li>Pracownik musi być zalogowany w systemie</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Utworzenie karnetu identyfikującego użytkownika</li>
                         </ul>
@@ -541,7 +540,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>klient</li>
                             <li>pracownik</li>
@@ -550,28 +549,32 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Klient zwraca się do pracownika o utworzenie karnetu</li>
                             <li>Pracownik wybiera opcję `Nowy karnet`</li>
                             <li>System wyświetla formularz do utworzenia karnetu</li>
-                            <li>
-                                Pracownik wprowadza dane personalne, płatnicze i kontaktowe
-                                klienta do formularza
-                            </li>
-                            <li>Pracownik wybiera opcję `Zapisz`</li>
+                            <li>Pracownik wprowadza dane personalne, płatnicze i kontaktowe klienta do formularza</li>
+                            <li>Pracownik zatwierdza operację.</li>
                             <li>System sprawdza czy wprowadzone dane mają prawidłowy format</li>
                             <li>System sprawdza czy metoda płatncza jest dostępna</li>
                             <li>System tworzy nowy karnet</li>
                             <li>System pobiera opłatę</li>
+                            <li>System wysyła login i tymczasowe hasło dostępu do klienta.</li>
                             <li>System wyświetla potwierdzenie</li>
                         </ol>
                     </td>
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
+                            <li>
+                                <span class="number">5</span>
+                                <span class="condition">Pracownik wybiera opcje "Anuluj". END FLOW</span>
+                            </li>
+
                             <li>
                                 <span class="number">6</span>
                                 <span class="condition">Błędny format danych. POWRÓT DO 3</span>
@@ -581,50 +584,52 @@
                                 <span class="number">7</span>
                                 <span class="condition">Metoda płatnicza jest niedostępna. POWRÓT DO 3</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Filip</td>
+                    <td style="width: 15cm;">Filip</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Stępień</td>
+                    <td style="width: 15cm;">Stępień</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">System zarządzania siłownią</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Rezygnacja z karnetu</td>
+                    <td style="width: 15cm;">Rezygnacja z karnetu</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">Polish</td>
+                    <td style="width: 15cm;">Polish</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Musi istnieć karnet identyfikujący klienta</li>
+                            <li>Pracownik musi być zalogowany w systemie</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Karnet identyfikujący klienta usunięty z systemu</li>
                         </ul>
@@ -632,7 +637,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>klient</li>
                             <li>pracownik</li>
@@ -641,7 +646,7 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Klient zwraca się do pracownika o rezygnację z karnetu</li>
                             <li>Pracownik wybiera opcję `Wyświetl karnety`</li>
@@ -659,57 +664,63 @@
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">5</span>
                                 <span class="condition">Klient nie został znaleziony. POWRÓT DO 3</span>
                             </li>
+
+                            <li>
+                                <span class="number">9</span>
+                                <span class="condition">Pracownik wybiera opcję "Anuluj". END FLOW</span>
+                            </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Filip</td>
+                    <td style="width: 15cm;">Filip</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Stępień</td>
+                    <td style="width: 15cm;">Stępień</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">System zarządzania siłownią</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Przedłużenie karnetu</td>
+                    <td style="width: 15cm;">Przedłużenie karnetu</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">Polish</td>
+                    <td style="width: 15cm;">Polish</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>Klient musi być zalogowany w systemie</li>
                             <li>Musi istnieć karnet identyfikujący klienta</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Przedłużona data karnetu</li>
                         </ul>
@@ -717,7 +728,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>brak</li>
                         </ul>
@@ -725,72 +736,78 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>System sprawdza datę ważności karnetów użytkowników</li>
                             <li>System odnajduje nieważny karnet</li>
-                            <li>
-                                System sprawdza czy metoda płatnicza do odnowienia karnetu jest
-                                dostępna
-                            </li>
+                            <li>System sprawdza czy metoda płatnicza do odnowienia karnetu jest dostępna</li>
                             <li>System odnawia karnet</li>
                             <li>System pobiera opłatę</li>
+                            <li>System generuje informację zwrotną dla klienta</li>
                         </ol>
                     </td>
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
+                            <li>
+                                <span class="number">2</span>
+                                <span class="condition">Nie znaleziono przedawnionego karnetu. END FLOW</span>
+                            </li>
+
                             <li>
                                 <span class="number">3</span>
-                                <span class="condition">Metoda płatnicza niedostępna. POWRÓT DO 1</span>
+                                <span class="condition">Metoda płatnicza niedostępna - unieważnienie karnetu. END
+                                    FLOW</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Filip</td>
+                    <td style="width: 15cm;">Filip</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Stępień</td>
+                    <td style="width: 15cm;">Stępień</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">System zarządzania siłownią</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Zmiana danych na karnecie</td>
+                    <td style="width: 15cm;">Zmiana danych na karnecie</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">Polish</td>
+                    <td style="width: 15cm;">Polish</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>Klient musi być zalogowany w systemie</li>
+                            <li>Pracownik musi być zalogowany w systemie</li>
                             <li>Musi istnieć karnet identyfikujący klienta</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Zmodyfikowane dane na karnecie użytkownika</li>
                         </ul>
@@ -798,7 +815,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>klient</li>
                             <li>pracownik</li>
@@ -807,11 +824,9 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
-                            <li>
-                                Klient zwraca się do pracownika o modyfikację danych na karnecie
-                            </li>
+                            <li>Klient zwraca się do pracownika o modyfikację danych na karnecie</li>
                             <li>Pracownik wybiera opcję `Wyświetl karnety`</li>
                             <li>System wyświetla listę karnetów</li>
                             <li>Pracownik wpisuje dane klienta do wyszukiwarki</li>
@@ -819,7 +834,7 @@
                             <li>Pracownik wybiera karnet z listy wynikowej</li>
                             <li>System wyświetla formularz z danymi</li>
                             <li>Pracownik edytuje dane w formularzu</li>
-                            <li>Pracownik wybiera opcję `Zapisz`</li>
+                            <li>Pracownik zatwierdza zmiany.</li>
                             <li>System sprawdza czy wprowadzone dane mają prawidłowy format</li>
                             <li>System modyfikuje dane karnetu</li>
                             <li>System generuje potwierdzenie operacji.</li>
@@ -828,53 +843,60 @@
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">5</span>
                                 <span class="condition">Klient nie został znaleziony. POWRÓT DO 3</span>
                             </li>
 
                             <li>
+                                <span class="number">9</span>
+                                <span class="condition">Pracownik wybiera opcję "Anuluj". END FLOW</span>
+                            </li>
+
+                            <li>
                                 <span class="number">10</span>
                                 <span class="condition">Nieprawidłowy format danych. POWRÓT DO 7</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Filip</td>
+                    <td style="width: 15cm;">Filip</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Stępień</td>
+                    <td style="width: 15cm;">Stępień</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">System zarządzania siłownią</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Logowanie do systemu</td>
+                    <td style="width: 15cm;">Logowanie do systemu</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">Polish</td>
+                    <td style="width: 15cm;">Polish</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Użytkownik musi istnieć w systemie</li>
                         </ul>
@@ -882,7 +904,7 @@
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Utworzona sesja użytkownika</li>
                         </ul>
@@ -890,7 +912,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>klient</li>
                             <li>pracownik</li>
@@ -901,13 +923,13 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Użytkownik przechodzi do ekranu logowania</li>
                             <li>System wyświetla formularz logowania</li>
                             <li>Użytkownik wpisuje dane logowania</li>
                             <li>Użytkownik wybiera opcję `Zaloguj`</li>
-                            <li>System sprawdza czy użytkownik istnieje</li>
+                            <li>System sprawdza czy istnieje użytkownik z podanym logiem i hasłem</li>
                             <li>System tworzy sesję użytkownika</li>
                             <li>System wyświetla ekran startowy</li>
                         </ol>
@@ -915,49 +937,51 @@
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">5</span>
-                                <span class="condition">Użytkownik nie został znaleziony. POWRÓT DO 2</span>
+                                <span class="condition">Błędne dane logowania - system wyświetla komunikat o błędzie.
+                                    POWRÓT DO 2</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
-
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Rafał</td>
+                    <td style="width: 15cm;">Rafał</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Grot</td>
+                    <td style="width: 15cm;">Grot</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">System zarządzania siłownią</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Zapis klienta na zajęcia</td>
+                    <td style="width: 15cm;">Zapis klienta na zajęcia</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">Polish</td>
+                    <td style="width: 15cm;">Polish</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Klient zalogowany w systemie</li>
                             <li>W systemie istnieją zaplanowane zajęcia</li>
@@ -966,7 +990,7 @@
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Klient przypisany do zajęć</li>
                         </ul>
@@ -974,7 +998,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>klient</li>
                         </ul>
@@ -982,7 +1006,7 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Klient wybiera ekran z zajęciami</li>
                             <li>System wyświetla kalendarz z zaplanowanymi zajęciami</li>
@@ -997,56 +1021,59 @@
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">6</span>
                                 <span class="condition">Nie ma dostępnych miejsc. POWRÓT DO 2</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Rafał</td>
+                    <td style="width: 15cm;">Rafał</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Grot</td>
+                    <td style="width: 15cm;">Grot</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">System zarządzania siłownią</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Rejestracja pracownika</td>
+                    <td style="width: 15cm;">Rejestracja pracownika</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">Polish</td>
+                    <td style="width: 15cm;">Polish</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Pracownik nie jest jeszcze zarejestrowany w systemie</li>
+                            <li>Kierownik jest zalogownay</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Dodanie pracownika do systemu</li>
                         </ul>
@@ -1054,7 +1081,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>kierownik</li>
                         </ul>
@@ -1062,72 +1089,73 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Menedżer wybiera opcję `Dodaj pracownika`</li>
                             <li>System wyświetla formularz do rejestracji pracownika</li>
                             <li>Menedżer wprowadza dane pracownika</li>
                             <li>Menedżer wybiera opcję `Dodaj`</li>
-                            <li>
-                                System sprawdza, czy wprowadzone dane mają prawidłowy format
-                            </li>
+                            <li>System sprawdza, czy wprowadzone dane mają prawidłowy format</li>
                             <li>System dodaje pracownika do systemu</li>
-                            <li>System wyświetla potwierdzenie</li>
+                            <li>System wyświetla potwierdzenie oraz dane logowania dla pracownika</li>
                         </ol>
                     </td>
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">5</span>
                                 <span class="condition">Błędny format danych. POWRÓT DO 3</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Rafał</td>
+                    <td style="width: 15cm;">Rafał</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Grot</td>
+                    <td style="width: 15cm;">Grot</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">System zarządzania siłownią</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Edytowanie danych pracownika</td>
+                    <td style="width: 15cm;">Edytowanie danych pracownika</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">Polish</td>
+                    <td style="width: 15cm;">Polish</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Pracownik musi być zarejestrowany w systemie</li>
+                            <li>Kierownik jest zalogowoany</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Zmodyfikowane dane pracownika w systemie</li>
                         </ul>
@@ -1135,7 +1163,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>kierownik</li>
                             <li>pracownik</li>
@@ -1144,12 +1172,9 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
-                            <li>
-                                Pracownik zwraca się do menedżera o modyfikację danych na
-                                karnecie
-                            </li>
+                            <li>Pracownik zwraca się do menedżera o modyfikację danych</li>
                             <li>Menedżer wybiera opcję `Wyświetl pracowników`</li>
                             <li>System wyświetla listę pracowników</li>
                             <li>Menedżer wpisuje dane pracownika do wyszukiwarki</li>
@@ -1158,9 +1183,7 @@
                             <li>System wyświetla formularz z danymi</li>
                             <li>Menedżer edytuje dane w formularzu</li>
                             <li>Menedżer wybiera opcję `Zapisz`</li>
-                            <li>
-                                System sprawdza, czy wprowadzone dane mają prawidłowy format
-                            </li>
+                            <li>System sprawdza, czy wprowadzone dane mają prawidłowy format</li>
                             <li>System modyfikuje dane pracownika</li>
                             <li>System generuje potwierdzenie operacji</li>
                         </ol>
@@ -1168,8 +1191,9 @@
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">5</span>
                                 <span class="condition">Pracownik nie został znaleziony. POWRÓT DO 3</span>
@@ -1179,50 +1203,52 @@
                                 <span class="number">10</span>
                                 <span class="condition">Nieprawidłowy format danych. POWRÓT DO 7</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Rafał</td>
+                    <td style="width: 15cm;">Rafał</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Grot</td>
+                    <td style="width: 15cm;">Grot</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">System zarządzania siłownią</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Usunięcie pracownika z systemu</td>
+                    <td style="width: 15cm;">Usunięcie pracownika z systemu</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">Polish</td>
+                    <td style="width: 15cm;">Polish</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Pracownik musi być zarejestrowany w systemie</li>
+                            <li>Menadżer musi być zalogowany</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Konto pracownika usunięte z systemu</li>
                         </ul>
@@ -1230,7 +1256,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>kierownik</li>
                         </ul>
@@ -1238,7 +1264,7 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Menedżer wybiera opcję `Wyświetl pracowników`</li>
                             <li>System wyświetla listę pracowników</li>
@@ -1256,48 +1282,55 @@
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">4</span>
                                 <span class="condition">Pracownik nie został znaleziony. POWRÓT DO 2</span>
                             </li>
+
+                            <li>
+                                <span class="number">9</span>
+                                <span class="condition">Menadżer nie zatwierda END FLOW</span>
+                            </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Rafał</td>
+                    <td style="width: 15cm;">Rafał</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Grot</td>
+                    <td style="width: 15cm;">Grot</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">System zarządzania siłownią</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Konserwacja sali przez pracownika</td>
+                    <td style="width: 15cm;">Konserwacja sali przez pracownika</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">Polish</td>
+                    <td style="width: 15cm;">Polish</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Pracownik jest zalogowany w systemie</li>
                             <li>Jest zaplanowana konserwacja sali</li>
@@ -1306,7 +1339,7 @@
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Sala została poddana konserwacji</li>
                             <li>Pracownik otrzymał potwierdzenie wykonania konserwacji</li>
@@ -1315,7 +1348,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>pracownik</li>
                         </ul>
@@ -1323,92 +1356,74 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
-                            <li>Pracownik loguje się do systemu</li>
                             <li>Pracownik przechodzi do sekcji Kalendarz konserwacji</li>
-                            <li>
-                                System wyświetla kalendarz z zaplanowanymi konserwacjami sal
-                            </li>
+                            <li>System wyświetla kalendarz z zaplanowanymi konserwacjami sal</li>
                             <li>Pracownik wybiera salę, która wymaga konserwacji</li>
-                            <li>
-                                System wyświetla szczegóły zaplanowanej konserwacji, w tym
-                                termin i zakres prac
-                            </li>
-                            <li>
-                                Pracownik rozpoczyna konserwację sali, wybierając opcję
-                                'Rozpocznij konserwację'
-                            </li>
-                            <li>
-                                Po zakończeniu prac, pracownik wybiera opcję 'Zakończ
-                                konserwację'
-                            </li>
-                            <li>
-                                System wyświetla potwierdzenie zakończenia konserwacji dla
-                                pracownika
-                            </li>
+                            <li>System wyświetla szczegóły zaplanowanej konserwacji, w tym termin i zakres prac</li>
+                            <li>Pracownik rozpoczyna konserwację sali, wybierając opcję 'Rozpocznij konserwację'</li>
+                            <li>Po zakończeniu prac, pracownik wybiera opcję 'Zakończ konserwację'</li>
+                            <li>System wyświetla potwierdzenie zakończenia konserwacji dla pracownika</li>
                         </ol>
                     </td>
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>
-                                <span class="number">4</span>
-                                <span class="condition">Jeśli termin konserwacji minął lub nie ma zaplanowanej
-                                    konserwacji dla wybranej sali, POWRÓT DO 2</span>
-                            </li>
 
                             <li>
-                                <span class="number">7</span>
-                                <span class="condition">Jeśli konserwacja nie została zakończona pomyślnie, POWRÓT
-                                    DO 6</span>
+                                <span class="number">3</span>
+                                <span class="condition">Jeśli termin konserwacji minął lub nie ma zaplanowanej
+                                    konserwacji dla wybranej sali, END FLOW</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Bartłomiej</td>
+                    <td style="width: 15cm;">Bartłomiej</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Karkoszka</td>
+                    <td style="width: 15cm;">Karkoszka</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">System zarządzania siłownią</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Zamknięcie sali</td>
+                    <td style="width: 15cm;">Zamknięcie sali</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">Polish</td>
+                    <td style="width: 15cm;">Polish</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Sala musi istnieć w systemie</li>
+                            <li>Menedzer musi być zalogowany w systemie</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Status sali ustawiony na 'zamknięta'</li>
                         </ul>
@@ -1416,7 +1431,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>kierownik</li>
                         </ul>
@@ -1424,7 +1439,7 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Menedżer wybiera opcję `Wyświetl sale treningowe`</li>
                             <li>System wyświetla listę z salami</li>
@@ -1442,8 +1457,9 @@
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">4</span>
                                 <span class="condition">Sala nie została znaleziona. POWRÓT DO 2</span>
@@ -1451,52 +1467,59 @@
 
                             <li>
                                 <span class="number">5</span>
-                                <span class="condition">Sala ma już status 'zamknięta'. POWRÓT DO 6</span>
+                                <span class="condition">Opcja nie została zatwierdzona END FLOW</span>
                             </li>
+
+                            <li>
+                                <span class="number">6</span>
+                                <span class="condition">Sala ma już status 'zamknięta' END FLOW</span>
+                            </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Bartłomiej</td>
+                    <td style="width: 15cm;">Bartłomiej</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Karkoszka</td>
+                    <td style="width: 15cm;">Karkoszka</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">System zarządzania siłownią</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Otwarcie sali</td>
+                    <td style="width: 15cm;">Otwarcie sali</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">Polish</td>
+                    <td style="width: 15cm;">Polish</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Sala musi istnieć w systemie</li>
+                            <li>Menedzer musi być zalogowany do systemu</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Status sali ustawiony na 'otwarta'</li>
                         </ul>
@@ -1504,7 +1527,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>kierownik</li>
                         </ul>
@@ -1512,7 +1535,7 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Menedżer wybiera opcję `Wyświetl sale treningowe`</li>
                             <li>System wyświetla listę z salami</li>
@@ -1530,8 +1553,9 @@
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">4</span>
                                 <span class="condition">Sala nie została znaleziona. POWRÓT DO 2</span>
@@ -1541,61 +1565,59 @@
                                 <span class="number">5</span>
                                 <span class="condition">Sala nie ma statusu 'zamknięta'. POWRÓT DO 6</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Bartłomiej</td>
+                    <td style="width: 15cm;">Bartłomiej</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Karkoszka</td>
+                    <td style="width: 15cm;">Karkoszka</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">System zarządzania siłownią</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Tworzenie raportu o przeprowadzonych zajęciach</td>
+                    <td style="width: 15cm;">Tworzenie raportu o przeprowadzonych zajęciach</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">Polish</td>
+                    <td style="width: 15cm;">Polish</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>brak</li>
+                            <li>Pracownik musi być zalogowany do systemu</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>
-                                Utworzenie pliku z raportem o przeprowadzonych zajęciach
-                                treningowych
-                            </li>
+                            <li>Utworzenie pliku z raportem o przeprowadzonych zajęciach treningowych</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>kierownik</li>
                         </ul>
@@ -1603,7 +1625,7 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Menedżer wybiera opcję `Wyświetl zajęcia`</li>
                             <li>System wyświetla listę zajęć treningowych</li>
@@ -1620,57 +1642,58 @@
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">5</span>
-                                <span class="condition">Data początkowa następuje po dacie końcowej. POWRÓT DO
-                                    4</span>
+                                <span class="condition">Data początkowa następuje po dacie końcowej. POWRÓT DO 4</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Bartłomiej</td>
+                    <td style="width: 15cm;">Bartłomiej</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Karkoszka</td>
+                    <td style="width: 15cm;">Karkoszka</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">System zarządzania siłownią</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Tworzenie raportu sprzedażowego</td>
+                    <td style="width: 15cm;">Tworzenie raportu sprzedażowego</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">Polish</td>
+                    <td style="width: 15cm;">Polish</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>brak</li>
+                            <li>Pracownik musi być zalogowany do systemu</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Utworzenie pliku z raportem sprzedaży karnetów</li>
                         </ul>
@@ -1678,7 +1701,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>kierownik</li>
                         </ul>
@@ -1686,7 +1709,7 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Menedżer wybiera opcję `Wyświetl karnety`</li>
                             <li>System wyświetla listę karnetów</li>
@@ -1702,49 +1725,50 @@
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">5</span>
-                                <span class="condition">Data początkowa następuje po dacie końcowej. POWRÓT DO
-                                    4</span>
+                                <span class="condition">Data początkowa następuje po dacie końcowej. POWRÓT DO 4</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Bartłomiej</td>
+                    <td style="width: 15cm;">Bartłomiej</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Karkoszka</td>
+                    <td style="width: 15cm;">Karkoszka</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">System zarządzania siłownią</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Kontakt klienta z trenerem</td>
+                    <td style="width: 15cm;">Kontakt klienta z trenerem</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">Polish</td>
+                    <td style="width: 15cm;">Polish</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Klient zalogowany w systemie</li>
                             <li>Trener zalogowany w systemie</li>
@@ -1753,18 +1777,15 @@
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>
-                                Wiadomość klienta dociera do trenera, a trener ma możliwość
-                                odpowiedzieć
-                            </li>
+                            <li>Wiadomość klienta dociera do trenera, a trener ma możliwość odpowiedzieć</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>klient</li>
                         </ul>
@@ -1772,72 +1793,67 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Klient przechodzi do sekcji Kontakt z trenerem w systemie</li>
                             <li>System wyświetla listę dostępnych trenerów</li>
                             <li>Klient wybiera trenera z listy</li>
                             <li>System wyświetla opcję wysłania wiadomości</li>
-                            <li>
-                                Klient wybiera opcję Wiadomość i wpisuje treść wiadomości do
-                                trenera
-                            </li>
+                            <li>Klient wybiera opcję Wiadomość i wpisuje treść wiadomości do trenera</li>
                             <li>Klient wybiera opcję Wyślij</li>
                             <li>System sprawdza poprawność wprowadzonej treści wiadomości</li>
-                            <li>
-                                System dostarcza wiadomość do trenera i generuje powiadomienie
-                            </li>
-                            <li>
-                                System wyświetla potwierdzenie wysłania wiadomości dla klienta
-                            </li>
+                            <li>System dostarcza wiadomość do trenera i generuje powiadomienie</li>
+                            <li>System wyświetla potwierdzenie wysłania wiadomości dla klienta</li>
                         </ol>
                     </td>
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">7</span>
-                                <span class="condition">Wiadomość jest pusta lub zawiera niedozwolone treści.
-                                    POWRÓT DO 5</span>
+                                <span class="condition">Wiadomość jest pusta lub zawiera niedozwolone treści. POWRÓT DO
+                                    5</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Damian</td>
+                    <td style="width: 15cm;">Damian</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Karwat</td>
+                    <td style="width: 15cm;">Karwat</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">System zarządzania siłownią</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Organizacja zajęć przez trenera</td>
+                    <td style="width: 15cm;">Organizacja zajęć przez trenera</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">Polish</td>
+                    <td style="width: 15cm;">Polish</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Trener zalogowany w systemie</li>
                             <li>Dostępna jest sala do zarezerwowania w systemie</li>
@@ -1846,18 +1862,15 @@
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>
-                                Nowe zajęcia zostają dodane do kalendarza i są dostępne dla
-                                klientów do zapisania
-                            </li>
+                            <li>Nowe zajęcia zostają dodane do kalendarza i są dostępne dla klientów do zapisania</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>trener</li>
                         </ul>
@@ -1865,37 +1878,33 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Trener przechodzi do sekcji Organizacja zajęć w systemie</li>
                             <li>System wyświetla opcję Dodaj nowe zajęcia</li>
                             <li>Trener wybiera opcję Dodaj nowe zajęcia</li>
-                            <li>
-                                System wyświetla formularz, w którym trener może wprowadzić
-                                szczegóły zajęć
-                            </li>
-                            <li>
-                                Trener wybiera opcję Rezerwacja sali i sprawdza dostępność sal
-                            </li>
+                            <li>System wyświetla formularz, w którym trener może wprowadzić szczegóły zajęć</li>
+                            <li>Trener wybiera opcję Rezerwacja sali i sprawdza dostępność sal</li>
                             <li>System wyświetla listę dostępnych sal i ich szczegóły</li>
                             <li>Trener wybiera salę i potwierdza rezerwację</li>
                             <li>Trener zatwierdza formularz zajęć, wybierając opcję Zapisz</li>
-                            <li>
-                                System sprawdza poprawność danych w formularzu oraz dostępność
-                                sali w wybranym terminie
+                            <li>System sprawdza poprawność danych w formularzu oraz dostępność sali w wybranym terminie
                             </li>
-                            <li>
-                                System dodaje nowe zajęcia do kalendarza i udostępnia je
-                                klientom do zapisania
-                            </li>
+                            <li>System dodaje nowe zajęcia do kalendarza i udostępnia je klientom do zapisania</li>
                             <li>System generuje potwierdzenie utworzenia zajęć dla trenera</li>
                         </ol>
                     </td>
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
+                            <li>
+                                <span class="number">7</span>
+                                <span class="condition">Trener nie potwierdza rezerwacji sali. POWRÓT DO 6</span>
+                            </li>
+
                             <li>
                                 <span class="number">9</span>
                                 <span class="condition">Wybrany termin zajęć jest zajęty lub sala jest niedostępna.
@@ -1904,68 +1913,64 @@
 
                             <li>
                                 <span class="number">9</span>
-                                <span class="condition">Formularz zawiera błędy (np. niekompletne informacje).
-                                    POWRÓT DO 4</span>
+                                <span class="condition">Formularz zawiera błędy (np. niekompletne informacje). POWRÓT DO
+                                    4</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Damian</td>
+                    <td style="width: 15cm;">Damian</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Karwat</td>
+                    <td style="width: 15cm;">Karwat</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">System zarządzania siłownią</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Odwołanie zajęć przez trenera</td>
+                    <td style="width: 15cm;">Odwołanie zajęć przez trenera</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">Polish</td>
+                    <td style="width: 15cm;">Polish</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Trener jest zalogowany w systemie</li>
-                            <li>
-                                W systemie istnieją zaplanowane zajęcia, które trener chce
-                                odwołać
-                            </li>
+                            <li>W systemie istnieją zaplanowane zajęcia, które trener chce odwołać</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>
-                                Zajęcia zostają usunięte z kalendarza, a zapisani klienci
-                                otrzymują powiadomienie o odwołaniu
-                            </li>
+                            <li>Zajęcia zostają usunięte z kalendarza, a zapisani klienci otrzymują powiadomienie o
+                                odwołaniu</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>trener</li>
                         </ul>
@@ -1973,95 +1978,84 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Trener przechodzi do sekcji Organizacja zajęć w systemie</li>
                             <li>System wyświetla kalendarz zajęć trenera</li>
-                            <li>
-                                Trener wybiera zajęcia, które chce odwołać, z listy lub
-                                kalendarza
-                            </li>
+                            <li>Trener wybiera zajęcia, które chce odwołać, z listy lub kalendarza</li>
                             <li>Trener wybiera opcję Odwołaj zajęcia</li>
                             <li>System wyświetla okno potwierdzenia</li>
                             <li>Trener potwierdza odwołanie</li>
                             <li>System usuwa zajęcia z kalendarza</li>
-                            <li>
-                                System wysyła powiadomienie dla klientów zapisanych na zajęcia o
-                                ich odwołaniu
-                            </li>
+                            <li>System wysyła powiadomienie dla klientów zapisanych na zajęcia o ich odwołaniu</li>
                             <li>System wyświetla potwierdzenie operacji dla trenera</li>
                         </ol>
                     </td>
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">6</span>
                                 <span class="condition">Trener anuluje odwołanie, wybierając Nie. POWRÓT DO 2</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Damian</td>
+                    <td style="width: 15cm;">Damian</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Karwat</td>
+                    <td style="width: 15cm;">Karwat</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">System zarządzania siłownią</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">
-                        Zmiana sali na której odbędą się zaplanowane zajęcia przez trenera
-                    </td>
+                    <td style="width: 15cm;">Zmiana sali na której odbędą się zaplanowane zajęcia przez trenera</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">Polish</td>
+                    <td style="width: 15cm;">Polish</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Trener jest zalogowany w systemie</li>
-                            <li>
-                                W systemie istnieją zaplanowane zajęcia, dla których trener chce
-                                zmienić salę
-                            </li>
+                            <li>W systemie istnieją zaplanowane zajęcia, dla których trener chce zmienić salę</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>
-                                Sala na której odbędą się zajęcia zostaje zmieniona, a zapisani
-                                klienci otrzymują powiadomienie o zmianie
-                            </li>
+                            <li>Sala na której odbędą się zajęcia zostaje zmieniona, a zapisani klienci otrzymują
+                                powiadomienie o zmianie</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>trener</li>
                         </ul>
@@ -2069,89 +2063,87 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Trener przechodzi do sekcji Organizacja zajęć w systemie</li>
                             <li>System wyświetla kalendarz zajęć trenera</li>
-                            <li>
-                                Trener wybiera zajęcia, dla których chce zmienić salę, z listy
-                                lub kalendarza
-                            </li>
+                            <li>Trener wybiera zajęcia, dla których chce zmienić salę, z listy lub kalendarza</li>
                             <li>Trener wybiera opcję Zmiana sali i sprawdza dostępność sal</li>
                             <li>System wyświetla listę dostępnych sal i ich szczegóły</li>
                             <li>Trener wybiera salę i potwierdza zmianę</li>
-                            <li>
-                                System wysyła powiadomienie dla klientów zapisanych na zajęcia o
-                                zmianie sali
-                            </li>
+                            <li>System wysyła powiadomienie dla klientów zapisanych na zajęcia o zmianie sali</li>
                             <li>System wyświetla potwierdzenie operacji dla trenera</li>
                         </ol>
                     </td>
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
+                            <li>
+                                <span class="number">5</span>
+                                <span class="condition">Brak dostępnych sal w tym terminie. POWRÓT DO 2</span>
+                            </li>
+
                             <li>
                                 <span class="number">6</span>
-                                <span class="condition">Wybrana sala jest niedostępna. POWRÓT DO 5</span>
+                                <span class="condition">Trener nie potwierdza zmiany. POWRÓT DO 5</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Damian</td>
+                    <td style="width: 15cm;">Damian</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Karwat</td>
+                    <td style="width: 15cm;">Karwat</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">System zarządzania siłownią</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Kontakt Trenera z Klientem</td>
+                    <td style="width: 15cm;">Kontakt Trenera z Klientem</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">Polish</td>
+                    <td style="width: 15cm;">Polish</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Trener jest zalogowany w systemie</li>
-                            <li>Klient jest zalogowany w systemie</li>
+                            <li>Klient istnieje w systemie</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>
-                                Wiadomość trenera dociera do klienta, a klient ma możliwość
-                                odpowiedzieć
-                            </li>
+                            <li>Wiadomość trenera dociera do klienta, a klient ma możliwość odpowiedzieć</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>trener</li>
                         </ul>
@@ -2159,7 +2151,7 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Trener przechodzi do sekcji Organizacja zajęć w systemie</li>
                             <li>System wyświetla kalendarz zajęć trenera</li>
@@ -2177,73 +2169,73 @@
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">5</span>
                                 <span class="condition">Brak zapisanych klientów na zajęciach. POWRÓT DO 2</span>
                             </li>
 
                             <li>
-                                <span class="number">8</span>
-                                <span class="condition">Wiadomość jest pusta lub zawiera niedozwolone treści.
-                                    POWRÓT DO 7</span>
+                                <span class="number">9</span>
+                                <span class="condition">Wiadomość jest pusta lub zawiera niedozwolone treści. POWRÓT DO
+                                    7</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Damian</td>
+                    <td style="width: 15cm;">Damian</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Karwat</td>
+                    <td style="width: 15cm;">Karwat</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">System zarządzania siłownią</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Analiza postępów Klienta przez Trenera</td>
+                    <td style="width: 15cm;">Analiza postępów Klienta przez Trenera</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">Polish</td>
+                    <td style="width: 15cm;">Polish</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Trener jest zalogowany w systemie</li>
-                            <li>Klient jest zalogowany w systemie</li>
+                            <li>Klient istnieje w systemie</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>
-                                Trener ma dostęp do szczegółowych statystyk postępów klienta
-                            </li>
+                            <li>Trener ma dostęp do szczegółowych statystyk postępów klienta</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>trener</li>
                         </ul>
@@ -2251,7 +2243,7 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Trener przechodzi do sekcji Organizacja zajęć w systemie</li>
                             <li>System wyświetla kalendarz zajęć trenera</li>
@@ -2260,22 +2252,18 @@
                             <li>Trener wchodzi na listę zapisanych uczestników zajęć</li>
                             <li>Trener wybiera jednego z zapisanych klientów</li>
                             <li>System wyświetla profil klienta</li>
-                            <li>
-                                Trener przegląda statystyki postępów klienta, takie jak wyniki,
-                                frekwencja, osiągnięcia
+                            <li>Trener przegląda statystyki postępów klienta, takie jak wyniki, frekwencja, osiągnięcia
                             </li>
                             <li>System wyświetla szczegółowe statystyki postępów klienta</li>
-                            <li>
-                                Trener ma możliwość analizy postępów klienta i dostosowania
-                                planu treningowego
-                            </li>
+                            <li>Trener ma możliwość analizy postępów klienta i dostosowania planu treningowego</li>
                         </ol>
                     </td>
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">5</span>
                                 <span class="condition">Brak zapisanych klientów na zajęciach. POWRÓT DO 2</span>
@@ -2283,64 +2271,64 @@
 
                             <li>
                                 <span class="number">8</span>
-                                <span class="condition">Klient nie ma dostępnych danych w systemie. POWRÓT DO
-                                    7</span>
+                                <span class="condition">Klient nie ma dostępnych danych w systemie. POWRÓT DO 7</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
     </article>
     <article id="use-case-scenarios-english">
-        <h4>Use case scenarios</h4>
+
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Filip</td>
+                    <td style="width: 15cm;">Filip</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Stępień</td>
+                    <td style="width: 15cm;">Stępień</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Purchase a membership</td>
+                    <td style="width: 15cm;">Purchase of Membership</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">English</td>
+                    <td style="width: 15cm;">English</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>none</li>
+                            <li>The employee must be logged into the system</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>Created membership identifying the user</li>
+                            <li>Creation of a membership identifying the user</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>client</li>
                             <li>employee</li>
@@ -2349,28 +2337,33 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
-                            <li>Client requests the employee to create a membership</li>
-                            <li>Employee selects the `New membership` option</li>
-                            <li>System displays a form to create a membership</li>
-                            <li>
-                                Employee enters the client’s personal, payment, and contact
-                                details in the form
+                            <li>The client requests the employee to create a membership</li>
+                            <li>The employee selects the `New Membership` option</li>
+                            <li>The system displays the membership creation form</li>
+                            <li>The employee enters the client's personal, payment, and contact information in the form
                             </li>
-                            <li>Employee selects the `Save` option</li>
-                            <li>System checks if the entered data is correctly formatted</li>
-                            <li>System checks if the payment method is available</li>
-                            <li>System creates a new membership</li>
-                            <li>System charges the fee</li>
-                            <li>System displays a confirmation</li>
+                            <li>The employee confirms the operation</li>
+                            <li>The system checks if the entered data is in the correct format</li>
+                            <li>The system checks if the payment method is available</li>
+                            <li>The system creates a new membership</li>
+                            <li>The system charges the fee</li>
+                            <li>The system sends the login and temporary access password to the client</li>
+                            <li>The system displays a confirmation</li>
                         </ol>
                     </td>
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
+                            <li>
+                                <span class="number">5</span>
+                                <span class="condition">The employee selects the "Cancel" option. END FLOW</span>
+                            </li>
+
                             <li>
                                 <span class="number">6</span>
                                 <span class="condition">Incorrect data format. RETURN TO 3</span>
@@ -2378,60 +2371,62 @@
 
                             <li>
                                 <span class="number">7</span>
-                                <span class="condition">Payment method unavailable. RETURN TO 3</span>
+                                <span class="condition">Payment method is unavailable. RETURN TO 3</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Filip</td>
+                    <td style="width: 15cm;">Filip</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Stępień</td>
+                    <td style="width: 15cm;">Stępień</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Membership cancellation</td>
+                    <td style="width: 15cm;">Membership Cancellation</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">English</td>
+                    <td style="width: 15cm;">English</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>There must be a membership identifying the client</li>
+                            <li>The employee must be logged into the system</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>Client’s membership removed from the system</li>
+                            <li>Client-identifying membership removed from the system</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>client</li>
                             <li>employee</li>
@@ -2440,83 +2435,89 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
-                            <li>Client requests the employee to cancel their membership</li>
-                            <li>Employee selects the `View memberships` option</li>
-                            <li>System displays the list of memberships</li>
-                            <li>Employee enters the client’s data in the search bar</li>
-                            <li>System displays options matching the search</li>
-                            <li>Employee selects the membership from the search results</li>
-                            <li>Employee selects the `Delete membership` option</li>
-                            <li>System displays a confirmation window</li>
-                            <li>Employee confirms membership deletion</li>
-                            <li>System deletes the membership</li>
-                            <li>System generates a confirmation of the operation</li>
+                            <li>The client requests the employee to cancel the membership</li>
+                            <li>The employee selects the `Display Memberships` option</li>
+                            <li>The system displays a list of memberships</li>
+                            <li>The employee enters the client's data into the search bar</li>
+                            <li>The system displays options matching the search</li>
+                            <li>The employee selects the membership from the results list</li>
+                            <li>The employee selects the `Delete Membership` option</li>
+                            <li>The system displays a confirmation window</li>
+                            <li>The employee confirms the deletion of the membership</li>
+                            <li>The system deletes the membership</li>
+                            <li>The system generates an operation confirmation</li>
                         </ol>
                     </td>
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">5</span>
                                 <span class="condition">Client not found. RETURN TO 3</span>
                             </li>
+
+                            <li>
+                                <span class="number">9</span>
+                                <span class="condition">The employee selects the "Cancel" option. END FLOW</span>
+                            </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Filip</td>
+                    <td style="width: 15cm;">Filip</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Stępień</td>
+                    <td style="width: 15cm;">Stępień</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Membership renewal</td>
+                    <td style="width: 15cm;">Membership Renewal</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">English</td>
+                    <td style="width: 15cm;">English</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>Client must be logged into the system</li>
                             <li>There must be a membership identifying the client</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>Membership expiration date extended</li>
+                            <li>Extended membership expiration date</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>none</li>
                         </ul>
@@ -2524,80 +2525,86 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
-                            <li>System checks the expiration date of user memberships</li>
-                            <li>System finds an expired membership</li>
-                            <li>
-                                System checks if the payment method for renewing the membership
-                                is available
-                            </li>
-                            <li>System renews the membership</li>
-                            <li>System charges the fee</li>
+                            <li>The system checks the expiration date of users' memberships</li>
+                            <li>The system finds an expired membership</li>
+                            <li>The system checks if the payment method for membership renewal is available</li>
+                            <li>The system renews the membership</li>
+                            <li>The system charges the fee</li>
+                            <li>The system generates feedback for the client</li>
                         </ol>
                     </td>
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
+                            <li>
+                                <span class="number">2</span>
+                                <span class="condition">No expired membership found. END FLOW</span>
+                            </li>
+
                             <li>
                                 <span class="number">3</span>
-                                <span class="condition">Payment method unavailable. RETURN TO 1</span>
+                                <span class="condition">Payment method unavailable - membership is invalidated. END
+                                    FLOW</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Filip</td>
+                    <td style="width: 15cm;">Filip</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Stępień</td>
+                    <td style="width: 15cm;">Stępień</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Updating membership data</td>
+                    <td style="width: 15cm;">Modification of Membership Data</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">English</td>
+                    <td style="width: 15cm;">English</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>Client must be logged into the system</li>
+                            <li>The employee must be logged into the system</li>
                             <li>There must be a membership identifying the client</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>Updated user data on the membership</li>
+                            <li>User's membership data modified</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>client</li>
                             <li>employee</li>
@@ -2606,80 +2613,87 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
-                            <li>Client requests the employee to update membership data</li>
-                            <li>Employee selects the `View memberships` option</li>
-                            <li>System displays the list of memberships</li>
-                            <li>Employee enters the client’s data in the search bar</li>
-                            <li>System displays options matching the search</li>
-                            <li>Employee selects the membership from the search results</li>
-                            <li>System displays a form with data</li>
-                            <li>Employee edits the data in the form</li>
-                            <li>Employee selects the `Save` option</li>
-                            <li>System checks if the entered data is correctly formatted</li>
-                            <li>System updates the membership data</li>
-                            <li>System generates a confirmation of the operation</li>
+                            <li>The client requests the employee to modify the membership data</li>
+                            <li>The employee selects the `Display Memberships` option</li>
+                            <li>The system displays a list of memberships</li>
+                            <li>The employee enters the client's data into the search bar</li>
+                            <li>The system displays options matching the search</li>
+                            <li>The employee selects the membership from the results list</li>
+                            <li>The system displays a form with data</li>
+                            <li>The employee edits the data in the form</li>
+                            <li>The employee confirms the changes</li>
+                            <li>The system checks if the entered data is in the correct format</li>
+                            <li>The system modifies the membership data</li>
+                            <li>The system generates an operation confirmation</li>
                         </ol>
                     </td>
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">5</span>
                                 <span class="condition">Client not found. RETURN TO 3</span>
                             </li>
 
                             <li>
-                                <span class="number">10</span>
-                                <span class="condition">Incorrect data format. RETURN TO 7</span>
+                                <span class="number">9</span>
+                                <span class="condition">The employee selects the "Cancel" option. END FLOW</span>
                             </li>
+
+                            <li>
+                                <span class="number">10</span>
+                                <span class="condition">Invalid data format. RETURN TO 7</span>
+                            </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Filip</td>
+                    <td style="width: 15cm;">Filip</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Stępień</td>
+                    <td style="width: 15cm;">Stępień</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">System login</td>
+                    <td style="width: 15cm;">System Login</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">English</td>
+                    <td style="width: 15cm;">English</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>User must exist in the system</li>
+                            <li>The user must exist in the system</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>User session created</li>
                         </ul>
@@ -2687,7 +2701,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>client</li>
                             <li>employee</li>
@@ -2698,62 +2712,65 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
-                            <li>User navigates to the login screen</li>
-                            <li>System displays the login form</li>
-                            <li>User enters login details</li>
-                            <li>User selects the `Login` option</li>
-                            <li>System checks if the user exists</li>
-                            <li>System creates the user session</li>
-                            <li>System displays the start screen</li>
+                            <li>The user navigates to the login screen</li>
+                            <li>The system displays the login form</li>
+                            <li>The user enters login credentials</li>
+                            <li>The user selects the `Login` option</li>
+                            <li>The system checks if a user with the given login and password exists</li>
+                            <li>The system creates a user session</li>
+                            <li>The system displays the start screen</li>
                         </ol>
                     </td>
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">5</span>
-                                <span class="condition">User not found. RETURN TO 2</span>
+                                <span class="condition">Incorrect login data - the system displays an error message.
+                                    RETURN TO 2</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Rafał</td>
+                    <td style="width: 15cm;">Rafał</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Grot</td>
+                    <td style="width: 15cm;">Grot</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Client Class Registration</td>
+                    <td style="width: 15cm;">Client Class Registration</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">English</td>
+                    <td style="width: 15cm;">English</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Client is logged into the system</li>
                             <li>Scheduled classes exist in the system</li>
@@ -2762,7 +2779,7 @@
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Client is assigned to the class</li>
                         </ul>
@@ -2770,7 +2787,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>client</li>
                         </ul>
@@ -2778,7 +2795,7 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Client selects the class screen</li>
                             <li>System displays a calendar with scheduled classes</li>
@@ -2793,48 +2810,50 @@
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">6</span>
                                 <span class="condition">No seats available. RETURN TO 2</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Rafał</td>
+                    <td style="width: 15cm;">Rafał</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Grot</td>
+                    <td style="width: 15cm;">Grot</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Employee Registration</td>
+                    <td style="width: 15cm;">Employee Registration</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">English</td>
+                    <td style="width: 15cm;">English</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Employee is not yet registered in the system</li>
                         </ul>
@@ -2842,7 +2861,7 @@
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Employee is added to the system</li>
                         </ul>
@@ -2850,7 +2869,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>manager</li>
                         </ul>
@@ -2858,7 +2877,7 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Manager selects the `Add Employee` option</li>
                             <li>System displays the employee registration form</li>
@@ -2872,48 +2891,50 @@
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">5</span>
                                 <span class="condition">Invalid data format. RETURN TO 3</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Rafał</td>
+                    <td style="width: 15cm;">Rafał</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Grot</td>
+                    <td style="width: 15cm;">Grot</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Employee Data Editing</td>
+                    <td style="width: 15cm;">Employee Data Editing</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">English</td>
+                    <td style="width: 15cm;">English</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Employee must be registered in the system</li>
                         </ul>
@@ -2921,7 +2942,7 @@
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Employee data is modified in the system</li>
                         </ul>
@@ -2929,7 +2950,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>manager</li>
                             <li>employee</li>
@@ -2938,7 +2959,7 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Employee requests data modification from the manager</li>
                             <li>Manager selects `View Employees` option</li>
@@ -2957,8 +2978,9 @@
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">5</span>
                                 <span class="condition">Employee not found. RETURN TO 3</span>
@@ -2968,42 +2990,43 @@
                                 <span class="number">10</span>
                                 <span class="condition">Invalid data format. RETURN TO 7</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Rafał</td>
+                    <td style="width: 15cm;">Rafał</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Grot</td>
+                    <td style="width: 15cm;">Grot</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Removing Employee from System</td>
+                    <td style="width: 15cm;">Removing Employee from System</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">English</td>
+                    <td style="width: 15cm;">English</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Employee must be registered in the system</li>
                         </ul>
@@ -3011,7 +3034,7 @@
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Employee account is deleted from the system</li>
                         </ul>
@@ -3019,7 +3042,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>manager</li>
                         </ul>
@@ -3027,7 +3050,7 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Manager selects `View Employees` option</li>
                             <li>System displays a list of employees</li>
@@ -3045,48 +3068,50 @@
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">4</span>
                                 <span class="condition">Employee not found. RETURN TO 2</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Rafał</td>
+                    <td style="width: 15cm;">Rafał</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Grot</td>
+                    <td style="width: 15cm;">Grot</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Room Maintenance by Employee</td>
+                    <td style="width: 15cm;">Room Maintenance by Employee</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">English</td>
+                    <td style="width: 15cm;">English</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Employee is logged into the system</li>
                             <li>Room maintenance is scheduled</li>
@@ -3095,7 +3120,7 @@
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Room has been maintained</li>
                             <li>Employee receives confirmation of maintenance completion</li>
@@ -3104,7 +3129,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>employee</li>
                         </ul>
@@ -3112,35 +3137,24 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Employee logs into the system</li>
                             <li>Employee navigates to the Maintenance Calendar section</li>
-                            <li>
-                                System displays the maintenance calendar with scheduled room
-                                maintenances
-                            </li>
+                            <li>System displays the maintenance calendar with scheduled room maintenances</li>
                             <li>Employee selects the room requiring maintenance</li>
-                            <li>
-                                System displays maintenance details, including time and scope of
-                                work
-                            </li>
-                            <li>
-                                Employee begins room maintenance by selecting 'Start
-                                Maintenance'
-                            </li>
+                            <li>System displays maintenance details, including time and scope of work</li>
+                            <li>Employee begins room maintenance by selecting 'Start Maintenance'</li>
                             <li>Upon completion, the employee selects 'Finish Maintenance'</li>
-                            <li>
-                                System displays maintenance completion confirmation for the
-                                employee
-                            </li>
+                            <li>System displays maintenance completion confirmation for the employee</li>
                         </ol>
                     </td>
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">4</span>
                                 <span class="condition">If the maintenance time has passed or there is no scheduled
@@ -3152,42 +3166,43 @@
                                 <span class="condition">If maintenance was not successfully completed, RETURN TO
                                     6</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Bartłomiej</td>
+                    <td style="width: 15cm;">Bartłomiej</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Karkoszka</td>
+                    <td style="width: 15cm;">Karkoszka</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Closing a Room</td>
+                    <td style="width: 15cm;">Closing a Room</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">English</td>
+                    <td style="width: 15cm;">English</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Room must exist in the system</li>
                         </ul>
@@ -3195,7 +3210,7 @@
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Room status set to 'closed'</li>
                         </ul>
@@ -3203,7 +3218,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>manager</li>
                         </ul>
@@ -3211,7 +3226,7 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Manager selects the option `View Training Rooms`</li>
                             <li>System displays a list of rooms</li>
@@ -3229,8 +3244,9 @@
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">4</span>
                                 <span class="condition">Room not found. RETURN TO 2</span>
@@ -3240,42 +3256,43 @@
                                 <span class="number">5</span>
                                 <span class="condition">Room already has 'closed' status. RETURN TO 6</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Bartłomiej</td>
+                    <td style="width: 15cm;">Bartłomiej</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Karkoszka</td>
+                    <td style="width: 15cm;">Karkoszka</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Opening a Room</td>
+                    <td style="width: 15cm;">Opening a Room</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">English</td>
+                    <td style="width: 15cm;">English</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Room must exist in the system</li>
                         </ul>
@@ -3283,7 +3300,7 @@
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Room status set to 'open'</li>
                         </ul>
@@ -3291,7 +3308,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>manager</li>
                         </ul>
@@ -3299,7 +3316,7 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Manager selects the option `View Training Rooms`</li>
                             <li>System displays a list of rooms</li>
@@ -3317,8 +3334,9 @@
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">4</span>
                                 <span class="condition">Room not found. RETURN TO 2</span>
@@ -3328,42 +3346,43 @@
                                 <span class="number">5</span>
                                 <span class="condition">Room does not have 'closed' status. RETURN TO 6</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Bartłomiej</td>
+                    <td style="width: 15cm;">Bartłomiej</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Karkoszka</td>
+                    <td style="width: 15cm;">Karkoszka</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Generating a Report on Conducted Classes</td>
+                    <td style="width: 15cm;">Generating a Report on Conducted Classes</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">English</td>
+                    <td style="width: 15cm;">English</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>none</li>
                         </ul>
@@ -3371,7 +3390,7 @@
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>File with report on conducted training sessions created</li>
                         </ul>
@@ -3379,7 +3398,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>manager</li>
                         </ul>
@@ -3387,7 +3406,7 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Manager selects the option `View Classes`</li>
                             <li>System displays a list of training sessions</li>
@@ -3404,48 +3423,50 @@
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">5</span>
                                 <span class="condition">Start date is after the end date. RETURN TO 4</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Bartłomiej</td>
+                    <td style="width: 15cm;">Bartłomiej</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Karkoszka</td>
+                    <td style="width: 15cm;">Karkoszka</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Generating a Sales Report</td>
+                    <td style="width: 15cm;">Generating a Sales Report</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">English</td>
+                    <td style="width: 15cm;">English</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>none</li>
                         </ul>
@@ -3453,7 +3474,7 @@
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>File with membership sales report created</li>
                         </ul>
@@ -3461,7 +3482,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>manager</li>
                         </ul>
@@ -3469,7 +3490,7 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Manager selects the option `View Memberships`</li>
                             <li>System displays a list of memberships</li>
@@ -3485,48 +3506,50 @@
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">5</span>
                                 <span class="condition">Start date is after the end date. RETURN TO 4</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Bartłomiej</td>
+                    <td style="width: 15cm;">Bartłomiej</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Karkoszka</td>
+                    <td style="width: 15cm;">Karkoszka</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Client-Contact with Trainer</td>
+                    <td style="width: 15cm;">Client-Contact with Trainer</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">English</td>
+                    <td style="width: 15cm;">English</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Client logged into the system</li>
                             <li>Trainer logged into the system</li>
@@ -3535,7 +3558,7 @@
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>Client's message reaches trainer, and trainer can respond</li>
                         </ul>
@@ -3543,7 +3566,7 @@
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>client</li>
                         </ul>
@@ -3551,71 +3574,67 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
                             <li>Client goes to the Trainer Contact section in the system</li>
                             <li>System displays a list of available trainers</li>
                             <li>Client selects a trainer from the list</li>
                             <li>System displays the option to send a message</li>
-                            <li>
-                                Client selects the Message option and types the message content
-                                to the trainer
-                            </li>
+                            <li>Client selects the Message option and types the message content to the trainer</li>
                             <li>Client selects the Send option</li>
                             <li>System checks the validity of the entered message content</li>
-                            <li>
-                                System delivers the message to the trainer and generates a
-                                notification
-                            </li>
+                            <li>System delivers the message to the trainer and generates a notification</li>
                             <li>System displays a message send confirmation for the client</li>
                         </ol>
                     </td>
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">7</span>
                                 <span class="condition">Message is empty or contains disallowed content. RETURN TO
                                     5</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Damian</td>
+                    <td style="width: 15cm;">Damian</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Karwat</td>
+                    <td style="width: 15cm;">Karwat</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Class Organization by Trainer</td>
+                    <td style="width: 15cm;">Class Organization by Trainer</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">English</td>
+                    <td style="width: 15cm;">English</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>The trainer is logged into the system</li>
                             <li>A room is available for reservation in the system</li>
@@ -3624,18 +3643,15 @@
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>
-                                New classes are added to the calendar and available for clients
-                                to join
-                            </li>
+                            <li>New classes are added to the calendar and available for clients to join</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>trainer</li>
                         </ul>
@@ -3643,115 +3659,94 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
-                            <li>
-                                The trainer goes to the Class Organization section in the system
-                            </li>
+                            <li>The trainer goes to the Class Organization section in the system</li>
                             <li>The system displays the option to Add new classes</li>
                             <li>The trainer selects the option to Add new classes</li>
-                            <li>
-                                The system displays a form where the trainer can enter class
-                                details
-                            </li>
-                            <li>
-                                The trainer selects the Reserve room option and checks room
-                                availability
-                            </li>
-                            <li>
-                                The system displays a list of available rooms and their details
-                            </li>
+                            <li>The system displays a form where the trainer can enter class details</li>
+                            <li>The trainer selects the Reserve room option and checks room availability</li>
+                            <li>The system displays a list of available rooms and their details</li>
                             <li>The trainer selects a room and confirms the reservation</li>
                             <li>The trainer confirms the form by selecting Save</li>
-                            <li>
-                                The system verifies the form data and room availability for the
-                                selected time
+                            <li>The system verifies the form data and room availability for the selected time</li>
+                            <li>The system adds the new class to the calendar and makes it available for clients to join
                             </li>
-                            <li>
-                                The system adds the new class to the calendar and makes it
-                                available for clients to join
-                            </li>
-                            <li>
-                                The system generates a confirmation of the class creation for
-                                the trainer
-                            </li>
+                            <li>The system generates a confirmation of the class creation for the trainer</li>
                         </ol>
                     </td>
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">9</span>
-                                <span class="condition">The chosen class time is occupied or the room is
-                                    unavailable. RETURN TO 5</span>
+                                <span class="condition">The chosen class time is occupied or the room is unavailable.
+                                    RETURN TO 5</span>
                             </li>
 
                             <li>
                                 <span class="number">9</span>
-                                <span class="condition">The form contains errors (e.g., incomplete information).
-                                    RETURN TO 4</span>
+                                <span class="condition">The form contains errors (e.g., incomplete information). RETURN
+                                    TO 4</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Damian</td>
+                    <td style="width: 15cm;">Damian</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Karwat</td>
+                    <td style="width: 15cm;">Karwat</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Class Cancellation by Trainer</td>
+                    <td style="width: 15cm;">Class Cancellation by Trainer</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">English</td>
+                    <td style="width: 15cm;">English</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>The trainer is logged into the system</li>
-                            <li>
-                                There are scheduled classes in the system that the trainer wants
-                                to cancel
-                            </li>
+                            <li>There are scheduled classes in the system that the trainer wants to cancel</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>
-                                Classes are removed from the calendar, and registered clients
-                                receive a cancellation notification
-                            </li>
+                            <li>Classes are removed from the calendar, and registered clients receive a cancellation
+                                notification</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>trainer</li>
                         </ul>
@@ -3759,99 +3754,86 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
-                            <li>
-                                The trainer goes to the Class Organization section in the system
-                            </li>
+                            <li>The trainer goes to the Class Organization section in the system</li>
                             <li>The system displays the trainer's class calendar</li>
-                            <li>
-                                The trainer selects the class they want to cancel from the list
-                                or calendar
-                            </li>
+                            <li>The trainer selects the class they want to cancel from the list or calendar</li>
                             <li>The trainer selects the Cancel class option</li>
                             <li>The system displays a confirmation window</li>
                             <li>The trainer confirms the cancellation</li>
                             <li>The system removes the class from the calendar</li>
-                            <li>
-                                The system sends a cancellation notification to clients
-                                registered for the class
-                            </li>
-                            <li>
-                                The system displays a confirmation of the operation for the
-                                trainer
-                            </li>
+                            <li>The system sends a cancellation notification to clients registered for the class</li>
+                            <li>The system displays a confirmation of the operation for the trainer</li>
                         </ol>
                     </td>
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">6</span>
-                                <span class="condition">The trainer cancels the cancellation by selecting No.
-                                    RETURN TO 2</span>
+                                <span class="condition">The trainer cancels the cancellation by selecting No. RETURN TO
+                                    2</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Damian</td>
+                    <td style="width: 15cm;">Damian</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Karwat</td>
+                    <td style="width: 15cm;">Karwat</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Change of Class Room by Trainer</td>
+                    <td style="width: 15cm;">Change of Class Room by Trainer</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">English</td>
+                    <td style="width: 15cm;">English</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>The trainer is logged into the system</li>
-                            <li>
-                                There are scheduled classes in the system for which the trainer
-                                wants to change the room
+                            <li>There are scheduled classes in the system for which the trainer wants to change the room
                             </li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>
-                                The room for the class is changed, and registered clients
-                                receive a notification of the change
-                            </li>
+                            <li>The room for the class is changed, and registered clients receive a notification of the
+                                change</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>trainer</li>
                         </ul>
@@ -3859,99 +3841,89 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
-                            <li>
-                                The trainer goes to the Class Organization section in the system
-                            </li>
+                            <li>The trainer goes to the Class Organization section in the system</li>
                             <li>The system displays the trainer's class calendar</li>
-                            <li>
-                                The trainer selects the class for which they want to change the
-                                room from the list or calendar
-                            </li>
-                            <li>
-                                The trainer selects the Change room option and checks room
-                                availability
-                            </li>
-                            <li>
-                                The system displays a list of available rooms and their details
-                            </li>
+                            <li>The trainer selects the class for which they want to change the room from the list or
+                                calendar</li>
+                            <li>The trainer selects the Change room option and checks room availability</li>
+                            <li>The system displays a list of available rooms and their details</li>
                             <li>The trainer selects a room and confirms the change</li>
-                            <li>
-                                The system sends a notification to clients registered for the
-                                class about the room change
-                            </li>
-                            <li>
-                                The system displays a confirmation of the operation for the
-                                trainer
-                            </li>
+                            <li>The system sends a notification to clients registered for the class about the room
+                                change</li>
+                            <li>The system displays a confirmation of the operation for the trainer</li>
                         </ol>
                     </td>
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">6</span>
-                                <span class="condition">The selected room is unavailable. RETURN TO 5</span>
+                                <span class="condition">No available rooms for chosen day and time. RETUTN TO 2</span>
                             </li>
+
+                            <li>
+                                <span class="number">6</span>
+                                <span class="condition">Trainer doesn't confirm the change. RETURN TO 5</span>
+                            </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Damian</td>
+                    <td style="width: 15cm;">Damian</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Karwat</td>
+                    <td style="width: 15cm;">Karwat</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Trainer-Client Communication</td>
+                    <td style="width: 15cm;">Trainer-Client Communication</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">English</td>
+                    <td style="width: 15cm;">English</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>The trainer is logged into the system</li>
-                            <li>The client is logged into the system</li>
+                            <li>The client has an account in the system</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>
-                                The trainer's message reaches the client, and the client has the
-                                option to respond
-                            </li>
+                            <li>The trainer's message reaches the client, and the client has the option to respond</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>trainer</li>
                         </ul>
@@ -3959,35 +3931,27 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
-                            <li>
-                                The trainer goes to the Class Organization section in the system
-                            </li>
+                            <li>The trainer goes to the Class Organization section in the system</li>
                             <li>The system displays the trainer's class calendar</li>
                             <li>The trainer selects a class from the class list</li>
                             <li>The system displays class details</li>
-                            <li>
-                                The trainer accesses the list of participants registered for the
-                                class
-                            </li>
+                            <li>The trainer accesses the list of participants registered for the class</li>
                             <li>The trainer selects one of the registered clients</li>
-                            <li>
-                                The system displays the option to send a message to the client
-                            </li>
+                            <li>The system displays the option to send a message to the client</li>
                             <li>The trainer enters the message content</li>
                             <li>The trainer selects the Send option</li>
                             <li>The system sends the message to the client</li>
-                            <li>
-                                The system displays a confirmation of the message being sent
-                            </li>
+                            <li>The system displays a confirmation of the message being sent</li>
                         </ol>
                     </td>
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">5</span>
                                 <span class="condition">No clients registered for the class. RETURN TO 2</span>
@@ -3995,64 +3959,63 @@
 
                             <li>
                                 <span class="number">8</span>
-                                <span class="condition">The message is empty or contains disallowed content. RETURN
-                                    TO 7</span>
+                                <span class="condition">The message is empty or contains disallowed content. RETURN TO
+                                    7</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <br />
+        <br>
         <table border="1">
             <tbody>
                 <tr>
                     <th>Author name:</th>
-                    <td style="width: 15cm">Damian</td>
+                    <td style="width: 15cm;">Damian</td>
                 </tr>
                 <tr>
                     <th>Author surname:</th>
-                    <td style="width: 15cm">Karwat</td>
+                    <td style="width: 15cm;">Karwat</td>
                 </tr>
                 <tr>
                     <th>Author group:</th>
-                    <td style="width: 15cm">3ID11B</td>
+                    <td style="width: 15cm;">3ID11B</td>
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm">Client Progress Analysis by Trainer</td>
+                    <td style="width: 15cm;">Client Progress Analysis by Trainer</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
-                    <td style="width: 15cm">English</td>
+                    <td style="width: 15cm;">English</td>
                 </tr>
                 <tr>
                     <th>Preconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>The trainer is logged into the system</li>
-                            <li>The client is logged into the system</li>
+                            <li>The client has an account in the system</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Postconditions:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
-                            <li>
-                                The trainer has access to detailed client progress statistics
-                            </li>
+                            <li>The trainer has access to detailed client progress statistics</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <th>Actors:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
                             <li>trainer</li>
                         </ul>
@@ -4060,36 +4023,28 @@
                 </tr>
                 <tr>
                     <th>Main flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ol>
-                            <li>
-                                The trainer goes to the Class Organization section in the system
-                            </li>
+                            <li>The trainer goes to the Class Organization section in the system</li>
                             <li>The system displays the trainer's class calendar</li>
                             <li>The trainer selects a class from the class list</li>
                             <li>The system displays class details</li>
-                            <li>
-                                The trainer accesses the list of participants registered for the
-                                class
-                            </li>
+                            <li>The trainer accesses the list of participants registered for the class</li>
                             <li>The trainer selects one of the registered clients</li>
                             <li>The system displays the client's profile</li>
-                            <li>
-                                The trainer reviews client progress statistics, such as results,
-                                attendance, achievements
-                            </li>
+                            <li>The trainer reviews client progress statistics, such as results, attendance,
+                                achievements</li>
                             <li>The system displays detailed client progress statistics</li>
-                            <li>
-                                The trainer has the ability to analyze the client's progress and
-                                adjust the training plan
-                            </li>
+                            <li>The trainer has the ability to analyze the client's progress and adjust the training
+                                plan</li>
                         </ol>
                     </td>
                 </tr>
                 <tr>
                     <th>Alternate flow:</th>
-                    <td style="width: 15cm">
+                    <td style="width: 15cm;">
                         <ul>
+
                             <li>
                                 <span class="number">5</span>
                                 <span class="condition">No clients registered for the class. RETURN TO 2</span>
@@ -4100,12 +4055,14 @@
                                 <span class="condition">The client has no available data in the system. RETURN TO
                                     7</span>
                             </li>
+
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <br />
+
+        <br>
     </article>
 
     <article id="activity-diagrams">
