@@ -11,8 +11,8 @@ floating note left: W systemie istnieje Klient
 |t|
 :Wybór zajęć;
 repeat:
-    :Wybranie opcji lista zapisanych Klientów;
-    |s|
+:Wybranie opcji lista zapisanych Klientów;
+|s|
 repeat while (Czy na liście istnieje chociaż jeden Klient?) is (nie) not (tak)
 :Wyświetlenie listy zapisanych Klientów;
 |t|
