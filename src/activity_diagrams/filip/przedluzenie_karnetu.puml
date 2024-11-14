@@ -1,0 +1,27 @@
+@startuml "Przedłużenie karnetu"
+title "Przedłużenie karnetu"
+
+|system|
+start
+
+floating note left: Musi istnieć karnet identyfikujący klienta
+:Sprawdzenie daty ważności karnetów;
+:Odnalezienie nieważnego karnetu;
+
+if (Przedawniony karnet odnaleziony?) then (tak)
+    :Sprawdzenie czy metoda płatnicza jest dostępna;
+    if (Metoda płatnicza dostępna?) then (tak)
+        :Odnowienie karnetu;
+        :Pobranie opłaty;
+        :Wygenerowanie informacji zwrotnej dla klienta;
+        stop
+        floating note left: Przedłużona data karnetu
+    else (nie)
+        :Unieważnienie karnetu;
+        stop
+    endif
+else (nie)
+    stop
+endif
+
+@enduml

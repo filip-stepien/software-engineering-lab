@@ -1,0 +1,50 @@
+@startuml "Rezygnacja z karnetu"
+title "Rezygnacja z karnetu"
+
+|k| klient
+|p| pracownik
+|s| system
+
+|k|
+start
+floating note left: Musi istnieć karnet identyfikujący klienta
+floating note left: Pracownik musi być zalogowany w systemie
+:Prośba o rezygnację z karnetu;
+
+|p|
+:Wybór opcji "Wyświetl karnety";
+
+|s|
+repeat
+:Wyświetlenie listy karnetów;
+
+|p|
+:Wpisanie danych do wyszukiwarki;
+
+|s|
+:Wyświetlenie opcji pasujących do wyszukania;
+repeat while (Karnet znaleziony?) is (nie) not (tak)
+
+|p|
+:Wybór karnetu z listy wynikowej;
+:Wybór opcji "Usuń karnet";
+
+|s|
+:Wyświetlenie okna z potwierdzeniem;
+
+|p|
+:Zatwierdzenie operacji;
+
+if (Operacja zatwierdzona?) then (tak)
+else (nie)
+stop
+endif
+
+|s|
+:Usunięcie karnetu;
+:Wygenerowanie potwierdzenia operacji;
+
+stop
+floating note left: Karnet identyfikujący klienta usunięty z systemu
+
+@enduml

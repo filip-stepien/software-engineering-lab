@@ -13,24 +13,30 @@ floating note left: Pracownik musi być zalogowany w systemie
 |p|
 :Wybór opcji "Nowy karnet";
 
+repeat
+repeat
+
 |s|
 :Wyświetlenie formularza;
 
 |p|
 :Wprowadzenie danych personalnych, płatniczych i kontaktowych;
+:Zatwierdzenie operacji;
 
-if (Zatwierdzenie operacji) then (tak)
+if (Operacja zatwierdzona?) then (tak)
+else (nie)
+stop
+endif
+
 |s|
 :Sprawdzenie formatu danych;
+repeat while (Poprawny format danych?) is (nie) not (tak)
 :Sprawdzenie dostępności metody płatniczej;
+repeat while (Metoda płatnicza dostępna?) is (nie) not (tak)
 :Utworzenie karnetu;
 :Pobranie opłaty;
 :Wysłanie loginu i tymczasowego hasła do klienta;
 :Wyświetenie potwierdzenia;
-else (nie)
-:Anuluj operację;
-stop
-endif
 
 stop
 floating note left: Utworzenie karnetu identyfikującego użytkownika

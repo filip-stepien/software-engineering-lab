@@ -1,0 +1,53 @@
+@startuml "Zmiana danych na karnecie"
+title "Zmiana danych na karnecie"
+
+|k| klient
+|p| pracownik
+|s| system
+
+|k|
+start
+floating note left: Pracownik musi być zalogowany w systemie
+floating note left: Musi istnieć karnet identyfikujący klienta
+:Prośba o zmodyfikowanie danych na karnecie;
+
+|p|
+:Wybranie opcji "Wyświetl karnety";
+
+|s|
+repeat
+:Wyświetlenie listy karnetów;
+
+|p|
+:Wpisanie danych klienta do wyszukiwarki;
+
+|s|
+:Wyświetlenie opcji pasujących do wyszukania;
+repeat while (Klient znaleziony?) is (nie) not (tak)
+
+|p|
+:Wybór opcji z listy wynikowej;
+
+|s|
+repeat
+:Wyświetlenie formularza z danymi;
+
+|p|
+:Edycja danych w formularzu;
+:Zatwierdzenie zmian;
+
+if (Operacja zatwierdzona?) then (tak)
+else (nie)
+stop
+endif
+
+|s|
+:Sprawdzenie czy dane mają prawidłowy format;
+repeat while (Dane mają prawidłowy format?) is (nie) not (tak)
+:Modyfikacja danych karnetu;
+:Wygenerowanie potwierdzenie operacji;
+
+stop
+floating note left: Zmodyfikowane dane na karnecie użytkownika
+
+@enduml
