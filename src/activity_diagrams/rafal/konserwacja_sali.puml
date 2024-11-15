@@ -27,5 +27,5 @@ floating note left
     Sala została poddana konserwacji
     Pracownik otrzymał potwierdzenie wykonania konserwacji
 end note
-
+stop
 @enduml
