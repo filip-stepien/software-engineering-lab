@@ -3,4 +3,4 @@ cd "$(dirname $0)"
 
 OUTDIR="../../../sprawozdanie/5/img"
 
-plantuml -tsvg rafal/* -o "$OUTDIR"
+plantuml -tsvg rafal/* Bartek/* -o "$OUTDIR"
