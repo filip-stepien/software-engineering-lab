@@ -1,14 +1,49 @@
 # Inżyniera oprogramowania
 
-## Poprawki
+## Diagram klas
 
-### Filip
-1. logowanie, login/hasło
-2. dostęp do systemu
-3. powrót
-4. klient musi istnieć w systemie, informacja zwrotna
-5. -||- 
-6. Nieudane logowanie komunikat, liczba prób
+```
+@startuml
+SystemUser : id
+SystemUser : login
+SystemUser : password
+
+Address : country
+Address : city
+Address : postalCode
+Address : street
+Address : houseNumber
+
+User : firstName
+User : lastName
+User : email
+User : phoneNumber
+
+Membership : signUpdate
+Membership : chargePrice
+
+Gym : name
+Gym : identifier
+Gym : isAvailable
+
+TrainingSession : description
+TrainingSession : startDate
+TrainingSession : duration
+TrainingSession : maxParticipants
+
+User <|-- Client
+Worker <|-- Manager
+User <|-- Trainer
+User <|-- Worker
+
+SystemUser <|-- User
+Address .. User
+Membership .. Client
+
+Gym .. TrainingSession
+TrainingSession .. Trainer
+@enduml
+```
 
 ## Temat
 
