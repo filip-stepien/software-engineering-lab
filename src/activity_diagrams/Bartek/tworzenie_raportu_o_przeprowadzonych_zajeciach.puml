@@ -1,0 +1,41 @@
+@startuml 
+|s|system
+|k|kierownik
+
+start 
+floating note left: Pracownik musi być zalogowany do systemu
+:Menadzer wybiera opcję Wyświetl zajęcia;
+
+        |s|
+        :Wyświetlenie listy z zajęciami;
+        |k|
+        :Wybranie opcji "Generuj raport";
+        |s|
+        :Wyświetlenie opcji formularza z opcjami raportu;
+    repeat
+        |k|
+        :Wybranie zakresu dat przeprowadzonych zajęć;
+        |s|
+    if (Data początkowa następuje po dacie końcowej?) then (tak)
+    :Wyświetlenie błędu;
+    |s|
+    :Powrót do wyboru zakresu dat;
+    else(nie)
+    endif
+    repeat while(Data początkowa następuje po dacie końcowej?)
+    |k|
+    :Wybranie typu raportu "Podsumowanie";
+    :Wybranie opcji "Generuj";
+    |s|
+    :Wyświetlenie okna potwierdzenia;
+    |k|
+    if (Potwierdzenie wyboru?) then (tak)
+    |s|
+    :Utworzenie pliku z raportem do pobrania;
+    :Wygenerowanie potwierdzenia operacji;
+    else(nie)
+    endif
+    stop
+
+
+@enduml

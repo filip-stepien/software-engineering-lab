@@ -1,0 +1,29 @@
+@startuml
+
+|s| System
+|k| klient
+start
+floating note left: Klient zalogowany w systemie
+floating note left: W systemie istnieje trener
+:przejście do sekcji Kontakt z trenerem w systemie;
+|s|
+:Wyświetlenie listy dostępnych trenerów;
+|k|
+:Wybranie trenera z listy;
+|s|
+:Wyświetlenie opcji wysłania wiadomości;
+|k|
+:Wybranie opcji wiadomości napisania do Trenera;
+repeat
+    :Wpisanie treści wiadomości;
+    :Wybór przycisku Wyślij;
+    |s|
+backward: Informacja zwrotna do klienta;
+repeat while (Wiadomość pusta lub zawiera niedozwolone treści?) is (tak) not (nie)
+|s|
+:Wysłanie wiadomości do trenera;
+:Wygenerowanie potwierdzenia wysłania wiadomości;
+stop
+floating note left: Wiadomość od Klienta dociera do Trenera
+
+@enduml

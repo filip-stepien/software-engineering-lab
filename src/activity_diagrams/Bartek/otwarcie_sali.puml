@@ -1,0 +1,37 @@
+@startuml 
+|s|system
+|k|kierownik
+
+start 
+floating note left: Sala musi istnieć w systemie
+:Menadzer wybiera opcję Wyświetl sale treningowe;
+
+    repeat
+        |s|
+        :Wyświetl listę z salami;
+        |k|
+        :Wpisanie numeru sali do wyszukiwarki;
+        |s|
+        :Wyświetlenie opcji pasującej do wyszukiwania;
+        |k|
+        :Wybranie sali;
+        |s|
+        :Wyświetl informacje o sali;
+    repeat while (Istnieją sale zamknięte?) is (nie) not (tak)
+    :Wyświetlenie listy dostępnych sal;
+    |k|
+    :Wybranie dostępnej sali;
+    :Wybranie opcji "Otwórz salę";
+    |s|
+    :Wyświetlenie okna potwierdzenia;
+    |k|
+    if (Potwierdzenie wyboru?) then (tak)
+    |s|
+    :Zmiana statusu sali;
+    :Wygenerowanie potwierdzenia operacji;
+    else(nie)
+    endif
+    stop
+
+
+@enduml

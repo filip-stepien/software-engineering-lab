@@ -1,11 +1,11 @@
-@startuml
+@startuml 
 |s|system
 |k|kierownik
 
 start 
 floating note left: Sala musi istnieć w systemie
 :Menadzer wybiera opcję Wyświetl sale treningowe;
-repeat
+
     repeat
         |s|
         :Wyświetl listę z salami;
@@ -25,11 +25,13 @@ repeat
     |s|
     :Wyświetlenie okna potwierdzenia;
     |k|
-repeat while (Potwierdzenie wyboru?) is (nie) not (tak)
+    if (Potwierdzenie wyboru?) then (tak)
     |s|
     :Zmiana statusu sali;
     :Wygenerowanie potwierdzenia operacji;
-stop
-floating note left: Status sali ustawiony na Zamknieta
+    else(nie)
+    endif
+    stop
+
 
 @enduml
