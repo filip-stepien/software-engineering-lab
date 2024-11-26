@@ -1,0 +1,128 @@
+@startuml
+
+interface LoginManager{
+    login(User user)
+    logout(User user)
+    isLoggedin(User user)
+}
+
+entity Address {
+  - country: string
+  - city: string
+  - postalCode: string
+  - street: string
+  - houseNumber :string
+  --
+  // getters and setter
+}
+
+entity Message{
+    - id: unsigned int
+    - content: string
+    - from: User
+    - timestamp: unsigned int
+    - title: string
+    - to: User
+    --
+    // getters and setters
+}
+
+class User {
+  - id : unsigned int
+  - login : string
+  - password : string
+  - firstName : string
+  - lastName: string
+  - email: string
+  - phoneNumber: string
+  --
+  // getters and setter
+  + sendMessage(user: User) : bool
+  + getMessages(page: unsigned int, pageSize: unsigned int) : List<Message> // Trzeba zrobic repo tak jak z terninigiem i żeby była paginacja
+}
+
+class Membership {
+  - validUntil: unsigned int
+  - chargePrice: float
+  + extend(days: unsigned int)
+  + isValid(): bool
+}
+
+class Gym {
+  - name: string
+  - identifier: string
+  - isAvailable: bool
+  - maxParticipants: int
+  + lock() : void
+  + open() : void
+  --
+  // getters and setter
+}
+
+class TrainingSession {
+  - description
+  - startDate
+  - duration
+  - skillLevel : SkillLevel
+  - attendants : List<Client>
+  --
+  // getters and setter
+}
+
+class TrainingSessionRepository {
+    // TODO zmienić na intefejs
+    - trainingSessions: List<TrainingSession>
+
+    + getFinishedTrainingSessions(): List<TrainingSession>
+    + getUpcomingTrainingSessions(): List<TrainingSession>
+}
+
+
+TrainingSession -.> Trainer
+TrainingSession <--* Gym
+
+TrainingSession -- SkillLevel
+
+enum SkillLevel{
+    GIGACHAD
+    ADVANCED
+    BEGINNER
+    NOOB
+}
+
+enum ExerciseDifficulty{
+    HARD
+    MEDIUM
+    EASY
+}
+
+entity Exercise{
+    name: string
+    difficulty: ExerciseDifficulty
+}
+
+Exercise -- ExerciseDifficulty
+
+TrainingSession o--> Exercise
+
+class Client {
+    - weight: float
+    - height: float
+    - birthTimeStamp: unsigned int
+    + getAvailableTrainingSessions(): List<TrainingSession>
+    + getDoneTraininigSessions(): List<TrainingSessions>
+    + resignFromTraining(TrainingSession session): bool
+    + signUpForTraining(TrainingSession session): bool
+}
+Client -.> TrainingSessionRepository
+
+
+Membership <--* Client
+User -> Address
+
+User <|-- Client
+Worker <|-- Manager
+User <|-- Trainer
+User <|-- Worker
+
+@enduml
