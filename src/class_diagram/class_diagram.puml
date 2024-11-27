@@ -27,6 +27,14 @@ entity Message{
     // getters and setters
 }
 
+interface MessageRepository{
+  + getMessagesTo(userid: id): List<Messages>
+  + getMessagesFrom(userid: id): List<Messages>
+  + save(message: Message): bool
+}
+
+User -.> MessageRepository
+
 class User {
   - id : unsigned int
   - login : string
@@ -37,8 +45,9 @@ class User {
   - phoneNumber: string
   --
   // getters and setter
-  + sendMessage(user: User) : bool
-  + getMessages(page: unsigned int, pageSize: unsigned int) : List<Message> // Trzeba zrobic repo tak jak z terninigiem i żeby była paginacja
+  + sendMessage(message: Message) : bool
+  + getSentMessages() : List<Message>
+  + getRecivedMessages() : List<Message> 
 }
 
 class Membership {
@@ -65,18 +74,24 @@ class TrainingSession {
   - duration
   - skillLevel : SkillLevel
   - attendants : List<Client>
+  - isCancelled : bool
+  - trainer: Trainer
   --
   // getters and setter
 }
 
-class TrainingSessionRepository {
-    // TODO zmienić na intefejs
-    - trainingSessions: List<TrainingSession>
-
+interface TrainingSessionRepository {
     + getFinishedTrainingSessions(): List<TrainingSession>
     + getUpcomingTrainingSessions(): List<TrainingSession>
+    + save(trainingSession: TrainingSession) : bool
 }
 
+class Trainer{
+  + createTrainingSessison(trainingSession: TrainingSession): bool
+  + editTrainingSession(TrainingSession)
+}
+
+TrainingSession -.> TrainingSessionRepository
 
 TrainingSession -.> Trainer
 TrainingSession <--* Gym
