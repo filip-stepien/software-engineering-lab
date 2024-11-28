@@ -1,9 +1,9 @@
 @startuml
 
-interface LoginManager{
-    login(User user)
-    logout(User user)
-    isLoggedin(User user)
+class LoginManager{
+    + {static} authetnicate(login: string, password: string): User
+    + {static} logout(user: User): bool
+    + {static} isLoggedin(user: User): bool
 }
 
 entity Address {
@@ -27,13 +27,6 @@ entity Message{
     // getters and setters
 }
 
-interface MessageRepository{
-  + getMessagesTo(userid: id): List<Messages>
-  + getMessagesFrom(userid: id): List<Messages>
-  + save(message: Message): bool
-}
-
-User -.> MessageRepository
 
 class User {
   - id : unsigned int
@@ -48,6 +41,7 @@ class User {
   + sendMessage(message: Message) : bool
   + getSentMessages() : List<Message>
   + getRecivedMessages() : List<Message> 
+
 }
 
 class Membership {
@@ -78,25 +72,39 @@ class TrainingSession {
   - trainer: Trainer
   --
   // getters and setter
-}
-
-interface TrainingSessionRepository {
-    + getFinishedTrainingSessions(): List<TrainingSession>
-    + getUpcomingTrainingSessions(): List<TrainingSession>
-    + save(trainingSession: TrainingSession) : bool
+    + {static} getFinishedTrainingSessions(): List<TrainingSession>
+    + {static} getUpcomingTrainingSessions(): List<TrainingSession>
+    + {static} save(trainingSession: TrainingSession) : bool
 }
 
 class Trainer{
+  - Expertise: TrainerExpertise
   + createTrainingSessison(trainingSession: TrainingSession): bool
   + editTrainingSession(TrainingSession)
+  + doClientFeedback(client: Client): ClientProgress
+  
 }
 
-TrainingSession -.> TrainingSessionRepository
+class ClientProgress{
+  - feedback: string
+  - client: Client
+  - suggestedTrainingSkillLevel: SkillLevel
+  - feedbackGiver: Trainer
+  + createProgressRaport(): string
+}
+
+ClientProgress -.> Trainer 
+ClientProgress --> SkillLevel
+ClientProgress -.> Client
+
 
 TrainingSession -.> Trainer
 TrainingSession <--* Gym
+User -.> Message
+LoginManager <.- User
 
-TrainingSession -- SkillLevel
+
+TrainingSession --> SkillLevel
 
 enum SkillLevel{
     GIGACHAD
@@ -116,7 +124,17 @@ entity Exercise{
     difficulty: ExerciseDifficulty
 }
 
-Exercise -- ExerciseDifficulty
+enum TrainerExpertise{
+  FITTNESS
+  CROSSFIT
+  WEIGHTLIFTING
+  YOGA
+  MARTIALARTS
+}
+
+Trainer --> TrainerExpertise
+
+Exercise --> ExerciseDifficulty
 
 TrainingSession o--> Exercise
 
@@ -127,10 +145,30 @@ class Client {
     + getAvailableTrainingSessions(): List<TrainingSession>
     + getDoneTraininigSessions(): List<TrainingSessions>
     + resignFromTraining(TrainingSession session): bool
-    + signUpForTraining(TrainingSession session): bool
+    + signUpForTraining(TrainingSumession session): bool
 }
-Client -.> TrainingSessionRepository
 
+class Worker{
+  + cancelMembership(client: Client): bool
+  + createMembership(client: Client): Membership
+  + editUserData(user: User): bool
+  + scheduleMaintainance(gym: Gym): void
+  + finishMaintainance(gym: Gym): void
+}
+
+Worker -.> Client
+Worker -.> Gym
+
+class Manager{
+  + editWorker(worker: Worker): bool
+  + addWorker(worker: Worker): Worker
+  + deleteWorker(worker: Worker): bool
+  + addGym(gym: Gym): Gym
+  + editGym(gym: Gym): bool
+  + deleteGym(gym: Gym): bool
+}
+
+Client -.> TrainingSession
 
 Membership <--* Client
 User -> Address
