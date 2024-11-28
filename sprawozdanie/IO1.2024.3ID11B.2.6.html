@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab. 1</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inzynieria oprogramowania</title>
 </head>
 
 <body>
@@ -19,341 +19,483 @@
         <li>Bartłomiej Karkoszka</li>
     </ul>
 
-    <hr>
+    <hr />
 
     <article id="description-polish">
         <h3>Opis projektu</h3>
-        <p>System zarządzania siłownią ma na celu efektywne zarządzanie członkostwem, rezerwacjami zajęć oraz obsługą
-            klientów w siłowni. System umożliwia klientom wykupienie karnetów, zarządzanie nimi oraz rezerwację miejsc
-            na zajęcia. Trenerzy mogą organizować zajęcia, rezerwować sale oraz komunikować się z klientami. Pracownicy
-            mają możliwość weryfikacji karnetów i zarządzania danymi klientów, a menedżerowie mogą zarządzać personelem.
+        <p>
+            System zarządzania siłownią ma na celu efektywne zarządzanie członkostwem,
+            rezerwacjami zajęć oraz obsługą klientów w siłowni. System umożliwia klientom
+            wykupienie karnetów, zarządzanie nimi oraz rezerwację miejsc na zajęcia. Trenerzy
+            mogą organizować zajęcia, rezerwować sale oraz komunikować się z klientami.
+            Pracownicy mają możliwość weryfikacji karnetów i zarządzania danymi klientów, a
+            menedżerowie mogą zarządzać personelem.
         </p>
-        <p>Na system składają się następujące byty:
+        <p>Na system składają się następujące byty:</p>
         <ul>
             <li>
-                <b>Karnet wstępu</b> - dokument uprawniający klienta do wejścia na siłownię. Karnet określa okno czasowe
-                w którym uprawnienie jest ważne, dane personalne właściciela, dane płatności, a także dane kontaktowe.
-                Jest również wykorzystywany do identyfikacji dni i czasu w którym użytkownik był obecny na obiekcie
-                siłowni.
+                <b>Karnet wstępu</b> - dokument uprawniający klienta do wejścia na siłownię.
+                Karnet określa okno czasowe w którym uprawnienie jest ważne, dane personalne
+                właściciela, dane płatności, a także dane kontaktowe. Jest również
+                wykorzystywany do identyfikacji dni i czasu w którym użytkownik był obecny na
+                obiekcie siłowni.
             </li>
             <li>
-                <b>Sala treningowa</b> - pomieszczenie na którym odbywają się treningi. Wykorzystywana jest przy
-                realizacji zajęć sportowych. Sala ma swój unikatowy numer, wyposażenie i maksymalną liczbę osób, która
-                jednocześnie moze się znajdować w pomieszczeniu.
+                <b>Sala treningowa</b> - pomieszczenie na którym odbywają się treningi.
+                Wykorzystywana jest przy realizacji zajęć sportowych. Sala ma swój unikatowy
+                numer, wyposażenie i maksymalną liczbę osób, która jednocześnie może się
+                znajdować w pomieszczeniu.
             </li>
             <li>
-                <b>Zajęcia</b> - stanowią zarezerwowane okno czasowe, w którym odbywają się ćwiczenia grupowe. Zajęcia
-                opisywane są poprzez godziny oraz datę, kiedy treningi są realizowane, salę w której się odbywają,
-                trenerów którzy je prowadzą, a także klientów, którzy w nich uczestniczą.
+                <b>Zajęcia</b> - stanowią zarezerwowane okno czasowe, w którym odbywają się
+                ćwiczenia grupowe. Zajęcia opisywane są poprzez godziny oraz datę, kiedy
+                treningi są realizowane, salę w której się odbywają, trenerów którzy je
+                prowadzą, a także klientów, którzy w nich uczestniczą.
             </li>
         </ul>
-        </p>
-        <p>
-            Użytkownicy systemu:
-        <ul>
-            <li><b>Klient</b> - każdy klient ma swój karnet którym może zarządzać, może się również zapisać na zajęcia,
-                a także konsultować z trenerem.</li>
-            <li><b>Trener</b> - trener może rezerwować salę treningowe, zarządzać zajęciami i kontaktować się z
-                klientami.</li>
-            <li><b>Pracownik</b> - pracownik ma możliwość wydawania oraz wprowadzania zmian w karnetach klientów.</li>
-            <li><b>Menedżer</b> - menedżer może zarządząć pracownikami, salami, a takżę wykorzystywać system w taki
-                sposób jak inni pracownicy (np. zarządzać karnetami użytkowników).</li>
-        </ul>
-        </p>
-        <p>
-            Funkcjonalności systemu:
+        <p>Użytkownicy systemu:</p>
         <ul>
             <li>
-                <b>Wykupienie karnetu</b> - użytkownik musi zwrócić się do pracownika o założenie karnetu. Wówczas
-                należy podać dane personalne, sposób płatności, a także wybrać rodzaj karnetu.
+                <b>Klient</b> - każdy klient ma swój karnet którym może zarządzać, może się
+                również zapisać na zajęcia, a także konsultować z trenerem.
             </li>
             <li>
-                <b>Rezygnacja z karnetu</b> - pracownik anuluje karnet za prośbą użytkownika. Użytkownik w tym celu
-                podaje swoje dane personalne.
+                <b>Trener</b> - trener może rezerwować sale treningowe, zarządzać zajęciami i
+                kontaktować się z klientami.
             </li>
             <li>
-                <b>Przedłużenie karnetu</b> - jeżeli karnet nie zostanie anulowany, to jego przedłużenie następuje
-                samoistnie bez potrzeby interakcji użytkownika.
+                <b>Pracownik</b> - pracownik ma możliwość wydawania oraz wprowadzania zmian w
+                karnetach klientów.
             </li>
             <li>
-                <b>Zarządzanie karnetem</b> - użytkownik zwraca się do pracownika, który edytuje dane przypisane do
-                karnetu. Klient musi określić, które dane chce zmienić, a pracownik musi zweryfikować, czy zmiana ta
-                jest możliwa.
-            </li>
-            <li>
-                <b>Zapis klienta na zajęcia</b> - klienci mają podgląd do wprowadzanych zajęć, na które mogą dowolnie
-                się zapisywać.
-            </li>
-            <li>
-                <b>Organizacja zajęć przez trenera</b> - trener dodaje do systemu planowaną datę i godzinę zajęć, ich
-                rodzaj, a także numer sali.
-            </li>
-            <li>
-                <b>Anulowanie zajęć przez trenera</b> - trener usuwa z systemu informację o wcześniej zaplanowanych
-                zajęciach.
-            </li>
-            <li>
-                <b>Zarządzanie salami</b> - menedżer ustala w systemie, które sale są w użytku i mogą być rezerwowane na
-                rzecz zajęć, a które wymagają konserwacji.
+                <b>Menedżer</b> - menedżer może zarządzać pracownikami, salami, a także
+                wykorzystywać system w taki sposób jak inni pracownicy (np. zarządzać karnetami
+                użytkowników).
             </li>
         </ul>
-        </p>
+        <p>Funkcjonalności systemu:</p>
+        <ul>
+            <li>
+                <b>Wykupienie karnetu</b> - użytkownik musi zwrócić się do pracownika o
+                założenie karnetu. Wówczas należy podać dane personalne, sposób płatności, a
+                także wybrać rodzaj karnetu.
+            </li>
+            <li>
+                <b>Rezygnacja z karnetu</b> - pracownik anuluje karnet za prośbą użytkownika.
+                Użytkownik w tym celu podaje swoje dane personalne.
+            </li>
+            <li>
+                <b>Przedłużenie karnetu</b> - jeżeli karnet nie zostanie anulowany, to jego
+                przedłużenie następuje samoistnie bez potrzeby interakcji użytkownika.
+            </li>
+            <li>
+                <b>Zarządzanie karnetem</b> - użytkownik zwraca się do pracownika, który edytuje
+                dane przypisane do karnetu. Klient musi określić, które dane chce zmienić, a
+                pracownik musi zweryfikować, czy zmiana ta jest możliwa.
+            </li>
+            <li>
+                <b>Zapis klienta na zajęcia</b> - klienci mają podgląd do wprowadzanych zajęć,
+                na które mogą dowolnie się zapisywać.
+            </li>
+            <li>
+                <b>Organizacja zajęć przez trenera</b> - trener dodaje do systemu planowaną datę
+                i godzinę zajęć, ich rodzaj, a także numer sali.
+            </li>
+            <li>
+                <b>Anulowanie zajęć przez trenera</b> - trener usuwa z systemu informację o
+                wcześniej zaplanowanych zajęciach.
+            </li>
+            <li>
+                <b>Zarządzanie salami</b> - menedżer ustala w systemie, które sale są w użytku i
+                mogą być rezerwowane na rzecz zajęć, a które wymagają konserwacji.
+            </li>
+        </ul>
         <p>
-            System jest wieloplatformowy: wszyscy użytkownicy mają dostęp do systemu poprzez stronę internetową, a
-            klienci oraz trenerzy mogą prowadzić interakcję z systemem poprzez aplikację mobilną. Ponatdo podlega łatwej
-            skalowalności i jest odporny na znaczne obciążenie zasobów, będąc przygotowanym na obsługę dużej ilości
-            użytkowników. Autoryzacja odbywa się z pomocą bezpiecznych metod uwierzytelniania, a także weryfikacji
-            dwuetapowej dla pracowników i menedżerów. Interfejs jest intuicyjny i responsywny, nawigacja jest
-            zoptymalizowana pod kątem dostępności dla każdego użytkownika.
+            System jest wieloplatformowy: wszyscy użytkownicy mają dostęp do systemu poprzez
+            stronę internetową, a klienci oraz trenerzy mogą prowadzić interakcję z systemem
+            poprzez aplikację mobilną. Ponadto podlega łatwej skalowalności i jest odporny na
+            znaczne obciążenie zasobów, będąc przygotowanym na obsługę dużej ilości
+            użytkowników. Autoryzacja odbywa się z pomocą bezpiecznych metod uwierzytelniania, a
+            także weryfikacji dwuetapowej dla pracowników i menedżerów. Interfejs jest
+            intuicyjny i responsywny, nawigacja jest zoptymalizowana pod kątem dostępności dla
+            każdego użytkownika.
         </p>
     </article>
 
     <article id="description-english">
         <h3>Project description</h3>
-        <p>The gym management system aims to efficiently manage memberships, class bookings, and customer service in the
-            gym. The system allows clients to purchase memberships, manage them, and reserve spots for training
-            sessions. Coaches can organize training sessions, book rooms, and communicate with clients. Workers can
-            verify memberships and manage customer data, while managers can oversee personnel.</p>
-        <p>The system consists of the following entities:
+        <p>
+            The gym management system aims to efficiently manage memberships, class bookings,
+            and customer service in the gym. The system allows clients to purchase memberships,
+            manage them, and reserve spots for training sessions. Coaches can organize training
+            sessions, book rooms, and communicate with clients. Workers can verify memberships
+            and manage customer data, while managers can oversee personnel.
+        </p>
+        <p>The system consists of the following entities:</p>
         <ul>
             <li>
-                <b>Membership</b> - a document granting the client access to the gym. The membership specifies the time
-                window during which it is valid, personal details of the owner, payment information, and contact
-                details. It is also used to track the days and times when the user was present at the gym facility.
+                <b>Membership</b> - a document granting the client access to the gym. The
+                membership specifies the time window during which it is valid, personal details
+                of the owner, payment information, and contact details. It is also used to track
+                the days and times when the user was present at the gym facility.
             </li>
             <li>
-                <b>Gym</b> - a space where training sessions occur. It is used for sports activities. Each room has a
-                unique number, equipment, and a maximum capacity of people allowed at the same time.
+                <b>Gym</b> - a space where training sessions occur. It is used for sports
+                activities. Each room has a unique number, equipment, and a maximum capacity of
+                people allowed at the same time.
             </li>
             <li>
-                <b>Training session</b> - represent a reserved time slot during which group exercises take place.
-                Training sessions are described by the time and date when they occur, the room in which they are held,
-                the coaches leading them, and the clients participating.
+                <b>Training session</b> - represents a reserved time slot during which group
+                exercises take place. Training sessions are described by the time and date when
+                they occur, the room in which they are held, the coaches leading them, and the
+                clients participating.
             </li>
         </ul>
-        </p>
-        <p>
-            System users:
+        <p>System users:</p>
         <ul>
-            <li><b>Client</b> - each client has a membership they can manage, can sign up for training sessions, and can
-                consult with a coach.</li>
-            <li><b>Coach</b> - coaches can reserve gyms, manage training sessions, and communicate with clients.</li>
+            <li>
+                <b>Client</b> - each client has a membership they can manage, can sign up for
+                training sessions, and can consult with a coach.
+            </li>
+            <li>
+                <b>Coach</b> - coaches can reserve gyms, manage training sessions, and
+                communicate with clients.
+            </li>
             <li><b>Worker</b> - workers can issue and modify clients' memberships.</li>
-            <li><b>Manager</b> - managers can oversee workers, rooms, and can also use the system like other workers
-                members (e.g., managing user memberships).</li>
+            <li>
+                <b>Manager</b> - managers can oversee workers, rooms, and can also use the
+                system like other workers (e.g., managing user memberships).
+            </li>
         </ul>
-        </p>
-        <p>
-            System functionalities:
+        <p>System functionalities:</p>
         <ul>
             <li>
-                <b>Purchasing a membership</b> - user must request a worker member to set up a membership. They will
-                need to provide personal information, payment method, and select the type of membership.
+                <b>Purchasing a membership</b> - user must request a worker to set up a
+                membership. They will need to provide personal information, payment method, and
+                select the type of membership.
             </li>
             <li>
-                <b>Cancelling a membership</b> - worker cancels the membership upon the user's request. The user
-                provides their personal information for this purpose.
+                <b>Cancelling a membership</b> - worker cancels the membership upon the user's
+                request. The user provides their personal information for this purpose.
             </li>
             <li>
-                <b>Renewing a membership</b> - if the membership is not canceled, it will automatically renew without
-                the need for user interaction.
+                <b>Renewing a membership</b> - if the membership is not canceled, it will
+                automatically renew without the need for user interaction.
             </li>
             <li>
-                <b>Managing memberships</b> - user approaches a worker member, who edits the data associated with the
-                membership. The client must specify which data they wish to change, and the worker must verify if the
-                change is possible.
+                <b>Managing memberships</b> - user approaches a worker, who edits the data
+                associated with the membership. The client must specify which data they wish to
+                change, and the worker must verify if the change is possible.
             </li>
             <li>
-                <b>Signing clients up for training sessions</b> - clients have access to the scheduled training sessions
-                and can freely sign up for them.
+                <b>Signing clients up for training sessions</b> - clients have access to the
+                scheduled training sessions and can freely sign up for them.
             </li>
             <li>
-                <b>Organizing training sessions by coaches</b> - coaches enter the planned date and time of the training
-                sessions, their type, and the room number into the system.
+                <b>Organizing training sessions by coaches</b> - coaches enter the planned date
+                and time of the training sessions, their type, and the room number into the
+                system.
             </li>
             <li>
-                <b>Canceling training sessions by coaches</b> - coaches remove information about previously scheduled
-                training sessions from the system.
+                <b>Canceling training sessions by coaches</b> - coaches remove information about
+                previously scheduled training sessions from the system.
             </li>
             <li>
-                <b>Managing rooms</b> - managers establish which rooms are in use and can be reserved for training
-                sessions, and which require maintenance..
+                <b>Managing rooms</b> - managers establish which rooms are in use and can be
+                reserved for training sessions, and which require maintenance.
             </li>
         </ul>
-        </p>
         <p>
-            The system is multi-platform: all users can access the system via a website, and clients and coaches can
-            interact with the system through a mobile application. It is also easily scalable and resistant to
-            significant resource load, prepared to handle a large number of users. Authorization is conducted using
-            secure authentication methods, including two-factor verification for workers and managers. The interface is
-            intuitive and responsive, with navigation optimized for accessibility for all users.
+            The system is multi-platform: all users can access the system via a website, and
+            clients and coaches can interact with the system through a mobile application. It is
+            also easily scalable and resistant to significant resource load, prepared to handle
+            a large number of users. Authorization is conducted using secure authentication
+            methods, including two-factor verification for workers and managers. The interface
+            is intuitive and responsive, with navigation optimized for accessibility for all
+            users.
         </p>
     </article>
 
-    <hr>
+    <hr />
 
     <article id="dictionary-polish">
         <h3>Słownik</h3>
         <ul>
-            <li><b>Karnet wstępu</b> - identyfikator klienta w systemie, autoryzujący do wejścia na siłownie. Karnet
-                można wykupić, anulować, przepisać do innego klienta, a także zmienić figurujące na nim dane.</li>
-            <li><b>Sala treningowa</b> - obiekt, na którym odbywają się treningi. Sala może być zarezerwowana na rzecz
-                ćwiczeń, a także wyłączona z użytku z uwagi na prace porządkowe.</li>
-            <li><b>Zajęcia</b> - przedział czasu, kiedy na sali odbywa się trening. Zajęcia mogą być organizowane w
-                określonym czasie, anulowane bądź przełożone na inny dzień.</li>
-            <li><b>Klient</b> - podstawowy użytkownik systemu. Klient może wykupić i zarządzać karnetem, zapisywać na
-                zajęcia, a także kontaktować z trenerem.</li>
-            <li><b>Trener</b> - osoba odpowiedzialna za organizację zajęć treningowych i konsultację z klientami.</li>
-            <li><b>Pracownik</b> - użytkownik systemu autoryzujący operacje związane z zarządzaniem karnetami klienów.
+            <li>
+                <b>Karnet wstępu</b> - identyfikator klienta w systemie, autoryzujący do wejścia
+                na siłownie. Karnet można wykupić, anulować, przepisać do innego klienta, a
+                także zmienić figurujące na nim dane.
             </li>
-            <li><b>Menedżer</b> - osoba zarządzająca pracownikami, karnetami oraz salami w systemie.</li>
+            <li>
+                <b>Sala treningowa</b> - obiekt, na którym odbywają się treningi. Sala może być
+                zarezerwowana na rzecz ćwiczeń, a także wyłączona z użytku z uwagi na prace
+                porządkowe.
+            </li>
+            <li>
+                <b>Zajęcia</b> - przedział czasu, kiedy na sali odbywa się trening. Zajęcia mogą
+                być organizowane w określonym czasie, anulowane bądź przełożone na inny dzień.
+            </li>
+            <li>
+                <b>Klient</b> - podstawowy użytkownik systemu. Klient może wykupić i zarządzać
+                karnetem, zapisywać na zajęcia, a także kontaktować z trenerem.
+            </li>
+            <li>
+                <b>Trener</b> - osoba odpowiedzialna za organizację zajęć treningowych i
+                konsultację z klientami.
+            </li>
+            <li>
+                <b>Pracownik</b> - użytkownik systemu autoryzujący operacje związane z
+                zarządzaniem karnetami klienów.
+            </li>
+            <li>
+                <b>Menedżer</b> - osoba zarządzająca pracownikami, karnetami oraz salami w
+                systemie.
+            </li>
         </ul>
     </article>
 
     <article id="dictionary-english">
         <h3>Dictionary</h3>
         <ul>
-            <li><b>Membership</b> - client's identifier in the system, authorizing access to the gym. A membership can
-                be purchased, canceled, transferred to another client, or have its data changed.</li>
-            <li><b>Gym</b> - facility where training takes place. The room can be reserved for exercises and can also be
-                taken out of service for maintenance.</li>
-            <li><b>Training sessions</b> - time slot during which training occurs in the room. training sessions can be
-                organized at specific times, canceled, or rescheduled to another day.</li>
-            <li><b>Client</b> - primary user of the system. The client can purchase and manage a membership, sign up for
-                training sessions, and communicate with coaches.</li>
-            <li><b>Coach</b> - person responsible for organizing training training sessions and consulting with clients.
+            <li>
+                <b>Membership</b> - client's identifier in the system, authorizing access to the
+                gym. A membership can be purchased, canceled, transferred to another client, or
+                have its data changed.
             </li>
-            <li><b>Worker</b> - system user authorizing operations related to managing clients' memberships.</li>
-            <li><b>Manager</b> - person managing workers, memberships, and rooms in the system.</li>
+            <li>
+                <b>Gym</b> - facility where training takes place. The room can be reserved for
+                exercises and can also be taken out of service for maintenance.
+            </li>
+            <li>
+                <b>Training sessions</b> - time slot during which training occurs in the room.
+                training sessions can be organized at specific times, canceled, or rescheduled
+                to another day.
+            </li>
+            <li>
+                <b>Client</b> - primary user of the system. The client can purchase and manage a
+                membership, sign up for training sessions, and communicate with coaches.
+            </li>
+            <li>
+                <b>Coach</b> - person responsible for organizing training training sessions and
+                consulting with clients.
+            </li>
+            <li>
+                <b>Worker</b> - system user authorizing operations related to managing clients'
+                memberships.
+            </li>
+            <li>
+                <b>Manager</b> - person managing workers, memberships, and rooms in the system.
+            </li>
         </ul>
     </article>
 
-    <hr>
+    <hr />
 
     <article id="user-stories-polish">
         <h3>User stories</h3>
-        <p>
-            Jako klient:
+        <p>Jako klient:</p>
         <ul>
             <li>Chcę wykupić karnet w taki sposób, aby móc ćwiczyć.</li>
-            <li>Chcę zapisać się na zajęcia w taki sposób, aby móc ćwiczyć pod czyimś okiem.</li>
+            <li>
+                Chcę zapisać się na zajęcia w taki sposób, aby móc ćwiczyć pod czyimś okiem.
+            </li>
             <li>Chcę zrezygnować z karnetu w taki sposób, aby nie musieć za niego płacić.</li>
             <li>Chcę przedłużyć karnet w taki sposób, aby móc dalej ćwiczyć.</li>
             <li>Chcę zarządzać karnetem w taki sposób, aby móc go anulować/przedłużyć.</li>
-            <li>Chcę zmienić swoje dane na karnecie w taki sposób, aby były aktualne (np. dane kontaktowe, płatności).
+            <li>
+                Chcę zmienić swoje dane na karnecie w taki sposób, aby były aktualne (np. dane
+                kontaktowe, płatności).
             </li>
-            <li>Chcę przeglądać dostępne zajęcia w taki sposób, aby móc znaleźć te, które mnie interesują.</li>
-            <li>Chcę kontakować się z trenerem w taki sposób, aby uzyskać informacje, które mnie interesują.</li>
+            <li>
+                Chcę przeglądać dostępne zajęcia w taki sposób, aby móc znaleźć te, które mnie
+                interesują.
+            </li>
+            <li>
+                Chcę kontakować się z trenerem w taki sposób, aby uzyskać informacje, które mnie
+                interesują.
+            </li>
             <li>Chcę logować się do systemu w taki sposób, aby móc z niego korzystać.</li>
         </ul>
-        </p>
-        <p>
-            Jako trener:
+
+        <p>Jako trener:</p>
         <ul>
             <li>Chcę organizować zajęcia w taki sposób, aby klienci mogli ćwiczyć w grupie.</li>
-            <li>Chcę rezerwować sale na zajęcia w taki sposób, aby klienci mogli ćwiczyć w grupie.</li>
+            <li>
+                Chcę rezerwować sale na zajęcia w taki sposób, aby klienci mogli ćwiczyć w
+                grupie.
+            </li>
             <li>Chcę odwołać zajęcia w taki sposób, aby klienci nie musieli przychodzić.</li>
-            <li>Chcę zarządzać salami w taki sposób, aby móc zmienić salę, w której będą zajęcia.</li>
-            <li>Chcę komunikować się z klientami w taki sposób, aby informować ich o zmianach w zajęciach (np.
-                odwołanie, zmiana sali).</li>
-            <li>Chcę przeglądać listę klientów zapisanych na moje zajęcia, aby wiedzieć, kto będzie uczestniczył w
-                treningu.</li>
-            <li>Chcę mieć możliwość oceniania postępów klientów, aby dostosować program zajęć do ich potrzeb.</li>
+            <li>
+                Chcę zarządzać salami w taki sposób, aby móc zmienić salę, w której będą
+                zajęcia.
+            </li>
+            <li>
+                Chcę komunikować się z klientami w taki sposób, aby informować ich o zmianach w
+                zajęciach (np. odwołanie, zmiana sali).
+            </li>
+            <li>
+                Chcę przeglądać listę klientów zapisanych na moje zajęcia, aby wiedzieć, kto
+                będzie uczestniczył w treningu.
+            </li>
+            <li>
+                Chcę mieć możliwość oceniania postępów klientów, aby dostosować program zajęć do
+                ich potrzeb.
+            </li>
         </ul>
-        </p>
-        <p>
-            Jako pracownik:
+
+        <p>Jako pracownik:</p>
         <ul>
             <li>Chcę konserwować sale w taki sposób, aby były w dobrym stanie.</li>
-            <li>Chcę anulować karnet w taki sposób, aby zakończyć dostęp klienta do siłowni.</li>
-            <li>Chcę zmieniać dane karnetu w taki sposób, aby klient mógł zarządzać swoimi danymi personalnymi.</li>
-            <li>Chcę weryfikować wejście klienta w taki sposób, aby sprawdzić, czy ma ważny karnet.</li>
-            <li>Chcę generować raporty dotyczące aktywności klientów, aby monitorować ich zaangażowanie.</li>
-            <li>Chcę informować klientów o kończących się karnetach, aby zachęcać ich do przedłużenia.</li>
+            <li>
+                Chcę anulować karnet w taki sposób, aby zakończyć dostęp klienta do siłowni.
+            </li>
+            <li>
+                Chcę zmieniać dane karnetu w taki sposób, aby klient mógł zarządzać swoimi
+                danymi personalnymi.
+            </li>
+            <li>
+                Chcę weryfikować wejście klienta w taki sposób, aby sprawdzić, czy ma ważny
+                karnet.
+            </li>
+            <li>
+                Chcę generować raporty dotyczące aktywności klientów, aby monitorować ich
+                zaangażowanie.
+            </li>
+            <li>
+                Chcę informować klientów o kończących się karnetach, aby zachęcać ich do
+                przedłużenia.
+            </li>
         </ul>
-        </p>
-        <p>
-            Jako menedżer:
+
+        <p>Jako menedżer:</p>
         <ul>
-            <li>Chcę rezerwować sale na zajęcia w taki sposób, aby trener mógł przeprowadzić zajęcia.</li>
-            <li>Chcę zarządzać karnetami w taki sposób, aby móc monitorować ćwiczących klientów.</li>
-            <li>Chcę zarządzać pracownikami w taki sposób, aby móc ich dodawać, usuwać oraz edytować ich dane.</li>
-            <li>Chcę analizować obłożenie sal w taki sposób, aby zoptymalizować organizację zajęć</li>
-            <li>Chcę monitorować sprzedaż karnetów w taki sposób, aby sprawdzać poziom przychodów siłowni.</li>
-            <li>Chcę aktualizować informacje o dostępności sal, aby klienci i trenerzy mogli trenować.</li>
-            <li>Chcę dodawać sale do systemu w taki sposób, aby klienci mogli korzystać z nowych sal.</li>
+            <li>
+                Chcę rezerwować sale na zajęcia w taki sposób, aby trener mógł przeprowadzić
+                zajęcia.
+            </li>
+            <li>
+                Chcę zarządzać karnetami w taki sposób, aby móc monitorować ćwiczących klientów.
+            </li>
+            <li>
+                Chcę zarządzać pracownikami w taki sposób, aby móc ich dodawać, usuwać oraz
+                edytować ich dane.
+            </li>
+            <li>
+                Chcę analizować obłożenie sal w taki sposób, aby zoptymalizować organizację
+                zajęć
+            </li>
+            <li>
+                Chcę monitorować sprzedaż karnetów w taki sposób, aby sprawdzać poziom
+                przychodów siłowni.
+            </li>
+            <li>
+                Chcę aktualizować informacje o dostępności sal, aby klienci i trenerzy mogli
+                trenować.
+            </li>
+            <li>
+                Chcę dodawać sale do systemu w taki sposób, aby klienci mogli korzystać z nowych
+                sal.
+            </li>
             <li>Chcę zamkyać sale w taki sposób, aby nie można było w nich odbywać zajęć.</li>
         </ul>
-        </p>
     </article>
 
     <article id="user-stories-english">
         <h3>User stories</h3>
-        <p>
-            As a client:
+        <p>As a client:</p>
         <ul>
             <li>I want to purchase a membership so that I can work out.</li>
             <li>I want to sign up for training sessions to work out under supervision.</li>
             <li>I want to cancel my membership so that I don't have to pay for it.</li>
             <li>I want to renew my membership to continue working out.</li>
             <li>I want to manage my membership so that I can cancel/renew it.</li>
-            <li>I want to change my details on the membership so that they are up to date (e.g., contact information,
-                payment details).</li>
+            <li>
+                I want to change my details on the membership so that they are up to date (e.g.,
+                contact information, payment details).
+            </li>
             <li>I want to browse available training sessions to find ones that interest me.</li>
-            <li>I want to contact the coach in a way that allows me to get the information I'm interested in.</li>
+            <li>
+                I want to contact the coach in a way that allows me to get the information I'm
+                interested in.
+            </li>
             <li>I want to log in to the system in a way that lets me use it.</li>
         </ul>
-        </p>
-        <p>
-            As a coach:
+
+        <p>As a coach:</p>
         <ul>
-            <li>I want to organize training sessions so that clients can work out in groups.</li>
-            <li>I want to reserve rooms for training sessions so that clients can work out in groups.</li>
+            <li>
+                I want to organize training sessions so that clients can work out in groups.
+            </li>
+            <li>
+                I want to reserve rooms for training sessions so that clients can work out in
+                groups.
+            </li>
             <li>I want to cancel training sessions so that clients do not need to come.</li>
-            <li>I want to manage rooms so that I can change the room where training sessions will take place.</li>
-            <li>I want to communicate with clients to inform them about changes in training sessions (e.g.,
-                cancellation, room change).</li>
-            <li>I want to view the list of clients signed up for my training sessions to know who will participate in
-                the training.</li>
-            <li>I want to assess clients' progress to adjust the training program to their needs.</li>
+            <li>
+                I want to manage rooms so that I can change the room where training sessions
+                will take place.
+            </li>
+            <li>
+                I want to communicate with clients to inform them about changes in training
+                sessions (e.g., cancellation, room change).
+            </li>
+            <li>
+                I want to view the list of clients signed up for my training sessions to know
+                who will participate in the training.
+            </li>
+            <li>
+                I want to assess clients' progress to adjust the training program to their
+                needs.
+            </li>
         </ul>
-        </p>
-        <p>
-            As a workers member:
+
+        <p>As a workers member:</p>
         <ul>
             <li>I want to maintain rooms so that they are in good condition.</li>
+            <li>I want to cancel memberships to terminate client access to the gym.</li>
             <li>
-                I want to cancel memberships to terminate client access to the gym.</li>
-            <li>I want to change membership details so that clients can manage their personal information.</li>
+                I want to change membership details so that clients can manage their personal
+                information.
+            </li>
             <li>I want to verify client entry to check if they have a valid membership.</li>
             <li>I want to generate reports on client activity to monitor their engagement.</li>
             <li>I want to inform clients about expiring memberships to encourage renewal.</li>
         </ul>
-        </p>
-        <p>
-            As a manager:
+
+        <p>As a manager:</p>
         <ul>
-            <li>I want to reserve rooms for training sessions so that coaches can conduct sessions.</li>
+            <li>
+                I want to reserve rooms for training sessions so that coaches can conduct
+                sessions.
+            </li>
             <li>I want to manage memberships to monitor exercising clients.</li>
-            <li>I want to manage employees in a way that allows me to add, remove, and edit their data.</li>
+            <li>
+                I want to manage employees in a way that allows me to add, remove, and edit
+                their data.
+            </li>
             <li>I want to analyze room usage to optimize class organization.</li>
             <li>I want to monitor membership sales to check the gym's revenue level.</li>
-            <li>I want to update information on room availability so that clients and coaches can train.</li>
-            <li>I want to add rooms to the system in a way that allows clients to use the new rooms.</li>
-            <li>I want to close rooms in a way that prevents classes from taking place in them.</li>
+            <li>
+                I want to update information on room availability so that clients and coaches
+                can train.
+            </li>
+            <li>
+                I want to add rooms to the system in a way that allows clients to use the new
+                rooms.
+            </li>
+            <li>
+                I want to close rooms in a way that prevents classes from taking place in them.
+            </li>
         </ul>
-        </p>
     </article>
 
-    <hr>
+    <hr />
 
     <article id="use-case-diagram">
-        <img src="./IO1.2024.3ID11B.2.1-2.svg" alt="diagram">
+        <img src="./IO1.2024.3ID11B.2.1-2.svg" alt="diagram" />
     </article>
 
-
     <article id="use-case-scenarios-polish">
-        <h4>Scenariusze przypadków użycia</h4>
         <table border="1">
             <tbody>
                 <tr>
@@ -384,7 +526,7 @@
                     <th>Preconditions:</th>
                     <td style="width: 15cm;">
                         <ul>
-                            <li>brak</li>
+                            <li>Pracownik musi być zalogowany w systemie</li>
                         </ul>
                     </td>
                 </tr>
@@ -413,11 +555,12 @@
                             <li>Pracownik wybiera opcję `Nowy karnet`</li>
                             <li>System wyświetla formularz do utworzenia karnetu</li>
                             <li>Pracownik wprowadza dane personalne, płatnicze i kontaktowe klienta do formularza</li>
-                            <li>Pracownik wybiera opcję `Zapisz`</li>
+                            <li>Pracownik zatwierdza operację.</li>
                             <li>System sprawdza czy wprowadzone dane mają prawidłowy format</li>
                             <li>System sprawdza czy metoda płatncza jest dostępna</li>
                             <li>System tworzy nowy karnet</li>
                             <li>System pobiera opłatę</li>
+                            <li>System wysyła login i tymczasowe hasło dostępu do klienta.</li>
                             <li>System wyświetla potwierdzenie</li>
                         </ol>
                     </td>
@@ -426,6 +569,11 @@
                     <th>Alternate flow:</th>
                     <td style="width: 15cm;">
                         <ul>
+
+                            <li>
+                                <span class="number">5</span>
+                                <span class="condition">Pracownik wybiera opcje "Anuluj". END FLOW</span>
+                            </li>
 
                             <li>
                                 <span class="number">6</span>
@@ -475,6 +623,7 @@
                     <td style="width: 15cm;">
                         <ul>
                             <li>Musi istnieć karnet identyfikujący klienta</li>
+                            <li>Pracownik musi być zalogowany w systemie</li>
                         </ul>
                     </td>
                 </tr>
@@ -523,6 +672,11 @@
                                 <span class="condition">Klient nie został znaleziony. POWRÓT DO 3</span>
                             </li>
 
+                            <li>
+                                <span class="number">9</span>
+                                <span class="condition">Pracownik wybiera opcję "Anuluj". END FLOW</span>
+                            </li>
+
                         </ul>
                     </td>
                 </tr>
@@ -560,7 +714,6 @@
                     <th>Preconditions:</th>
                     <td style="width: 15cm;">
                         <ul>
-                            <li>Klient musi być zalogowany w systemie</li>
                             <li>Musi istnieć karnet identyfikujący klienta</li>
                         </ul>
                     </td>
@@ -590,6 +743,7 @@
                             <li>System sprawdza czy metoda płatnicza do odnowienia karnetu jest dostępna</li>
                             <li>System odnawia karnet</li>
                             <li>System pobiera opłatę</li>
+                            <li>System generuje informację zwrotną dla klienta</li>
                         </ol>
                     </td>
                 </tr>
@@ -599,8 +753,14 @@
                         <ul>
 
                             <li>
+                                <span class="number">2</span>
+                                <span class="condition">Nie znaleziono przedawnionego karnetu. END FLOW</span>
+                            </li>
+
+                            <li>
                                 <span class="number">3</span>
-                                <span class="condition">Metoda płatnicza niedostępna. POWRÓT DO 1</span>
+                                <span class="condition">Metoda płatnicza niedostępna - unieważnienie karnetu. END
+                                    FLOW</span>
                             </li>
 
                         </ul>
@@ -640,7 +800,7 @@
                     <th>Preconditions:</th>
                     <td style="width: 15cm;">
                         <ul>
-                            <li>Klient musi być zalogowany w systemie</li>
+                            <li>Pracownik musi być zalogowany w systemie</li>
                             <li>Musi istnieć karnet identyfikujący klienta</li>
                         </ul>
                     </td>
@@ -674,7 +834,7 @@
                             <li>Pracownik wybiera karnet z listy wynikowej</li>
                             <li>System wyświetla formularz z danymi</li>
                             <li>Pracownik edytuje dane w formularzu</li>
-                            <li>Pracownik wybiera opcję `Zapisz`</li>
+                            <li>Pracownik zatwierdza zmiany.</li>
                             <li>System sprawdza czy wprowadzone dane mają prawidłowy format</li>
                             <li>System modyfikuje dane karnetu</li>
                             <li>System generuje potwierdzenie operacji.</li>
@@ -689,6 +849,11 @@
                             <li>
                                 <span class="number">5</span>
                                 <span class="condition">Klient nie został znaleziony. POWRÓT DO 3</span>
+                            </li>
+
+                            <li>
+                                <span class="number">9</span>
+                                <span class="condition">Pracownik wybiera opcję "Anuluj". END FLOW</span>
                             </li>
 
                             <li>
@@ -764,7 +929,7 @@
                             <li>System wyświetla formularz logowania</li>
                             <li>Użytkownik wpisuje dane logowania</li>
                             <li>Użytkownik wybiera opcję `Zaloguj`</li>
-                            <li>System sprawdza czy użytkownik istnieje</li>
+                            <li>System sprawdza czy istnieje użytkownik z podanym logiem i hasłem</li>
                             <li>System tworzy sesję użytkownika</li>
                             <li>System wyświetla ekran startowy</li>
                         </ol>
@@ -777,7 +942,8 @@
 
                             <li>
                                 <span class="number">5</span>
-                                <span class="condition">Użytkownik nie został znaleziony. POWRÓT DO 2</span>
+                                <span class="condition">Błędne dane logowania - system wyświetla komunikat o błędzie.
+                                    POWRÓT DO 2</span>
                             </li>
 
                         </ul>
@@ -901,6 +1067,7 @@
                     <td style="width: 15cm;">
                         <ul>
                             <li>Pracownik nie jest jeszcze zarejestrowany w systemie</li>
+                            <li>Kierownik jest zalogownay</li>
                         </ul>
                     </td>
                 </tr>
@@ -930,7 +1097,7 @@
                             <li>Menedżer wybiera opcję `Dodaj`</li>
                             <li>System sprawdza, czy wprowadzone dane mają prawidłowy format</li>
                             <li>System dodaje pracownika do systemu</li>
-                            <li>System wyświetla potwierdzenie</li>
+                            <li>System wyświetla potwierdzenie oraz dane logowania dla pracownika</li>
                         </ol>
                     </td>
                 </tr>
@@ -982,6 +1149,7 @@
                     <td style="width: 15cm;">
                         <ul>
                             <li>Pracownik musi być zarejestrowany w systemie</li>
+                            <li>Kierownik jest zalogowoany</li>
                         </ul>
                     </td>
                 </tr>
@@ -1006,7 +1174,7 @@
                     <th>Main flow:</th>
                     <td style="width: 15cm;">
                         <ol>
-                            <li>Pracownik zwraca się do menedżera o modyfikację danych na karnecie</li>
+                            <li>Pracownik zwraca się do menedżera o modyfikację danych</li>
                             <li>Menedżer wybiera opcję `Wyświetl pracowników`</li>
                             <li>System wyświetla listę pracowników</li>
                             <li>Menedżer wpisuje dane pracownika do wyszukiwarki</li>
@@ -1074,6 +1242,7 @@
                     <td style="width: 15cm;">
                         <ul>
                             <li>Pracownik musi być zarejestrowany w systemie</li>
+                            <li>Menadżer musi być zalogowany</li>
                         </ul>
                     </td>
                 </tr>
@@ -1119,6 +1288,11 @@
                             <li>
                                 <span class="number">4</span>
                                 <span class="condition">Pracownik nie został znaleziony. POWRÓT DO 2</span>
+                            </li>
+
+                            <li>
+                                <span class="number">9</span>
+                                <span class="condition">Menadżer nie zatwierda END FLOW</span>
                             </li>
 
                         </ul>
@@ -1184,7 +1358,6 @@
                     <th>Main flow:</th>
                     <td style="width: 15cm;">
                         <ol>
-                            <li>Pracownik loguje się do systemu</li>
                             <li>Pracownik przechodzi do sekcji Kalendarz konserwacji</li>
                             <li>System wyświetla kalendarz z zaplanowanymi konserwacjami sal</li>
                             <li>Pracownik wybiera salę, która wymaga konserwacji</li>
@@ -1201,15 +1374,9 @@
                         <ul>
 
                             <li>
-                                <span class="number">4</span>
+                                <span class="number">3</span>
                                 <span class="condition">Jeśli termin konserwacji minął lub nie ma zaplanowanej
-                                    konserwacji dla wybranej sali, POWRÓT DO 2</span>
-                            </li>
-
-                            <li>
-                                <span class="number">7</span>
-                                <span class="condition">Jeśli konserwacja nie została zakończona pomyślnie, POWRÓT DO
-                                    6</span>
+                                    konserwacji dla wybranej sali, END FLOW</span>
                             </li>
 
                         </ul>
@@ -1250,6 +1417,7 @@
                     <td style="width: 15cm;">
                         <ul>
                             <li>Sala musi istnieć w systemie</li>
+                            <li>Menedzer musi być zalogowany w systemie</li>
                         </ul>
                     </td>
                 </tr>
@@ -1299,7 +1467,12 @@
 
                             <li>
                                 <span class="number">5</span>
-                                <span class="condition">Sala ma już status 'zamknięta'. POWRÓT DO 6</span>
+                                <span class="condition">Opcja nie została zatwierdzona END FLOW</span>
+                            </li>
+
+                            <li>
+                                <span class="number">6</span>
+                                <span class="condition">Sala ma już status 'zamknięta' END FLOW</span>
                             </li>
 
                         </ul>
@@ -1340,6 +1513,7 @@
                     <td style="width: 15cm;">
                         <ul>
                             <li>Sala musi istnieć w systemie</li>
+                            <li>Menedzer musi być zalogowany do systemu</li>
                         </ul>
                     </td>
                 </tr>
@@ -1429,7 +1603,7 @@
                     <th>Preconditions:</th>
                     <td style="width: 15cm;">
                         <ul>
-                            <li>brak</li>
+                            <li>Pracownik musi być zalogowany do systemu</li>
                         </ul>
                     </td>
                 </tr>
@@ -1513,7 +1687,7 @@
                     <th>Preconditions:</th>
                     <td style="width: 15cm;">
                         <ul>
-                            <li>brak</li>
+                            <li>Pracownik musi być zalogowany do systemu</li>
                         </ul>
                     </td>
                 </tr>
@@ -1727,6 +1901,11 @@
                         <ul>
 
                             <li>
+                                <span class="number">7</span>
+                                <span class="condition">Trener nie potwierdza rezerwacji sali. POWRÓT DO 6</span>
+                            </li>
+
+                            <li>
                                 <span class="number">9</span>
                                 <span class="condition">Wybrany termin zajęć jest zajęty lub sala jest niedostępna.
                                     POWRÓT DO 5</span>
@@ -1903,8 +2082,13 @@
                         <ul>
 
                             <li>
+                                <span class="number">5</span>
+                                <span class="condition">Brak dostępnych sal w tym terminie. POWRÓT DO 2</span>
+                            </li>
+
+                            <li>
                                 <span class="number">6</span>
-                                <span class="condition">Wybrana sala jest niedostępna. POWRÓT DO 5</span>
+                                <span class="condition">Trener nie potwierdza zmiany. POWRÓT DO 5</span>
                             </li>
 
                         </ul>
@@ -1945,7 +2129,7 @@
                     <td style="width: 15cm;">
                         <ul>
                             <li>Trener jest zalogowany w systemie</li>
-                            <li>Klient jest zalogowany w systemie</li>
+                            <li>Klient istnieje w systemie</li>
                         </ul>
                     </td>
                 </tr>
@@ -1994,7 +2178,7 @@
                             </li>
 
                             <li>
-                                <span class="number">8</span>
+                                <span class="number">9</span>
                                 <span class="condition">Wiadomość jest pusta lub zawiera niedozwolone treści. POWRÓT DO
                                     7</span>
                             </li>
@@ -2037,7 +2221,7 @@
                     <td style="width: 15cm;">
                         <ul>
                             <li>Trener jest zalogowany w systemie</li>
-                            <li>Klient jest zalogowany w systemie</li>
+                            <li>Klient istnieje w systemie</li>
                         </ul>
                     </td>
                 </tr>
@@ -2099,7 +2283,7 @@
         <br>
     </article>
     <article id="use-case-scenarios-english">
-        <h4>Use case scenarios</h4>
+
         <table border="1">
             <tbody>
                 <tr>
@@ -2116,11 +2300,11 @@
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm;">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm;">Purchase a membership</td>
+                    <td style="width: 15cm;">Purchase of Membership</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
@@ -2130,7 +2314,7 @@
                     <th>Preconditions:</th>
                     <td style="width: 15cm;">
                         <ul>
-                            <li>none</li>
+                            <li>The employee must be logged into the system</li>
                         </ul>
                     </td>
                 </tr>
@@ -2138,7 +2322,7 @@
                     <th>Postconditions:</th>
                     <td style="width: 15cm;">
                         <ul>
-                            <li>Created membership identifying the user</li>
+                            <li>Creation of a membership identifying the user</li>
                         </ul>
                     </td>
                 </tr>
@@ -2155,16 +2339,18 @@
                     <th>Main flow:</th>
                     <td style="width: 15cm;">
                         <ol>
-                            <li>Client requests the employee to create a membership</li>
-                            <li>Employee selects the `New membership` option</li>
-                            <li>System displays a form to create a membership</li>
-                            <li>Employee enters the client’s personal, payment, and contact details in the form</li>
-                            <li>Employee selects the `Save` option</li>
-                            <li>System checks if the entered data is correctly formatted</li>
-                            <li>System checks if the payment method is available</li>
-                            <li>System creates a new membership</li>
-                            <li>System charges the fee</li>
-                            <li>System displays a confirmation</li>
+                            <li>The client requests the employee to create a membership</li>
+                            <li>The employee selects the `New Membership` option</li>
+                            <li>The system displays the membership creation form</li>
+                            <li>The employee enters the client's personal, payment, and contact information in the form
+                            </li>
+                            <li>The employee confirms the operation</li>
+                            <li>The system checks if the entered data is in the correct format</li>
+                            <li>The system checks if the payment method is available</li>
+                            <li>The system creates a new membership</li>
+                            <li>The system charges the fee</li>
+                            <li>The system sends the login and temporary access password to the client</li>
+                            <li>The system displays a confirmation</li>
                         </ol>
                     </td>
                 </tr>
@@ -2172,6 +2358,11 @@
                     <th>Alternate flow:</th>
                     <td style="width: 15cm;">
                         <ul>
+
+                            <li>
+                                <span class="number">5</span>
+                                <span class="condition">The employee selects the "Cancel" option. END FLOW</span>
+                            </li>
 
                             <li>
                                 <span class="number">6</span>
@@ -2180,7 +2371,7 @@
 
                             <li>
                                 <span class="number">7</span>
-                                <span class="condition">Payment method unavailable. RETURN TO 3</span>
+                                <span class="condition">Payment method is unavailable. RETURN TO 3</span>
                             </li>
 
                         </ul>
@@ -2206,11 +2397,11 @@
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm;">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm;">Membership cancellation</td>
+                    <td style="width: 15cm;">Membership Cancellation</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
@@ -2221,6 +2412,7 @@
                     <td style="width: 15cm;">
                         <ul>
                             <li>There must be a membership identifying the client</li>
+                            <li>The employee must be logged into the system</li>
                         </ul>
                     </td>
                 </tr>
@@ -2228,7 +2420,7 @@
                     <th>Postconditions:</th>
                     <td style="width: 15cm;">
                         <ul>
-                            <li>Client’s membership removed from the system</li>
+                            <li>Client-identifying membership removed from the system</li>
                         </ul>
                     </td>
                 </tr>
@@ -2245,17 +2437,17 @@
                     <th>Main flow:</th>
                     <td style="width: 15cm;">
                         <ol>
-                            <li>Client requests the employee to cancel their membership</li>
-                            <li>Employee selects the `View memberships` option</li>
-                            <li>System displays the list of memberships</li>
-                            <li>Employee enters the client’s data in the search bar</li>
-                            <li>System displays options matching the search</li>
-                            <li>Employee selects the membership from the search results</li>
-                            <li>Employee selects the `Delete membership` option</li>
-                            <li>System displays a confirmation window</li>
-                            <li>Employee confirms membership deletion</li>
-                            <li>System deletes the membership</li>
-                            <li>System generates a confirmation of the operation</li>
+                            <li>The client requests the employee to cancel the membership</li>
+                            <li>The employee selects the `Display Memberships` option</li>
+                            <li>The system displays a list of memberships</li>
+                            <li>The employee enters the client's data into the search bar</li>
+                            <li>The system displays options matching the search</li>
+                            <li>The employee selects the membership from the results list</li>
+                            <li>The employee selects the `Delete Membership` option</li>
+                            <li>The system displays a confirmation window</li>
+                            <li>The employee confirms the deletion of the membership</li>
+                            <li>The system deletes the membership</li>
+                            <li>The system generates an operation confirmation</li>
                         </ol>
                     </td>
                 </tr>
@@ -2267,6 +2459,11 @@
                             <li>
                                 <span class="number">5</span>
                                 <span class="condition">Client not found. RETURN TO 3</span>
+                            </li>
+
+                            <li>
+                                <span class="number">9</span>
+                                <span class="condition">The employee selects the "Cancel" option. END FLOW</span>
                             </li>
 
                         </ul>
@@ -2292,11 +2489,11 @@
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm;">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm;">Membership renewal</td>
+                    <td style="width: 15cm;">Membership Renewal</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
@@ -2306,7 +2503,6 @@
                     <th>Preconditions:</th>
                     <td style="width: 15cm;">
                         <ul>
-                            <li>Client must be logged into the system</li>
                             <li>There must be a membership identifying the client</li>
                         </ul>
                     </td>
@@ -2315,7 +2511,7 @@
                     <th>Postconditions:</th>
                     <td style="width: 15cm;">
                         <ul>
-                            <li>Membership expiration date extended</li>
+                            <li>Extended membership expiration date</li>
                         </ul>
                     </td>
                 </tr>
@@ -2331,11 +2527,12 @@
                     <th>Main flow:</th>
                     <td style="width: 15cm;">
                         <ol>
-                            <li>System checks the expiration date of user memberships</li>
-                            <li>System finds an expired membership</li>
-                            <li>System checks if the payment method for renewing the membership is available</li>
-                            <li>System renews the membership</li>
-                            <li>System charges the fee</li>
+                            <li>The system checks the expiration date of users' memberships</li>
+                            <li>The system finds an expired membership</li>
+                            <li>The system checks if the payment method for membership renewal is available</li>
+                            <li>The system renews the membership</li>
+                            <li>The system charges the fee</li>
+                            <li>The system generates feedback for the client</li>
                         </ol>
                     </td>
                 </tr>
@@ -2345,8 +2542,14 @@
                         <ul>
 
                             <li>
+                                <span class="number">2</span>
+                                <span class="condition">No expired membership found. END FLOW</span>
+                            </li>
+
+                            <li>
                                 <span class="number">3</span>
-                                <span class="condition">Payment method unavailable. RETURN TO 1</span>
+                                <span class="condition">Payment method unavailable - membership is invalidated. END
+                                    FLOW</span>
                             </li>
 
                         </ul>
@@ -2372,11 +2575,11 @@
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm;">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm;">Updating membership data</td>
+                    <td style="width: 15cm;">Modification of Membership Data</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
@@ -2386,7 +2589,7 @@
                     <th>Preconditions:</th>
                     <td style="width: 15cm;">
                         <ul>
-                            <li>Client must be logged into the system</li>
+                            <li>The employee must be logged into the system</li>
                             <li>There must be a membership identifying the client</li>
                         </ul>
                     </td>
@@ -2395,7 +2598,7 @@
                     <th>Postconditions:</th>
                     <td style="width: 15cm;">
                         <ul>
-                            <li>Updated user data on the membership</li>
+                            <li>User's membership data modified</li>
                         </ul>
                     </td>
                 </tr>
@@ -2412,18 +2615,18 @@
                     <th>Main flow:</th>
                     <td style="width: 15cm;">
                         <ol>
-                            <li>Client requests the employee to update membership data</li>
-                            <li>Employee selects the `View memberships` option</li>
-                            <li>System displays the list of memberships</li>
-                            <li>Employee enters the client’s data in the search bar</li>
-                            <li>System displays options matching the search</li>
-                            <li>Employee selects the membership from the search results</li>
-                            <li>System displays a form with data</li>
-                            <li>Employee edits the data in the form</li>
-                            <li>Employee selects the `Save` option</li>
-                            <li>System checks if the entered data is correctly formatted</li>
-                            <li>System updates the membership data</li>
-                            <li>System generates a confirmation of the operation</li>
+                            <li>The client requests the employee to modify the membership data</li>
+                            <li>The employee selects the `Display Memberships` option</li>
+                            <li>The system displays a list of memberships</li>
+                            <li>The employee enters the client's data into the search bar</li>
+                            <li>The system displays options matching the search</li>
+                            <li>The employee selects the membership from the results list</li>
+                            <li>The system displays a form with data</li>
+                            <li>The employee edits the data in the form</li>
+                            <li>The employee confirms the changes</li>
+                            <li>The system checks if the entered data is in the correct format</li>
+                            <li>The system modifies the membership data</li>
+                            <li>The system generates an operation confirmation</li>
                         </ol>
                     </td>
                 </tr>
@@ -2438,8 +2641,13 @@
                             </li>
 
                             <li>
+                                <span class="number">9</span>
+                                <span class="condition">The employee selects the "Cancel" option. END FLOW</span>
+                            </li>
+
+                            <li>
                                 <span class="number">10</span>
-                                <span class="condition">Incorrect data format. RETURN TO 7</span>
+                                <span class="condition">Invalid data format. RETURN TO 7</span>
                             </li>
 
                         </ul>
@@ -2465,11 +2673,11 @@
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm;">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
-                    <td style="width: 15cm;">System login</td>
+                    <td style="width: 15cm;">System Login</td>
                 </tr>
                 <tr>
                     <th>Language:</th>
@@ -2479,7 +2687,7 @@
                     <th>Preconditions:</th>
                     <td style="width: 15cm;">
                         <ul>
-                            <li>User must exist in the system</li>
+                            <li>The user must exist in the system</li>
                         </ul>
                     </td>
                 </tr>
@@ -2506,13 +2714,13 @@
                     <th>Main flow:</th>
                     <td style="width: 15cm;">
                         <ol>
-                            <li>User navigates to the login screen</li>
-                            <li>System displays the login form</li>
-                            <li>User enters login details</li>
-                            <li>User selects the `Login` option</li>
-                            <li>System checks if the user exists</li>
-                            <li>System creates the user session</li>
-                            <li>System displays the start screen</li>
+                            <li>The user navigates to the login screen</li>
+                            <li>The system displays the login form</li>
+                            <li>The user enters login credentials</li>
+                            <li>The user selects the `Login` option</li>
+                            <li>The system checks if a user with the given login and password exists</li>
+                            <li>The system creates a user session</li>
+                            <li>The system displays the start screen</li>
                         </ol>
                     </td>
                 </tr>
@@ -2523,7 +2731,8 @@
 
                             <li>
                                 <span class="number">5</span>
-                                <span class="condition">User not found. RETURN TO 2</span>
+                                <span class="condition">Incorrect login data - the system displays an error message.
+                                    RETURN TO 2</span>
                             </li>
 
                         </ul>
@@ -2549,7 +2758,7 @@
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm;">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
@@ -2632,7 +2841,7 @@
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm;">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
@@ -2713,7 +2922,7 @@
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm;">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
@@ -2805,7 +3014,7 @@
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm;">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
@@ -2890,7 +3099,7 @@
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm;">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
@@ -2981,7 +3190,7 @@
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm;">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
@@ -3071,7 +3280,7 @@
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm;">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
@@ -3161,7 +3370,7 @@
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm;">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
@@ -3245,7 +3454,7 @@
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm;">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
@@ -3328,7 +3537,7 @@
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm;">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
@@ -3413,7 +3622,7 @@
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm;">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
@@ -3507,7 +3716,7 @@
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm;">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
@@ -3593,7 +3802,7 @@
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm;">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
@@ -3654,7 +3863,12 @@
 
                             <li>
                                 <span class="number">6</span>
-                                <span class="condition">The selected room is unavailable. RETURN TO 5</span>
+                                <span class="condition">No available rooms for chosen day and time. RETUTN TO 2</span>
+                            </li>
+
+                            <li>
+                                <span class="number">6</span>
+                                <span class="condition">Trainer doesn't confirm the change. RETURN TO 5</span>
                             </li>
 
                         </ul>
@@ -3680,7 +3894,7 @@
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm;">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
@@ -3695,7 +3909,7 @@
                     <td style="width: 15cm;">
                         <ul>
                             <li>The trainer is logged into the system</li>
-                            <li>The client is logged into the system</li>
+                            <li>The client has an account in the system</li>
                         </ul>
                     </td>
                 </tr>
@@ -3772,7 +3986,7 @@
                 </tr>
                 <tr>
                     <th>Subject:</th>
-                    <td style="width: 15cm;">Gym managment system</td>
+                    <td style="width: 15cm;">System zarządzania siłownią</td>
                 </tr>
                 <tr>
                     <th>Use Case:</th>
@@ -3787,7 +4001,7 @@
                     <td style="width: 15cm;">
                         <ul>
                             <li>The trainer is logged into the system</li>
-                            <li>The client is logged into the system</li>
+                            <li>The client has an account in the system</li>
                         </ul>
                     </td>
                 </tr>
@@ -3847,8 +4061,113 @@
                 </tr>
             </tbody>
         </table>
+
         <br>
     </article>
 
+    <article id="activity-diagrams">
+        <h4>Diagramy aktywności</h4>
+        <section>
+            <h5>Wykupienie karnetu</h5>
+            <p>Autor: Filip Stępień</p>
+            <img src="img/wykupienie_karnetu.svg" />
+        </section>
+        <section>
+            <h5>Rezygnacja z karnetu</h5>
+            <p>Autor: Filip Stępień</p>
+            <img src="img/rezygnacja_z_karnetu.svg" />
+        </section>
+        <section>
+            <h5>Przedłużenie karnetu</h5>
+            <p>Autor: Filip Stępień</p>
+            <img src="img/przedłużenie_karnetu.svg" />
+        </section>
+        <section>
+            <h5>Zmiana danych na karnecie</h5>
+            <p>Autor: Filip Stępień</p>
+            <img src="img/zmiana_danych_na_karnecie.svg" />
+        </section>
+        <section>
+            <h5>Logowanie do systemu</h5>
+            <p>Autor: Filip Stępień</p>
+            <img src="img/logowanie_do_systemu.svg" />
+        </section>
+        <section>
+            <h5>Organizacja zajęć przez trenera</h5>
+            <p>Autor: Damian Karwat</p>
+            <img src="img/organizacja_zajec.svg" />
+        </section>
+        <section>
+            <h5>Odwołanie zajęć przez trenera</h5>
+            <p>Autor: Damian Karwat</p>
+            <img src="img/odwołanie_zajec.svg" />
+        </section>
+        <section>
+            <h5>Zmiana sali na której odbędą się zaplanowane zajęcia przez trenera</h5>
+            <p>Autor: Damian Karwat</p>
+            <img src="img/zmiana_sali_zajec.svg" />
+        </section>
+        <section>
+            <h5>Kontakt Trenera z Klientem</h5>
+            <p>Autor: Damian Karwat</p>
+            <img src="img/kontakt_trener_klient.svg" />
+        </section>
+        <section>
+            <h5>Analiza postępów Klienta przez Trenera</h5>
+            <p>Autor: Damian Karwat</p>
+            <img src="img/analiza_postepow_klienta.svg" />
+        </section>
+        <section>
+            <p>Autor: Rafał Grot</p>
+            <img src="img/Edytowanie danych pracownika.svg" />
+        </section>
+        <section>
+            <p>Autor: Rafał Grot</p>
+            <img src="img/konserwacja_sali.svg" />
+        </section>
+        <section>
+            <p>Autor: Rafał Grot</p>
+            <img src="img/rejestracja_pracownika.svg" />
+        </section>
+        <section>
+            <p>Autor: Rafał Grot</p>
+            <img src="img/usunięcie pracownika z systemu.svg" />
+        </section>
+        <section>
+            <p>Autor: Rafał Grot</p>
+            <img src="img/zapis_klienta_na_zajecia.svg" />
+        </section>
+        <section>
+            <h5>Kontakt klienta z trenerem</h5>
+            <p>Autor: Bartek Karkoszka</p>
+            <img src="img/kontakt_klienta_z_trenerem.svg" />
+        </section>
+        <section>
+            <h5>Otwarcie sali</h5>
+            <p>Autor: Bartek Karkoszka</p>
+            <img src="img/otwarcie_sali.svg" />
+        </section>
+        <section>
+            <h5>Zamknięcie sali</h5>
+            <p>Autor: Bartek Karkoszka</p>
+            <img src="img/zamkniecie_sali.svg" />
+        </section>
+        <section>
+            <h5>Tworzenie raportu o przeprowadzonych zajęciach</h5>
+            <p>Autor: Bartek Karkoszka</p>
+            <img src="img/tworzenie_raportu_o_przeprowadzonych_zajeciach.svg" />
+        </section>
+        <section>
+            <h5>Tworzenie raportu sprzedażowego</h5>
+            <p>Autor: Bartek Karkoszka</p>
+            <img src="img/tworzenie_raportu_sprzedazowego.svg" />
+        </section>
+
+    </article>
+    <article id="class-diagram">
+        <h4>Diagram klas</h4>
+        <img src="img/class_diagram.svg" />
+    </article>
+</body>
 
 </html>
