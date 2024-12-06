@@ -1,0 +1,54 @@
+@startuml
+class Membership {
+    + extend(days: unsigned int)
+    + isValid(): bool
+    + getExpirationTimestamp(): unsigned int
+    + getChargePrice(): float
+}
+
+class MultisportMembership {
+    + getExpirationTimestamp(): unsigned int
+    + getChargePrice(): float
+}
+
+MultisportMembership <|-- Membership
+
+class StandardMembership {
+    + getExpirationTimestamp(): unsigned int
+    + getChargePrice(): float
+}
+
+StandardMembership <|-- Membership
+
+class PremiumMembership {
+    + getExpirationTimestamp(): unsigned int
+    + getChargePrice(): float
+}
+
+PremiumMembership <|-- Membership
+
+class Client {
+    - weight: float
+    - height: float
+    - birthTimeStamp: unsigned int
+    - membership: Membership
+    + getAvailableTrainingSessions(): List<TrainingSession>
+    + getDoneTrainingSessions(): List<TrainingSession>
+    + resignFromTraining(trainingSession: TrainingSession): bool
+    + signUpForTraining(trainingSession: TrainingSession): bool
+}
+
+class Worker {
+    + cancelMembership(client: Client): bool
+    + createMembership(client: Client): Membership
+    + editUserData(user: User): bool
+    + scheduleMaintenance(gym: Gym): void
+    + finishMaintenance(gym: Gym): void
+}
+
+Worker -.> Client
+Worker .> Membership
+
+Membership <--* Client
+
+@enduml
