@@ -1,0 +1,56 @@
+@startuml
+skinparam classAttributeIconSize 0
+top to bottom direction
+
+class TrainingSession {
+  ~ TrainingSession(Date, String, float, SkillLevel, List<Client>, boolean, Trainer): 
+  ~ startDate: Date
+  ~ isCancelled: boolean
+  ~ description: String
+  ~ duration: float
+  ~ skillLevel: SkillLevel
+  ~ trainer: Trainer
+  ~ attendants: List<Client>
+  + getDescription(): String
+  + getStartDate(): Date
+  + setTrainer(Trainer): void
+  + equals(Object): boolean
+  + hashCode(): int
+  + setCancelled(boolean): void
+  + toString(): String
+  + getDuration(): float
+  + setSkillLevel(SkillLevel): void
+  # canEqual(Object): boolean
+  + getSkillLevel(): SkillLevel
+  + getAttendants(): List<Client>
+  + builder(): TrainingSessionBuilder
+  + isCancelled(): boolean
+  + getTrainer(): Trainer
+  + setStartDate(Date): void
+  + setDescription(String): void
+  + setAttendants(List<Client>): void
+  + setDuration(float): void
+  + main(String[]): void
+}
+class TrainingSessionBuilder {
+  ~ TrainingSessionBuilder(): 
+  - description: String
+  - skillLevel: SkillLevel
+  - startDate: Date
+  - duration: float
+  - isCancelled: boolean
+  - trainer: Trainer
+  - attendants: List<Client>
+  + startDate(Date): TrainingSessionBuilder
+  + description(String): TrainingSessionBuilder
+  + duration(float): TrainingSessionBuilder
+  + skillLevel(SkillLevel): TrainingSessionBuilder
+  + attendants(List<Client>): TrainingSessionBuilder
+  + isCancelled(boolean): TrainingSessionBuilder
+  + trainer(Trainer): TrainingSessionBuilder
+  + build(): TrainingSession
+  + toString(): String
+}
+         
+TrainingSessionBuilder  +--  TrainingSession
+@enduml
