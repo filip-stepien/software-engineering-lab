@@ -1,0 +1,54 @@
+@startuml diagram
+
+interface ExerciseFactory{
+    + createFootballExercise() : FootballExercise
+    + createYogaExercise() : YogaExercise
+}
+
+enum ExerciseCategory{
+    SPORT
+    PLACE
+}
+
+enum ExerciseDifficulty{
+    BEGINNER
+    INTERMEDIATE
+    ADVANCED
+    PROFESSIONAL
+}
+
+class OutdoorExerciseFactory{
+    - name : String
+    - difficulty : ExerciseDifficulty
+    - description : String
+    - duration : int
+    - caloriesBurned : int
+    - category : ExerciseCategory
+    + createFootballExercise() : FootballExercise
+}
+
+class FootballExercise{
+
+}
+
+class IndoorExerciseFactory{
+    - name : String
+    - difficulty : ExerciseDifficulty
+    - description : String
+    - duration : int
+    - caloriesBurned : int
+    - category : ExerciseCategory
+    + createYogaExercise() : YogaExercise
+}
+
+class YogaExercise{
+
+}
+
+OutdoorExerciseFactory ..|> ExerciseFactory
+IndoorExerciseFactory ..|> ExerciseFactory
+OutdoorExerciseFactory ..> FootballExercise
+IndoorExerciseFactory ..> YogaExercise
+
+
+"DEPENDENCY TRAINFING SEESSION DO INTEFACU EXEERCISEFACTOR TYLKO, outdoor i indoor moga zwracac te same
