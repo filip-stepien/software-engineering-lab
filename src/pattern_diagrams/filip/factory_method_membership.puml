@@ -1,27 +1,33 @@
 @startuml
+enum MembershipType {
+    STANDARD,
+    PREMIUM,
+    MULTISPORT
+}
+
 class Membership {
     + extend(days: unsigned int)
     + isValid(): bool
-    + getExpirationTimestamp(): unsigned int
+    + getValidityTime(): unsigned int
     + getChargePrice(): float
 }
 
 class MultisportMembership {
-    + getExpirationTimestamp(): unsigned int
+    + getValidityTime(): unsigned int
     + getChargePrice(): float
 }
 
 MultisportMembership <|-- Membership
 
 class StandardMembership {
-    + getExpirationTimestamp(): unsigned int
+    + getValidityTime(): unsigned int
     + getChargePrice(): float
 }
 
 StandardMembership <|-- Membership
 
 class PremiumMembership {
-    + getExpirationTimestamp(): unsigned int
+    + getValidityTime(): unsigned int
     + getChargePrice(): float
 }
 
@@ -38,9 +44,11 @@ class Client {
     + signUpForTraining(trainingSession: TrainingSession): bool
 }
 
+Worker .left.> MembershipType
+
 class Worker {
     + cancelMembership(client: Client): bool
-    + createMembership(client: Client): Membership
+    + createMembership(type: MembershipType): Membership
     + editUserData(user: User): bool
     + scheduleMaintenance(gym: Gym): void
     + finishMaintenance(gym: Gym): void
@@ -50,5 +58,4 @@ Worker -.> Client
 Worker .> Membership
 
 Membership <--* Client
-
 @enduml
