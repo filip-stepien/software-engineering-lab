@@ -4168,6 +4168,81 @@
         <h4>Diagram klas</h4>
         <img src="img/class_diagram.svg" />
     </article>
+    <section class="pattern">
+        <p class="author">
+            Rafał Grot
+        </p>
+        <div class="pattern-problem">
+            <h6>Problem</h6>
+            Stworzenie sesji terningowej wymaga uzupełniania sporej ilości pół, co komplikuje konstruktuor.
+        </div>
+        <div class="pattern-decription">
+            <h6>Rozwiązanie</h6>
+        </div>
+        <div class="pattern-diagram">
+            <h6>Diagram klas</h6>
+            <img src="./img/training_session_builder.svg">
+
+        </div>
+        <h6>Kod wzorca</h6>
+        <pre class="pattern-code">
+            <!-- ../wzorce/wzorce/src/main/java/TrainingSession.java" -->
+            <code class="language-java">
+import lombok.Builder;
+import lombok.Data;
+
+import java.util.*;
+
+@Builder
+@Data
+public class TrainingSession {
+    Date startDate;
+    String description;
+    float duration;
+    SkillLevel skillLevel;
+    List<Client> attendants;
+    boolean isCancelled;
+    Trainer trainer;
+}
+            </code>
+        </pre>
+        <h6>Kod testowy</h6>
+        <pre class="pattern-test-code">
+            <!-- ../wzorce/wzorce/src/main/java/TrainingSession.java" -->
+            <code class="language-java">
+import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+
+class TrainingSessionTest {
+
+    @Test
+    void testTrainingSessionBuilder() {
+        Client client = Client.builder()
+                .id(1L)
+                .firstName("Gustaw")
+                .birthDate(new Date())
+                .height(170L)
+                .weight(80L)
+                .build();
+
+        TrainingSession trainingSession = TrainingSession.builder()
+                .description("From noob to Giga-chad in 10 min")
+                .startDate(new Date())
+                .duration(10)
+                .attendants(new ArrayList<>(Collections.singletonList(client)))
+                .skillLevel(SkillLevel.NOOB)
+                .trainer(Trainer.builder().id(2L).firstName("Ziutek").build())
+                .build();
+
+    }
+}
+            </code>
+        </pre>
+
+    </section>
 </body>
 
 </html>

@@ -52,5 +52,5 @@ class TrainingSessionBuilder {
   + toString(): String
 }
          
-TrainingSessionBuilder  +--  TrainingSession
+TrainingSessionBuilder  -.->  TrainingSession
 @enduml
