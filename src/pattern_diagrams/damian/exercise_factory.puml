@@ -1,13 +1,60 @@
 @startuml diagram
 
 interface ExerciseFactory{
-    + createFootballExercise() : FootballExercise
-    + createYogaExercise() : YogaExercise
+    + createGeneralExercise() : Exercise
+    + createSportExercise() : Exercise
 }
 
-enum ExerciseCategory{
-    SPORT
-    PLACE
+class OutdoorExerciseFactory{
+    + createGeneralExercise() : Exercise
+    + createSportExercise() : Exercise
+}
+
+
+class IndoorExerciseFactory{
+    + createGeneralExercise() : Exercise
+    + createSportExercise() : Exercise
+}
+
+interface Exercise{
+    + getExerciseDataSummary() : String
+    + getExerciseTutorialUrl() : String
+}
+
+class OutdoorGeneralExercise{
+    - name : String
+    - difficulty : ExerciseDifficulty
+    - description : String
+    - duration : int
+    - preferredTerrain : String
+    - tutorialUrl : String
+}
+
+class OutdoorSportExercise{
+    - name : String
+    - sport : Sport
+    - difficulty : ExerciseDifficulty
+    - description : String
+    - duration : int
+    - preferredTerrain : String
+    - tutorialUrl : String
+}
+
+class IndoorGeneralExercise{
+    - name : String
+    - difficulty : ExerciseDifficulty
+    - description : String
+    - duration : int
+    - tutorialUrl : String
+}
+
+class IndoorSportExercise{
+    - name : String
+    - sport : Sport
+    - difficulty : ExerciseDifficulty
+    - description : String
+    - duration : int
+    - tutorialUrl : String
 }
 
 enum ExerciseDifficulty{
@@ -17,38 +64,34 @@ enum ExerciseDifficulty{
     PROFESSIONAL
 }
 
-class OutdoorExerciseFactory{
-    - name : String
-    - difficulty : ExerciseDifficulty
-    - description : String
-    - duration : int
-    - caloriesBurned : int
-    - category : ExerciseCategory
-    + createFootballExercise() : FootballExercise
-}
-
-class FootballExercise{
+enum Sport{
+    FOOTBALL
+    BASKETBALL
+    RUNNING
+    VOLLEYBALL
 
 }
 
-class IndoorExerciseFactory{
-    - name : String
-    - difficulty : ExerciseDifficulty
-    - description : String
-    - duration : int
-    - caloriesBurned : int
-    - category : ExerciseCategory
-    + createYogaExercise() : YogaExercise
-}
 
-class YogaExercise{
+OutdoorExerciseFactory ..u|> ExerciseFactory
+IndoorExerciseFactory ..u|> ExerciseFactory
 
-}
+OutdoorExerciseFactory --> OutdoorGeneralExercise
+OutdoorExerciseFactory --> OutdoorSportExercise
 
-OutdoorExerciseFactory ..|> ExerciseFactory
-IndoorExerciseFactory ..|> ExerciseFactory
-OutdoorExerciseFactory ..> FootballExercise
-IndoorExerciseFactory ..> YogaExercise
+IndoorExerciseFactory --> IndoorGeneralExercise
+IndoorExerciseFactory --> IndoorSportExercise
+
+OutdoorGeneralExercise ..u|> Exercise
+OutdoorGeneralExercise --> ExerciseDifficulty
+OutdoorSportExercise ..u|> Exercise
+OutdoorSportExercise --> ExerciseDifficulty
+OutdoorSportExercise --> Sport
 
 
-"DEPENDENCY TRAINFING SEESSION DO INTEFACU EXEERCISEFACTOR TYLKO, outdoor i indoor moga zwracac te same
+IndoorGeneralExercise ..u|> Exercise
+IndoorGeneralExercise --> ExerciseDifficulty
+IndoorSportExercise ..u|> Exercise
+IndoorSportExercise --> ExerciseDifficulty
+IndoorSportExercise --> Sport
+

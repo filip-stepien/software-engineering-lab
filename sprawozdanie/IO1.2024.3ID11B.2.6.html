@@ -4242,6 +4242,107 @@ class TrainingSessionTest {
             </code>
         </pre>
 
+
+        <h5>Fabryka abstrakcyjna</h5>
+        <p class="author">Damian Karwat</p>
+        <div class="pattern-problem">
+            <h5>Problem</h5>
+            Rodzajów ćwiczeń jakie można wykonywać na zajęciach jest na tyle dużo, że można je podzielić na rodziny ćwiczeń, 
+            które są ze sobą powiązane, ale różnią się od siebie w zależności od kontekstu oraz ich rodzaju.
+        </div>
+        <div class="pattern-description">
+            <h5>Opis wzorca</h5>
+            Fabryka abstrakcyjna pozwala na tworzenie rodzin powiązanych obiektów bez
+            określania ich konkretnych klas. Fabryka abstrakcyjna udostępnia interfejs do
+            tworzenia grupy powiązanych produktów, takich jak zestawy obiektów, które mogą
+            współpracować ze sobą. W obecnym systemie fabryka służy do tworzenia ćwiczeń z 
+            rodzin ćwiczeń wykonywanych na zewnątrz i w środku. Fabryka jest skalowalna
+            i można łatwo dodawać nowe rodziny ćwiczeń.
+        </div>
+        <p class="uml pattern-diagram">
+            <h5>Diagram klas wzorca</h5>
+            <img src="./img/exercise_abstract_factory.svg">
+        </p>
+        <h5>Kod wzorca</h5>
+        <pre class="pattern-code">
+            <code class="lang-java">
+public interface ExerciseFactory {
+    public Exercise createGeneralExercise(String name, ExerciseDifficulty difficulty, String description, int duration, String tutorialUrl);
+    public Exercise createSportExercise(String name, ExerciseDifficulty difficulty, String description, int duration, String tutorialUrl, Sport sport);
+}
+
+public class IndoorExerciseFactory implements ExerciseFactory {
+    @Override
+    public Exercise createGeneralExercise(String name, ExerciseDifficulty difficulty, String description, int duration, String tutorialUrl) {
+        return new IndoorGeneralExercise(name, difficulty, description, duration, tutorialUrl);
+    }
+
+    @Override
+    public Exercise createSportExercise(String name, ExerciseDifficulty difficulty, String description, int duration, String tutorialUrl, Sport sport) {
+        return new IndoorSportExercise(name, difficulty, description, duration, tutorialUrl, sport);
+    }
+}
+
+public class OutdoorExerciseFactory implements ExerciseFactory {
+    @Override
+    public Exercise createGeneralExercise(String name, ExerciseDifficulty difficulty, String description, int duration, String tutorialUrl) {
+        return new OutdoorGeneralExercise(name, difficulty, description, duration, tutorialUrl);
+    }
+    
+    @Override
+    public Exercise createSportExercise(String name, ExerciseDifficulty difficulty, String description, int duration, String tutorialUrl, Sport sport) {
+        return new OutdoorSportExercise(name, difficulty, description, duration, tutorialUrl, sport);
+    }
+}
+
+public interface Exercise {
+    public String getExerciseDataSummary();
+    public String getExerciseTutorialUrl();
+}
+            </code>
+        </pre>
+        <h5>Kod testowy</h5>
+        <pre class="pattern-test-code">
+            <code class="lang-java">
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ExerciseFactoryTest {
+
+    @Test
+    void testIndoorExerciseFactory() {
+        ExerciseFactory indoorFactory = new IndoorExerciseFactory();
+
+        Exercise indoorGenEx = indoorFactory.createGeneralExercise("Yoga", ExerciseDifficulty.BEGINNER, "Relaxing indoor yoga session.", 30, "https://yogaUrl.com");
+        Exercise indoorSportEx = indoorFactory.createSportExercise("Keepie ups", ExerciseDifficulty.INTERMEDIATE, "Keepie ups practice.", 20, "https://football.com", Sport.FOOTBALL);
+
+        assertNotNull(indoorGenEx);
+        assertEquals("Yoga", indoorGenEx.getExerciseDataSummary().contains("Yoga") ? "Yoga" : null);
+        assertEquals("https://yogaUrl.com", indoorGenEx.getExerciseTutorialUrl());
+
+        assertNotNull(indoorSportEx);
+        assertEquals("Keepie ups", indoorSportEx.getExerciseDataSummary().contains("Keepie ups") ? "Keepie ups" : null);
+        assertEquals("https://football.com", indoorSportEx.getExerciseTutorialUrl());
+    }
+
+    @Test
+    void testOutdoorExerciseFactory() {
+        ExerciseFactory outdoorFactory = new OutdoorExerciseFactory();
+
+        Exercise outdoorGenEx = outdoorFactory.createGeneralExercise("Jogging", ExerciseDifficulty.BEGINNER, "A simple outdoor jogging exercise.", 30, "https://example.com/outdoor-jogging");
+        Exercise outdoorSportEx = outdoorFactory.createSportExercise("Football Practice", ExerciseDifficulty.ADVANCED, "Football drills and practice.", 60, "https://example.com/outdoor-football", Sport.FOOTBALL);
+
+        assertNotNull(outdoorGenEx);
+        assertTrue(outdoorGenEx.getExerciseDataSummary().contains("Jogging"));
+        assertEquals("https://example.com/outdoor-jogging", outdoorGenEx.getExerciseTutorialUrl());
+
+        assertNotNull(outdoorSportEx);
+        assertTrue(outdoorSportEx.getExerciseDataSummary().contains("Football Practice"));
+        assertEquals("https://example.com/outdoor-football", outdoorSportEx.getExerciseTutorialUrl());
+    }
+}
+            </code>
+        </pre>
     </section>
 </body>
 

@@ -1,0 +1,15 @@
+    + createKidsExercise() : KidsExercise
+    + createElderlyExercise() : ElderlyExercise
+    + createRehabilitationExercise() : RehabilitationExercise
+
+    + createStrengthExercise() : StrengthExercis
+    + createAgilityExercise() : AgilityExercise
+    + createFlexibilityExercise() : FlexibilityExercise
+    + createStaminaExercise() : StaminaExercise
+
+    - name : String
+    - difficulty : ExerciseDifficulty
+    - description : String
+    - duration : int
+    - caloriesBurned : int
+    - category : ExerciseCategory
