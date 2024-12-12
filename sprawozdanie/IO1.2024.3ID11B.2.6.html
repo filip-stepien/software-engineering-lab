@@ -4346,7 +4346,6 @@ class ExerciseFactoryTest {
 }
             </code>
         </pre>
-    </section>
 
     <h5>Metoda wytwórcza</h5>
         <p class="author">Filip Stępień</p>
@@ -4437,6 +4436,123 @@ class FactoryMethodTest {
         assertTrue(multisport instanceof MultisportMembership);
     }
 }
+            </code>
+        </pre>
+        <h5>Singleton</h5>
+        <p class="author">Bartłomiej Karkoszka</p>
+        <div class="pattern-problem">
+            <h5>Problem</h5>
+            Brak centralnej instancji sprawia, że dane takie jak aktywne sesje czy informacje 
+            o zalogowanych użytkownikach nie są zarządzane w sposób spójny. 
+            Metody statyczne ograniczają możliwość rozszerzania funkcjonalności klasy, 
+            co utrudnia implementację zaawansowanych mechanizmów, 
+            takich jak uwierzytelnianie wieloskładnikowe czy integracja z zewnętrznymi systemami autoryzacji.
+            Ponadto utrzymanie kodu staje się trudniejsze, ponieważ każda modyfikacja wymaga zmian w wielu częściach systemu,
+            co zwiększa ryzyko wprowadzenia błędów.
+        </div>
+        <div class="pattern-description">
+            <h5>Opis wzorca</h5>
+            Singleton w przypadku klasy LoginManager zapewnia istotne korzyści dla systemu,
+            eliminując problemy wynikające z zastosowania metod statycznych. 
+            Singleton umożliwia utworzenie jednej globalnej instancji klasy, 
+            która centralizuje zarządzanie uwierzytelnianiem i stanem sesji użytkowników.
+            Dzięki temu wszystkie dane związane z logowaniem, 
+            takie jak aktywne sesje czy informacje o zalogowanych użytkownikach,
+            są przechowywane w spójny sposób, co zwiększa niezawodność systemu.
+        </div>
+        <p class="uml pattern-diagram">
+            <h5>Diagram klas wzorca</h5>
+            <img src="./img/singleton.svg">
+        </p>
+        <h5>Kod wzorca</h5>
+        <pre class="pattern-code">
+            <code class="lang-java">
+public class LoginManager {
+                
+    private static LoginManager instance;
+                
+    private LoginManager() {
+    }
+                
+    public static LoginManager getInstance() {
+        if (instance == null) {
+            synchronized (LoginManager.class) {
+                if (instance == null) {
+                    instance = new LoginManager();
+                }
+            }
+        }
+        return instance;
+    }
+                
+    public User authenticate(String login, String password) {
+        // Logic for authentication
+        System.out.println("Authenticating user: " + login);
+        return new User(login); // Example return
+    }
+                
+    public boolean logout(User user) {
+        // Logic for logout
+        System.out.println("Logging out user: " + user.getLogin());
+        return true;
+    }
+                
+    public boolean isLoggedIn(User user) {
+        // Logic to check if a user is logged in
+        System.out.println("Checking if user is logged in: " + user.getLogin());
+        return false; // Example return
+    }
+}
+
+public class User {
+    private String login;
+
+    public User(String login) {
+        this.login = login;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+}
+
+            </code>
+        </pre>
+        <h5>Kod testowy</h5>
+        <pre class="pattern-test-code">
+            <code class="lang-java">
+
+class LoginManagerTest {
+
+private LoginManager loginManager;
+
+    @BeforeEach
+    void setUp() {
+        loginManager = LoginManager.getInstance();
+    }
+
+    @Test
+    void testAuthenticate() {
+        User user = loginManager.authenticate("testUser", "password");
+        assertNotNull(user);
+        assertEquals("testUser", user.getLogin());
+    }
+
+    @Test
+    void testLogout() {
+        User user = new User("testUser");
+        boolean result = loginManager.logout(user);
+        assertTrue(result);
+    }
+
+    @Test
+    void testIsLoggedIn() {
+        User user = new User("testUser");
+        boolean result = loginManager.isLoggedIn(user);
+        assertFalse(result); // Adjust based on your logic
+    }
+}
+
             </code>
         </pre>
     </section>
