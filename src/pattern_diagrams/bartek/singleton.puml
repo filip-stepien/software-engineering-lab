@@ -1,0 +1,19 @@
+@startuml
+
+
+top to bottom direction
+skinparam linetype ortho
+
+class LoginManager {
+  - LoginManager(): 
+  - instance: LoginManager
+  + authenticate(String, String): User
+  + getInstance(): LoginManager
+  + isLoggedIn(User): boolean
+  + logout(User): boolean
+}
+
+LoginManager -.> LoginManager : <<create>>
+LoginManager o--> LoginManager : instance
+
+@enduml
