@@ -4200,7 +4200,7 @@ public class TrainingSession {
     String description;
     float duration;
     SkillLevel skillLevel;
-    List<Client> attendants;
+    List&lt;Client&gt; attendants;
     boolean isCancelled;
     Trainer trainer;
 }
@@ -4339,6 +4339,99 @@ class ExerciseFactoryTest {
         assertNotNull(outdoorSportEx);
         assertTrue(outdoorSportEx.getExerciseDataSummary().contains("Football Practice"));
         assertEquals("https://example.com/outdoor-football", outdoorSportEx.getExerciseTutorialUrl());
+    }
+}
+            </code>
+        </pre>
+    </section>
+
+    <h5>Metoda wytwórcza</h5>
+        <p class="author">Filip Stępień</p>
+        <div class="pattern-problem">
+            <h5>Problem</h5>
+            Istnienie ogólnej klasy reprezentującej karnet uniemożliwia zachowanie spójności w konfiguracji, 
+            ponieważ parametry karnetu mogą być definiowane w sposób sprzeczny z założeniami specyficznych typów karnetów. 
+            Wprowadzenie bardziej zaawansowanych funkcji, takich jak obliczanie czasu trwania karnetu lub jego ceny 
+            prowadzi do znacznego wzrostu złożoności kodu.
+        </div>
+        <div class="pattern-description">
+            <h5>Opis wzorca</h5>
+            Metoda wytwócza tworzy karnet ogólnego typu;
+            informacja o rodzaju karnetu nie jest istotna dla klasy pracownika.
+            Implementacja sposobu dostarczania ceny lub daty jest 
+            oddelegowana do klasy reprezentującej dany typ karnetu.
+            Wprowadzenie nowego rodzaju karnetu ogranicza się do 
+            dodania nowej klasy oraz modyfikacji metody wytwórczej, 
+            bez konieczności ingerencji w inne części systemu korzystające z karnetów. 
+        </div>
+        <p class="uml pattern-diagram">
+            <h5>Diagram klas wzorca</h5>
+            <img src="./img/membership_factory_method.svg">
+        </p>
+        <h5>Kod wzorca</h5>
+        <pre class="pattern-code">
+            <code class="lang-java">
+enum MembershipType {
+    STANDARD,
+    PREMIUM,
+    MULTI_SPORT
+}
+
+abstract class Membership {
+    abstract public long getValidityDays();
+    abstract public float getChargePrice();
+}
+
+class StandardMembership extends Membership {
+    @Override
+    public long getValidityDays() { return 180; }
+
+    @Override
+    public float getChargePrice() { return 80.0f; }
+}
+
+class PremiumMembership extends Membership {
+    @Override
+    public long getValidityDays() { return 720; }
+
+    @Override
+    public float getChargePrice() { return 120.0f; }
+}
+
+class MultisportMembership extends Membership {
+    @Override
+    public long getValidityDays() { return 365; }
+
+    @Override
+    public float getChargePrice() { return 40.0f; }
+}
+
+class Worker {
+    public Membership createMembership(MembershipType type) {
+        return switch (type) {
+            case STANDARD -> new StandardMembership();
+            case PREMIUM -> new PremiumMembership();
+            case MULTI_SPORT -> new MultisportMembership();
+        };
+    }
+}
+            </code>
+        </pre>
+        <h5>Kod testowy</h5>
+        <pre class="pattern-test-code">
+            <code class="lang-java">
+class FactoryMethodTest {
+    @Test
+    public void testFactoryMethod() {
+
+        Worker worker = new Worker();
+        Membership standard = worker.createMembership(MembershipType.STANDARD);
+        Membership premium = worker.createMembership(MembershipType.PREMIUM);
+        Membership multisport = worker.createMembership(MembershipType.MULTI_SPORT);
+
+        assertTrue(standard instanceof StandardMembership);
+        assertTrue(premium instanceof PremiumMembership);
+        assertTrue(multisport instanceof MultisportMembership);
     }
 }
             </code>

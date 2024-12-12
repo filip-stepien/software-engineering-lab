@@ -1,15 +1,15 @@
 @startuml
+note "Diagram zawiera jedynie elementy należące do wzorca." as n
+
 enum MembershipType {
     STANDARD,
     PREMIUM,
-    MULTISPORT
+    MULTI_SPORT
 }
 
-class Membership {
-    + extend(days: unsigned int)
-    + isValid(): bool
-    + getValidityTime(): unsigned int
-    + getChargePrice(): float
+abstract class Membership {
+    + {abstract} getValidityTime(): unsigned int
+    + {abstract} getChargePrice(): float
 }
 
 class MultisportMembership {
@@ -33,29 +33,11 @@ class PremiumMembership {
 
 PremiumMembership <|-- Membership
 
-class Client {
-    - weight: float
-    - height: float
-    - birthTimeStamp: unsigned int
-    - membership: Membership
-    + getAvailableTrainingSessions(): List<TrainingSession>
-    + getDoneTrainingSessions(): List<TrainingSession>
-    + resignFromTraining(trainingSession: TrainingSession): bool
-    + signUpForTraining(trainingSession: TrainingSession): bool
-}
-
-Worker .left.> MembershipType
+Worker .right.> MembershipType
 
 class Worker {
-    + cancelMembership(client: Client): bool
     + createMembership(type: MembershipType): Membership
-    + editUserData(user: User): bool
-    + scheduleMaintenance(gym: Gym): void
-    + finishMaintenance(gym: Gym): void
 }
 
-Worker -.> Client
-Worker .> Membership
-
-Membership <--* Client
+Worker .left.> Membership
 @enduml
