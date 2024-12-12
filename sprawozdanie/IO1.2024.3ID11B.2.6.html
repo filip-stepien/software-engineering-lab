@@ -4169,6 +4169,7 @@
         <img src="img/class_diagram.svg" />
     </article>
     <section class="pattern">
+        <h5>Builder</h5>
         <p class="author">
             Rafał Grot
         </p>
@@ -4178,6 +4179,7 @@
         </div>
         <div class="pattern-decription">
             <h6>Rozwiązanie</h6>
+            Builder upraszcza konstuktor poprzez rozbicie skomplikowanego prcesu tworzenia obeiktu na mniejsze częsci.
         </div>
         <div class="pattern-diagram">
             <h6>Diagram klas</h6>
@@ -4247,7 +4249,8 @@ class TrainingSessionTest {
         <p class="author">Damian Karwat</p>
         <div class="pattern-problem">
             <h5>Problem</h5>
-            Rodzajów ćwiczeń jakie można wykonywać na zajęciach jest na tyle dużo, że można je podzielić na rodziny ćwiczeń, 
+            Rodzajów ćwiczeń jakie można wykonywać na zajęciach jest na tyle dużo, że można je podzielić na rodziny
+            ćwiczeń,
             które są ze sobą powiązane, ale różnią się od siebie w zależności od kontekstu oraz ich rodzaju.
         </div>
         <div class="pattern-description">
@@ -4255,13 +4258,13 @@ class TrainingSessionTest {
             Fabryka abstrakcyjna pozwala na tworzenie rodzin powiązanych obiektów bez
             określania ich konkretnych klas. Fabryka abstrakcyjna udostępnia interfejs do
             tworzenia grupy powiązanych produktów, takich jak zestawy obiektów, które mogą
-            współpracować ze sobą. W obecnym systemie fabryka służy do tworzenia ćwiczeń z 
+            współpracować ze sobą. W obecnym systemie fabryka służy do tworzenia ćwiczeń z
             rodzin ćwiczeń wykonywanych na zewnątrz i w środku. Fabryka jest skalowalna
             i można łatwo dodawać nowe rodziny ćwiczeń.
         </div>
         <p class="uml pattern-diagram">
-            <h5>Diagram klas wzorca</h5>
-            <img src="./img/exercise_abstract_factory.svg">
+        <h5>Diagram klas wzorca</h5>
+        <img src="./img/exercise_abstract_factory.svg">
         </p>
         <h5>Kod wzorca</h5>
         <pre class="pattern-code">
