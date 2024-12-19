@@ -1,0 +1,42 @@
+@startuml classDiagram
+
+    class Exercise {
+        - impl: ExerciseImplementation
+        + performExercise(): String
+    }
+
+    class GeneralExercise {
+        + performExercise(): String
+    }
+
+    class SportExercise {
+        + sport: Sport
+        + performExercise(): String
+    }
+
+    class ExerciseImplementation {
+        <<interface>>
+        + getEnvironment(): String
+    }
+
+    class IndoorImplementation {
+        + getEnvironment(): String
+    }
+
+    class OutdoorImplementation {
+        + getEnvironment(): String
+    }
+
+    class Sport {
+        <<enumeration>>
+        FOOTBALL
+        BASKETBALL
+        RUNNING
+        VOLLEYBALL
+    }
+
+    Exercise --> ExerciseImplementation
+    Exercise <|-- GeneralExercise
+    Exercise <|-- SportExercise
+    ExerciseImplementation <|-- IndoorImplementation
+    ExerciseImplementation <|-- OutdoorImplementation
