@@ -1,0 +1,41 @@
+@startuml "Message adapters"
+
+class User{
+  + sendMessage(Message)
+}
+
+
+interface MessageService{
+  + sendMessage(message: Message): bool
+}
+
+
+User -.> MessageService : "uses"
+
+class MessangerMessageAdapter{
+  
+}
+
+MessangerMessageAdapter -.|> MessageService : "Implements"
+MessangerMessageAdapter -.-> MessengerMessangeService : "Uses"
+
+class MessengerMessangeService{
+  + {static} sendMessage(from: userId, to: User, title: String, content: String)
+}
+note left
+External service / interface
+end note
+
+class DiscordMessangeService{
+  + {static} sendMessage(from: User, to: User, message: String)
+}
+
+note right
+External service / interface
+end note
+
+DiscordMessageAdapter -.|> MessageService : "Implements"
+DiscordMessageAdapter -.-> DiscordMessangeService : "Uses"
+
+
+@enduml
