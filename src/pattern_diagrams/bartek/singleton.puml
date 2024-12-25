@@ -1,19 +1,18 @@
 @startuml
 
-
 top to bottom direction
 skinparam linetype ortho
 
-class LoginManager {
-  - LoginManager(): 
-  - instance: LoginManager
-  + authenticate(String, String): User
-  + getInstance(): LoginManager
-  + isLoggedIn(User): boolean
-  + logout(User): boolean
+class TrainingResourceManager {
+  - TrainingResourceManager(): 
+  - instance: TrainingResourceManager
+  - availableResources: List<Resource>
+  + getInstance(): TrainingResourceManager
+  + allocateResource(Resource): boolean
+  + releaseResource(Resource): void
 }
 
-LoginManager -.> LoginManager : <<create>>
-LoginManager o--> LoginManager : instance
+TrainingResourceManager -.> TrainingResourceManager : <<create>>
+TrainingResourceManager o--> TrainingResourceManager : instance
 
 @enduml

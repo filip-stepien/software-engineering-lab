@@ -4442,23 +4442,23 @@ class FactoryMethodTest {
         <p class="author">Bartłomiej Karkoszka</p>
         <div class="pattern-problem">
             <h5>Problem</h5>
-            Brak centralnej instancji sprawia, że dane takie jak aktywne sesje czy informacje 
-            o zalogowanych użytkownikach nie są zarządzane w sposób spójny. 
-            Metody statyczne ograniczają możliwość rozszerzania funkcjonalności klasy, 
-            co utrudnia implementację zaawansowanych mechanizmów, 
-            takich jak uwierzytelnianie wieloskładnikowe czy integracja z zewnętrznymi systemami autoryzacji.
-            Ponadto utrzymanie kodu staje się trudniejsze, ponieważ każda modyfikacja wymaga zmian w wielu częściach systemu,
-            co zwiększa ryzyko wprowadzenia błędów.
+            W obecnym systemie brak jednej centralnej instancji do zarządzania zasobami treningowymi,
+            takimi jak sprzęt czy sale, prowadzi do problemów z ich spójnością i dostępnością.
+            Każda część systemu, która korzysta z tych zasobów, musi zarządzać nimi osobno, 
+            co powoduje duplikację kodu i zwiększa ryzyko błędów. Może dochodzić do sytuacji, 
+            w których dwa treningi przypadkowo rezerwują ten sam sprzęt lub salę. Dodatkowo, 
+            trudno jest wprowadzić funkcje, 
+            takie jak śledzenie dostępnych zasobów w czasie rzeczywistym czy integracja z zewnętrznymi systemami rezerwacji.
         </div>
         <div class="pattern-description">
             <h5>Opis wzorca</h5>
-            Singleton w przypadku klasy LoginManager zapewnia istotne korzyści dla systemu,
-            eliminując problemy wynikające z zastosowania metod statycznych. 
-            Singleton umożliwia utworzenie jednej globalnej instancji klasy, 
-            która centralizuje zarządzanie uwierzytelnianiem i stanem sesji użytkowników.
-            Dzięki temu wszystkie dane związane z logowaniem, 
-            takie jak aktywne sesje czy informacje o zalogowanych użytkownikach,
-            są przechowywane w spójny sposób, co zwiększa niezawodność systemu.
+            Wzorzec Singleton zastosowany w klasie TrainingResourceManager pozwala na stworzenie jednej centralnej instancji, 
+            która zarządza wszystkimi zasobami treningowymi w systemie. 
+            Dzięki temu informacje o dostępności sprzętu i sal są przechowywane w jednym miejscu,
+            co zapobiega konfliktom i ułatwia ich alokację.
+            Dodatkowo wzorzec ułatwia rozbudowę systemu, 
+            na przykład o funkcje automatycznego planowania treningów czy analizy wykorzystania zasobów. 
+            Dzięki centralizacji zarządzania cały system staje się bardziej spójny i niezawodny.
         </div>
         <p class="uml pattern-diagram">
             <h5>Diagram klas wzorca</h5>
@@ -4467,92 +4467,107 @@ class FactoryMethodTest {
         <h5>Kod wzorca</h5>
         <pre class="pattern-code">
             <code class="lang-java">
-public class LoginManager {
+import java.util.HashSet;
+import java.util.Set;
                 
-    private static LoginManager instance;
+public class TrainingResourceManager {
                 
-    private LoginManager() {
+    private static TrainingResourceManager instance;
+    private Set<Resource> allocatedResources;
+                
+    private TrainingResourceManager() {
+        this.allocatedResources = new HashSet<>();
     }
-                
-    public static LoginManager getInstance() {
+                    
+    public static TrainingResourceManager getInstance() {
         if (instance == null) {
-            synchronized (LoginManager.class) {
-                if (instance == null) {
-                    instance = new LoginManager();
-                }
-            }
+            instance = new TrainingResourceManager();
         }
         return instance;
     }
-                
-    public User authenticate(String login, String password) {
-        // Logic for authentication
-        System.out.println("Authenticating user: " + login);
-        return new User(login); // Example return
+                    
+    public boolean allocateResource(Resource resource) {
+        return allocatedResources.add(resource); 
     }
-                
-    public boolean logout(User user) {
-        // Logic for logout
-        System.out.println("Logging out user: " + user.getLogin());
-        return true;
-    }
-                
-    public boolean isLoggedIn(User user) {
-        // Logic to check if a user is logged in
-        System.out.println("Checking if user is logged in: " + user.getLogin());
-        return false; // Example return
+
+    public void releaseResource(Resource resource) {
+        allocatedResources.remove(resource); // Remove the resource
     }
 }
-
-public class User {
-    private String login;
-
-    public User(String login) {
-        this.login = login;
+                
+class Resource {
+    private String name;
+                
+    public Resource(String name) {
+        this.name = name;
     }
-
-    public String getLogin() {
-        return login;
+                
+    public String getName() {
+        return name;
+    }
+                
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Resource resource = (Resource) obj;
+        return name.equals(resource.name);
+    }
+                
+    @Override
+    public int hashCode() {
+        return name.hashCode();
     }
 }
-
             </code>
         </pre>
         <h5>Kod testowy</h5>
         <pre class="pattern-test-code">
             <code class="lang-java">
-
-class LoginManagerTest {
-
-private LoginManager loginManager;
-
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+                
+import static org.junit.jupiter.api.Assertions.*;
+                
+public class TrainingResourceManagerTest {
+                
+    private TrainingResourceManager manager;
+    private Resource resource1;
+    private Resource resource2;
+                
     @BeforeEach
-    void setUp() {
-        loginManager = LoginManager.getInstance();
+    public void setUp() {
+        manager = TrainingResourceManager.getInstance();
+        resource1 = new Resource("Resource1");
+        resource2 = new Resource("Resource2");
     }
-
+                
     @Test
-    void testAuthenticate() {
-        User user = loginManager.authenticate("testUser", "password");
-        assertNotNull(user);
-        assertEquals("testUser", user.getLogin());
+    public void testAllocateResource() {
+        assertTrue(manager.allocateResource(resource1));  // Should return true as the resource is not allocated yet
+        assertFalse(manager.allocateResource(resource1)); // Should return false as the resource is already allocated
     }
-
+                
     @Test
-    void testLogout() {
-        User user = new User("testUser");
-        boolean result = loginManager.logout(user);
-        assertTrue(result);
+    public void testReleaseResource() {
+        manager.allocateResource(resource1);
+        manager.releaseResource(resource1);
+                
+        assertFalse(manager.allocateResource(resource1)); 
     }
-
+                
     @Test
-    void testIsLoggedIn() {
-        User user = new User("testUser");
-        boolean result = loginManager.isLoggedIn(user);
-        assertFalse(result); // Adjust based on your logic
+    public void testSingletonInstance() {
+        TrainingResourceManager anotherManager = TrainingResourceManager.getInstance();
+        assertSame(manager, anotherManager);
+    }
+                
+    @Test
+    public void testResourceEquality() {
+        Resource sameResource = new Resource("Resource1");
+        assertTrue(resource1.equals(sameResource));
     }
 }
-
             </code>
         </pre>
     </section>
