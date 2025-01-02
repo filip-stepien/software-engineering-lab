@@ -1,42 +1,112 @@
-@startuml classDiagram
+@startuml diagram
+abstract class Exercise {
+    + exerciseType : ExerciseType
+    + getExerciseType()
+}
 
-    class Exercise {
-        - impl: ExerciseImplementation
-        + performExercise(): String
-    }
+interface ExerciseType {
+    + type : Type
+    + getType()
+    + getDescription()
+    + getTutorialUrl()
+}
 
-    class GeneralExercise {
-        + performExercise(): String
-    }
 
-    class SportExercise {
-        + sport: Sport
-        + performExercise(): String
-    }
+class OutdoorExercise extends Exercise {
+    - name : String
+    - preferredTerrain : String
+    + getExerciseDataSummary()
+    + getExerciseTutorialUrl()
+}
 
-    class ExerciseImplementation {
-        <<interface>>
-        + getEnvironment(): String
-    }
+class IndoorExercise extends Exercise {
+    - name : String
+    + getExerciseDataSummary()
+    + getExerciseTutorialUrl()
+}
 
-    class IndoorImplementation {
-        + getEnvironment(): String
-    }
 
-    class OutdoorImplementation {
-        + getEnvironment(): String
-    }
 
-    class Sport {
-        <<enumeration>>
-        FOOTBALL
-        BASKETBALL
-        RUNNING
-        VOLLEYBALL
-    }
+class GeneralExercise implements ExerciseType{
+    - type : Type
+    - name : String
+    - difficulty : ExerciseDifficulty
+    - description : String
+    - duration : int
+    - preferredTerrain : String
+    - tutorialUrl : String
+    --
+    + getType()
+    + getDescription()
+    + getTutorialUrl()
+    --
+    getters and setters...
+}
 
-    Exercise --> ExerciseImplementation
-    Exercise <|-- GeneralExercise
-    Exercise <|-- SportExercise
-    ExerciseImplementation <|-- IndoorImplementation
-    ExerciseImplementation <|-- OutdoorImplementation
+class SportExercise implements ExerciseType{
+    - type : Type
+    - name : String
+    - sport : Sport
+    - difficulty : ExerciseDifficulty
+    - description : String
+    - duration : int
+    - preferredTerrain : String
+    - tutorialUrl : String
+    --
+    + getType()
+    + getDescription()
+    + getTutorialUrl()
+    --
+    getters and setters...
+}
+
+class RehabilitationExercise implements ExerciseType{
+    - type : Type
+    - name : String
+    - difficulty : ExerciseDifficulty
+    - assistanceNeeded : boolean
+    - description : String
+    - duration : int
+    - preferredTerrain : String
+    - tutorialUrl : String
+    --
+    + getType()
+    + getDescription()
+    + getTutorialUrl()
+    --
+    getters and setters...
+}
+
+
+enum ExerciseDifficulty{
+    BEGINNER
+    INTERMEDIATE
+    ADVANCED
+    PROFESSIONAL
+}
+
+enum Type{
+    GENERAL
+    SPORT
+    REHABILITATION
+}
+
+enum Sport{
+    FOOTBALL
+    BASKETBALL
+    RUNNING
+    VOLLEYBALL
+
+}
+
+Exercise o--right|> ExerciseType
+GeneralExercise --> ExerciseDifficulty
+SportExercise --> ExerciseDifficulty
+SportExercise --> Sport
+RehabilitationExercise --> ExerciseDifficulty
+GeneralExercise --> Type
+SportExercise --> Type
+RehabilitationExercise --> Type
+ExerciseType --> Type
+
+@enduml
