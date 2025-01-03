@@ -1,7 +1,7 @@
 @startuml "Message adapters"
 
 class User{
-  + sendMessage(Message)
+  + {static} sendMessage(Message)
 }
 
 
@@ -20,14 +20,14 @@ MessangerMessageAdapter -.|> MessageService : "Implements"
 MessangerMessageAdapter -.-> MessengerMessangeService : "Uses"
 
 class MessengerMessangeService{
-  + {static} sendMessage(from: userId, to: User, title: String, content: String)
+  + sendMessage(from: userId, to: User, title: String, content: String)
 }
 note left
 External service / interface
 end note
 
 class DiscordMessangeService{
-  + {static} sendMessage(from: User, to: User, message: String)
+  + sendMessage(from: Long, to: Long, message: String)
 }
 
 note right
@@ -37,5 +37,6 @@ end note
 DiscordMessageAdapter -.|> MessageService : "Implements"
 DiscordMessageAdapter -.-> DiscordMessangeService : "Uses"
 
+note "Diagram zawiera jedynie\nelementy należące do wzorca." as n
 
 @enduml

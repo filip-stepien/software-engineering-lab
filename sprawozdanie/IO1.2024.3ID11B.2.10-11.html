@@ -4347,28 +4347,29 @@ class ExerciseFactoryTest {
             </code>
         </pre>
 
-    <h5>Metoda wytwórcza</h5>
+        <h5>Metoda wytwórcza</h5>
         <p class="author">Filip Stępień</p>
         <div class="pattern-problem">
             <h5>Problem</h5>
-            Istnienie ogólnej klasy reprezentującej karnet uniemożliwia zachowanie spójności w konfiguracji, 
-            ponieważ parametry karnetu mogą być definiowane w sposób sprzeczny z założeniami specyficznych typów karnetów. 
-            Wprowadzenie bardziej zaawansowanych funkcji, takich jak obliczanie czasu trwania karnetu lub jego ceny 
+            Istnienie ogólnej klasy reprezentującej karnet uniemożliwia zachowanie spójności w konfiguracji,
+            ponieważ parametry karnetu mogą być definiowane w sposób sprzeczny z założeniami specyficznych typów
+            karnetów.
+            Wprowadzenie bardziej zaawansowanych funkcji, takich jak obliczanie czasu trwania karnetu lub jego ceny
             prowadzi do znacznego wzrostu złożoności kodu.
         </div>
         <div class="pattern-description">
             <h5>Opis wzorca</h5>
             Metoda wytwócza tworzy karnet ogólnego typu;
             informacja o rodzaju karnetu nie jest istotna dla klasy pracownika.
-            Implementacja sposobu dostarczania ceny lub daty jest 
+            Implementacja sposobu dostarczania ceny lub daty jest
             oddelegowana do klasy reprezentującej dany typ karnetu.
-            Wprowadzenie nowego rodzaju karnetu ogranicza się do 
-            dodania nowej klasy oraz modyfikacji metody wytwórczej, 
-            bez konieczności ingerencji w inne części systemu korzystające z karnetów. 
+            Wprowadzenie nowego rodzaju karnetu ogranicza się do
+            dodania nowej klasy oraz modyfikacji metody wytwórczej,
+            bez konieczności ingerencji w inne części systemu korzystające z karnetów.
         </div>
         <p class="uml pattern-diagram">
-            <h5>Diagram klas wzorca</h5>
-            <img src="./img/membership_factory_method.svg">
+        <h5>Diagram klas wzorca</h5>
+        <img src="./img/membership_factory_method.svg">
         </p>
         <h5>Kod wzorca</h5>
         <pre class="pattern-code">
@@ -4444,25 +4445,27 @@ class FactoryMethodTest {
             <h5>Problem</h5>
             W obecnym systemie brak jednej centralnej instancji do zarządzania zasobami treningowymi,
             takimi jak sprzęt czy sale, prowadzi do problemów z ich spójnością i dostępnością.
-            Każda część systemu, która korzysta z tych zasobów, musi zarządzać nimi osobno, 
-            co powoduje duplikację kodu i zwiększa ryzyko błędów. Może dochodzić do sytuacji, 
-            w których dwa treningi przypadkowo rezerwują ten sam sprzęt lub salę. Dodatkowo, 
-            trudno jest wprowadzić funkcje, 
-            takie jak śledzenie dostępnych zasobów w czasie rzeczywistym czy integracja z zewnętrznymi systemami rezerwacji.
+            Każda część systemu, która korzysta z tych zasobów, musi zarządzać nimi osobno,
+            co powoduje duplikację kodu i zwiększa ryzyko błędów. Może dochodzić do sytuacji,
+            w których dwa treningi przypadkowo rezerwują ten sam sprzęt lub salę. Dodatkowo,
+            trudno jest wprowadzić funkcje,
+            takie jak śledzenie dostępnych zasobów w czasie rzeczywistym czy integracja z zewnętrznymi systemami
+            rezerwacji.
         </div>
         <div class="pattern-description">
             <h5>Opis wzorca</h5>
-            Wzorzec Singleton zastosowany w klasie TrainingResourceManager pozwala na stworzenie jednej centralnej instancji, 
-            która zarządza wszystkimi zasobami treningowymi w systemie. 
+            Wzorzec Singleton zastosowany w klasie TrainingResourceManager pozwala na stworzenie jednej centralnej
+            instancji,
+            która zarządza wszystkimi zasobami treningowymi w systemie.
             Dzięki temu informacje o dostępności sprzętu i sal są przechowywane w jednym miejscu,
             co zapobiega konfliktom i ułatwia ich alokację.
-            Dodatkowo wzorzec ułatwia rozbudowę systemu, 
-            na przykład o funkcje automatycznego planowania treningów czy analizy wykorzystania zasobów. 
+            Dodatkowo wzorzec ułatwia rozbudowę systemu,
+            na przykład o funkcje automatycznego planowania treningów czy analizy wykorzystania zasobów.
             Dzięki centralizacji zarządzania cały system staje się bardziej spójny i niezawodny.
         </div>
         <p class="uml pattern-diagram">
-            <h5>Diagram klas wzorca</h5>
-            <img src="./img/singleton.svg">
+        <h5>Diagram klas wzorca</h5>
+        <img src="./img/singleton.svg">
         </p>
         <h5>Kod wzorca</h5>
         <pre class="pattern-code">
@@ -4571,17 +4574,23 @@ public class TrainingResourceManagerTest {
             </code>
         </pre>
     </section>
-    <h5>======================================================================================================================================================================================================</h5>
+    <h5>======================================================================================================================================================================================================
+    </h5>
     <section class="structural-pattern">
         <h5>Most</h5>
         <p class="author">Damian Karwat</p>
         <div class="pattern-problem">
             <h5>Problem</h5>
-            Rodzina klas związanych z ćwiczeniami, ma dwie główne podklasy - ćwiczenia wykonywane na zewnątrz i w pomieszczeniu.
-            Oznacza to że aby rozwinąć rodzinę, należy dodać dwie nowe klasy do obu rodzajów ćwiczeń, a przy dużej ilości ćwiczeń 
-            rodzina może stać się skomplikowana i kod staje się narażony na błędy. Drugą rzeczą jest fakt że należy zapewnić możliwość
-            dywersyfikacji ćwiczeń, tak żeby ćwiczenia implementowane do klasy na zewnątrz nie musiały mieć swojego odpowiednika dla
-            klasy ćwiczeń w pomieszczeniu. Należy pozbyć się ścisłej zalezności rodzaju ćwiczenia z miejscem jego wykonywania.
+            Rodzina klas związanych z ćwiczeniami, ma dwie główne podklasy - ćwiczenia wykonywane na zewnątrz i w
+            pomieszczeniu.
+            Oznacza to że aby rozwinąć rodzinę, należy dodać dwie nowe klasy do obu rodzajów ćwiczeń, a przy dużej
+            ilości ćwiczeń
+            rodzina może stać się skomplikowana i kod staje się narażony na błędy. Drugą rzeczą jest fakt że należy
+            zapewnić możliwość
+            dywersyfikacji ćwiczeń, tak żeby ćwiczenia implementowane do klasy na zewnątrz nie musiały mieć swojego
+            odpowiednika dla
+            klasy ćwiczeń w pomieszczeniu. Należy pozbyć się ścisłej zalezności rodzaju ćwiczenia z miejscem jego
+            wykonywania.
         </div>
         <div class="pattern-description">
             <h5>Opis wzorca</h5>
@@ -4590,8 +4599,10 @@ public class TrainingResourceManagerTest {
             klasę abstrakcji z jej implementacją, wzorzec ten tworzy dwie niezależne hierarchie:
             jedną dla abstrakcji, a drugą dla implementacji. Obie te hierarchie są ze sobą
             powiązane za pomocą interfejsu.
-            W tym systemie oddzielamy abstrakcję związaną z miejscem wykonywanego ćwiczenia, od implementacji związanej z rodzajem tego ćwiczenia.
-            Dzięki temu, można rozwijać i dodawać rodzaje ćwiczeń nie wpływając na klasy związane z miejscem wykonywania i vice versa.
+            W tym systemie oddzielamy abstrakcję związaną z miejscem wykonywanego ćwiczenia, od implementacji związanej
+            z rodzajem tego ćwiczenia.
+            Dzięki temu, można rozwijać i dodawać rodzaje ćwiczeń nie wpływając na klasy związane z miejscem wykonywania
+            i vice versa.
         </div>
         <p class="uml pattern-diagram">
         <h5>Diagram klas wzorca</h5>
@@ -4716,6 +4727,179 @@ public class TrainingResourceManagerTest {
                         System.out.println(ex2.getExerciseDataSummary());
                     }
                 }
+            </code>
+        </pre>
+        <h5>Adapter</h5>
+        <p class="author">Rafał Grot</p>
+        <div class="pattern-problem">
+            <h5>Problem</h5>
+            Wysyłanie wiadomości jest obecnie wspierane jedynie przez wbudowany system, co oznacza,
+            że rozszerzenie tej funkcjonalności o integrację z zewnętrznymi serwisami wymagałoby modyfikacji znacznej
+            części kodu.
+            ze względu na to, że interfejs jest zdefiniowany jako "zewnętrzny", a istniejąca implementacja działa
+            poprawnie, najlepszym rozwiązaniem jest zastosowanie wzorca projektowego adaptera
+        </div>
+        <div class="pattern-description">
+            <h5>Opis wzorca</h5>
+            Adapter to strukturalny wzorzec projektowy, który umożliwia integrację obiektów o różnych interfejsach.
+            Działa jako pośrednik, przekształcając jeden interfejs w inny, dzięki czemu obiekty mogą współpracować.
+            Dzięki temu wzorcowi, systemy z niekompatybilnymi interfejsami mogą funkcjonować razem, bez konieczności ich
+            zmiany.
+        </div>
+        <p class="uml pattern-diagram">
+        <h5>Diagram klas wzorca</h5>
+        <img src="./img/Message adapters.svg">
+        </p>
+        <h5>Kod wzorca</h5>
+        <pre class="pattern-code">
+            <code class="lang-java">
+                //src/main/java/DiscordMessageAdapter.java
+                import lombok.AllArgsConstructor;
+                
+                @AllArgsConstructor
+                public class DiscordMessageAdapter implements MessageService{
+                    DiscordMessageService service;
+                
+                    @Override
+                    public boolean sendMessage(Message message) {
+                        String content = String.format("**%s** %s", message.title, message.content);
+                        return  service.sendMessage(message.from.id, message.to.id, content);
+                    }
+                }
+                
+                
+                //src/main/java/DiscordMessageService.java
+                public class DiscordMessageService {
+                    boolean sendMessage(Long from, Long to, String message) {
+                        System.out.printf("%s from %s to %s content: %s\n", this.getClass().getName(), from.toString(),
+                                to.toString(), message);
+                        return true;
+                    }
+                }
+                
+                
+                //src/main/java/Message.java
+                import lombok.AllArgsConstructor;
+                import lombok.Getter;
+                import lombok.Setter;
+                
+                @AllArgsConstructor
+                @Getter
+                public class Message {
+                    @Setter
+                    User from;
+                    User to;
+                    String title;
+                    String content;
+                }
+                
+                //src/main/java/MessageService.java
+                public interface MessageService {
+                    boolean sendMessage(Message message);
+                }
+                
+                
+                //src/main/java/MessengerMessageAdapter.java
+                import lombok.AllArgsConstructor;
+                
+                @AllArgsConstructor
+                public class MessengerMessageAdapter implements  MessageService{
+                    MessengerMessageService messengerMessageService;
+                
+                    @Override
+                    public boolean sendMessage(Message message) {
+                        return messengerMessageService.sendMessage(message.from.id, message.to.id, message.title, message.title);
+                    }
+                }
+                
+                
+                //src/main/java/MessengerMessageService.java
+                public class MessengerMessageService {
+                
+                    public boolean sendMessage(Long userId, Long to, String title, String content) {
+                        System.out.printf("%s from %s to %s titled: %s content: %s\n", this.getClass().getName(), userId.toString(),
+                                to.toString(), title, content);
+                        return true;
+                    }
+                }
+                
+                
+                //src/main/java/User.java
+                import lombok.AllArgsConstructor;
+                
+                @AllArgsConstructor
+                public class User {
+                    static MessageService messageService;
+                
+                    Long id;
+                
+                    static boolean sendMessage(Message message) {
+                        messageService.sendMessage(message);
+                        return true;
+                    }
+                
+                }
+                                
+            </code>
+        </pre>
+        <h5>Kod testowy</h5>
+        <pre class="pattern-test-code">
+            <code class="lang-java">
+                //src/test/java/DiscordMessageAdapterTest.java
+                import org.junit.jupiter.api.BeforeAll;
+                import org.junit.jupiter.api.Test;
+                
+                import static org.junit.jupiter.api.Assertions.*;
+                
+                class DiscordMessageAdapterTest {
+                    static User user1;
+                    static User user2;
+                
+                    static Message message;
+                
+                    @BeforeAll
+                    static void setUp(){
+                        User.messageService = new DiscordMessageAdapter(new DiscordMessageService());
+                
+                        user1 = new User(1L);
+                        user2 = new User(2L);
+                        message = new Message(user1, user2, "MSG_TITLE", "MSG_TEXT");
+                    }
+                
+                    @Test
+                    void sendMessage() {
+                        assertTrue(User.sendMessage(message));
+                    }
+                }
+                
+                //src/test/java/MessengerMessageAdapterTest.java
+                import org.junit.jupiter.api.BeforeAll;
+                import org.junit.jupiter.api.BeforeEach;
+                import org.junit.jupiter.api.Test;
+                
+                import static org.junit.jupiter.api.Assertions.*;
+                class MessengerMessageAdapterTest {
+                    static User user1;
+                    static User user2;
+                
+                    static Message message;
+                
+                    @BeforeAll
+                    static void setup(){
+                        User.messageService = new MessengerMessageAdapter(new MessengerMessageService());
+                
+                        user1 = new User(1L);
+                        user2 = new User(2L);
+                        message = new Message(user1, user2, "MSG_TITLE", "MSG_TEXT");
+                    }
+                
+                
+                    @Test
+                    void sendMessage() {
+                        assertTrue(User.sendMessage(message));
+                    }
+                
+                }                
             </code>
         </pre>
     </section>
