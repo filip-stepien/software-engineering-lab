@@ -1,0 +1,54 @@
+@startuml decorator
+
+interface Membership {
+    + getCost(): float
+    + getCancellationFee(): float
+    + getDiscountPercentage(): float
+    + getBenefits(): List<string>
+}
+
+class GenericMembership {
+    + getCost(): float
+    + getCancellationFee(): float
+    + getDiscountPercentage(): float
+    + getBenefits(): List<string>
+}
+
+class MembershipDecorator {
+    # membership: Membership
+    + MembershipDecorator(membership: Membership)
+    + getCost(): float
+    + getCancellationFee(): float
+    + getDiscountPercentage(): float
+    + getBenefits(): List<string>
+}
+
+class PoolAccessMembershipDecorator {
+    + getCost(): float
+    + getCancellationFee(): float
+    + getDiscountPercentage(): float
+    + getBenefits(): List<string>
+}
+
+class FreeDrinksMembershipDecorator {
+    + getCost(): float
+    + getCancellationFee(): float
+    + getDiscountPercentage(): float
+    + getBenefits(): List<string>
+}
+
+class GroupExercisesMembershipDecorator {
+    + getCost(): float
+    + getCancellationFee(): float
+    + getDiscountPercentage(): float
+    + getBenefits(): List<string>
+}
+
+Membership <--o MembershipDecorator
+Membership <|.. MembershipDecorator
+MembershipDecorator <|-- PoolAccessMembershipDecorator
+MembershipDecorator <|-- FreeDrinksMembershipDecorator
+MembershipDecorator <|-- GroupExercisesMembershipDecorator
+Membership <|.. GenericMembership
+
+@enduml

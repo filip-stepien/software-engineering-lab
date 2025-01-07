@@ -4611,122 +4611,122 @@ public class TrainingResourceManagerTest {
         <h5>Kod wzorca</h5>
         <pre class="pattern-code">
             <code class="lang-java">
-                public interface ExerciseType {
+public interface ExerciseType {
 
-                    public String type = "";
-                
-                    public Type getType();
-                    public String getDescription();
-                    public String getTutorialUrl();
-                }
+    public String type = "";
 
-                public abstract class Exercise {
-                    public ExerciseType exerciseType;
-                
-                    public Type getExerciseType() {
-                        return exerciseType.getType();
-                    }
-                }
+    public Type getType();
+    public String getDescription();
+    public String getTutorialUrl();
+}
 
-                public class OutdoorExercise extends Exercise{
-                    private String name;
-                    private String preferredTerrain;
-                
-                    public OutdoorExercise(ExerciseType type,String name, String preferredTerrain) {
-                        this.exerciseType = type;
-                        this.name = name;
-                        this.preferredTerrain = preferredTerrain;
-                    }
-                
-                    public String getPreferredTerrain() {
-                        return preferredTerrain;
-                    }
-                
-                    public String getExerciseDataSummary() {
-                        return name + ":\n " + " " + this.exerciseType.getDescription();
-                    }
-                
-                    public String getExerciseTutorialUrl() {
-                        return this.exerciseType.getTutorialUrl();
-                    }
-                }
+public abstract class Exercise {
+    public ExerciseType exerciseType;
 
-                public class IndoorExercise extends Exercise{
-                    private String name;
-                
-                    public IndoorExercise(ExerciseType type, String name ) {
-                        this.exerciseType = type;
-                        this.name = name;
-                    }
-                
-                    public String getExerciseDataSummary() {
-                        return name + ":\n " + " " + this.exerciseType.getDescription();
-                    }
-                
-                    public String getExerciseTutorialUrl() {
-                        return this.exerciseType.getTutorialUrl();
-                    }
-                }
+    public Type getExerciseType() {
+        return exerciseType.getType();
+    }
+}
 
-                public class RehabilitationExercise implements ExerciseType{
-                    private Type type;
-                    private String name;
-                    private boolean AssistanceNeeded;
-                    private ExerciseDifficulty difficulty;
-                    private String description;
-                    private int duration;
-                    private String tutorialUrl;
-                
-                
-                    public RehabilitationExercise(Type type, String name, boolean assistanceNeeded, ExerciseDifficulty difficulty, String description, int duration, String tutorialUrl) {
-                        this.type = type;
-                        this.name = name;
-                        AssistanceNeeded = assistanceNeeded;
-                        this.difficulty = difficulty;
-                        this.description = description;
-                        this.duration = duration;
-                        this.tutorialUrl = tutorialUrl;
-                    }
-                
-                
-                    @Override
-                    public Type getType() {
-                        return type;
-                    }
-                
-                    @Override
-                    public String getDescription() {
-                        return description;
-                    }
-                }
+public class OutdoorExercise extends Exercise{
+    private String name;
+    private String preferredTerrain;
+
+    public OutdoorExercise(ExerciseType type,String name, String preferredTerrain) {
+        this.exerciseType = type;
+        this.name = name;
+        this.preferredTerrain = preferredTerrain;
+    }
+
+    public String getPreferredTerrain() {
+        return preferredTerrain;
+    }
+
+    public String getExerciseDataSummary() {
+        return name + ":\n " + " " + this.exerciseType.getDescription();
+    }
+
+    public String getExerciseTutorialUrl() {
+        return this.exerciseType.getTutorialUrl();
+    }
+}
+
+public class IndoorExercise extends Exercise{
+    private String name;
+
+    public IndoorExercise(ExerciseType type, String name ) {
+        this.exerciseType = type;
+        this.name = name;
+    }
+
+    public String getExerciseDataSummary() {
+        return name + ":\n " + " " + this.exerciseType.getDescription();
+    }
+
+    public String getExerciseTutorialUrl() {
+        return this.exerciseType.getTutorialUrl();
+    }
+}
+
+public class RehabilitationExercise implements ExerciseType{
+    private Type type;
+    private String name;
+    private boolean AssistanceNeeded;
+    private ExerciseDifficulty difficulty;
+    private String description;
+    private int duration;
+    private String tutorialUrl;
+
+
+    public RehabilitationExercise(Type type, String name, boolean assistanceNeeded, ExerciseDifficulty difficulty, String description, int duration, String tutorialUrl) {
+        this.type = type;
+        this.name = name;
+        AssistanceNeeded = assistanceNeeded;
+        this.difficulty = difficulty;
+        this.description = description;
+        this.duration = duration;
+        this.tutorialUrl = tutorialUrl;
+    }
+
+
+    @Override
+    public Type getType() {
+        return type;
+    }
+
+    @Override
+    public String getDescription() {
+        return description;
+    }
+}
             </code>
         </pre>
         <h5>Kod testowy</h5>
         <pre class="pattern-test-code">
             <code class="lang-java">
-                public class Main {
-                    public static void main(String[] args) {
-                        ExerciseType type1 = new SportExercise(Type.SPORT, "Keepie ups",
-                                ExerciseDifficulty.INTERMEDIATE,
-                                "Keepie ups practice.",
-                                20,
-                                "https://football.com",
-                                Sport.FOOTBALL);
-                
-                        ExerciseType type2 = new GeneralExercise(Type.GENERAL,
-                                "Jogging",
-                                ExerciseDifficulty.BEGINNER,
-                                "A simple outdoor jogging exercise.",
-                                30,
-                                "https://example.com/outdoor-jogging");
-                
-                        IndoorExercise ex1 = new IndoorExercise(type1, "Indoor Keepie ups");
-                        OutdoorExercise ex2 = new OutdoorExercise(type2, "Outdoor jogging", "Pavement");
-                
-                        System.out.println(ex1.getExerciseDataSummary());
-                        System.out.println(ex2.getExerciseDataSummary());
-                    }
-                }
+public class Main {
+    public static void main(String[] args) {
+        ExerciseType type1 = new SportExercise(Type.SPORT, "Keepie ups",
+                ExerciseDifficulty.INTERMEDIATE,
+                "Keepie ups practice.",
+                20,
+                "https://football.com",
+                Sport.FOOTBALL);
+
+        ExerciseType type2 = new GeneralExercise(Type.GENERAL,
+                "Jogging",
+                ExerciseDifficulty.BEGINNER,
+                "A simple outdoor jogging exercise.",
+                30,
+                "https://example.com/outdoor-jogging");
+
+        IndoorExercise ex1 = new IndoorExercise(type1, "Indoor Keepie ups");
+        OutdoorExercise ex2 = new OutdoorExercise(type2, "Outdoor jogging", "Pavement");
+
+        System.out.println(ex1.getExerciseDataSummary());
+        System.out.println(ex2.getExerciseDataSummary());
+    }
+}
             </code>
         </pre>
         <h5>Adapter</h5>
@@ -4753,153 +4753,309 @@ public class TrainingResourceManagerTest {
         <h5>Kod wzorca</h5>
         <pre class="pattern-code">
             <code class="lang-java">
-                //src/main/java/DiscordMessageAdapter.java
-                import lombok.AllArgsConstructor;
-                
-                @AllArgsConstructor
-                public class DiscordMessageAdapter implements MessageService{
-                    DiscordMessageService service;
-                
-                    @Override
-                    public boolean sendMessage(Message message) {
-                        String content = String.format("**%s** %s", message.title, message.content);
-                        return  service.sendMessage(message.from.id, message.to.id, content);
-                    }
-                }
-                
-                
-                //src/main/java/DiscordMessageService.java
-                public class DiscordMessageService {
-                    boolean sendMessage(Long from, Long to, String message) {
-                        System.out.printf("%s from %s to %s content: %s\n", this.getClass().getName(), from.toString(),
-                                to.toString(), message);
-                        return true;
-                    }
-                }
-                
-                
-                //src/main/java/Message.java
-                import lombok.AllArgsConstructor;
-                import lombok.Getter;
-                import lombok.Setter;
-                
-                @AllArgsConstructor
-                @Getter
-                public class Message {
-                    @Setter
-                    User from;
-                    User to;
-                    String title;
-                    String content;
-                }
-                
-                //src/main/java/MessageService.java
-                public interface MessageService {
-                    boolean sendMessage(Message message);
-                }
-                
-                
-                //src/main/java/MessengerMessageAdapter.java
-                import lombok.AllArgsConstructor;
-                
-                @AllArgsConstructor
-                public class MessengerMessageAdapter implements  MessageService{
-                    MessengerMessageService messengerMessageService;
-                
-                    @Override
-                    public boolean sendMessage(Message message) {
-                        return messengerMessageService.sendMessage(message.from.id, message.to.id, message.title, message.title);
-                    }
-                }
-                
-                
-                //src/main/java/MessengerMessageService.java
-                public class MessengerMessageService {
-                
-                    public boolean sendMessage(Long userId, Long to, String title, String content) {
-                        System.out.printf("%s from %s to %s titled: %s content: %s\n", this.getClass().getName(), userId.toString(),
-                                to.toString(), title, content);
-                        return true;
-                    }
-                }
-                
-                
-                //src/main/java/User.java
-                import lombok.AllArgsConstructor;
-                
-                @AllArgsConstructor
-                public class User {
-                    static MessageService messageService;
-                
-                    Long id;
-                
-                    static boolean sendMessage(Message message) {
-                        messageService.sendMessage(message);
-                        return true;
-                    }
-                
-                }
+//src/main/java/DiscordMessageAdapter.java
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
+public class DiscordMessageAdapter implements MessageService{
+    DiscordMessageService service;
+
+    @Override
+    public boolean sendMessage(Message message) {
+        String content = String.format("**%s** %s", message.title, message.content);
+        return  service.sendMessage(message.from.id, message.to.id, content);
+    }
+}
+
+
+//src/main/java/DiscordMessageService.java
+public class DiscordMessageService {
+    boolean sendMessage(Long from, Long to, String message) {
+        System.out.printf("%s from %s to %s content: %s\n", this.getClass().getName(), from.toString(),
+                to.toString(), message);
+        return true;
+    }
+}
+
+
+//src/main/java/Message.java
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@AllArgsConstructor
+@Getter
+public class Message {
+    @Setter
+    User from;
+    User to;
+    String title;
+    String content;
+}
+
+//src/main/java/MessageService.java
+public interface MessageService {
+    boolean sendMessage(Message message);
+}
+
+
+//src/main/java/MessengerMessageAdapter.java
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
+public class MessengerMessageAdapter implements  MessageService{
+    MessengerMessageService messengerMessageService;
+
+    @Override
+    public boolean sendMessage(Message message) {
+        return messengerMessageService.sendMessage(message.from.id, message.to.id, message.title, message.title);
+    }
+}
+
+
+//src/main/java/MessengerMessageService.java
+public class MessengerMessageService {
+
+    public boolean sendMessage(Long userId, Long to, String title, String content) {
+        System.out.printf("%s from %s to %s titled: %s content: %s\n", this.getClass().getName(), userId.toString(),
+                to.toString(), title, content);
+        return true;
+    }
+}
+
+
+//src/main/java/User.java
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
+public class User {
+    static MessageService messageService;
+
+    Long id;
+
+    static boolean sendMessage(Message message) {
+        messageService.sendMessage(message);
+        return true;
+    }
+
+}
                                 
             </code>
         </pre>
         <h5>Kod testowy</h5>
         <pre class="pattern-test-code">
             <code class="lang-java">
-                //src/test/java/DiscordMessageAdapterTest.java
-                import org.junit.jupiter.api.BeforeAll;
-                import org.junit.jupiter.api.Test;
-                
-                import static org.junit.jupiter.api.Assertions.*;
-                
-                class DiscordMessageAdapterTest {
-                    static User user1;
-                    static User user2;
-                
-                    static Message message;
-                
-                    @BeforeAll
-                    static void setUp(){
-                        User.messageService = new DiscordMessageAdapter(new DiscordMessageService());
-                
-                        user1 = new User(1L);
-                        user2 = new User(2L);
-                        message = new Message(user1, user2, "MSG_TITLE", "MSG_TEXT");
-                    }
-                
-                    @Test
-                    void sendMessage() {
-                        assertTrue(User.sendMessage(message));
-                    }
-                }
-                
-                //src/test/java/MessengerMessageAdapterTest.java
-                import org.junit.jupiter.api.BeforeAll;
-                import org.junit.jupiter.api.BeforeEach;
-                import org.junit.jupiter.api.Test;
-                
-                import static org.junit.jupiter.api.Assertions.*;
-                class MessengerMessageAdapterTest {
-                    static User user1;
-                    static User user2;
-                
-                    static Message message;
-                
-                    @BeforeAll
-                    static void setup(){
-                        User.messageService = new MessengerMessageAdapter(new MessengerMessageService());
-                
-                        user1 = new User(1L);
-                        user2 = new User(2L);
-                        message = new Message(user1, user2, "MSG_TITLE", "MSG_TEXT");
-                    }
-                
-                
-                    @Test
-                    void sendMessage() {
-                        assertTrue(User.sendMessage(message));
-                    }
-                
-                }                
+//src/test/java/DiscordMessageAdapterTest.java
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class DiscordMessageAdapterTest {
+    static User user1;
+    static User user2;
+
+    static Message message;
+
+    @BeforeAll
+    static void setUp(){
+        User.messageService = new DiscordMessageAdapter(new DiscordMessageService());
+
+        user1 = new User(1L);
+        user2 = new User(2L);
+        message = new Message(user1, user2, "MSG_TITLE", "MSG_TEXT");
+    }
+
+    @Test
+    void sendMessage() {
+        assertTrue(User.sendMessage(message));
+    }
+}
+
+//src/test/java/MessengerMessageAdapterTest.java
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+class MessengerMessageAdapterTest {
+    static User user1;
+    static User user2;
+
+    static Message message;
+
+    @BeforeAll
+    static void setup(){
+        User.messageService = new MessengerMessageAdapter(new MessengerMessageService());
+
+        user1 = new User(1L);
+        user2 = new User(2L);
+        message = new Message(user1, user2, "MSG_TITLE", "MSG_TEXT");
+    }
+
+
+    @Test
+    void sendMessage() {
+        assertTrue(User.sendMessage(message));
+    }
+
+}                
+            </code>
+        </pre>
+
+        <h5>Dekorator</h5>
+        <p class="author">Filip Stępień</p>
+        <div class="pattern-problem">
+            <h5>Problem</h5>
+            Siłownia oferuje tworzenie karnetów z różnymi typami benefitów. 
+            Tworzenie podklasy dla każdej kombinacji korzyści tworzy problem "eksplozji klas".
+        </div>
+        <div class="pattern-description">
+            <h5>Opis wzorca</h5>
+            Zamiast tworzyć rozbudowane klasy dziedziczące, dekorator pozwala na "opakowanie" obiektu w inne obiekty,
+            zachowując przy tym oryginalne interfejsy i struktury. W ten sposób do obiektu dodawane są dynamicznie
+            nowe zachowania i obowiązki, bez potrzeby modyfikacji kodu źródłowego.
+        </div>
+        <p class="uml pattern-diagram">
+        <h5>Diagram klas wzorca</h5>
+        <img src="./img/decorator.svg">
+        </p>
+        <h5>Kod wzorca</h5>
+        <pre class="pattern-code">
+            <code class="lang-java">
+interface Membership {
+    public float getCost();
+    public float getCancellationFee();
+    public float getDiscountPercentage();
+    public List&lt;String&gt; getBenefits();
+}
+
+class MembershipDecorator implements Membership {
+    protected Membership membership;
+
+    public MembershipDecorator(Membership membership) { this.membership = membership; }
+
+    @Override
+    public float getCost() { return membership.getCost(); }
+
+    @Override
+    public float getCancellationFee() { return membership.getCancellationFee(); }
+
+    @Override
+    public float getDiscountPercentage() { return membership.getDiscountPercentage(); }
+
+    @Override
+    public List&lt;String&gt; getBenefits() { return membership.getBenefits(); }
+}
+
+class GenericMembership implements Membership {
+    @Override
+    public float getCost() { return 50.0f; }
+
+    @Override
+    public float getCancellationFee() { return 10.0f; }
+
+    @Override
+    public float getDiscountPercentage() { return 0; }
+
+    @Override
+    public List&lt;String&gt; getBenefits() {
+        List&lt;String&gt; benefits = new ArrayList<>();
+        benefits.add("Access to the gym");
+        return benefits;
+    }
+}
+
+class PoolAccessMembershipDecorator extends MembershipDecorator {
+    public PoolAccessMembershipDecorator(Membership membership) { super(membership); }
+
+    @Override
+    public float getCost() { return membership.getCost() + 50.0f; }
+
+    @Override
+    public float getCancellationFee() { return membership.getCancellationFee() + 10.0f; }
+
+    @Override
+    public float getDiscountPercentage() { return membership.getDiscountPercentage() + 5.0f; }
+
+    @Override
+    public List&lt;String&gt; getBenefits() {
+        List&lt;String&gt; benefits = membership.getBenefits();
+        benefits.add("Access to pool area");
+        benefits.add("Free access to poolside spa treatments");
+        benefits.add("Free use of poolside equipment");
+        return benefits;
+    }
+}
+
+class GroupExercisesMembershipDecorator extends MembershipDecorator{
+    public GroupExercisesMembershipDecorator(Membership membership) { super(membership); }
+
+    @Override
+    public float getCost() { return membership.getCost() + 70.0f; }
+
+    @Override
+    public float getCancellationFee() { return membership.getCancellationFee() + 12.0f; }
+
+    @Override
+    public float getDiscountPercentage() { return membership.getDiscountPercentage() + 15.0f; }
+
+    @Override
+    public List&lt;String&gt; getBenefits() {
+        List&lt;String&gt; benefits = membership.getBenefits();
+        benefits.add("Access to all group classes");
+        benefits.add("Unlimited group class attendance");
+        benefits.add("Free group class merchandise");
+        return benefits;
+    }
+}
+
+class FreeDrinksMembershipDecorator extends MembershipDecorator {
+
+    public FreeDrinksMembershipDecorator(Membership membership) { super(membership); }
+
+    @Override
+    public float getCost() { return membership.getCost() + 10.0f; }
+
+    @Override
+    public float getCancellationFee() { return membership.getCancellationFee() + 5.0f; }
+
+    @Override
+    public float getDiscountPercentage() { return membership.getDiscountPercentage() + 5.0f; }
+
+    @Override
+    public List&lt;String&gt; getBenefits() {
+        List&lt;String&gt; benefits = membership.getBenefits();
+        benefits.add("Unlimited access to beverage stations");
+        benefits.add("Refillable water bottle");
+        return benefits;
+    }
+}
+            </code>
+        </pre>
+        <h5>Kod testowy</h5>
+        <pre class="pattern-test-code">
+            <code class="lang-java">
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class DecoratorTest {
+    @Test
+    public void testDecorator() {
+        Membership membership = new GroupExercisesMembershipDecorator(
+            new PoolAccessMembershipDecorator(
+                new FreeDrinksMembershipDecorator(
+                    new GenericMembership()
+                )
+            )
+        );
+
+        assertEquals(180.0f, membership.getCost());
+        assertEquals(25.0f, membership.getDiscountPercentage());
+        assertEquals(37.0f, membership.getCancellationFee());
+        assertEquals(9, membership.getBenefits().size());
+    }
+}
             </code>
         </pre>
     </section>
