@@ -5058,6 +5058,125 @@ class DecoratorTest {
 }
             </code>
         </pre>
+        <h5>Kompozyt</h5>
+        <p class="author">Bartłomiej Karkoszka</p>
+        <div class="pattern-problem">
+            <h5>Problem</h5>
+            Możemy utworzyć sesje treningowe,
+            które mogą mieć pojedyncze ćwiczenia i też kombinacje różnych ćwiczeń. 
+            Tworzenie różnych kombinacji ćwiczeń i sesji prowadzi do problemu "eksplozji klas",
+            ponieważ każda nowa kombinacja wymagałaby utworzenia nowej klasy.
+        </div>
+        <div class="pattern-description">
+            <h5>Opis wzorca</h5>
+            Zamiast tworzyć osobne klasy dla każdej kombinacji ćwiczeń i sesji,
+            kompozyt pozwala nam tworzyć elastyczne struktury,
+            w których ćwiczenia i sesje treningowe są obsługiwane przez wspólny interfejs.
+            Sesje mogą mieć w sobie ćwiczenia i tak samo inne sesje treningowe.
+        </div>
+        <p class="uml pattern-diagram">
+        <h5>Diagram klas wzorca</h5>
+        <img src="./img/composite.svg">
+        </p>
+        <h5>Kod wzorca</h5>
+        <pre class="pattern-code">
+            <code class="lang-java">
+enum ExerciseDifficulty {
+    EASY,
+    MEDIUM,
+    HARD
+}
+                
+interface TrainingComponent {
+    void showDetails(); // Operacja wspólna dla liści i kompozytu
+}
+
+class Exercise implements TrainingComponent {
+    private String name;
+    private ExerciseDifficulty difficulty;
+                
+    public Exercise(String name, ExerciseDifficulty difficulty) {
+        this.name = name;
+        this.difficulty = difficulty;
+    }
+                
+    @Override
+    public void showDetails() {
+        System.out.println("Exercise: " + name + ", Difficulty: " + difficulty);
+    }
+}
+
+class TrainingSessionComposite implements TrainingComponent {
+    private String description;
+    private List<TrainingComponent> components = new ArrayList<>();
+                
+    public TrainingSessionComposite(String description) {
+        this.description = description;
+    }
+                
+    public void addComponent(TrainingComponent component) {
+        components.add(component);
+    }
+                
+    public void removeComponent(TrainingComponent component) {
+        components.remove(component);
+    }
+                
+    @Override
+    public void showDetails() {
+        System.out.println("Training Session: " + description);
+        for (TrainingComponent component : components) {
+            component.showDetails();
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        TrainingComponent exercise1 = new Exercise("Push-ups", ExerciseDifficulty.EASY);
+        TrainingComponent exercise2 = new Exercise("Deadlift", ExerciseDifficulty.HARD);
+        TrainingComponent exercise3 = new Exercise("Yoga Stretching", ExerciseDifficulty.MEDIUM);
+
+        TrainingSessionComposite session1 = new TrainingSessionComposite("Morning Strength Training");
+        session1.addComponent(exercise1);
+        session1.addComponent(exercise2);
+                
+        TrainingSessionComposite session2 = new TrainingSessionComposite("Evening Relaxation");
+        session2.addComponent(exercise3);
+                
+        TrainingSessionComposite fullDayTraining = new TrainingSessionComposite("Full Day Training Program");
+        fullDayTraining.addComponent(session1);
+        fullDayTraining.addComponent(session2);
+
+        fullDayTraining.showDetails();
+    }
+}
+            </code>
+        </pre>
+        <h5>Kod testowy</h5>
+        <pre class="pattern-test-code">
+            <code class="lang-java">
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class TrainingSessionCompositeTest {
+
+    @Test
+    void testAddRemoveExercise() {
+        Exercise pushUps = new Exercise("Push-ups", ExerciseDifficulty.EASY);
+        TrainingSessionComposite session = new TrainingSessionComposite("Morning Workout");
+
+        session.addComponent(pushUps);
+        assertEquals(1, session.getComponents().size(), "Session should contain 1 component.");
+        assertTrue(session.getComponents().contains(pushUps), "Session should contain the added exercise.");
+        
+        session.removeComponent(pushUps);
+        assertEquals(0, session.getComponents().size(), "Session should contain no components.");
+        assertFalse(session.getComponents().contains(pushUps), "Session should not contain the removed exercise.");
+    }
+}
+            </code>
+        </pre>
     </section>
 </body>
 

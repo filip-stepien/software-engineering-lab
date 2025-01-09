@@ -1,0 +1,27 @@
+@startuml
+interface TrainingComponent {
+    + void showDetails()
+}
+
+class Exercise implements TrainingComponent {
+    - name: String
+    - difficulty: ExerciseDifficulty
+    + void showDetails()
+}
+
+class TrainingSessionComposite implements TrainingComponent {
+    - description: String
+    - components: List<TrainingComponent>
+    + void addComponent(component: TrainingComponent)
+    + void removeComponent(component: TrainingComponent)
+    + void showDetails()
+}
+
+enum ExerciseDifficulty {
+    EASY
+    MEDIUM
+    HARD
+}
+
+TrainingSessionComposite "1" *-- "many" TrainingComponent
+@enduml
