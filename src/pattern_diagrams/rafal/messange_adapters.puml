@@ -20,7 +20,7 @@ MessangerMessageAdapter -.|> MessageService : "Implements"
 MessangerMessageAdapter -.-> MessengerMessangeService : "Uses"
 
 class MessengerMessangeService{
-  + sendMessage(from: userId, to: User, title: String, content: String)
+  + sendMessage(from: Long, to: Long, title: String, content: String)
 }
 note left
 External service / interface
