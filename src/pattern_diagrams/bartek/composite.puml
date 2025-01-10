@@ -24,4 +24,5 @@ enum ExerciseDifficulty {
 }
 
 TrainingSessionComposite "1" *-- "many" TrainingComponent
+Exercise <-- ExerciseDifficulty
 @enduml
