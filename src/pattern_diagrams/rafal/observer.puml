@@ -1,4 +1,4 @@
-@startuml
+@startuml observer
 class User {
   
 }
@@ -23,6 +23,11 @@ User -|> TrainingSessionSubscribier
 
 class TrainingSession{
   Attendants: List<Client>
+
+  + notifyObservers()
+  + addObserver(observer : TrainingSessionSubscribier)
+  + removeObserver(observer : TrainingSessionSubscribier)
+  + cancelTrainingSession()
 }
 
 @enduml
