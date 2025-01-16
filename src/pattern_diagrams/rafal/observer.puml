@@ -1,0 +1,28 @@
+@startuml
+class User {
+  
+}
+
+Note left of User{
+  if training session got canceled
+  send message to user
+}
+
+Class Client {
+
+}
+
+Client --|> User
+
+interface TrainingSessionSubscribier{
+  + update(trainingSession: TrainingSession)
+}
+
+TrainingSession o--|> TrainingSessionSubscribier
+User -|> TrainingSessionSubscribier
+
+class TrainingSession{
+  Attendants: List<Client>
+}
+
+@enduml
