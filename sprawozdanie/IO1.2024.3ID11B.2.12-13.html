@@ -11,7 +11,7 @@
     <h1>Inżynieria Programowania</h1>
     <h2>System do obsługi siłowni</h2>
 
-    <h3>Autorzy</h3>
+    <h3>Autorzy</h3>:
     <ul>
         <li>Rafał Grot</li>
         <li>Filip Stępień</li>
@@ -4262,10 +4262,10 @@ class TrainingSessionTest {
             rodzin ćwiczeń wykonywanych na zewnątrz i w środku. Fabryka jest skalowalna
             i można łatwo dodawać nowe rodziny ćwiczeń.
         </div>
-        <p class="uml pattern-diagram">
-        <h5>Diagram klas wzorca</h5>
-        <img src="./img/exercise_abstract_factory.svg">
-        </p>
+        <div class="uml pattern-diagram">
+            <h5>Diagram klas wzorca</h5>
+            <img src="./img/exercise_abstract_factory.svg">
+        </div>
         <h5>Kod wzorca</h5>
         <pre class="pattern-code">
             <code class="lang-java">
@@ -4367,10 +4367,10 @@ class ExerciseFactoryTest {
             dodania nowej klasy oraz modyfikacji metody wytwórczej,
             bez konieczności ingerencji w inne części systemu korzystające z karnetów.
         </div>
-        <p class="uml pattern-diagram">
-        <h5>Diagram klas wzorca</h5>
-        <img src="./img/membership_factory_method.svg">
-        </p>
+        <div class="uml pattern-diagram">
+            <h5>Diagram klas wzorca</h5>
+            <img src="./img/membership_factory_method.svg">
+        </div>
         <h5>Kod wzorca</h5>
         <pre class="pattern-code">
             <code class="lang-java">
@@ -4463,10 +4463,10 @@ class FactoryMethodTest {
             na przykład o funkcje automatycznego planowania treningów czy analizy wykorzystania zasobów.
             Dzięki centralizacji zarządzania cały system staje się bardziej spójny i niezawodny.
         </div>
-        <p class="uml pattern-diagram">
-        <h5>Diagram klas wzorca</h5>
-        <img src="./img/singleton.svg">
-        </p>
+        <div class="uml pattern-diagram">
+            <h5>Diagram klas wzorca</h5>
+            <img src="./img/singleton.svg">
+        </div>
         <h5>Kod wzorca</h5>
         <pre class="pattern-code">
             <code class="lang-java">
@@ -4907,7 +4907,7 @@ class MessengerMessageAdapterTest {
         <p class="author">Filip Stępień</p>
         <div class="pattern-problem">
             <h5>Problem</h5>
-            Siłownia oferuje tworzenie karnetów z różnymi typami benefitów. 
+            Siłownia oferuje tworzenie karnetów z różnymi typami benefitów.
             Tworzenie podklasy dla każdej kombinacji korzyści tworzy problem "eksplozji klas".
         </div>
         <div class="pattern-description">
@@ -5063,7 +5063,7 @@ class DecoratorTest {
         <div class="pattern-problem">
             <h5>Problem</h5>
             Możemy utworzyć sesje treningowe,
-            które mogą mieć pojedyncze ćwiczenia i też kombinacje różnych ćwiczeń. 
+            które mogą mieć pojedyncze ćwiczenia i też kombinacje różnych ćwiczeń.
             Tworzenie różnych kombinacji ćwiczeń i sesji prowadzi do problemu "eksplozji klas",
             ponieważ każda nowa kombinacja wymagałaby utworzenia nowej klasy.
         </div>
