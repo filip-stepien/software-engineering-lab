@@ -15,7 +15,7 @@ Class Client {
 Client --|> User
 
 interface TrainingSessionSubscribier{
-  + update(trainingSession: TrainingSession)
+  +trainingSessionCanceled (trainingSession: TrainingSession)
 }
 
 TrainingSession o--|> TrainingSessionSubscribier
@@ -24,7 +24,6 @@ User -|> TrainingSessionSubscribier
 class TrainingSession{
   Attendants: List<Client>
 
-  + notifyObservers()
   + addObserver(observer : TrainingSessionSubscribier)
   + removeObserver(observer : TrainingSessionSubscribier)
   + cancelTrainingSession()
