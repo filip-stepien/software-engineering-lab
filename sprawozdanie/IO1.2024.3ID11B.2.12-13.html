@@ -5178,6 +5178,145 @@ class TrainingSessionCompositeTest {
             </code>
         </pre>
     </section>
+    <h5>======================================================================================================================================================================================================
+    </h5>
+    <section class="behavioural-pattern">
+        <h5>Stan</h5>
+        <p class="author">Damian Karwat</p>
+        <div class="pattern-problem">
+            <h5>Problem</h5>
+            Sala którą reprezentuje klasa Gym może mieć różne stany dotyczące faktu
+            czy sala w danym terminie jest wolna, zajęta bądź remontowana/sprzątana. 
+            Z tego powodu w klasie Gym należałoby tworzyć oddzielne metody do obsługiwania
+            prób zarezerwowania sali w zależności od jej stanu w danym terminie. Prowadziło by to 
+            do nadmiernej komplikacji i złożoności pojedyńczej klasy. Zastosowanie stanu pozwala
+            wydelegować zadania związane z obsługą próby rezerwacji sali do klas reprezentujących
+            jej poszczególne stany.
+        </div>
+        <div class="pattern-description">
+            <h5>Opis wzorca</h5>
+            Stan umożliwia obiektowi modyfikację zachowania w wyniku zmiany wewnętrznego
+            stanu. Jest szczególnie przydatny, gdy obiekt ma różne tryby działania, które
+            prowadzą do różnych reakcji na te same metody. W praktyce oznacza to, że obiekt
+            deleguje zadania do różnych obiektów reprezentujących konkretne stany. W tym przypadku
+            klasa Gym deleguje obsługę rezerwowania sal do klas reprezentujących stany rezerwacji.
+        </div>
+        <p class="uml pattern-diagram">
+        <h5>Diagram klas wzorca</h5>
+        <img src="./img/gym_state_diagram.svg">
+        </p>
+        <h5>Kod wzorca</h5>
+        <pre class="pattern-code">
+            <code class="lang-java">
+                public interface AvailabilityState {
+                    public AvailabilityState handleBooking();
+                }
+
+                public class BookedState implements AvailabilityState{
+                    private String bookingID;
+                
+                    public BookedState(String bookingID) {
+                        this.bookingID = bookingID;
+                    }
+                
+                    public void setBookingID(String bookingID) {
+                        this.bookingID = bookingID;
+                    }
+                
+                    public AvailabilityState handleBooking(){
+                        //symulacja zawiadomienia że sala jest już zabookowana
+                        System.out.println("Sala jest już zabookowana w tym terminie");
+                        return this;
+                    }
+                }
+
+                public class OpenedState implements AvailabilityState{
+
+                    public OpenedState() {
+                
+                    }
+                
+                    public AvailabilityState handleBooking(){
+                        //symulacja generowania id booking
+                        String id = "34";
+                        System.out.println("Booking completed!");
+                        return new BookedState(id);
+                    }
+                }
+
+                public class MaintainedState implements AvailabilityState{
+                    private String maintananceStart;
+                    private String maintananceEnd;
+                
+                    public MaintainedState(String maintananceStart, String maintananceEnd) {
+                        this.maintananceStart = maintananceStart;
+                        this.maintananceEnd = maintananceEnd;
+                    }
+                
+                    public AvailabilityState handleBooking(){
+                        //symulacja zawiadomienia że sala jest remontowana
+                        System.out.println("Sala jest zamknięta w tym terminie");
+                        return this;
+                    }
+                }
+
+                public class Gym {
+                    private String name;
+                    private String id;
+                    private AvailabilityState availabilityState;
+                    private int maxParticipants;
+                
+                    public Gym(String name, String id, AvailabilityState availabilityState, int maxParticipants) {
+                        this.name = name;
+                        this.id = id;
+                        this.availabilityState = availabilityState;
+                        this.maxParticipants = maxParticipants;
+                    }
+                
+                    public void setAvabilityState(AvailabilityState avabilityState) {
+                        this.availabilityState = avabilityState;
+                    }
+                
+                    public void open(){
+                        AvailabilityState tmp = new OpenedState();
+                
+                        this.setAvabilityState(tmp);
+                    }
+                
+                    public void Maintain(String startDate, String endDate){
+                        AvailabilityState tmp = new MaintainedState(startDate, endDate);
+                
+                        this.setAvabilityState(tmp);
+                    }
+                
+                    public void handleBooking(){
+                        this.availabilityState = this.availabilityState.handleBooking();
+                    }
+                }
+            </code>
+        </pre>
+        <h5>Kod testowy</h5>
+        <pre class="pattern-test-code">
+            <code class="lang-java">
+                public class Main {
+                    public static void main(String[] args) {
+                
+                        Gym gym1 = new Gym("sala ćwiczeń", "5", new OpenedState(), 25);
+                        Gym gym2 = new Gym("kort tenisowy", "2", new BookedState("65"), 6);
+                        Gym gym3 = new Gym("boisko koszykówki", "7", new MaintainedState("19-01-2025", "25-01-2025"), 30);
+                
+                        //symulacja pozytywnego zabookowania sali na ćwiczenia
+                        gym1.handleBooking();
+                
+                        //symulacja próby zabookowania sali, która już jest zabookowana
+                        gym2.handleBooking();
+                
+                        //symulacja próby zabookowania sali, na której jest remont
+                        gym3.handleBooking();
+                    }
+                }
+            </code>
+        </pre>
 </body>
 
 </html>

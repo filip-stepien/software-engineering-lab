@@ -1,0 +1,41 @@
+@startuml diagram
+
+
+class Gym{
+    - name : String
+    - identifier : String
+    - avabilityState : AvabilityState
+    - maxParticipants: int
+    + open() : void
+    + Maintain(String startDate, String endDate): void
+    + handleBooking(): void
+}
+
+
+interface AvailabilityState{
+    + handleBooking() : AvailabilityState
+}
+
+
+class BookedState{
+    - bookingId: String
+    + handleBooking(): AvailabilityState
+}
+
+
+class OpenedState{
+    + handleBooking(): AvailabilityState
+}
+
+
+class MaintainedState{
+    - maintenanceStart: String
+    - maintenanceEnd: String
+    + handleBooking(): AvailabilityState
+}
+
+
+BookedState ..|> AvailabilityState
+OpenedState ..|> AvailabilityState
+MaintainedState ..|> AvailabilityState
+Gym o--right> AvailabilityState
