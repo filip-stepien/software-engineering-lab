@@ -1,0 +1,35 @@
+@startuml
+enum ExerciseDifficulty {
+    EASY
+    MEDIUM
+    HARD
+}
+
+interface TrainingDifficultyStrategy {
+    + calculateDifficulty(client: Client): ExerciseDifficulty
+}
+
+class BeginnerStrategy {
+    + calculateDifficulty(client: Client): ExerciseDifficulty
+}
+
+class AdvancedStrategy {
+    + calculateDifficulty(client: Client): ExerciseDifficulty
+}
+
+class ExpertStrategy {
+    + calculateDifficulty(client: Client): ExerciseDifficulty
+}
+
+class TrainingSession {
+    - difficultyStrategy: TrainingDifficultyStrategy
+    + setDifficultyStrategy(strategy: TrainingDifficultyStrategy): void
+    + determineDifficulty(client: Client): ExerciseDifficulty
+}
+
+TrainingDifficultyStrategy <|.. BeginnerStrategy
+TrainingDifficultyStrategy <|.. AdvancedStrategy
+TrainingDifficultyStrategy <|.. ExpertStrategy
+TrainingSession o--> TrainingDifficultyStrategy
+ExerciseDifficulty --> TrainingDifficultyStrategy
+@enduml

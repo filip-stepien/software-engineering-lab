@@ -5317,6 +5317,165 @@ class TrainingSessionCompositeTest {
                 }
             </code>
         </pre>
+        <section class="strategy-pattern">
+            <h5>Strategia</h5>
+            <p class="author">Bartłomiej Karkoszka</p>
+            <div class="pattern-problem">
+                <h5>Problem</h5>
+                System ma trudności z określaniem poziomu trudności treningów,
+                ponieważ użytkownicy są na różnym etapie: początkujący,
+                średnio-zaawansowani, czy zaawansowani.
+                Każdy poziom trudności wymaga zdefiniowania osobnej logiki,
+                co prowadzi do trudności w rozbudowie systemu i modyfikacjach,
+                zwłaszcza gdy pojawiają się nowe kryteria.
+            </div>
+            <div class="pattern-description">
+                <h5>Opis wzorca</h5>
+                Zamiast tworzyć oddzielne klasy dla każdego poziomu trudności,
+                wzorzec Strategia pozwala na oddzielenie logiki wyznaczania trudności do osobnych klas strategii.
+                Dzięki temu każda sesja treningowa może korzystać z odpowiedniej strategii,
+                a dodawanie nowych poziomów trudności staje się prostsze i bardziej elastyczne,
+                bez potrzeby modyfikowania głównych klas systemu.
+            </div>
+            <p class="uml pattern-diagram">
+            <h5>Diagram klas wzorca</h5>
+            <img src="./img/strategy.svg">
+            </p>
+            <h5>Kod wzorca</h5>
+            <pre class="pattern-code">
+                <code class="lang-java">
+public interface TrainingDifficultyStrategy {
+    String calculateDifficulty(Client client);
+}
+
+class BeginnerStrategy implements TrainingDifficultyStrategy {
+    @Override
+    public String calculateDifficulty(Client client) {
+        return "EASY";
+    }
+}
+
+class AdvancedStrategy implements TrainingDifficultyStrategy {
+    @Override
+    public String calculateDifficulty(Client client) {
+        return "HARD";
+    }
+}
+
+class ExpertStrategy implements TrainingDifficultyStrategy {
+    @Override
+    public String calculateDifficulty(Client client) {
+        return "INSANE";
+    }
+}
+
+class Client {
+    private String skillLevel;
+
+    public Client(String skillLevel) {
+        this.skillLevel = skillLevel;
+    }
+
+    public String getSkillLevel() {
+        return skillLevel;
+    }
+
+    public void setSkillLevel(String skillLevel) {
+        this.skillLevel = skillLevel;
+    }
+}
+
+class TrainingSession {
+    private TrainingDifficultyStrategy strategy;
+
+    public TrainingSession(TrainingDifficultyStrategy strategy) {
+        this.strategy = strategy;
+    }
+
+    public String determineDifficulty(Client client) {
+        return strategy.calculateDifficulty(client);
+    }
+
+    public void setStrategy(TrainingDifficultyStrategy strategy) {
+        this.strategy = strategy;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Client client1 = new Client("BEGINNER");
+
+        TrainingSession session1 = new TrainingSession(new BeginnerStrategy());
+        System.out.println("Client1 (BEGINNER) Difficulty: " + session1.determineDifficulty(client1));
+
+        Client client2 = new Client("ADVANCED");
+
+        TrainingSession session2 = new TrainingSession(new AdvancedStrategy());
+        System.out.println("Client2 (ADVANCED) Difficulty: " + session2.determineDifficulty(client2));
+
+        Client client3 = new Client("EXPERT");
+
+        TrainingSession session3 = new TrainingSession(new ExpertStrategy());
+        System.out.println("Client3 (EXPERT) Difficulty: " + session3.determineDifficulty(client3));
+
+        session3.setStrategy(new BeginnerStrategy());
+        System.out.println("Client3 (EXPERT changed to BEGINNER) Difficulty: " + session3.determineDifficulty(client3));
+    }
+}
+
+                </code>
+            </pre>
+            <h5>Kod testowy</h5>
+            <pre class="pattern-test-code">
+                <code class="lang-java">
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class TrainingSessionTest {
+
+    @Test
+    public void testBeginnerSessionDifficulty() {
+        Client client = new Client("BEGINNER");
+
+        TrainingSession session = new TrainingSession(new BeginnerStrategy());
+
+        assertEquals("EASY", session.determineDifficulty(client));
+    }
+
+    @Test
+    public void testAdvancedSessionDifficulty() {
+        Client client = new Client("ADVANCED");
+
+        TrainingSession session = new TrainingSession(new AdvancedStrategy());
+
+        assertEquals("HARD", session.determineDifficulty(client));
+    }
+
+    @Test
+    public void testExpertSessionDifficulty() {
+        Client client = new Client("EXPERT");
+
+        TrainingSession session = new TrainingSession(new ExpertStrategy());
+
+        assertEquals("INSANE", session.determineDifficulty(client));
+    }
+
+    @Test
+    public void testChangeStrategyDuringSession() {
+        Client client = new Client("EXPERT");
+
+        TrainingSession session = new TrainingSession(new ExpertStrategy());
+
+        assertEquals("INSANE", session.determineDifficulty(client));
+
+        session.setStrategy(new BeginnerStrategy());
+
+        assertEquals("EASY", session.determineDifficulty(client));
+    }
+}
+
+                </code>
+            </pre>
 </body>
 
 </html>
