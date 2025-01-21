@@ -5186,9 +5186,9 @@ class TrainingSessionCompositeTest {
         <div class="pattern-problem">
             <h5>Problem</h5>
             Sala którą reprezentuje klasa Gym może mieć różne stany dotyczące faktu
-            czy sala w danym terminie jest wolna, zajęta bądź remontowana/sprzątana. 
+            czy sala w danym terminie jest wolna, zajęta bądź remontowana/sprzątana.
             Z tego powodu w klasie Gym należałoby tworzyć oddzielne metody do obsługiwania
-            prób zarezerwowania sali w zależności od jej stanu w danym terminie. Prowadziło by to 
+            prób zarezerwowania sali w zależności od jej stanu w danym terminie. Prowadziło by to
             do nadmiernej komplikacji i złożoności pojedyńczej klasy. Zastosowanie stanu pozwala
             wydelegować zadania związane z obsługą próby rezerwacji sali do klas reprezentujących
             jej poszczególne stany.
@@ -5317,32 +5317,33 @@ class TrainingSessionCompositeTest {
                 }
             </code>
         </pre>
-        <section class="strategy-pattern">
-            <h5>Strategia</h5>
-            <p class="author">Bartłomiej Karkoszka</p>
-            <div class="pattern-problem">
-                <h5>Problem</h5>
-                System ma trudności z określaniem poziomu trudności treningów,
-                ponieważ użytkownicy są na różnym etapie: początkujący,
-                średnio-zaawansowani, czy zaawansowani.
-                Każdy poziom trudności wymaga zdefiniowania osobnej logiki,
-                co prowadzi do trudności w rozbudowie systemu i modyfikacjach,
-                zwłaszcza gdy pojawiają się nowe kryteria.
-            </div>
-            <div class="pattern-description">
-                <h5>Opis wzorca</h5>
-                Zamiast tworzyć oddzielne klasy dla każdego poziomu trudności,
-                wzorzec Strategia pozwala na oddzielenie logiki wyznaczania trudności do osobnych klas strategii.
-                Dzięki temu każda sesja treningowa może korzystać z odpowiedniej strategii,
-                a dodawanie nowych poziomów trudności staje się prostsze i bardziej elastyczne,
-                bez potrzeby modyfikowania głównych klas systemu.
-            </div>
-            <p class="uml pattern-diagram">
-            <h5>Diagram klas wzorca</h5>
-            <img src="./img/strategy.svg">
-            </p>
-            <h5>Kod wzorca</h5>
-            <pre class="pattern-code">
+    </section>
+    <section class="strategy-pattern">
+        <h5>Strategia</h5>
+        <p class="author">Bartłomiej Karkoszka</p>
+        <div class="pattern-problem">
+            <h5>Problem</h5>
+            System ma trudności z określaniem poziomu trudności treningów,
+            ponieważ użytkownicy są na różnym etapie: początkujący,
+            średnio-zaawansowani, czy zaawansowani.
+            Każdy poziom trudności wymaga zdefiniowania osobnej logiki,
+            co prowadzi do trudności w rozbudowie systemu i modyfikacjach,
+            zwłaszcza gdy pojawiają się nowe kryteria.
+        </div>
+        <div class="pattern-description">
+            <h5>Opis wzorca</h5>
+            Zamiast tworzyć oddzielne klasy dla każdego poziomu trudności,
+            wzorzec Strategia pozwala na oddzielenie logiki wyznaczania trudności do osobnych klas strategii.
+            Dzięki temu każda sesja treningowa może korzystać z odpowiedniej strategii,
+            a dodawanie nowych poziomów trudności staje się prostsze i bardziej elastyczne,
+            bez potrzeby modyfikowania głównych klas systemu.
+        </div>
+        <p class="uml pattern-diagram">
+        <h5>Diagram klas wzorca</h5>
+        <img src="./img/strategy.svg">
+        </p>
+        <h5>Kod wzorca</h5>
+        <pre class="pattern-code">
                 <code class="lang-java">
 public interface TrainingDifficultyStrategy {
     String calculateDifficulty(Client client);
@@ -5425,8 +5426,8 @@ public class Main {
 
                 </code>
             </pre>
-            <h5>Kod testowy</h5>
-            <pre class="pattern-test-code">
+        <h5>Kod testowy</h5>
+        <pre class="pattern-test-code">
                 <code class="lang-java">
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -5476,6 +5477,7 @@ public class TrainingSessionTest {
 
                 </code>
             </pre>
+    </section>
 </body>
 
 </html>
