@@ -29,4 +29,6 @@ class TrainingSession{
   + cancelTrainingSession()
 }
 
+note "Diagram zawiera jedynie\nelementy istotne dla wzorca." as n
+
 @enduml

@@ -42,13 +42,8 @@ class TrainingSessionTest {
     }
 
     @org.junit.jupiter.api.Test
-    void removeObserver() {
-    }
-
-    @org.junit.jupiter.api.Test
     void cancel() {
         trainingSession.addObserver(client);
         trainingSession.cancel();
-
     }
 }

@@ -4291,7 +4291,7 @@ public class OutdoorExerciseFactory implements ExerciseFactory {
     public Exercise createGeneralExercise(String name, ExerciseDifficulty difficulty, String description, int duration, String tutorialUrl) {
         return new OutdoorGeneralExercise(name, difficulty, description, duration, tutorialUrl);
     }
-    
+
     @Override
     public Exercise createSportExercise(String name, ExerciseDifficulty difficulty, String description, int duration, String tutorialUrl, Sport sport) {
         return new OutdoorSportExercise(name, difficulty, description, duration, tutorialUrl, sport);
@@ -4472,43 +4472,43 @@ class FactoryMethodTest {
             <code class="lang-java">
 import java.util.HashSet;
 import java.util.Set;
-                
+
 public class TrainingResourceManager {
-                
+
     private static TrainingResourceManager instance;
     private Set<Resource> allocatedResources;
-                
+
     private TrainingResourceManager() {
         this.allocatedResources = new HashSet<>();
     }
-                    
+
     public static TrainingResourceManager getInstance() {
         if (instance == null) {
             instance = new TrainingResourceManager();
         }
         return instance;
     }
-                    
+
     public boolean allocateResource(Resource resource) {
-        return allocatedResources.add(resource); 
+        return allocatedResources.add(resource);
     }
 
     public void releaseResource(Resource resource) {
         allocatedResources.remove(resource); // Remove the resource
     }
 }
-                
+
 class Resource {
     private String name;
-                
+
     public Resource(String name) {
         this.name = name;
     }
-                
+
     public String getName() {
         return name;
     }
-                
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -4516,7 +4516,7 @@ class Resource {
         Resource resource = (Resource) obj;
         return name.equals(resource.name);
     }
-                
+
     @Override
     public int hashCode() {
         return name.hashCode();
@@ -4529,42 +4529,42 @@ class Resource {
             <code class="lang-java">
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-                
+
 import static org.junit.jupiter.api.Assertions.*;
-                
+
 public class TrainingResourceManagerTest {
-                
+
     private TrainingResourceManager manager;
     private Resource resource1;
     private Resource resource2;
-                
+
     @BeforeEach
     public void setUp() {
         manager = TrainingResourceManager.getInstance();
         resource1 = new Resource("Resource1");
         resource2 = new Resource("Resource2");
     }
-                
+
     @Test
     public void testAllocateResource() {
         assertTrue(manager.allocateResource(resource1));  // Should return true as the resource is not allocated yet
         assertFalse(manager.allocateResource(resource1)); // Should return false as the resource is already allocated
     }
-                
+
     @Test
     public void testReleaseResource() {
         manager.allocateResource(resource1);
         manager.releaseResource(resource1);
-                
-        assertFalse(manager.allocateResource(resource1)); 
+
+        assertFalse(manager.allocateResource(resource1));
     }
-                
+
     @Test
     public void testSingletonInstance() {
         TrainingResourceManager anotherManager = TrainingResourceManager.getInstance();
         assertSame(manager, anotherManager);
     }
-                
+
     @Test
     public void testResourceEquality() {
         Resource sameResource = new Resource("Resource1");
@@ -4839,7 +4839,7 @@ public class User {
     }
 
 }
-                                
+
             </code>
         </pre>
         <h5>Kod testowy</h5>
@@ -4899,7 +4899,7 @@ class MessengerMessageAdapterTest {
         assertTrue(User.sendMessage(message));
     }
 
-}                
+}
             </code>
         </pre>
 
@@ -5086,7 +5086,7 @@ enum ExerciseDifficulty {
     MEDIUM,
     HARD
 }
-                
+
 interface TrainingComponent {
     void showDetails(); // Operacja wspólna dla liści i kompozytu
 }
@@ -5094,12 +5094,12 @@ interface TrainingComponent {
 class Exercise implements TrainingComponent {
     private String name;
     private ExerciseDifficulty difficulty;
-                
+
     public Exercise(String name, ExerciseDifficulty difficulty) {
         this.name = name;
         this.difficulty = difficulty;
     }
-                
+
     @Override
     public void showDetails() {
         System.out.println("Exercise: " + name + ", Difficulty: " + difficulty);
@@ -5109,19 +5109,19 @@ class Exercise implements TrainingComponent {
 class TrainingSessionComposite implements TrainingComponent {
     private String description;
     private List<TrainingComponent> components = new ArrayList<>();
-                
+
     public TrainingSessionComposite(String description) {
         this.description = description;
     }
-                
+
     public void addComponent(TrainingComponent component) {
         components.add(component);
     }
-                
+
     public void removeComponent(TrainingComponent component) {
         components.remove(component);
     }
-                
+
     @Override
     public void showDetails() {
         System.out.println("Training Session: " + description);
@@ -5140,10 +5140,10 @@ public class Main {
         TrainingSessionComposite session1 = new TrainingSessionComposite("Morning Strength Training");
         session1.addComponent(exercise1);
         session1.addComponent(exercise2);
-                
+
         TrainingSessionComposite session2 = new TrainingSessionComposite("Evening Relaxation");
         session2.addComponent(exercise3);
-                
+
         TrainingSessionComposite fullDayTraining = new TrainingSessionComposite("Full Day Training Program");
         fullDayTraining.addComponent(session1);
         fullDayTraining.addComponent(session2);
@@ -5169,7 +5169,7 @@ class TrainingSessionCompositeTest {
         session.addComponent(pushUps);
         assertEquals(1, session.getComponents().size(), "Session should contain 1 component.");
         assertTrue(session.getComponents().contains(pushUps), "Session should contain the added exercise.");
-        
+
         session.removeComponent(pushUps);
         assertEquals(0, session.getComponents().size(), "Session should contain no components.");
         assertFalse(session.getComponents().contains(pushUps), "Session should not contain the removed exercise.");
@@ -5180,6 +5180,229 @@ class TrainingSessionCompositeTest {
     </section>
     <h5>======================================================================================================================================================================================================
     </h5>
+    <section class="pattern">
+        <h5>Obserwator</h5>
+        <p class="author">Rafał Grot</p>
+        <div class="pattern-problem">
+            <h5>Problem</h5>
+            Aktualnie, w przypadku anulowania sesji treningowej,
+            użytkownicy nie otrzymują żadnych powiadomień.
+            System nie umożliwia wysyłania informacji tylko do tych użytkowników,
+            którzy chcieliby zostać o tym poinformowani.
+            W praktyce oznacza to, że wszyscy użytkownicy są pozbawieni informacji o zmianach,
+            co może prowadzić do niepotrzebnych nieporozumień lub dezorganizacji planu treningowego.
+            Ponadto, system nie oferuje gotowego rozwiązania,
+            które pozwalałoby na selektywne powiadamianie poszczególnych użytkowników.
+            Brakuje również interfejsu, który pozwalałby na łatwe wdrożenie takiej funkcjonalności.
+        </div>
+        <div class="pattern-description">
+            <h5>Opis wzorca</h5>
+            Aby uniknąć tworzenia pętli, która iteruje po każdym użytkowniku i sprawdza,
+            czy dany użytkownik chce otrzymać powiadomienie o anulowaniu sesji treningowej
+            oraz cyklicznego sprawdzania statusu tej sesji,
+            można zastosować wzorzec projektowy obserwator.
+            Dzięki temu możliwe jest dynamiczne dodawanie i usuwanie odbiorców powiadomień.
+            Gdy sesja treningowa zostanie anulowana, s
+            ystem automatycznie wyśle odpowiednie powiadomienie do użytkowników,
+            którzy zarejestrowali chęć otrzymywania takich informacji.
+        </div>
+        <p class="uml pattern-diagram">
+        <h5>Diagram klas wzorca</h5>
+        <img src="./img/observer.svg">
+        </p>
+        <h5>Kod wzorca</h5>
+        <pre class="pattern-code">
+            <code class="lang-java">
+                package org.example;
+
+                import lombok.ToString;
+                import lombok.experimental.SuperBuilder;
+
+                import java.util.Date;
+
+                @SuperBuilder
+                @ToString(callSuper = true)
+                public class Client extends User {
+                    Long weight;
+                    Long height;
+                    Date birthDate;
+                }
+
+
+                package org.example;
+
+                import lombok.AllArgsConstructor;
+                import lombok.Getter;
+                import lombok.Setter;
+                import lombok.ToString;
+
+                @AllArgsConstructor
+                @Getter
+                @ToString
+                public class Message {
+                    @Setter
+                    User from;
+                    User to;
+                    String title;
+                    String content;
+                }
+
+                package org.example;
+
+                public enum SkillLevel {
+                    GIGACHAD,
+                    ADVANCED,
+                    BEGGINER,
+                    NOOB
+                }
+
+
+                package org.example;
+
+                import lombok.ToString;
+                import lombok.experimental.SuperBuilder;
+
+                @ToString(callSuper = true)
+                @SuperBuilder
+                public class Trainer extends User{
+                }
+
+
+                package org.example;
+
+                import lombok.Builder;
+                import lombok.Getter;
+
+                import java.util.Date;
+                import java.util.HashSet;
+                import java.util.List;
+                import java.util.Set;
+
+                @Builder
+                @Getter
+                public class TrainingSession {
+                    Date startDate;
+                    String description;
+                    float duration;
+                    SkillLevel skillLevel;
+                    List<Client> attendants;
+                    boolean isCancelled;
+                    Trainer trainer;
+
+
+                    @Builder.Default
+                    Set<TrainingSessionSubscriber> subscribers = new HashSet<>() ;
+                    void addObserver(TrainingSessionSubscriber subscriber) {
+                        subscribers.add(subscriber);
+                    }
+
+                    void removeObserver(TrainingSessionSubscriber subscriber) {
+                        subscribers.remove(subscriber);
+                    }
+
+
+                    public void cancel(){
+                        isCancelled = true;
+                        for (TrainingSessionSubscriber subscriber : subscribers) {
+                            subscriber.trainingSessionCancelled(this);
+                        };
+                    }
+                }
+
+                package org.example;
+
+                public interface TrainingSessionSubscriber {
+                    void trainingSessionCancelled(TrainingSession trainingSession);
+                }
+
+
+                package org.example;
+
+                import lombok.Builder;
+                import lombok.Data;
+                import lombok.RequiredArgsConstructor;
+                import lombok.ToString;
+                import lombok.experimental.SuperBuilder;
+
+                @Data
+                @RequiredArgsConstructor
+                @SuperBuilder
+                @ToString
+                public class User implements TrainingSessionSubscriber {
+                    Long id;
+                    String firstName;
+
+                    static boolean sendMessage(Message message) {
+                        System.out.println(message);
+                        return true;
+                    }
+
+                    @Override
+                    public void trainingSessionCancelled(TrainingSession trainingSession) {
+                        sendMessage(new Message(User.builder().firstName("System").id(1000L).build(), this,
+                                "TrainingSession cancelled " +  trainingSession.startDate.toString(), trainingSession.description));
+
+                    }
+                }
+            </code>
+        <pre>
+        <h5>Kod testowy</h5>
+        <pre class="pattern-test-code">
+            <code class="lang-java">
+                package org.example;
+
+                import org.junit.jupiter.api.BeforeAll;
+                import org.junit.jupiter.api.BeforeEach;
+
+                import java.util.ArrayList;
+                import java.util.Collections;
+                import java.util.Date;
+
+
+                import static org.example.SkillLevel.NOOB;
+                import static org.junit.jupiter.api.Assertions.*;
+
+                class TrainingSessionTest {
+
+                    static TrainingSession trainingSession;
+                    static Client client;
+
+                    @BeforeEach
+                    void setUp(){
+                        client = Client.builder()
+                                .id(1L)
+                                .firstName("Gustaw")
+                                .birthDate(new Date())
+                                .height(170L)
+                                .weight(80L)
+                                .build();
+
+                        trainingSession = TrainingSession.builder()
+                                .description("From noob to Giga-chad in 10 min")
+                                .startDate(new Date())
+                                .duration(10)
+                                .attendants(new ArrayList<>(Collections.singletonList(client)))
+                                .skillLevel(NOOB)
+                                .trainer(Trainer.builder().id(2L).firstName("Ziutek").build())
+                                .build();
+                    }
+
+                    @org.junit.jupiter.api.Test
+                    void addObserver() {
+                        trainingSession.addObserver(client);
+                    }
+
+                    @org.junit.jupiter.api.Test
+                    void cancel() {
+                        trainingSession.addObserver(client);
+                        trainingSession.cancel();
+
+                    }
+                }
+            </code>
+        </pre>
+    </section>
+
     <section class="behavioural-pattern">
         <h5>Stan</h5>
         <p class="author">Damian Karwat</p>
@@ -5214,15 +5437,15 @@ class TrainingSessionCompositeTest {
 
                 public class BookedState implements AvailabilityState{
                     private String bookingID;
-                
+
                     public BookedState(String bookingID) {
                         this.bookingID = bookingID;
                     }
-                
+
                     public void setBookingID(String bookingID) {
                         this.bookingID = bookingID;
                     }
-                
+
                     public AvailabilityState handleBooking(){
                         //symulacja zawiadomienia że sala jest już zabookowana
                         System.out.println("Sala jest już zabookowana w tym terminie");
@@ -5233,9 +5456,9 @@ class TrainingSessionCompositeTest {
                 public class OpenedState implements AvailabilityState{
 
                     public OpenedState() {
-                
+
                     }
-                
+
                     public AvailabilityState handleBooking(){
                         //symulacja generowania id booking
                         String id = "34";
@@ -5247,12 +5470,12 @@ class TrainingSessionCompositeTest {
                 public class MaintainedState implements AvailabilityState{
                     private String maintananceStart;
                     private String maintananceEnd;
-                
+
                     public MaintainedState(String maintananceStart, String maintananceEnd) {
                         this.maintananceStart = maintananceStart;
                         this.maintananceEnd = maintananceEnd;
                     }
-                
+
                     public AvailabilityState handleBooking(){
                         //symulacja zawiadomienia że sala jest remontowana
                         System.out.println("Sala jest zamknięta w tym terminie");
@@ -5265,30 +5488,30 @@ class TrainingSessionCompositeTest {
                     private String id;
                     private AvailabilityState availabilityState;
                     private int maxParticipants;
-                
+
                     public Gym(String name, String id, AvailabilityState availabilityState, int maxParticipants) {
                         this.name = name;
                         this.id = id;
                         this.availabilityState = availabilityState;
                         this.maxParticipants = maxParticipants;
                     }
-                
+
                     public void setAvabilityState(AvailabilityState avabilityState) {
                         this.availabilityState = avabilityState;
                     }
-                
+
                     public void open(){
                         AvailabilityState tmp = new OpenedState();
-                
+
                         this.setAvabilityState(tmp);
                     }
-                
+
                     public void Maintain(String startDate, String endDate){
                         AvailabilityState tmp = new MaintainedState(startDate, endDate);
-                
+
                         this.setAvabilityState(tmp);
                     }
-                
+
                     public void handleBooking(){
                         this.availabilityState = this.availabilityState.handleBooking();
                     }
@@ -5300,17 +5523,17 @@ class TrainingSessionCompositeTest {
             <code class="lang-java">
                 public class Main {
                     public static void main(String[] args) {
-                
+
                         Gym gym1 = new Gym("sala ćwiczeń", "5", new OpenedState(), 25);
                         Gym gym2 = new Gym("kort tenisowy", "2", new BookedState("65"), 6);
                         Gym gym3 = new Gym("boisko koszykówki", "7", new MaintainedState("19-01-2025", "25-01-2025"), 30);
-                
+
                         //symulacja pozytywnego zabookowania sali na ćwiczenia
                         gym1.handleBooking();
-                
+
                         //symulacja próby zabookowania sali, która już jest zabookowana
                         gym2.handleBooking();
-                
+
                         //symulacja próby zabookowania sali, na której jest remont
                         gym3.handleBooking();
                     }
