@@ -1,0 +1,58 @@
+@startuml visitor
+abstract class User {
+  - firstName : string
+  - lastName: string
+  - email: string
+  --
+  + {abstract} accept(visitor: Visitor)
+  // constructor, getters, setters
+}
+
+class Client {
+  - weight: float
+  - height: float
+  --
+  + accept(visitor: Visitor)
+  // constructor, getters, setters
+}
+
+class Trainer {
+  - expertise: string
+  --
+  + accept(visitor: Visitor)
+  // constructor, getters, setters
+}
+
+class Worker {
+  - department: string
+  - salary: float
+  --
+  + accept(visitor: Visitor)
+  // constructor, getters, setters
+}
+
+interface Visitor {
+  + visitClient(client: Client): void
+  + visitWorker(worker: Worker): void
+  + visitTrainer(trainer: Trainer): void
+}
+
+class JSONExportVisitor {
+  - jsonObject: JsonObject
+  + visitClient(client: Client): void
+  + visitWorker(worker: Worker): void
+  + visitTrainer(trainer: Trainer): void
+  + toString(): string
+}
+
+User <|-- Client
+User <|-- Worker
+Worker <|-right- Trainer
+
+Visitor .left.> User
+Visitor ..> Client
+Visitor ..> Worker
+Visitor ..> Trainer
+
+Visitor <|.. JSONExportVisitor
+@enduml

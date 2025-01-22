@@ -5701,6 +5701,263 @@ public class TrainingSessionTest {
                 </code>
             </pre>
     </section>
+
+    <section class="pattern">
+        <h5>Odwiedzający</h5>
+        <p class="author">Filip Stępień</p>
+        <div class="pattern-problem">
+            <h5>Problem</h5>
+            Aby umożliwić eksport danych, operacje za to odpowiedzialne muszą być zaimplementowane 
+            w każdej klasie, która ma być eksportowana, co narusza zasadę pojedynczej odpowiedzialności. 
+            Problem pogłębia się, gdy wraz z rozszerzaniem systemu chcemy dodać eksport do innych formatów 
+            - dodawanie kolejnych metod zwiększa ryzyko wprowadzenia błędów wraz ze zmianami.
+        </div>
+        <div class="pattern-description">
+            <h5>Opis wzorca</h5>
+            Zastosowanie wzorca pozwala oddelegować operacje eksportowania danych do dedykowanej klasy. 
+            Modfikacja klasy jest minimalna, dzięki czemu zachowana zostaje łatwość rozszerzania i utrzymywania kodu.
+        </div>
+        <p class="uml pattern-diagram">
+        <h5>Diagram klas wzorca</h5>
+        <img src="img/visitor.svg">
+        </p>
+        <h5>Kod wzorca</h5>
+        <pre class="pattern-code">
+            <code class="lang-java">
+abstract class User {
+    private String firstName;
+    private String lastName;
+    private String email;
+
+    public User(String firstName, String lastName, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public abstract void accept(Visitor visitor);
+}
+
+class Worker extends User {
+    private String department;
+    private float salary;
+
+    public Worker(String firstName, String lastName, String email, String department, float salary) {
+        super(firstName, lastName, email);
+        this.department = department;
+        this.salary = salary;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public float getSalary() {
+        return salary;
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitWorker(this);
+    }
+}
+
+class Trainer extends Worker {
+    private String expertise;
+
+    public Trainer(String firstName, String lastName, String email, String expertise, float salary) {
+        super(firstName, lastName, email, "Training", salary);
+        this.expertise = expertise;
+    }
+
+    public String getExpertise() {
+        return expertise;
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitTrainer(this);
+    }
+}
+
+class Client extends User {
+    private float weight;
+    private float height;
+
+    public Client(String firstName, String lastName, String email, float weight, float height) {
+        super(firstName, lastName, email);
+        this.weight = weight;
+        this.height = height;
+    }
+
+    public float getWeight() {
+        return weight;
+    }
+
+    public float getHeight() {
+        return height;
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitClient(this);
+    }
+}
+
+interface Visitor {
+    void visitClient(Client client);
+    void visitWorker(Worker worker);
+    void visitTrainer(Trainer trainer);
+}
+
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.google.gson.Gson;
+
+class JSONExportVisitor implements Visitor {
+
+    private JsonObject jsonObject;
+
+    public JSONExportVisitor() {
+        jsonObject = new JsonObject();
+    }
+
+    @Override
+    public void visitClient(Client client) {
+        JsonObject clientJson = new JsonObject();
+        clientJson.addProperty("firstName", client.getFirstName());
+        clientJson.addProperty("lastName", client.getLastName());
+        clientJson.addProperty("email", client.getEmail());
+        clientJson.addProperty("weight", client.getWeight());
+        clientJson.addProperty("height", client.getHeight());
+
+        jsonObject.add("client", clientJson);
+    }
+
+    @Override
+    public void visitWorker(Worker worker) {
+        JsonObject workerJson = new JsonObject();
+        workerJson.addProperty("firstName", worker.getFirstName());
+        workerJson.addProperty("lastName", worker.getLastName());
+        workerJson.addProperty("email", worker.getEmail());
+        workerJson.addProperty("department", worker.getDepartment());
+        workerJson.addProperty("salary", worker.getSalary());
+
+        jsonObject.add("worker", workerJson);
+    }
+
+    @Override
+    public void visitTrainer(Trainer trainer) {
+        JsonObject trainerJson = new JsonObject();
+        trainerJson.addProperty("firstName", trainer.getFirstName());
+        trainerJson.addProperty("lastName", trainer.getLastName());
+        trainerJson.addProperty("email", trainer.getEmail());
+        trainerJson.addProperty("department", trainer.getDepartment());
+        trainerJson.addProperty("salary", trainer.getSalary());
+        trainerJson.addProperty("expertise", trainer.getExpertise());
+
+        jsonObject.add("trainer", trainerJson);
+    }
+
+    @Override
+    public String toString() {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(jsonObject);
+    }
+}
+</code></pre>
+        <h5>Kod testowy</h5>
+        <pre class="pattern-test-code">
+            <code class="lang-java">
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class JSONExportVisitorTest {
+    private JSONExportVisitor jsonExportVisitor;
+    private Worker worker;
+    private Trainer trainer;
+    private Client client;
+
+    @BeforeEach
+    void setUp() {
+        worker = new Worker("John", "Doe", "john.doe@example.com", "Sales", 8000);
+        trainer = new Trainer("Jane", "Smith", "jane.smith@example.com", "Yoga", 10000);
+        client = new Client("Alice", "Johnson", "alice.johnson@example.com", 70.0f, 1.75f);
+
+        jsonExportVisitor = new JSONExportVisitor();
+    }
+
+    @Test
+    void testVisitWorker() {
+        worker.accept(jsonExportVisitor);
+
+        String expectedJson = """
+                {
+                  "worker": {
+                    "firstName": "John",
+                    "lastName": "Doe",
+                    "email": "john.doe@example.com",
+                    "department": "Sales",
+                    "salary": 8000.0
+                  }
+                }""";
+
+        assertEquals(expectedJson, jsonExportVisitor.toString());
+    }
+
+    @Test
+    void testVisitTrainer() {
+        trainer.accept(jsonExportVisitor);
+
+        String expectedJson = """
+                {
+                  "trainer": {
+                    "firstName": "Jane",
+                    "lastName": "Smith",
+                    "email": "jane.smith@example.com",
+                    "department": "Training",
+                    "salary": 10000.0,
+                    "expertise": "Yoga"
+                  }
+                }""";
+
+        assertEquals(expectedJson, jsonExportVisitor.toString());
+    }
+
+    @Test
+    void testVisitClient() {
+        client.accept(jsonExportVisitor);
+
+        String expectedJson = """
+                {
+                  "client": {
+                    "firstName": "Alice",
+                    "lastName": "Johnson",
+                    "email": "alice.johnson@example.com",
+                    "weight": 70.0,
+                    "height": 1.75
+                  }
+                }""";
+
+        assertEquals(expectedJson, jsonExportVisitor.toString());
+    }
+}
+            </code>
+        </pre>
+    </section>
 </body>
 
 </html>
