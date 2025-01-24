@@ -1,0 +1,17 @@
+@startuml
+
+actor Trainer
+
+
+alt gym available
+
+Trainer --> GUI : selectGym()
+GUI --> GymCalendar : selectDate()
+
+else gym booked
+
+else gym closed
+
+end
+
+@enduml
