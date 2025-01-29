@@ -1,0 +1,15 @@
+@startuml createGym
+
+actor Manager as manager
+participant GUI as gui
+participant Manager as managerClass 
+participant Gym as gym
+
+manager -> gui : addGym()
+gui -> managerClass: addGym()
+managerClass -> gym **: <<create>>
+managerClass <-- gym
+gui <-- managerClass
+manager <-- gui
+
+@enduml

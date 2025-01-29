@@ -1,11 +1,15 @@
-
-
-@startuml
+@startuml signupForTraining
 
 actor Client as Clienta
 participant GUI
 participant TrainingSession
 participant Client as Client
+
+note right of Client
+    Client class is not 
+    the not same thing as
+    Client Actor!
+end note
 
 
 Clienta -> GUI: signupForTraining()
@@ -16,7 +20,7 @@ alt has valid membership
     Client --> TrainingSession 
     TrainingSession -> TrainingSession: Add to attendants list
     TrainingSession --> GUI
-    GUI --> Client
+    GUI --> Clienta
 else does not have membership
     Client --> TrainingSession
     TrainingSession --> GUI 
