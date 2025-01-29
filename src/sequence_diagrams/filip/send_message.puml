@@ -1,0 +1,18 @@
+@startuml send_message
+actor User
+participant GUI
+participant MessageService
+participant Message
+
+User -> GUI: sendMessage()
+GUI -> MessageService: sendMessage()
+
+alt receiver user exists
+MessageService -> Message: <<create>>
+Message -> MessageService
+MessageService -> MessageService: send()
+else receiver user does not exist
+MessageService --> GUI
+GUI --> User
+end
+@enduml

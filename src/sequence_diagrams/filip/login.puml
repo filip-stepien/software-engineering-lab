@@ -1,0 +1,17 @@
+@startuml login
+actor User
+participant GUI
+participant LoginManager
+
+User-> GUI: login()
+GUI-> LoginManager: checkCredentials()
+
+alt credentials valid
+    LoginManager -> LoginManager: createSession()
+    LoginManager --> GUI
+    GUI --> User
+else credentials invalid
+    LoginManager --> GUI
+    GUI --> User
+end
+@enduml
