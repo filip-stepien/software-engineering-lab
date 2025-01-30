@@ -2,16 +2,30 @@
 actor User
 participant GUI
 participant LoginManager
+database Database
 
-User-> GUI: login()
-GUI-> LoginManager: checkCredentials()
+User -> GUI: login()
+GUI -> LoginManager: checkCredentials()
+LoginManager -> Database: query()
+Database -> LoginManager
 
 alt credentials valid
     LoginManager -> LoginManager: createSession()
+    LoginManager -> Database: resetFailedAttempts()
+    Database --> LoginManager
     LoginManager --> GUI
     GUI --> User
 else credentials invalid
-    LoginManager --> GUI
-    GUI --> User
+    LoginManager -> Database: incrementFailedAttempts()
+    alt max failed attemps not reached
+        Database --> LoginManager
+        LoginManager --> GUI
+        GUI --> User
+    else max failed attemps reached
+        LoginManager -> Database: lockAccount()
+        Database --> LoginManager
+        LoginManager --> GUI
+        GUI --> User
+    end
 end
 @enduml
