@@ -4,12 +4,29 @@ actor Manager as manager
 participant GUI as gui
 participant Manager as managerClass 
 participant Gym as gym
+participant GymValidator as validator
+database Database as db
 
 manager -> gui : addGym()
 gui -> managerClass: addGym()
-managerClass -> gym **: <<create>>
-managerClass <-- gym
-gui <-- managerClass
-manager <-- gui
+managerClass -> validator : validateGymDetails()
+
+
+alt validation successful
+    validator --> managerClass 
+    managerClass -> gym **: <<create>>
+    managerClass <-- gym 
+    managerClass -> db : saveGym()
+    db --> managerClass : 
+    managerClass --> gui : 
+    gui --> manager
+else validation failed
+    validator --> managerClass 
+    managerClass --> gui 
+    gui --> manager 
+    note left
+       Show error
+    end note
+end
 
 @enduml
