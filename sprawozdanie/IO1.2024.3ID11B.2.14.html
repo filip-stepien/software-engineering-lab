@@ -5972,6 +5972,30 @@ class JSONExportVisitorTest {
             <p>Autor: Bartłomiej Karkoszka</p>
             <img src="img/anulowanie_treningu.svg" />
         </section>
+        <section>
+            <h5>Rezerwacja sali</h5>
+            <p>Autor: Damian Karwat</p>
+            <img src="img/rezerwacja_sali.svg" />
+            <p>Trener rozpoczyna proces rezerwacji sali poprzez GUI, 
+                wybierając salę i datę. System GymCalendar sprawdza dostępność w bazie danych (DB).
+                Jeśli sala jest dostępna, system rezerwuje sesję (lub wiele sesji, jeśli trener wybierze taką opcję), 
+                a następnie potwierdza rezerwację w GUI. Trener otrzymuje komunikat o sukcesie.
+                Jeśli sala jest już zajęta, GUI informuje trenera o braku dostępności.
+                Jeśli sala jest zamknięta, trener otrzymuje odpowiedni komunikat o zamknięciu.</p>
+        </section>
+        <section>
+            <h5>Dodanie nowego ćwiczenia</h5>
+            <p>Autor: Damian Karwat</p>
+            <img src="img/create_exercise.svg" />
+            <p>Trener rozpoczyna proces tworzenia ćwiczenia poprzez GUI, 
+                które następnie przekazuje żądanie do ExerciseService w celu sprawdzenia, 
+                czy ćwiczenie już istnieje w bazie danych (DB).
+                Jeśli ćwiczenie nie istnieje, tworzony jest nowy obiekt ćwiczenia, 
+                który zostaje zapisany w bazie danych. GUI otrzymuje potwierdzenie i informuje trenera o pomyślnym utworzeniu ćwiczenia. 
+                Jeśli ćwiczenie już istnieje, system informuje GUI o istnieniu ćwiczenia, 
+                a następnie trener ma możliwość edytowania ćwiczenia. Po edycji, ćwiczenie jest zapisane w bazie danych, 
+                a trener zostaje powiadomiony o pomyślnym zaktualizowaniu ćwiczenia.</p>
+        </section>
     </article>
 </body>
 
