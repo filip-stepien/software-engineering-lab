@@ -6,8 +6,8 @@ database Database
 
 User -> GUI: login()
 GUI -> LoginManager: checkCredentials()
-LoginManager -> Database: query()
-Database -> LoginManager
+LoginManager -> Database: findUser()
+Database --> LoginManager
 
 alt credentials valid
     LoginManager -> LoginManager: createSession()

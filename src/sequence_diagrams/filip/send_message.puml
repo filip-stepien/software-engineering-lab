@@ -1,18 +1,30 @@
-@startuml send_message
+@startuml
 actor User
 participant GUI
 participant MessageService
 participant Message
+database Database
 
 User -> GUI: sendMessage()
-GUI -> MessageService: sendMessage()
+GUI -> MessageService: validateMessageContent()
 
-alt receiver user exists
-MessageService -> Message: <<create>>
-Message -> MessageService
-MessageService -> MessageService: send()
-else receiver user does not exist
-MessageService --> GUI
-GUI --> User
+alt valid message
+    MessageService -> Database: findUser()
+    Database --> MessageService
+    alt receiver user exists
+        MessageService -> Message: createMessage()
+        Message --> MessageService: setTextContent() 
+        MessageService -> MessageService: send()
+        MessageService -> Database: saveMessage()
+        Database --> MessageService 
+        MessageService --> GUI
+        GUI --> User
+    else receiver user does not exist
+        MessageService --> GUI
+        GUI --> User
+    end
+else invalid message
+    MessageService --> GUI
+    GUI --> User
 end
 @enduml

@@ -5996,6 +5996,18 @@ class JSONExportVisitorTest {
                 a następnie trener ma możliwość edytowania ćwiczenia. Po edycji, ćwiczenie jest zapisane w bazie danych, 
                 a trener zostaje powiadomiony o pomyślnym zaktualizowaniu ćwiczenia.</p>
         </section>
+        <section>
+            <h5>Logowanie</h5>
+            <p>Autor: Filip Stępień</p>
+            <img src="img/login_seq.svg" />
+            <p>Użytkownik wprowadza dane w GUI, które są przekazywane do LoginManagera i następnie weryfikowane w bazie danych. Jeśli poświadczenia są prawidłowe, tworzona jest sesja, a licznik nieudanych prób logowania zostaje zresetowany. W przypadku błędnych danych LoginManager zwiększa licznik nieudanych prób; jeśli osiągnięto maksymalną liczbę prób, konto zostaje zablokowane.</p>
+        </section>
+        <section>
+            <h5>Wysłanie wiadomości</h5>
+            <p>Autor: Filip Stępień</p>
+            <img src="img/message_seq.svg" />
+            <p>Użytkownik za pomocą GUI inicjuje wysyłanie wiadomości. GUI przesyła dane do MessageService, który weryfikuje treść wiadomości. Jeśli wiadomość jest poprawna, MessageService sprawdza, czy odbiorca istnieje w bazie danych. Jeśli odbiorca istnieje, tworzona jest wiadomość oraz ustawiana jest jej treść, następnie jest wysyłana i zapisywana w bazie danych.</p>
+        </section>
     </article>
 </body>
 
