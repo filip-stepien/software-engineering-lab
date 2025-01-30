@@ -1,3 +1,4 @@
+
 @startuml create_exercise
 actor Trainer
 participant GUI
@@ -15,11 +16,19 @@ alt exercise does not exist
     Exercise -> ExerciseService
     ExerciseService -> DB : saveExercise()
     DB --> ExerciseService
-    ExerciseService -> GUI : exerciseCreated()
+    ExerciseService --> GUI : exerciseCreated()
+    
+    opt edit exercise
+        Trainer -> GUI : editExercise()
+        GUI -> ExerciseService : updateExercise()
+        ExerciseService -> DB : saveExercise()
+        DB --> ExerciseService
+        ExerciseService --> GUI : exerciseUpdated()
+    end 
+    GUI --> Trainer
 else exercise already exists
-    DB --> ExerciseService 
+
     ExerciseService --> GUI 
     GUI --> Trainer
 end
-
 @enduml
