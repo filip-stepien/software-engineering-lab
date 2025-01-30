@@ -5707,14 +5707,14 @@ public class TrainingSessionTest {
         <p class="author">Filip Stępień</p>
         <div class="pattern-problem">
             <h5>Problem</h5>
-            Aby umożliwić eksport danych, operacje za to odpowiedzialne muszą być zaimplementowane 
-            w każdej klasie, która ma być eksportowana, co narusza zasadę pojedynczej odpowiedzialności. 
-            Problem pogłębia się, gdy wraz z rozszerzaniem systemu chcemy dodać eksport do innych formatów 
+            Aby umożliwić eksport danych, operacje za to odpowiedzialne muszą być zaimplementowane
+            w każdej klasie, która ma być eksportowana, co narusza zasadę pojedynczej odpowiedzialności.
+            Problem pogłębia się, gdy wraz z rozszerzaniem systemu chcemy dodać eksport do innych formatów
             - dodawanie kolejnych metod zwiększa ryzyko wprowadzenia błędów wraz ze zmianami.
         </div>
         <div class="pattern-description">
             <h5>Opis wzorca</h5>
-            Zastosowanie wzorca pozwala oddelegować operacje eksportowania danych do dedykowanej klasy. 
+            Zastosowanie wzorca pozwala oddelegować operacje eksportowania danych do dedykowanej klasy.
             Modfikacja klasy jest minimalna, dzięki czemu zachowana zostaje łatwość rozszerzania i utrzymywania kodu.
         </div>
         <p class="uml pattern-diagram">
@@ -5976,9 +5976,9 @@ class JSONExportVisitorTest {
             <h5>Rezerwacja sali</h5>
             <p>Autor: Damian Karwat</p>
             <img src="img/rezerwacja_sali.svg" />
-            <p>Trener rozpoczyna proces rezerwacji sali poprzez GUI, 
+            <p>Trener rozpoczyna proces rezerwacji sali poprzez GUI,
                 wybierając salę i datę. System GymCalendar sprawdza dostępność w bazie danych (DB).
-                Jeśli sala jest dostępna, system rezerwuje sesję (lub wiele sesji, jeśli trener wybierze taką opcję), 
+                Jeśli sala jest dostępna, system rezerwuje sesję (lub wiele sesji, jeśli trener wybierze taką opcję),
                 a następnie potwierdza rezerwację w GUI. Trener otrzymuje komunikat o sukcesie.
                 Jeśli sala jest już zajęta, GUI informuje trenera o braku dostępności.
                 Jeśli sala jest zamknięta, trener otrzymuje odpowiedni komunikat o zamknięciu.</p>
@@ -5987,13 +5987,13 @@ class JSONExportVisitorTest {
             <h5>Dodanie nowego ćwiczenia</h5>
             <p>Autor: Damian Karwat</p>
             <img src="img/create_exercise.svg" />
-            <p>Trener rozpoczyna proces tworzenia ćwiczenia poprzez GUI, 
-                które następnie przekazuje żądanie do ExerciseService w celu sprawdzenia, 
+            <p>Trener rozpoczyna proces tworzenia ćwiczenia poprzez GUI,
+                które następnie przekazuje żądanie do ExerciseService w celu sprawdzenia,
                 czy ćwiczenie już istnieje w bazie danych (DB).
-                Jeśli ćwiczenie nie istnieje, tworzony jest nowy obiekt ćwiczenia, 
-                który zostaje zapisany w bazie danych. GUI otrzymuje potwierdzenie i informuje trenera o pomyślnym utworzeniu ćwiczenia. 
-                Jeśli ćwiczenie już istnieje, system informuje GUI o istnieniu ćwiczenia, 
-                a następnie trener ma możliwość edytowania ćwiczenia. Po edycji, ćwiczenie jest zapisane w bazie danych, 
+                Jeśli ćwiczenie nie istnieje, tworzony jest nowy obiekt ćwiczenia,
+                który zostaje zapisany w bazie danych. GUI otrzymuje potwierdzenie i informuje trenera o pomyślnym utworzeniu ćwiczenia.
+                Jeśli ćwiczenie już istnieje, system informuje GUI o istnieniu ćwiczenia,
+                a następnie trener ma możliwość edytowania ćwiczenia. Po edycji, ćwiczenie jest zapisane w bazie danych,
                 a trener zostaje powiadomiony o pomyślnym zaktualizowaniu ćwiczenia.</p>
         </section>
         <section>
@@ -6007,6 +6007,19 @@ class JSONExportVisitorTest {
             <p>Autor: Filip Stępień</p>
             <img src="img/message_seq.svg" />
             <p>Użytkownik za pomocą GUI inicjuje wysyłanie wiadomości. GUI przesyła dane do MessageService, który weryfikuje treść wiadomości. Jeśli wiadomość jest poprawna, MessageService sprawdza, czy odbiorca istnieje w bazie danych. Jeśli odbiorca istnieje, tworzona jest wiadomość oraz ustawiana jest jej treść, następnie jest wysyłana i zapisywana w bazie danych.</p>
+        </section>
+        <section>
+            <h5>Dodawanie siłowni</h5>
+            <p>Autor: Rafał Grot</p>
+            <img src="img/createGym.svg" />
+            <p>Menedżer poprzez GUI rozpoczyna process dodwania siłowni. GUI przekazuje żądanie do klasy Manager. Następnie dane siłowni są walidowane przez GymValidator. Jeśli walidacja zakończy się sukcesem, tworzony jest nowy obiekt Gym, który jest zapisywany w bazie danych. W przypadku niepowodzenia walidacji, menedżer otrzymuje informację o błędzie.
+            </p>
+        </section>
+        <section>
+            <h5>Zapisywanie kilenta na trening</h5>
+            <p>Autor: Rafał Grot</p>
+            <img src="img/signupForTraining.svg" />
+            <p>Klient zaczyna proces poprzez interfejs użytkownika. GUI komunikuje się z modułem TrainingSession, aby sprawdzić, czy klient posiada ważne członkostwo. Jeśli kilient ma członkowstwo system zapisuje go na trening, wprzeciwnym wypadku informuje go o braku wymaganego członkostwa</p>
         </section>
     </article>
 </body>

@@ -4,6 +4,7 @@ actor Client as Clienta
 participant GUI
 participant TrainingSession
 participant Client as Client
+database Database as db
 
 note right of Client
     Client class is not 
@@ -18,7 +19,8 @@ TrainingSession -> Client: hasValidMembership()
 
 alt has valid membership
     Client --> TrainingSession 
-    TrainingSession -> TrainingSession: Add to attendants list
+    TrainingSession -> db: query()
+    db --> TrainingSession
     TrainingSession --> GUI
     GUI --> Clienta
 else does not have membership
