@@ -1,0 +1,24 @@
+@startuml wykupienie_karnetu
+actor Klient
+participant GUI
+participant Pracownik
+participant SystemPlatnosci
+
+Klient -> GUI: prośba o wykupienie karnetu
+GUI -> Pracownik: przekazanie prośby
+Pracownik -> GUI: wyświetl formularz
+Klient -> GUI: wypełnia formularz
+GUI -> Pracownik: przesłanie danych klienta
+Pracownik -> SystemPlatnosci: inicjalizacja płatności
+
+alt płatność zaakceptowana
+    SystemPlatnosci -> SystemPlatnosci: przetwarzanie płatności
+    SystemPlatnosci --> Pracownik: potwierdzenie płatności
+    Pracownik --> GUI: wygenerowanie karnetu
+    GUI --> Klient: wyświetlenie potwierdzenia i przesłanie danych logowania
+else płatność odrzucona
+    SystemPlatnosci --> Pracownik: błąd płatności
+    Pracownik --> GUI: informacja o błędzie
+    GUI --> Klient: wyświetlenie komunikatu o błędzie
+end
+@enduml

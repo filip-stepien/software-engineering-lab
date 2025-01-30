@@ -1,0 +1,20 @@
+@startuml
+actor Trener
+participant GUI
+participant SystemZajec
+
+Trener -> GUI: wybiera zarządzanie zajęciami
+GUI -> SystemZajec: pobierz listę zajęć
+SystemZajec --> GUI: lista zajęć
+Trener -> GUI: wybiera zajęcia do anulowania
+GUI -> SystemZajec: żądanie anulowania zajęć
+
+alt zajęcia można anulować
+    SystemZajec -> SystemZajec: usunięcie zajęć z systemu
+    SystemZajec --> GUI: potwierdzenie anulowania
+    GUI --> Trener: wyświetlenie komunikatu o sukcesie
+else zajęcia nie mogą zostać anulowane
+    SystemZajec --> GUI: informacja o błędzie
+    GUI --> Trener: wyświetlenie komunikatu o błędzie
+end
+@enduml
