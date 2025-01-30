@@ -1,0 +1,25 @@
+@startuml create_exercise
+actor Trainer
+participant GUI
+participant ExerciseService
+participant DB as "Database"
+participant Exercise
+
+Trainer -> GUI : createExercise()
+GUI -> ExerciseService : createExercise()
+
+ExerciseService -> DB : checkIfExerciseExists()
+alt exercise does not exist
+    DB --> ExerciseService
+    ExerciseService -> Exercise : <<create>>
+    Exercise -> ExerciseService
+    ExerciseService -> DB : saveExercise()
+    DB --> ExerciseService
+    ExerciseService -> GUI : exerciseCreated()
+else exercise already exists
+    DB --> ExerciseService 
+    ExerciseService --> GUI 
+    GUI --> Trainer
+end
+
+@enduml

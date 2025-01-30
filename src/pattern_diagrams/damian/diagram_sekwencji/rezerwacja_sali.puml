@@ -1,17 +1,25 @@
 @startuml
 
 actor Trainer
+participant GUI
+participant GymCalendar
+participant DB
 
+
+Trainer -> GUI : selectGym()
+GUI -> GymCalendar : selectDate()
 
 alt gym available
-
-Trainer --> GUI : selectGym()
-GUI --> GymCalendar : selectDate()
-
+    GymCalendar -> DB : checkAvailability()
+    DB --> GymCalendar
+    GymCalendar -> DB : bookGym()
+    DB --> GymCalendar
+    GymCalendar -> GUI : reservationConfirmed()
+    GUI -> Trainer : bookingSuccessHandler()
 else gym booked
-
+    GUI -> Trainer : gymBookedHandler()
 else gym closed
-
+    GUI -> Trainer : gymClosedHandler()
 end
 
 @enduml
